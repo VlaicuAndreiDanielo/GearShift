@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GearShiftLib", "GearShiftLib\GearShiftLib.vcxproj", "{CDE8C201-1843-4CE9-9340-8C5B27672AC6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GearShiftUI", "GearShiftUI\GearShiftUI.vcxproj", "{4AC2E7A1-21F1-4CD1-A609-4937AA2E2559}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CDE8C201-1843-4CE9-9340-8C5B27672AC6} = {CDE8C201-1843-4CE9-9340-8C5B27672AC6}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GearShiftTests", "GearShiftTests\GearShiftTests.vcxproj", "{783ED6ED-463D-480E-9243-7F3454810A67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDE8C201-1843-4CE9-9340-8C5B27672AC6}.Debug|x64.ActiveCfg = Debug|x64
+		{CDE8C201-1843-4CE9-9340-8C5B27672AC6}.Debug|x64.Build.0 = Debug|x64
+		{CDE8C201-1843-4CE9-9340-8C5B27672AC6}.Debug|x86.ActiveCfg = Debug|Win32
+		{CDE8C201-1843-4CE9-9340-8C5B27672AC6}.Debug|x86.Build.0 = Debug|Win32
+		{CDE8C201-1843-4CE9-9340-8C5B27672AC6}.Release|x64.ActiveCfg = Release|x64
+		{CDE8C201-1843-4CE9-9340-8C5B27672AC6}.Release|x64.Build.0 = Release|x64
+		{CDE8C201-1843-4CE9-9340-8C5B27672AC6}.Release|x86.ActiveCfg = Release|Win32
+		{CDE8C201-1843-4CE9-9340-8C5B27672AC6}.Release|x86.Build.0 = Release|Win32
+		{4AC2E7A1-21F1-4CD1-A609-4937AA2E2559}.Debug|x64.ActiveCfg = Debug|x64
+		{4AC2E7A1-21F1-4CD1-A609-4937AA2E2559}.Debug|x64.Build.0 = Debug|x64
+		{4AC2E7A1-21F1-4CD1-A609-4937AA2E2559}.Debug|x86.ActiveCfg = Debug|Win32
+		{4AC2E7A1-21F1-4CD1-A609-4937AA2E2559}.Debug|x86.Build.0 = Debug|Win32
+		{4AC2E7A1-21F1-4CD1-A609-4937AA2E2559}.Release|x64.ActiveCfg = Release|x64
+		{4AC2E7A1-21F1-4CD1-A609-4937AA2E2559}.Release|x64.Build.0 = Release|x64
+		{4AC2E7A1-21F1-4CD1-A609-4937AA2E2559}.Release|x86.ActiveCfg = Release|Win32
+		{4AC2E7A1-21F1-4CD1-A609-4937AA2E2559}.Release|x86.Build.0 = Release|Win32
+		{783ED6ED-463D-480E-9243-7F3454810A67}.Debug|x64.ActiveCfg = Debug|x64
+		{783ED6ED-463D-480E-9243-7F3454810A67}.Debug|x64.Build.0 = Debug|x64
+		{783ED6ED-463D-480E-9243-7F3454810A67}.Debug|x86.ActiveCfg = Debug|Win32
+		{783ED6ED-463D-480E-9243-7F3454810A67}.Debug|x86.Build.0 = Debug|Win32
+		{783ED6ED-463D-480E-9243-7F3454810A67}.Release|x64.ActiveCfg = Release|x64
+		{783ED6ED-463D-480E-9243-7F3454810A67}.Release|x64.Build.0 = Release|x64
+		{783ED6ED-463D-480E-9243-7F3454810A67}.Release|x86.ActiveCfg = Release|Win32
+		{783ED6ED-463D-480E-9243-7F3454810A67}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46121E83-DD0B-4F84-9171-B4A5388A69F4}
+	EndGlobalSection
+EndGlobal
