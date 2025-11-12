@@ -1,65 +1,77 @@
 #define SDL_MAIN_HANDLED
+#include "Renderer.h"
+#include "SceneManager.h"
+#include "MenuScene.h"
+#include "GameScene.h"
+#include "InputHandler.h"
+#include "../GearShiftLib/GameLogic.h"
 #include <SDL2/SDL.h>
-#include <iostream>
+#include <memory>
 
 int main(int argc, char* argv[]) {
-    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
-        return 1;
-    }
+    const int W = 1920;
+    const int H = 1080;
 
-    SDL_Window* window = SDL_CreateWindow(
-        "Mini SDL2 Game",
-        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        800, 600,
-        SDL_WINDOW_SHOWN
+    // creates renderer the presentation layer (UI)
+    auto renderer = std::make_unique<Renderer>(W, H);
+
+    // creates game logic the core logic layer (from lib) - SHARED!!!
+    auto gameLogic = std::make_unique<GameLogic>(W, H);
+
+    // create input handler the presentation layer (UI) - SHARED!!!
+    auto inputHandler = std::make_unique<InputHandler>();
+
+    // create scene manager
+    SceneMgr sceneMgr;
+
+    // create scenes ->pass shared resources
+    auto menuScene = std::make_shared<MenuScene>(
+        renderer.get(), &sceneMgr, gameLogic.get(), inputHandler.get()
     );
-    if (!window) {
-        std::cerr << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
-        SDL_Quit();
-        return 1;
-    }
+    auto gameScene = std::make_shared<GameScene>(
+        renderer.get(), &sceneMgr, gameLogic.get(), inputHandler.get()
+    );
 
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (!renderer) {
-        std::cerr << "SDL_CreateRenderer Error: " << SDL_GetError() << std::endl;
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return 1;
-    }
+    // add scenes to manager 
+    sceneMgr.add("Menu", menuScene);
+    sceneMgr.add("Game", gameScene);
 
-    SDL_Rect player = { 400, 300, 50, 50 };
+    // start with menu scene 
+    sceneMgr.change("Menu");
+
+    // main loop
     bool running = true;
     SDL_Event event;
-
-    const int speed = 5;
+    Uint32 lastTime = SDL_GetTicks();
 
     while (running) {
+        // handle events
         while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT)
+            if (event.type == SDL_QUIT) {
                 running = false;
-            if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)
-                running = false;
+            }
+            else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_F11) {
+                // TODO: Toggle fullscreen to see the logs 
+            }
+
+            // forward events to current scene
+            sceneMgr.handleEvent(event);
         }
 
-        const Uint8* state = SDL_GetKeyboardState(NULL);
-        if (state[SDL_SCANCODE_UP]) player.y -= speed;
-        if (state[SDL_SCANCODE_DOWN]) player.y += speed;
-        if (state[SDL_SCANCODE_LEFT]) player.x -= speed;
-        if (state[SDL_SCANCODE_RIGHT]) player.x += speed;
+        // calculate delta time 
+        Uint32 currentTime = SDL_GetTicks();
+        float dt = (currentTime - lastTime) / 1000.0f;
+        lastTime = currentTime;
 
-        SDL_SetRenderDrawColor(renderer, 30, 30, 30, 255);
-        SDL_RenderClear(renderer);
+        // limit delta time to prevent huge jumps -> aparently its a practice when something goes wrong 
+        if (dt > 0.1f) dt = 0.1f;
 
-        SDL_SetRenderDrawColor(renderer, 0, 200, 255, 255);
-        SDL_RenderFillRect(renderer, &player);
+        // update current scene
+        sceneMgr.update(dt);
 
-        SDL_RenderPresent(renderer);
-        SDL_Delay(16); // ~60 FPS
+        // render current scene
+        sceneMgr.render();
     }
 
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
     return 0;
 }
