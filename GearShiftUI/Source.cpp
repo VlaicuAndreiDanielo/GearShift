@@ -4,9 +4,15 @@
 #include "MenuScene.h"
 #include "GameScene.h"
 #include "InputHandler.h"
-#include "../GearShiftLib/GameLogic.h"
-#include <SDL2/SDL.h>
+#include "GameLogic.h"
 #include <memory>
+
+extern "C" {
+    __declspec(dllexport) unsigned long NvOptimusEnablement = 0x00000001;
+    __declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
+}
+#include <SDL2/SDL.h>
+
 
 int main(int argc, char* argv[]) {
     const int W = 1920;

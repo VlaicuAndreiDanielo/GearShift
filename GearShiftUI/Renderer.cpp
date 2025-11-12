@@ -7,7 +7,7 @@ Renderer::Renderer(int w, int h) : win(nullptr), rend(nullptr), width(w), height
 
     win = SDL_CreateWindow("GearShift",
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        width, height, SDL_WINDOW_SHOWN);
+        width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 
     rend = SDL_CreateRenderer(win, -1,
         SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);

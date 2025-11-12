@@ -7,7 +7,7 @@ A 2d game in which you drive a car on a road, avoiding other cars or crashing in
 1. Clone this Repository
 2. From vcpkg run:
 ```
-vcpkg install sdl2
+vcpkg install sdl2 sdl2-image sdl2-ttf
 vcpkg integrate install
 ```
 ###### You may need to use `./` or `.\` before the command on Windows
