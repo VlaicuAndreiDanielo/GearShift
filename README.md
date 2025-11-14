@@ -12,6 +12,7 @@ vcpkg integrate install
 ```
 ###### You may need to use `./` or `.\` before the command on Windows
 3. If Visual Studio doesn't find the NuGet packages, they may require manual installation
+4. If vcpkg didn't interate with Visual Studio and it can't find header files or libraries, adding the paths manually in Visual Studio may be required.
 
 ### If you don't have `vcpkg` already:
 

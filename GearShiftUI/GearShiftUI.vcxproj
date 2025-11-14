@@ -140,26 +140,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\GearShiftLib\GameScene.cpp" />
-    <ClCompile Include="..\GearShiftLib\Menuscene.cpp" />
-    <ClCompile Include="..\GearShiftLib\SceneManager.cpp" />
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CRTEffect.cpp" />
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="MenuScene.cpp" />
     <ClCompile Include="PlayerRenderer.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="WaveEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\GearShiftLib\Gamescene.h" />
-    <ClInclude Include="..\GearShiftLib\Menuscene.h" />
-    <ClInclude Include="..\GearShiftLib\SceneManager.h" />
+    <ClInclude Include="Application.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="CRTEffect.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="MenuScene.h" />
     <ClInclude Include="PlayerRenderer.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="WaveEffect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
