@@ -26,22 +26,29 @@ void Application::initializeComponents() {
 }
 
 void Application::initializeScenes() {
-	// Create scenes and pass shared resources
+	// Create menu scene with shared resources
 	auto menuScene = std::make_shared<MenuScene>(
 		renderer.get(), &sceneMgr, gameLogic.get(), inputHandler.get()
 	);
+	if (!menuScene) {
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Application: Failed to create menu scene");
+		return;
+	}
+
+	// Create game scene with shared resources
 	auto gameScene = std::make_shared<GameScene>(
 		renderer.get(), &sceneMgr, gameLogic.get(), inputHandler.get()
 	);
+	if (!gameScene) {
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Application: Failed to create game scene");
+		return;
+	}
 
-	// Add scenes to manager
+	// Register scenes with manager (first scene will auto-initialize via onEnter)
 	sceneMgr.add("Menu", menuScene);
 	sceneMgr.add("Game", gameScene);
 
-	// Start with menu scene
-	sceneMgr.change("Menu");
-
-	SDL_Log("Application: Scenes initialized");
+	SDL_Log("Application: All scenes registered");
 }
 
 void Application::handleEvents() {
@@ -49,12 +56,13 @@ void Application::handleEvents() {
 	while (SDL_PollEvent(&event)) {
 		if (event.type == SDL_QUIT) {
 			running = false;
+			SDL_Log("Application: Quit requested");
 		}
 		else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_F11) {
 			// TODO: Toggle fullscreen to see the logs
 		}
 
-		// Forward events to current scene
+		// Forward all events to current scene for handling
 		sceneMgr.handleEvent(event);
 	}
 }

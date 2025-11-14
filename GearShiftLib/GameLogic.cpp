@@ -1,4 +1,6 @@
 #include "GameLogic.h"
+#include <SDL2/SDL.h>
+#include "PlayerAdapter.h"
 
 GameLogic::GameLogic(int screenW, int screenH)
     : screenWidth(screenW), screenHeight(screenH),
@@ -13,43 +15,46 @@ GameLogic::GameLogic(int screenW, int screenH)
 }
 
 void GameLogic::update(float dt, const IInputState& input) {
-  
     gameTime += dt;
 
-    // update fabric 
-    fabric->update(dt);
+    // update fabric if it exists
+    if (fabric) {
+        fabric->update(dt);
+    } else {
+    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "GameLogic: Fabric is null in update");
+      return;
+    }
 
     // update based on game state
     switch (currentState) {
     case GameState::Menu:
-        // menu logic here (minimal for now) TODO:maybe implement other options in the menu 
+        // menu logic here (minimal for now)
         break;
 
     case GameState::Playing:
         if (player) {
             player->handleInput(input);
-            player->update(dt);
+         player->update(dt);
+         // update game stats
+ // TODO: Add game logic (lap counting, collision, etc.)
+  }
 
-            // update game stats
-            // TODO: Aad game logic (lap counting, collision, etc.)
-        }
-
-        // check for pause ->ESC conflict for now the esc button is used for scene change 
+        // check for pause input
         if (input.isPausePressed()) {
-            pauseGame();
+      pauseGame();
         }
         break;
 
-    case GameState::Paused: 
+    case GameState::Paused:
         // check for resume
-        if (input.isPausePressed()) {
-            resumeGame();
+      if (input.isPausePressed()) {
+     resumeGame();
         }
-        break;
+   break;
 
     case GameState::GameOver:
-        // game over logic TODO:make one 
-        break;
+        // game over logic
+ break;
     }
 }
 
@@ -59,8 +64,9 @@ void GameLogic::startGame() {
     // create player at center
     float centerX = screenWidth / 2.0f - 25;
     float centerY = screenHeight / 2.0f - 25;
-    player = std::make_unique<Player>(centerX, centerY);
+    player = std::make_shared<Player>(centerX, centerY);
     player->setBounds(screenWidth, screenHeight);
+	playerAdapter = std::make_shared<PlayerAdapter>(player);
 
     // reset game stats
     speed = 0;
@@ -87,7 +93,12 @@ void GameLogic::endGame() {
 }
 
 void GameLogic::applyMouseForce(int x, int y, bool pressed) {
-    if (pressed && fabric) {
+    if (!fabric) {
+        SDL_LogWarn(SDL_LOG_CATEGORY_APPLICATION, "GameLogic: Cannot apply force, fabric is null");
+        return;
+    }
+
+    if (pressed) {
         fabric->applyForce((float)x, (float)y, 100.0f, 800.0f);
     }
 }

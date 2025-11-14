@@ -22,13 +22,16 @@
     <ClCompile Include="FabricPhysics.cpp" />
     <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerAdapter.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FabricPhysics.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="IInputState.h" />
+    <ClInclude Include="IPlayer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerAdapter.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

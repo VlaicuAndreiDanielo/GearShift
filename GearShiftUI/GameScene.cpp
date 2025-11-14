@@ -1,56 +1,82 @@
 #include "GameScene.h"
 
 GameScene::GameScene(Renderer* rend, SceneMgr* mgr, GameLogic* logic, InputHandler* input)
-    : renderer(rend), sceneMgr(mgr), gameLogic(logic), inputHandler(input) {
+	: renderer(rend), sceneMgr(mgr), gameLogic(logic), inputHandler(input) {
 }
 
 void GameScene::onEnter() {
+	// Validate required components
+	if (!renderer || !gameLogic) {
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "GameScene: Missing required component (renderer or gameLogic)");
+		return;
+	}
 
-    playerRenderer = std::make_unique<PlayerRenderer>();
+	// Initialize rendering components for gameplay
+	playerRenderer = std::make_unique<PlayerRenderer>();
+	if (!playerRenderer) {
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "GameScene: Failed to initialize player renderer");
+	}
 
-    // game state winitialized by MenuScene calling gameLogic->startGame() if you are looking for it 
-    SDL_Log("GameScene: Initialized");
+	// GameLogic state is initialized by MenuScene calling gameLogic->startGame()
+	SDL_Log("GameScene: Entered and initialized rendering components");
 }
 
 void GameScene::onExit() {
-    // clean up rendering components
-    playerRenderer.reset();
+	// Clean up rendering resources when leaving gameplay
+	if (playerRenderer) {
+		playerRenderer.reset();
+	}
 
-    SDL_Log("GameScene: Cleaned up");
+	SDL_Log("GameScene: Exited and cleaned up rendering components");
 }
 
 void GameScene::handleEvent(SDL_Event& e) {
-    
-    inputHandler->update(e);
+	// Forward input events to the input handler
+	if (inputHandler) {
+		inputHandler->update(e);
+	}
 
-    // check for ESC to return to menu from the game 
-    if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) {
-        sceneMgr->change("Menu");
-    }
+	// Handle menu escape key
+	if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) {
+		SDL_Log("GameScene: Escape key pressed, returning to menu");
+		if (sceneMgr) {
+			sceneMgr->change("Menu");
+		}
+	}
 }
 
 void GameScene::update(float dt) {
-    // update input handler 
-    inputHandler->updateKeyboard();
+	// Refresh keyboard state for current frame
+	if (inputHandler) {
+		inputHandler->updateKeyboard();
+	}
 
-    // update game logic (player movement, game state,later it needs to have the scores, etc...)
-    gameLogic->update(dt, *inputHandler);
+	// Update game logic with current input state
+	if (gameLogic && inputHandler) {
+		gameLogic->update(dt, *inputHandler);
+	}
 }
 
 void GameScene::render() {
-    SDL_Renderer* sdlRend = renderer->getSDLRenderer();
+	if (!renderer) {
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "GameScene: Renderer is null in render");
+		return;
+	}
 
-    // simple dark background  -> working on the background 
-    renderer->clear(20, 20, 30);
+	SDL_Renderer* sdlRend = renderer->getSDLRenderer();
 
-    // render player if exists 
-    const Player* player = gameLogic->getPlayer();
-    if (player && player->isActive()) {
-        playerRenderer->render(sdlRend, *player);
-    }
+	// Clear background with dark color
+	renderer->clear(20, 20, 30);
 
-    // TODO: render game HUD (speed, lap time, score,fuel lives?)
+	// Render player if available
+	if (gameLogic) {
+		const std::shared_ptr<IPlayer> player = gameLogic->getPlayer();
+		if (player && player->isActive() && playerRenderer) {
+			playerRenderer->render(sdlRend, player);
+		}
+	}
 
-    
-    renderer->present();
+	// TODO: Render game HUD (speed, lap time, score, fuel, lives)
+
+	renderer->present();
 }

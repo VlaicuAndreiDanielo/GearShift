@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "FabricPhysics.h"
 #include "IInputState.h"
+#include "IPlayer.h"
 #include <memory>
 
 
@@ -15,8 +16,9 @@ enum class GameState {
 class GameLogic {
 private:
     // game entities for now
-    std::unique_ptr<Player> player;
+    std::shared_ptr<Player> player;
     std::unique_ptr<Fabric> fabric;
+	std::shared_ptr<IPlayer> playerAdapter;
 
     // game state
     GameState currentState;
@@ -40,11 +42,13 @@ public:
     void resumeGame();
     void endGame();
 
-    // getters
-    Player* getPlayer() { return player.get(); }
-    const Player* getPlayer() const { return player.get(); }
-    Fabric& getFabric() { return *fabric; }
-    const Fabric& getFabric() const { return *fabric; }
+    // getters - safe accessors with null checks
+    std::shared_ptr<IPlayer> getPlayer() { return playerAdapter; }
+    const std::shared_ptr<IPlayer> getPlayer() const { return playerAdapter; }
+    
+    // Fabric access - safe with null checks
+    Fabric* getFabric() { return fabric.get(); }
+    const Fabric* getFabric() const { return fabric.get(); }
 
     GameState getState() const { return currentState; }
     float getTime() const { return gameTime; }
