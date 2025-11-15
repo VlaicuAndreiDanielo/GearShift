@@ -150,6 +150,7 @@
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="WaveEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +163,7 @@
     <ClInclude Include="PlayerRenderer.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="WaveEffect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

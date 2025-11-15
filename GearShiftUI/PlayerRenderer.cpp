@@ -1,5 +1,6 @@
 #include "PlayerRenderer.h"
 #include "IPlayer.h"
+#include "SpriteManager.h"
 #include <memory>
 #include <SDL2/SDL_image.h>
 #include <iostream>
@@ -22,12 +23,6 @@ PlayerRenderer::~PlayerRenderer() {
     if (playerTexture) SDL_DestroyTexture(playerTexture);
 }
 
-//TO DO: make a different service for all SDL objects to add image over them
-void PlayerRenderer::drawTextureOverRect(SDL_Renderer* renderer, SDL_Rect rect) {
-    if (!playerTexture) return;
-    SDL_RenderCopy(renderer, playerTexture, NULL, &rect);
-}
-
 void PlayerRenderer::render(SDL_Renderer* rend, const std::shared_ptr<IPlayer> player) {
     SDL_Rect rect = {
         static_cast<int>(player->getX()),
@@ -42,7 +37,7 @@ void PlayerRenderer::render(SDL_Renderer* rend, const std::shared_ptr<IPlayer> p
     SDL_SetRenderDrawColor(rend, 0, 0, 0, 0); //black outline
     SDL_RenderDrawRect(rend, &rect);
 
-    drawTextureOverRect(rend, rect);
+    sprite.drawTextureOverRect(rend, rect, playerTexture);
 }
 
 void PlayerRenderer::setColor(Uint8 r, Uint8 g, Uint8 b) {
