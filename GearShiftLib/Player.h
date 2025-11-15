@@ -1,11 +1,11 @@
 #pragma once
+#include "GameObject.h"
 #include "IInputState.h"
 
 
-class Player {
+class Player : public GameObject {
 private:
-  
-    float x, y;
+    //TODO: ADD RIGIDBODY
     float vx, vy;
     float speed;
 
@@ -25,8 +25,8 @@ public:
     void update(float dt);
 
     // Query state (for rendering in UI layer) -> dont overlap 
-    float getX() const { return x; }
-    float getY() const { return y; }
+    float getX() const;
+    float getY() const { return this->transform.getY(); }
     int getWidth() const { return width; }
     int getHeight() const { return height; }
 

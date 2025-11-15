@@ -1,7 +1,7 @@
 #include "FabricPhysics.h"
 #include <algorithm>
 
-Fabric::Fabric(int width, int height, int spacing)
+Fabric::Fabric(int width, int height, float spacing)
     : w(width), h(height), space(spacing), damp(0.98f), stiff(0.98f) {
 
     for (int y = 0; y < h; y++) {

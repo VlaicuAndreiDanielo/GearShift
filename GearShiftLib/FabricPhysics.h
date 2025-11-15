@@ -22,7 +22,7 @@ private:
     float stiff;
 
 public:
-    Fabric(int width, int height, int spacing);
+    Fabric(int width, int height, float spacing);
 
     void update(float dt);
     void applyForce(float mx, float my, float radius, float strength);
