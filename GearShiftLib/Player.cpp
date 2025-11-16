@@ -2,9 +2,20 @@
 #include <algorithm>
 
 Player::Player(float startX, float startY)
-	: GameObject(startX, startY), vx(0), vy(0), speed(300.0f),
-	width(150), height(170), active(true),
-	boundMaxX(1920), boundMaxY(1080) {
+	: GameObject{ startX, startY }, vx{ 0 }, vy{ 0 }, speed{ 300.0f },
+	width{ 150 }, height{ 170 }, active{ true },
+	boundMaxX{ 1920 }, boundMaxY{ 1080 }
+{
+}
+
+std::shared_ptr<Player> Player::create(float startX, float startY)
+{
+	std::shared_ptr<Player> player(new Player(startX, startY));
+	player->collider = player->addCollider<BoxCollider>(static_cast<float>(player->width), static_cast<float>(player->height));
+	player->collider->setOnCollisionCallback([&](auto collider) {
+		// Handle collision event (currently empty)
+		});
+	return player;
 }
 
 void Player::handleInput(const IInputState& input) {
@@ -53,7 +64,7 @@ void Player::update(float dt) {
 float Player::getX() const { return this->transform.getX(); }
 
 void Player::setPosition(float newX, float newY) {
-	this->transform.setPosition(newX, newY);
+	this->transform.setPosition({ newX, newY });
 }
 
 void Player::setBounds(int maxX, int maxY) {

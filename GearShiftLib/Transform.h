@@ -1,24 +1,27 @@
 #pragma once
-#include <array>
+#include "Vec2.h"
 
 class Transform {
 public:
 	Transform() = default;
-	Transform(float startX, float startY);
-	Transform(std::array<float, 2> pos);
+	Transform(Vec2 startPos);
 	Transform(Transform&&) = default;
 	Transform(const Transform&) = default;
 	Transform& operator=(Transform&&) = default;
 	Transform& operator=(const Transform&) = default;
 	virtual ~Transform() = default;
-	std::array<float, 2> getPos() const;
+	Vec2 getPos() const;
 	float getX() const;
 	float getY() const;
-	void setPosition(float newX, float newY);
-	void setPosition(std::array<float, 2> pos);
+	void setPosition(Vec2 pos);
 	void setX(float newX);
 	void setY(float newY);
+	void setRotation(float radians);
+	float getRotation() const;
+	void setFixed(bool fixed);
+	bool getFixed() const;
 private:
-	float x = 0.0f;
-	float y = 0.0f;
+	Vec2 position;
+	float rotation = 0.0f; // radians
+	bool isFixed = false;
 };

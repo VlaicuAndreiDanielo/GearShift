@@ -1,9 +1,10 @@
 #pragma once
+#include <memory>
 #include "Player.h"
 #include "FabricPhysics.h"
 #include "IInputState.h"
 #include "IPlayer.h"
-#include <memory>
+#include "CollisionManager.h"
 
 
 enum class GameState {
@@ -17,8 +18,10 @@ class GameLogic {
 private:
     // game entities for now
     std::shared_ptr<Player> player;
+    std::shared_ptr<Player> player2;
     std::unique_ptr<Fabric> fabric;
 	std::shared_ptr<IPlayer> playerAdapter;
+	std::shared_ptr<IPlayer> playerAdapter2;
 
     // game state
     GameState currentState;
@@ -45,6 +48,10 @@ public:
     // getters - safe accessors with null checks
     std::shared_ptr<IPlayer> getPlayer() { return playerAdapter; }
     const std::shared_ptr<IPlayer> getPlayer() const { return playerAdapter; }
+
+	// SECOND PLAYER FOR TESTING PURPOSES
+    std::shared_ptr<IPlayer> getPlayer2() { return playerAdapter2; }
+    const std::shared_ptr<IPlayer> getPlayer2() const { return playerAdapter2; }
     
     // Fabric access - safe with null checks
     Fabric* getFabric() { return fabric.get(); }

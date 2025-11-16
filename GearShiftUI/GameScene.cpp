@@ -77,8 +77,10 @@ void GameScene::render() {
 	// Render player if available
 	if (gameLogic) {
 		const std::shared_ptr<IPlayer> player = gameLogic->getPlayer();
+		const std::shared_ptr<IPlayer> player2 = gameLogic->getPlayer2();
 		if (player && player->isActive() && playerRenderer) {
 			playerRenderer->render(sdlRend, player);
+			playerRenderer->render(sdlRend, player2);
 		}
 	}
 

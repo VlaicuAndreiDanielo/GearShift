@@ -35,6 +35,7 @@ void GameLogic::update(float dt, const IInputState& input) {
         if (player) {
             player->handleInput(input);
          player->update(dt);
+		 CollisionManager::getInstance().update();
          // update game stats
  // TODO: Add game logic (lap counting, collision, etc.)
   }
@@ -64,9 +65,15 @@ void GameLogic::startGame() {
     // create player at center
     float centerX = screenWidth / 2.0f - 25;
     float centerY = screenHeight / 2.0f - 25;
-    player = std::make_shared<Player>(centerX, centerY);
+    player = Player::create(centerX,centerY);
     player->setBounds(screenWidth, screenHeight);
 	playerAdapter = std::make_shared<PlayerAdapter>(player);
+
+    //Second player for testing
+    player2 = Player::create(centerX + 200, centerY + 200);
+    player2->setBounds(screenWidth, screenHeight);
+	//player2->getTransform().setFixed(true); // make second player static for testing
+	playerAdapter2 = std::make_shared<PlayerAdapter>(player2);
 
     // reset game stats
     speed = 0;
