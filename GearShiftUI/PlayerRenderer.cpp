@@ -8,14 +8,11 @@
 PlayerRenderer::PlayerRenderer(SDL_Renderer* renderer) {
     color = { 0, 0, 0, 0 };  // black
 
-    //change player model here
-    const char* filePath = "assets/images/PlayerCar.png";
-
-    playerTexture = IMG_LoadTexture(renderer, filePath);
+    playerTexture = IMG_LoadTexture(renderer, playerModelPath);
     if (!playerTexture) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load texture '%s': %s", filePath, IMG_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load texture '%s': %s", playerModelPath, IMG_GetError());
     } else {
-        SDL_Log("Texture '%s' loaded successfully.", filePath);
+        SDL_Log("Texture '%s' loaded successfully.", playerModelPath);
     }
 }
 

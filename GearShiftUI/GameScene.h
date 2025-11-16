@@ -1,4 +1,5 @@
 #pragma once
+#include "FuelTimer.h"
 #include "SceneManager.h"
 #include "../GearShiftUI/Renderer.h"
 #include "../GearShiftUI/InputHandler.h"
@@ -15,6 +16,7 @@ private:
 
     
     std::unique_ptr<PlayerRenderer> playerRenderer;
+    std::unique_ptr<FuelTimer> fuelTimer;
 
 public:
     GameScene(Renderer* rend, SceneMgr* mgr, GameLogic* logic, InputHandler* input);

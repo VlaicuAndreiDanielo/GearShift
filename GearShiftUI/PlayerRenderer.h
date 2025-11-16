@@ -9,7 +9,8 @@ private:
     SDL_Color color;
     SDL_Texture* playerTexture = nullptr;
     SpriteManager sprite;
-
+    
+    const char* playerModelPath = "assets/images/PlayerCar.png";
 public:
     PlayerRenderer(SDL_Renderer* renderer);
     ~PlayerRenderer();

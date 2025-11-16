@@ -143,6 +143,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CRTEffect.cpp" />
+    <ClCompile Include="FuelTimer.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="MenuScene.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="CRTEffect.h" />
+    <ClInclude Include="FuelTimer.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="MenuScene.h" />
