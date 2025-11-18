@@ -10,7 +10,7 @@
 /// </summary>
 class CollisionManager::Collider : public std::enable_shared_from_this<Collider> {
 public:
-	Collider() = default;
+	Collider(std::weak_ptr<CollisionManager> manager);
 	virtual ~Collider();
 	std::shared_ptr<GameObject> getMasterObject() const;
 	void setOnCollisionCallback(std::function<void(std::shared_ptr<Collider>)> callback);
@@ -19,10 +19,10 @@ public:
 	virtual std::optional<Collision> checkCollisionWith(const class BoxCollider& other) const = 0;
 
 protected:
-	friend class GameObject;
+	friend class CollisionManager;
 	void attachToGameObject(std::shared_ptr<GameObject> master);
 private:
-	static CollisionManager& manager;
+	std::weak_ptr<CollisionManager> manager;
 	std::weak_ptr<GameObject> masterObject;
 	std::function<void(std::shared_ptr<Collider>)> onCollision;
 };

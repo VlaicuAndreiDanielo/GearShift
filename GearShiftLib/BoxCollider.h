@@ -4,7 +4,7 @@
 
 class BoxCollider : public Collider {
 public:
-	BoxCollider(float width, float height);
+	BoxCollider(std::weak_ptr<CollisionManager> manager, float width, float height);
 	std::optional<Collision> checkCollisionWith(const Collider& other) const override;
 	std::optional<Collision> checkCollisionWith(const BoxCollider& other) const override;
 	float getWidth() const { return width; }

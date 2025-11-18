@@ -2,8 +2,9 @@
 #include "Collision.h"
 #include <cmath>
 
-BoxCollider::BoxCollider(float width, float height)
-	: Collider{}, width{ width }, height{ height } {}
+BoxCollider::BoxCollider(std::weak_ptr<CollisionManager> manager, float width, float height)
+	: Collider{ manager }, width{ width }, height{ height } {
+}
 
 std::optional<Collision> BoxCollider::checkCollisionWith(const Collider& other) const
 {

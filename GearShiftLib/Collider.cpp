@@ -1,16 +1,20 @@
 #include "Collider.h"
 #include <memory>
 
-CollisionManager& CollisionManager::Collider::manager = CollisionManager::getInstance();
+CollisionManager::Collider::Collider(std::weak_ptr<CollisionManager> manager) : manager{ manager } {}
 
 CollisionManager::Collider::~Collider()
 {
-	manager.unregisterCollider(this);
+	if (auto managerSharedPtr = this->manager.lock()) {
+		managerSharedPtr->unregisterCollider(this);
+	}
 }
 void CollisionManager::Collider::attachToGameObject(std::shared_ptr<GameObject> master)
 {
 	this->masterObject = master;
-	this->manager.registerCollider(shared_from_this());
+	if (auto managerSharedPtr = this->manager.lock()) {
+		managerSharedPtr->registerCollider(shared_from_this());
+	}
 }
 std::shared_ptr<GameObject> CollisionManager::Collider::getMasterObject() const
 {

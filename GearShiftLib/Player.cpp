@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "CollisionManager.h"
 #include <algorithm>
 
 Player::Player(float startX, float startY)
@@ -11,13 +12,15 @@ ObjectType Player::getType() const { return ObjectType::PLAYER; }
 
 SpriteType Player::getSprite() const { return SpriteType::PLAYER; }
 
-std::shared_ptr<Player> Player::create(float startX, float startY)
+std::shared_ptr<Player> Player::create(std::weak_ptr<CollisionManager> collisionManager, float startX, float startY)
 {
 	std::shared_ptr<Player> player(new Player(startX, startY));
-	player->collider = player->addCollider<BoxCollider>(static_cast<float>(player->width), static_cast<float>(player->height));
-	player->collider->setOnCollisionCallback([&](auto collider) {
-		// Handle collision event (currently empty)
-		});
+	if (auto collisionManagerSharedPtr = collisionManager.lock()) {
+		player->collider = collisionManagerSharedPtr->addCollider<BoxCollider>(player, static_cast<float>(player->width), static_cast<float>(player->height));
+		player->collider->setOnCollisionCallback([&](auto collider) {
+			// Handle collision event (currently empty)
+			});
+	}
 	return player;
 }
 

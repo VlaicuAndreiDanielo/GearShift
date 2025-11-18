@@ -55,7 +55,3 @@ void CollisionManager::unregisterCollider(Collider* collider)
 }
 
 
-CollisionManager& CollisionManager::getInstance() {
-	static CollisionManager instance;
-	return instance;
-}

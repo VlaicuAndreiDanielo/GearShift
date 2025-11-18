@@ -18,7 +18,7 @@ private:
 public:
 	ObjectType getType() const override;
 	SpriteType getSprite() const override;
-    static std::shared_ptr<Player> create(float startX, float startY);
+    static std::shared_ptr<Player> create(std::weak_ptr<CollisionManager> colisionManager, float startX, float startY);
     // update using abstract input interface
     void handleInput(const IInputState& input);
     void update(float dt);

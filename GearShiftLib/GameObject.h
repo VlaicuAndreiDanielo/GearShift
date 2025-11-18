@@ -22,13 +22,6 @@ public:
 	float getHeight() const;
 	void setSize(float w, float h);
 
-	template<typename T, typename... Args>
-	std::shared_ptr<T> addCollider(Args&&... args) {
-		static_assert(std::is_base_of_v<Collider, T>);
-		std::shared_ptr<T> collider = std::make_shared<T>(std::forward<Args>(args)...);
-		collider->attachToGameObject(shared_from_this());
-		return collider;
-	}
 protected:
 	Transform transform;
 	bool active = true;

@@ -22,6 +22,7 @@ private:
     std::unique_ptr<Fabric> fabric;
 	std::shared_ptr<IGameObject> playerAdapter;
 	std::shared_ptr<IGameObject> playerAdapter2;
+    std::shared_ptr<CollisionManager> collisionManager;
 
     // game state
     GameState currentState;
