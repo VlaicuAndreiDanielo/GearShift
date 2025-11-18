@@ -8,62 +8,62 @@
 
 
 enum class GameState {
-    Menu,
-    Playing,
-    Paused,
-    GameOver
+	Menu,
+	Playing,
+	Paused,
+	GameOver
 };
 
 class GameLogic {
 private:
-    // game entities for now
-    std::shared_ptr<Player> player;
-    std::shared_ptr<Player> player2;
-    std::unique_ptr<Fabric> fabric;
+	// game entities for now
+	std::shared_ptr<Player> player;
+	std::shared_ptr<Player> player2;
+	std::unique_ptr<Fabric> fabric;
 	std::shared_ptr<IGameObject> playerAdapter;
 	std::shared_ptr<IGameObject> playerAdapter2;
-    std::shared_ptr<CollisionManager> collisionManager;
+	std::shared_ptr<CollisionManager> collisionManager;
 
-    // game state
-    GameState currentState;
-    float gameTime;
-    int screenWidth, screenHeight;
+	// game state
+	GameState currentState;
+	float gameTime;
+	int screenWidth, screenHeight;
 
-    // game stats -> reference 
-    float speed;
-    int score;
-    float lapTime;
+	// game stats -> reference 
+	float speed;
+	int score;
+	float lapTime;
 
 public:
-    GameLogic(int screenW, int screenH);
+	GameLogic(int screenW, int screenH);
 
-    // core update loop
-    void update(float dt, const IInputState& input);
+	// core update loop
+	void update(float dt, const IInputState& input);
 
-    // state management
-    void startGame();
-    void pauseGame();
-    void resumeGame();
-    void endGame();
+	// state management
+	void startGame();
+	void pauseGame();
+	void resumeGame();
+	void endGame();
 
-    // getters - safe accessors with null checks
-    std::shared_ptr<IGameObject> getPlayer() { return playerAdapter; }
-    const std::shared_ptr<IGameObject> getPlayer() const { return playerAdapter; }
+	// getters - safe accessors with null checks
+	std::shared_ptr<IGameObject> getPlayer() { return playerAdapter; }
+	const std::shared_ptr<IGameObject> getPlayer() const { return playerAdapter; }
 
 	// SECOND PLAYER FOR TESTING PURPOSES
-    std::shared_ptr<IGameObject> getPlayer2() { return playerAdapter2; }
-    const std::shared_ptr<IGameObject> getPlayer2() const { return playerAdapter2; }
-    
-    // Fabric access - safe with null checks
-    Fabric* getFabric() { return fabric.get(); }
-    const Fabric* getFabric() const { return fabric.get(); }
+	std::shared_ptr<IGameObject> getPlayer2() { return playerAdapter2; }
+	const std::shared_ptr<IGameObject> getPlayer2() const { return playerAdapter2; }
 
-    GameState getState() const { return currentState; }
-    float getTime() const { return gameTime; }
-    float getSpeed() const { return speed; }
-    int getScore() const { return score; }
-    float getLapTime() const { return lapTime; }
+	// Fabric access - safe with null checks
+	Fabric* getFabric() { return fabric.get(); }
+	const Fabric* getFabric() const { return fabric.get(); }
 
-    // game logic
-    void applyMouseForce(int x, int y, bool pressed);
+	GameState getState() const { return currentState; }
+	float getTime() const { return gameTime; }
+	float getSpeed() const { return speed; }
+	int getScore() const { return score; }
+	float getLapTime() const { return lapTime; }
+
+	// game logic
+	void applyMouseForce(int x, int y, bool pressed);
 };

@@ -1,6 +1,5 @@
 #pragma once
 #include "GameObject.h"
-#include "IInputState.h"
 #include "BoxCollider.h"
 
 
@@ -17,10 +16,9 @@ private:
 
 public:
 	ObjectType getType() const override;
-	SpriteType getSprite() const override;
     static std::shared_ptr<Player> create(std::weak_ptr<CollisionManager> colisionManager, float startX, float startY);
     // update using abstract input interface
-    void handleInput(const IInputState& input);
+    void handleInput(const struct IInputState& input) override;
     void update(float dt);
 
     // Query state (for rendering in UI layer) -> don't overlap 

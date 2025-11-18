@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "ObjectType.h"
 #include "SpriteType.h"
+#include "IInputState.h"
 
 /// <summary>
 /// Always use shared_ptr to manage GameObject instances.
@@ -15,7 +16,9 @@ public:
 	virtual ~GameObject() = default;
 	Transform& getTransform();
 	virtual ObjectType getType() const;
-	virtual SpriteType getSprite() const;
+	SpriteType getSprite() const;
+	void setSprite(SpriteType sprite);
+	virtual void handleInput(const IInputState& input);
 	void setActive(bool isActive);
 	bool isActive() const;
 	float getWidth() const;
@@ -27,5 +30,6 @@ protected:
 	bool active = true;
 	float width = 0.0f;
 	float height = 0.0f;
+	SpriteType sprite = SpriteType::NONE;
 private:
 };

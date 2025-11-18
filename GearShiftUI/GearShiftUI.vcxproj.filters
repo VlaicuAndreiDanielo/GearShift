@@ -33,7 +33,7 @@
     <ClCompile Include="InputHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerRenderer.cpp">
+    <ClCompile Include="ObjectRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameScene.cpp">
@@ -54,6 +54,9 @@
     <ClCompile Include="FuelTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteMapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Renderer.h">
@@ -71,7 +74,7 @@
     <ClInclude Include="InputHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerRenderer.h">
+    <ClInclude Include="ObjectRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameScene.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FuelTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteMapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -73,6 +73,8 @@ void GameLogic::startGame() {
 	//Second player for testing
 	player2 = Player::create(collisionManager, centerX + 200, centerY + 200);
 	player2->setBounds(screenWidth, screenHeight);
+	player2->getTransform().setRotation(0.5f);
+	player2->setSprite(SpriteType::NONE);
 	//player2->getTransform().setFixed(true); // make second player static for testing
 	playerAdapter2 = std::make_shared<GameObjectAdapter>(player2);
 

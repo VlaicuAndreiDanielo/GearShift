@@ -6,11 +6,10 @@ Player::Player(float startX, float startY)
 	: GameObject{ startX, startY, 150, 170, true }, vx{ 0 }, vy{ 0 }, speed{ 300.0f },
 	boundMaxX{ 1920 }, boundMaxY{ 1080 }
 {
+	this->sprite = SpriteType::PLAYER;
 }
 
 ObjectType Player::getType() const { return ObjectType::PLAYER; }
-
-SpriteType Player::getSprite() const { return SpriteType::PLAYER; }
 
 std::shared_ptr<Player> Player::create(std::weak_ptr<CollisionManager> collisionManager, float startX, float startY)
 {

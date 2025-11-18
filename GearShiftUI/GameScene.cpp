@@ -12,10 +12,10 @@ void GameScene::onEnter() {
 	}
 
 	// Initialize rendering components for gameplay
-	playerRenderer = std::make_unique<PlayerRenderer>(renderer->getSDLRenderer());
+	objectRenderer = std::make_unique<ObjectRenderer>(renderer->getSDLRenderer());
 	fuelTimer = std::make_unique<FuelTimer>(10.0f, 850, 20, 300, 20, renderer->getSDLRenderer());
 
-	if (!playerRenderer) {
+	if (!objectRenderer) {
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "GameScene: Failed to initialize player renderer");
 	}
 
@@ -25,8 +25,8 @@ void GameScene::onEnter() {
 
 void GameScene::onExit() {
 	// Clean up rendering resources when leaving gameplay
-	if (playerRenderer) {
-		playerRenderer.reset();
+	if (objectRenderer) {
+		objectRenderer.reset();
 	}
 
 	SDL_Log("GameScene: Exited and cleaned up rendering components");
@@ -78,9 +78,9 @@ void GameScene::render() {
 	if (gameLogic) {
 		const std::shared_ptr<IGameObject> player = gameLogic->getPlayer();
 		const std::shared_ptr<IGameObject> player2 = gameLogic->getPlayer2();
-		if (player && player->isActive() && playerRenderer) {
-			playerRenderer->render(sdlRend, player);
-			playerRenderer->render(sdlRend, player2);
+		if (player && player->isActive() && objectRenderer) {
+			objectRenderer->render(player);
+			objectRenderer->render(player2);
 		}
 	}
 

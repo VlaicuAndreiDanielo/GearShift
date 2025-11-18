@@ -14,8 +14,6 @@ void CollisionManager::update()
 		colliderList.end()
 	);
 	// Check for collisions
-	// Possible improvement: spatial partitioning for optimization
-	// Possible improvement: Multiple iterations
 	for (size_t i = 0; i < colliderList.size(); ++i) {
 		auto colliderA = colliderList[i].lock();
 		if (!colliderA) continue;

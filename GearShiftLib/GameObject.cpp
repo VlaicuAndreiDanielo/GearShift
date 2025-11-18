@@ -8,7 +8,14 @@ Transform& GameObject::getTransform() {
 
 ObjectType GameObject::getType() const { return ObjectType::NONE; }
 
-SpriteType GameObject::getSprite() const { return SpriteType::NONE; }
+SpriteType GameObject::getSprite() const { return this->sprite; }
+
+void GameObject::setSprite(SpriteType sprite)
+{
+	this->sprite = sprite;
+}
+
+void GameObject::handleInput(const IInputState& input) {}
 
 void GameObject::setActive(bool isActive) { active = isActive; }
 

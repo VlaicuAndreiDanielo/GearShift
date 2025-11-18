@@ -2,7 +2,7 @@
 #include <SDL2/SDL_image.h>
 
 FuelTimer::FuelTimer(float duration, int x, int y, int w, int h, SDL_Renderer* renderer)
-    : maxTime(duration), currentTime(duration)
+    : SpriteManager{renderer}, maxTime(duration), currentTime(duration)
 {
     barRect = { x, y, w, h };
     bgColor = { 50, 50, 50, 255 };
