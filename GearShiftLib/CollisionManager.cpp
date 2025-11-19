@@ -20,7 +20,7 @@ void CollisionManager::update()
 		for (size_t j = i + 1; j < colliderList.size(); ++j) {
 			auto colliderB = colliderList[j].lock();
 			if (!colliderB) continue;
-			if (colliderA->getMasterObject()->getTransform().getFixed() && colliderB->getMasterObject()->getTransform().getFixed()) continue;
+			if (colliderA->getMasterObject()->getWorldTransform().getFixed() && colliderB->getMasterObject()->getWorldTransform().getFixed()) continue;
 			auto collisionOpt = colliderA->checkCollisionWith(*colliderB);
 			if (collisionOpt) {
 				Collision& collision = *collisionOpt;

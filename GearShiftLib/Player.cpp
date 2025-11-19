@@ -25,15 +25,15 @@ void Player::update(float dt, const IInputState& input)
 	if (!active) return;
 	handleInput(input);
 
-	this->transform.setPosition({
-		this->transform.getX() + vx * dt,
-		this->transform.getY() + vy * dt
+	this->localTransform.setPosition({
+		this->localTransform.getX() + vx * dt,
+		this->localTransform.getY() + vy * dt
 		});
 
 	// boundary checking 
-	this->transform.setPosition({
-		std::max(0.0f, std::min(this->transform.getX(), (float)(boundMaxX - width))),
-		std::max(0.0f, std::min(this->transform.getY(), (float)(boundMaxY - height)))
+	this->worldTransform.setPosition({
+		std::max(0.0f, std::min(this->worldTransform.getX(), (float)(boundMaxX - width))),
+		std::max(0.0f, std::min(this->worldTransform.getY(), (float)(boundMaxY - height)))
 		});
 }
 
@@ -65,10 +65,9 @@ void Player::handleInput(const IInputState& input) {
 }
 
 // Query state (for rendering in UI layer) -> dont overlap 
-float Player::getX() const { return this->transform.getX(); }
 
 void Player::setPosition(float newX, float newY) {
-	this->transform.setPosition({ newX, newY });
+	this->worldTransform.setPosition({ newX, newY });
 }
 
 void Player::setBounds(int maxX, int maxY) {

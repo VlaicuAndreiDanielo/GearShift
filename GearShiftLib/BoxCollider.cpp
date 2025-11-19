@@ -43,8 +43,8 @@ std::optional<Collision> BoxCollider::checkCollisionWith(const BoxCollider& othe
 	}
 	smallestAxis = normalize(smallestAxis);
 
-	Vec2 centerA = this->getMasterObject()->getTransform().getPos();
-	Vec2 centerB = other.getMasterObject()->getTransform().getPos();
+	Vec2 centerA = this->getMasterObject()->getWorldTransform().getPos();
+	Vec2 centerB = other.getMasterObject()->getWorldTransform().getPos();
 	if (dot(centerB - centerA, smallestAxis) < 0) {
 		smallestAxis = smallestAxis * -1.0f;
 	}
@@ -59,7 +59,7 @@ std::optional<Collision> BoxCollider::checkCollisionWith(const BoxCollider& othe
 
 std::array<Vec2, 4> BoxCollider::getCorners() const
 {
-	Transform& transform = this->getMasterObject()->getTransform();
+	Transform& transform = this->getMasterObject()->getWorldTransform();
 	Vec2 position = transform.getPos();
 	float rotation = transform.getRotation();
 	float cos = std::cos(rotation);

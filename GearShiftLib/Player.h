@@ -10,8 +10,6 @@ public:
     void update(float dt, const IInputState& input) override;
 
     // Query state (for rendering in UI layer) -> don't overlap 
-    float getX() const;
-    float getY() const { return this->transform.getY(); }
 
     // game logic
     void setPosition(float newX, float newY);

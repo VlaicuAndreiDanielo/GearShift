@@ -35,7 +35,7 @@ void GameLogic::update(float dt, const IInputState& input) {
 
 	case GameState::Playing:
 		for (auto& obj : gameObjects) {
-			obj->update(dt, input);
+			obj->handleUpdate(dt, input);
 		}
 		collisionManager->update();
 		// update game stats
@@ -80,6 +80,18 @@ void GameLogic::startGame() {
 	player->setBounds(screenWidth, screenHeight);
 	gameObjects.push_back(player);
 	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(player));
+
+	auto obj = std::make_shared<GameObject>(centerX - 200, centerY - 200, 100.0f, 100.0f, true);
+	obj->setSprite(SpriteType::ROAD);
+	obj->setParent(player);
+	gameObjects.push_back(obj);
+	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(obj));
+
+	auto obj2 = std::make_shared<GameObject>(centerX + 200, centerY - 200, 130.0f, 30.0f, true);
+	obj2->setSprite(SpriteType::ROAD);
+	obj2->setParent(obj);
+	gameObjects.push_back(obj2);
+	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(obj2));
 
 	// reset game stats
 	speed = 0;

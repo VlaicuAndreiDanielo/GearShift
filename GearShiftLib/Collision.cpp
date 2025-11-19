@@ -23,8 +23,8 @@ void CollisionManager::Collision::resolve() const
 	auto objA = colliderA->getMasterObject();
 	auto objB = colliderB->getMasterObject();
 	if (objA && objB) {
-		Transform& transformA = objA->getTransform();
-		Transform& transformB = objB->getTransform();
+		Transform& transformA = objA->getWorldTransform();
+		Transform& transformB = objB->getWorldTransform();
 		if (transformA.getFixed() && transformB.getFixed()) {
 			// Both objects are fixed; do nothing
 			return;

@@ -3,17 +3,17 @@
 
 float GameObjectAdapter::getX() const
 {
-	return this->object->getTransform().getX();
+	return this->object->getWorldTransform().getX();
 }
 
 float GameObjectAdapter::getY() const
 {
-	return this->object->getTransform().getY();
+	return this->object->getWorldTransform().getY();
 }
 
 float GameObjectAdapter::getRotation() const
 {
-	return this->object->getTransform().getRotation();
+	return this->object->getWorldTransform().getRotation();
 }
 
 float GameObjectAdapter::getWidth() const

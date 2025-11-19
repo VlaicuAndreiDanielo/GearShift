@@ -1,5 +1,7 @@
 #pragma once
 #include <memory>
+#include <vector>
+#include <optional>
 #include "CollisionManager.h"
 #include "Transform.h"
 #include "ObjectType.h"
@@ -14,11 +16,12 @@ public:
 	GameObject() = default;
 	GameObject(float startX, float startY, float width, float height, bool active);
 	virtual ~GameObject() = default;
-	Transform& getTransform();
+	void handleUpdate(float dt, const IInputState& input);
+	void setParent(std::shared_ptr<GameObject> parentObj);
+	Transform& getWorldTransform();
 	virtual ObjectType getType() const;
 	SpriteType getSprite() const;
 	void setSprite(SpriteType sprite);
-	virtual void update(float dt, const IInputState& input);
 	void setActive(bool isActive);
 	bool isActive() const;
 	float getWidth() const;
@@ -26,13 +29,19 @@ public:
 	void setSize(float w, float h);
 
 protected:
+	virtual void update(float dt, const IInputState& input);
+
 	friend class CollisionManager::Collider;
-	Transform transform;
+	Transform worldTransform;
+	Transform localTransform;
 	std::shared_ptr<Collider> collider;
 	bool active = true;
 	float width = 0.0f;
 	float height = 0.0f;
 	SpriteType sprite = SpriteType::NONE;
 	virtual void onCollision(std::shared_ptr<Collider> other);
+	void parentUpdate(Vec2 deltaPos, float deltaRotation);
 private:
+	std::optional<std::weak_ptr<GameObject>> parent = std::nullopt;
+	std::vector<std::weak_ptr<GameObject>> children;
 };
