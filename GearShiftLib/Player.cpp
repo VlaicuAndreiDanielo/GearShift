@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "CollisionManager.h"
+#include "BoxCollider.h"
 #include <algorithm>
 
 Player::Player(float startX, float startY)
@@ -15,12 +15,26 @@ std::shared_ptr<Player> Player::create(std::weak_ptr<CollisionManager> collision
 {
 	std::shared_ptr<Player> player(new Player(startX, startY));
 	if (auto collisionManagerSharedPtr = collisionManager.lock()) {
-		player->collider = collisionManagerSharedPtr->addCollider<BoxCollider>(player, static_cast<float>(player->width), static_cast<float>(player->height));
-		player->collider->setOnCollisionCallback([&](auto collider) {
-			// Handle collision event (currently empty)
-			});
+		collisionManagerSharedPtr->addCollider<BoxCollider>(player, static_cast<float>(player->width), static_cast<float>(player->height));
 	}
 	return player;
+}
+
+void Player::update(float dt, const IInputState& input)
+{
+	if (!active) return;
+	handleInput(input);
+
+	this->transform.setPosition({
+		this->transform.getX() + vx * dt,
+		this->transform.getY() + vy * dt
+		});
+
+	// boundary checking 
+	this->transform.setPosition({
+		std::max(0.0f, std::min(this->transform.getX(), (float)(boundMaxX - width))),
+		std::max(0.0f, std::min(this->transform.getY(), (float)(boundMaxY - height)))
+		});
 }
 
 void Player::handleInput(const IInputState& input) {
@@ -50,21 +64,6 @@ void Player::handleInput(const IInputState& input) {
 	}
 }
 
-void Player::update(float dt) {
-	if (!active) return;
-
-	this->transform.setPosition({
-		this->transform.getX() + vx * dt,
-		this->transform.getY() + vy * dt
-		});
-
-	// boundary checking 
-	this->transform.setPosition({
-		std::max(0.0f, std::min(this->transform.getX(), (float)(boundMaxX - width))),
-		std::max(0.0f, std::min(this->transform.getY(), (float)(boundMaxY - height)))
-		});
-}
-
 // Query state (for rendering in UI layer) -> dont overlap 
 float Player::getX() const { return this->transform.getX(); }
 
@@ -75,4 +74,11 @@ void Player::setPosition(float newX, float newY) {
 void Player::setBounds(int maxX, int maxY) {
 	boundMaxX = maxX;
 	boundMaxY = maxY;
+}
+
+void Player::onCollision(std::shared_ptr<Collider> other)
+{
+	if (other->getMasterObject()->getType() == ObjectType::NONE) {
+		this->setSprite(SpriteType::NONE);
+	}
 }

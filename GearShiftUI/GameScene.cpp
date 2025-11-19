@@ -74,13 +74,12 @@ void GameScene::render() {
 	// Clear background with dark color
 	renderer->clear(20, 20, 30);
 
-	// Render player if available
 	if (gameLogic) {
-		const std::shared_ptr<IGameObject> player = gameLogic->getPlayer();
-		const std::shared_ptr<IGameObject> player2 = gameLogic->getPlayer2();
-		if (player && player->isActive() && objectRenderer) {
-			objectRenderer->render(player);
-			objectRenderer->render(player2);
+		auto gameObjects = gameLogic->getGameObjects();
+		for (const auto& obj : gameObjects) {
+			if (obj && obj->isActive() && objectRenderer) {
+				objectRenderer->render(obj);
+			}
 		}
 	}
 

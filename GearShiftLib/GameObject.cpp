@@ -15,7 +15,7 @@ void GameObject::setSprite(SpriteType sprite)
 	this->sprite = sprite;
 }
 
-void GameObject::handleInput(const IInputState& input) {}
+void GameObject::update(float dt, const IInputState& input) {}
 
 void GameObject::setActive(bool isActive) { active = isActive; }
 
@@ -26,3 +26,5 @@ float GameObject::getWidth() const { return width; }
 float GameObject::getHeight() const { return height; }
 
 void GameObject::setSize(float w, float h) { width = w; height = h; }
+
+void GameObject::onCollision(std::shared_ptr<Collider> other) {}

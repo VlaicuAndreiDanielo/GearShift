@@ -11,6 +11,7 @@ CollisionManager::Collider::~Collider()
 }
 void CollisionManager::Collider::attachToGameObject(std::shared_ptr<GameObject> master)
 {
+	master->collider = shared_from_this();
 	this->masterObject = master;
 	if (auto managerSharedPtr = this->manager.lock()) {
 		managerSharedPtr->registerCollider(shared_from_this());
@@ -21,12 +22,9 @@ std::shared_ptr<GameObject> CollisionManager::Collider::getMasterObject() const
 	return masterObject.lock();
 }
 
-void CollisionManager::Collider::setOnCollisionCallback(std::function<void(std::shared_ptr<Collider>)> callback) {
-	onCollision = std::move(callback);
-}
 
 void CollisionManager::Collider::notifyCollision(std::shared_ptr<Collider> other) {
-	if (onCollision) {
-		onCollision(other);
+	if (auto masterShared = this->masterObject.lock()) {
+		masterShared->onCollision(other);
 	}
 }

@@ -2,6 +2,8 @@
 #include <SDL2/SDL.h>
 #include "GameObjectAdapter.h"
 
+#include "BoxCollider.h"
+
 GameLogic::GameLogic(int screenW, int screenH)
 	: collisionManager{ std::make_shared<CollisionManager>() }, screenWidth(screenW), screenHeight(screenH),
 	currentState(GameState::Menu),
@@ -11,7 +13,6 @@ GameLogic::GameLogic(int screenW, int screenH)
 	fabric = std::make_unique<Fabric>(130, 75, 16.0f);
 
 	// player created when game starts (not in menu)
-	player = nullptr;
 }
 
 void GameLogic::update(float dt, const IInputState& input) {
@@ -33,13 +34,12 @@ void GameLogic::update(float dt, const IInputState& input) {
 		break;
 
 	case GameState::Playing:
-		if (player) {
-			player->handleInput(input);
-			player->update(dt);
-			collisionManager->update();
-			// update game stats
-	// TODO: Add game logic (lap counting, collision, etc.)
+		for (auto& obj : gameObjects) {
+			obj->update(dt, input);
 		}
+		collisionManager->update();
+		// update game stats
+		// TODO: Add game logic (lap counting, collision, etc.)
 
 		// check for pause input
 		if (input.isPausePressed()) {
@@ -66,17 +66,29 @@ void GameLogic::startGame() {
 	// create player at center
 	float centerX = screenWidth / 2.0f - 25;
 	float centerY = screenHeight / 2.0f - 25;
-	player = Player::create(collisionManager, centerX, centerY);
+	auto player = Player::create(collisionManager, centerX, centerY);
 	player->setBounds(screenWidth, screenHeight);
-	playerAdapter = std::make_shared<GameObjectAdapter>(player);
+	gameObjects.push_back(player);
+	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(player));
 
 	//Second player for testing
-	player2 = Player::create(collisionManager, centerX + 200, centerY + 200);
+	//player2 = Player::create(collisionManager, centerX + 200, centerY + 200);
+	//player2->setBounds(screenWidth, screenHeight);
+	//player2->getTransform().setRotation(0.5f);
+	//player2->setSprite(SpriteType::NONE);
+	////player2->getTransform().setFixed(true); // make second player static for testing
+	//playerAdapter2 = std::make_shared<GameObjectAdapter>(player2);
+	auto testObject = std::make_shared<GameObject>(centerX + 200, centerY + 200, 100, 100, true);
+	collisionManager->addCollider<BoxCollider>(testObject, 100.0f, 100.0f);
+	testObject->setSprite(SpriteType::NONE);
+	gameObjects.push_back(testObject);
+	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(testObject));
+
+	auto player2 = Player::create(collisionManager, centerX -200, centerY - 200);
 	player2->setBounds(screenWidth, screenHeight);
-	player2->getTransform().setRotation(0.5f);
-	player2->setSprite(SpriteType::NONE);
-	//player2->getTransform().setFixed(true); // make second player static for testing
-	playerAdapter2 = std::make_shared<GameObjectAdapter>(player2);
+	player2->getTransform().setRotation(3.141f);
+	gameObjects.push_back(player2);
+	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(player2));
 
 	// reset game stats
 	speed = 0;
@@ -101,6 +113,8 @@ void GameLogic::endGame() {
 	currentState = GameState::GameOver;
 	// player stays in memory for showing final position the nes game did that when it resumed on button 
 }
+
+const std::vector<std::shared_ptr<IGameObject>>& GameLogic::getGameObjects() const { return objectAdapters; }
 
 void GameLogic::applyMouseForce(int x, int y, bool pressed) {
 	if (!fabric) {

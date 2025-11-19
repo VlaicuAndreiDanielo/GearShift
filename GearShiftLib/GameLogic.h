@@ -16,12 +16,11 @@ enum class GameState {
 
 class GameLogic {
 private:
-	// game entities for now
-	std::shared_ptr<Player> player;
-	std::shared_ptr<Player> player2;
 	std::unique_ptr<Fabric> fabric;
-	std::shared_ptr<IGameObject> playerAdapter;
-	std::shared_ptr<IGameObject> playerAdapter2;
+	std::vector<std::shared_ptr<GameObject>> gameObjects;
+	std::vector<std::shared_ptr<IGameObject>> objectAdapters;
+
+
 	std::shared_ptr<CollisionManager> collisionManager;
 
 	// game state
@@ -47,12 +46,15 @@ public:
 	void endGame();
 
 	// getters - safe accessors with null checks
-	std::shared_ptr<IGameObject> getPlayer() { return playerAdapter; }
-	const std::shared_ptr<IGameObject> getPlayer() const { return playerAdapter; }
+	//std::shared_ptr<IGameObject> getPlayer() { return playerAdapter; }
+	//const std::shared_ptr<IGameObject> getPlayer() const { return playerAdapter; }
 
-	// SECOND PLAYER FOR TESTING PURPOSES
-	std::shared_ptr<IGameObject> getPlayer2() { return playerAdapter2; }
-	const std::shared_ptr<IGameObject> getPlayer2() const { return playerAdapter2; }
+	//// SECOND PLAYER FOR TESTING PURPOSES
+	//std::shared_ptr<IGameObject> getPlayer2() { return playerAdapter2; }
+	//const std::shared_ptr<IGameObject> getPlayer2() const { return playerAdapter2; }
+	// get all game objects for rendering
+	const std::vector<std::shared_ptr<IGameObject>>& getGameObjects() const;
+
 
 	// Fabric access - safe with null checks
 	Fabric* getFabric() { return fabric.get(); }

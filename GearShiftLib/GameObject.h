@@ -18,7 +18,7 @@ public:
 	virtual ObjectType getType() const;
 	SpriteType getSprite() const;
 	void setSprite(SpriteType sprite);
-	virtual void handleInput(const IInputState& input);
+	virtual void update(float dt, const IInputState& input);
 	void setActive(bool isActive);
 	bool isActive() const;
 	float getWidth() const;
@@ -26,10 +26,13 @@ public:
 	void setSize(float w, float h);
 
 protected:
+	friend class CollisionManager::Collider;
 	Transform transform;
+	std::shared_ptr<Collider> collider;
 	bool active = true;
 	float width = 0.0f;
 	float height = 0.0f;
 	SpriteType sprite = SpriteType::NONE;
+	virtual void onCollision(std::shared_ptr<Collider> other);
 private:
 };

@@ -13,7 +13,6 @@ public:
 	Collider(std::weak_ptr<CollisionManager> manager);
 	virtual ~Collider();
 	std::shared_ptr<GameObject> getMasterObject() const;
-	void setOnCollisionCallback(std::function<void(std::shared_ptr<Collider>)> callback);
 	void notifyCollision(std::shared_ptr<Collider> other);
 	virtual std::optional<Collision> checkCollisionWith(const Collider& other) const = 0;
 	virtual std::optional<Collision> checkCollisionWith(const class BoxCollider& other) const = 0;
@@ -24,5 +23,4 @@ protected:
 private:
 	std::weak_ptr<CollisionManager> manager;
 	std::weak_ptr<GameObject> masterObject;
-	std::function<void(std::shared_ptr<Collider>)> onCollision;
 };
