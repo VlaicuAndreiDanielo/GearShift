@@ -28,6 +28,9 @@ void GameScene::onExit() {
 	if (objectRenderer) {
 		objectRenderer.reset();
 	}
+	if (gameLogic) {
+		gameLogic->endGame();
+	}
 
 	SDL_Log("GameScene: Exited and cleaned up rendering components");
 }

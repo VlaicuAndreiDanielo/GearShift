@@ -16,11 +16,16 @@ ObjectRenderer::~ObjectRenderer() {
 }
 
 void ObjectRenderer::render(const std::shared_ptr<IGameObject> object) {
+	float x = object->getX();
+	float y = object->getY();
+	float width = object->getWidth();
+	float height = object->getHeight();
+
 	SDL_Rect rect = {
-		static_cast<int>(object->getX()),
-		static_cast<int>(object->getY()),
-		object->getWidth(),
-		object->getHeight()
+		static_cast<int>(x - width/2),
+		static_cast<int>(y - height/2),
+		width,
+		height
 	};
 
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);

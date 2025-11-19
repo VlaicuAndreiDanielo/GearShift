@@ -66,29 +66,20 @@ void GameLogic::startGame() {
 	// create player at center
 	float centerX = screenWidth / 2.0f - 25;
 	float centerY = screenHeight / 2.0f - 25;
+
+	auto road1 = std::make_shared<GameObject>(centerX, centerY-400, 1400.0f, 700.0f, true);
+	road1->setSprite(SpriteType::ROAD);
+	gameObjects.push_back(road1);
+	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road1));
+	auto road2 = std::make_shared<GameObject>(centerX, centerY+300, 1400.0f, 700.0f, true);
+	road2->setSprite(SpriteType::ROAD);
+	gameObjects.push_back(road2);
+	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road2));
+
 	auto player = Player::create(collisionManager, centerX, centerY);
 	player->setBounds(screenWidth, screenHeight);
 	gameObjects.push_back(player);
 	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(player));
-
-	//Second player for testing
-	//player2 = Player::create(collisionManager, centerX + 200, centerY + 200);
-	//player2->setBounds(screenWidth, screenHeight);
-	//player2->getTransform().setRotation(0.5f);
-	//player2->setSprite(SpriteType::NONE);
-	////player2->getTransform().setFixed(true); // make second player static for testing
-	//playerAdapter2 = std::make_shared<GameObjectAdapter>(player2);
-	auto testObject = std::make_shared<GameObject>(centerX + 200, centerY + 200, 100, 100, true);
-	collisionManager->addCollider<BoxCollider>(testObject, 100.0f, 100.0f);
-	testObject->setSprite(SpriteType::NONE);
-	gameObjects.push_back(testObject);
-	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(testObject));
-
-	auto player2 = Player::create(collisionManager, centerX -200, centerY - 200);
-	player2->setBounds(screenWidth, screenHeight);
-	player2->getTransform().setRotation(3.141f);
-	gameObjects.push_back(player2);
-	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(player2));
 
 	// reset game stats
 	speed = 0;
@@ -112,6 +103,8 @@ void GameLogic::resumeGame() {
 void GameLogic::endGame() {
 	currentState = GameState::GameOver;
 	// player stays in memory for showing final position the nes game did that when it resumed on button 
+	gameObjects.clear();
+	objectAdapters.clear();
 }
 
 const std::vector<std::shared_ptr<IGameObject>>& GameLogic::getGameObjects() const { return objectAdapters; }

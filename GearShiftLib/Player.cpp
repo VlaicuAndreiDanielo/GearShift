@@ -78,7 +78,4 @@ void Player::setBounds(int maxX, int maxY) {
 
 void Player::onCollision(std::shared_ptr<Collider> other)
 {
-	if (other->getMasterObject()->getType() == ObjectType::NONE) {
-		this->setSprite(SpriteType::NONE);
-	}
 }
