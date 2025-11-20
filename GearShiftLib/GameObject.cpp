@@ -1,9 +1,22 @@
 #include "GameObject.h"
 
-GameObject::GameObject(float startX = 0, float startY = 0, float width = 0, float height = 0, bool active = true) : worldTransform({ startX, startY }), width{ width }, height{ height }, active{ active } {}
+GameObject::GameObject(float startX = 0, float startY = 0, float width = 0, float height = 0, bool active = true) : worldTransform({ startX, startY }), localTransform({ startX, startY }), width{ width }, height{ height }, active{ active } {}
 
 Transform& GameObject::getWorldTransform() {
 	return worldTransform;
+}
+
+void GameObject::setWorldTransform(Vec2 pos, float rotation)
+{
+	worldTransform.setPosition(pos);
+	worldTransform.setRotation(rotation);
+	if (parent.has_value() && parent.value().expired()) {
+		parent = std::nullopt;
+	}
+	if (!parent.has_value() || parent.value().expired()) {
+		localTransform.setPosition(pos);
+		localTransform.setRotation(rotation);
+	}
 }
 
 ObjectType GameObject::getType() const { return ObjectType::NONE; }
@@ -72,6 +85,9 @@ void GameObject::handleUpdate(float dt, const IInputState& input)
 	float deltaRotation = localTransform.getRotation() - previousLocalRotation;
 	if(deltaPos.x == 0 && deltaPos.y == 0 && deltaRotation == 0) {
 		return;
+	}
+	if (parent.has_value() && parent.value().expired()) {
+		parent = std::nullopt;
 	}
 	parentUpdate(deltaPos, deltaRotation);
 }

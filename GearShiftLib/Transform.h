@@ -20,8 +20,17 @@ public:
 	float getRotation() const;
 	void setFixed(bool fixed);
 	bool getFixed() const;
+	void setLockX(bool lockX);
+	void setLockY(bool lockY);
+	void setLockRotation(bool lockRotation);
+	bool isXLocked() const;
+	bool isYLocked() const;
+	bool isRotationLocked() const;
 private:
 	Vec2 position;
 	float rotation = 0.0f; // radians
 	bool isFixed = false;
+	bool xLocked = false;
+	bool yLocked = false;
+	bool rotationLocked = false;
 };

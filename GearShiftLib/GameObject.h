@@ -19,6 +19,7 @@ public:
 	void handleUpdate(float dt, const IInputState& input);
 	void setParent(std::shared_ptr<GameObject> parentObj);
 	Transform& getWorldTransform();
+	void setWorldTransform(Vec2 pos, float rotation);
 	virtual ObjectType getType() const;
 	SpriteType getSprite() const;
 	void setSprite(SpriteType sprite);

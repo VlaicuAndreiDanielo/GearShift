@@ -1,16 +1,15 @@
 #include "GameLogic.h"
 #include <SDL2/SDL.h>
 #include "GameObjectAdapter.h"
-
+#include "Camera.h"
 #include "BoxCollider.h"
 
 GameLogic::GameLogic(int screenW, int screenH)
-	: collisionManager{ std::make_shared<CollisionManager>() }, screenWidth(screenW), screenHeight(screenH),
+	: collisionManager{ std::make_shared<CollisionManager>() }, 
+	fabric{ std::make_unique<Fabric>(130, 75, 16.0f) },
+	screenWidth(screenW), screenHeight(screenH),
 	currentState(GameState::Menu),
 	gameTime(0), speed(0), score(0), lapTime(0) {
-
-	// create fabric for background effect
-	fabric = std::make_unique<Fabric>(130, 75, 16.0f);
 
 	// player created when game starts (not in menu)
 }
@@ -38,6 +37,9 @@ void GameLogic::update(float dt, const IInputState& input) {
 			obj->handleUpdate(dt, input);
 		}
 		collisionManager->update();
+
+		scaleToCamera();
+
 		// update game stats
 		// TODO: Add game logic (lap counting, collision, etc.)
 
@@ -64,8 +66,12 @@ void GameLogic::startGame() {
 	currentState = GameState::Playing;
 
 	// create player at center
-	float centerX = screenWidth / 2.0f - 25;
-	float centerY = screenHeight / 2.0f - 25;
+	float centerX = screenWidth / 2.0f;
+	float centerY = screenHeight / 2.0f;
+
+	mainCamera = Camera::create(0, 0, screenWidth, screenHeight);
+	mainCamera->getWorldTransform().setLockX(true);
+	gameObjects.push_back(mainCamera);
 
 	auto road1 = std::make_shared<GameObject>(centerX, centerY-400, 1400.0f, 700.0f, true);
 	road1->setSprite(SpriteType::ROAD);
@@ -76,22 +82,12 @@ void GameLogic::startGame() {
 	gameObjects.push_back(road2);
 	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road2));
 
-	auto player = Player::create(collisionManager, centerX, centerY);
+	auto player = Player::create(collisionManager, centerX, centerY + 300.0f);
 	player->setBounds(screenWidth, screenHeight);
 	gameObjects.push_back(player);
 	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(player));
 
-	auto obj = std::make_shared<GameObject>(centerX - 200, centerY - 200, 100.0f, 100.0f, true);
-	obj->setSprite(SpriteType::ROAD);
-	obj->setParent(player);
-	gameObjects.push_back(obj);
-	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(obj));
-
-	auto obj2 = std::make_shared<GameObject>(centerX + 200, centerY - 200, 130.0f, 30.0f, true);
-	obj2->setSprite(SpriteType::ROAD);
-	obj2->setParent(obj);
-	gameObjects.push_back(obj2);
-	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(obj2));
+	this->mainCamera->setParent(player);
 
 	// reset game stats
 	speed = 0;
@@ -119,6 +115,7 @@ void GameLogic::endGame() {
 	objectAdapters.clear();
 }
 
+
 const std::vector<std::shared_ptr<IGameObject>>& GameLogic::getGameObjects() const { return objectAdapters; }
 
 void GameLogic::applyMouseForce(int x, int y, bool pressed) {
@@ -129,5 +126,23 @@ void GameLogic::applyMouseForce(int x, int y, bool pressed) {
 
 	if (pressed) {
 		fabric->applyForce((float)x, (float)y, 100.0f, 800.0f);
+	}
+}
+
+void GameLogic::scaleToCamera()
+{
+	if (mainCamera) {
+		Vec2 camPos = mainCamera->getWorldTransform().getPos();
+		float cameraRotation = mainCamera->getWorldTransform().getRotation();
+		//Vec2 screenCenter{ static_cast<float>(screenWidth / 2), static_cast<float>(screenHeight / 2) };
+		for (auto& obj : gameObjects) {
+			Vec2 currentPos = obj->getWorldTransform().getPos();
+			float currentRotation = obj->getWorldTransform().getRotation();
+			obj->setWorldTransform(currentPos - camPos, currentRotation - cameraRotation);
+			auto x = 1;
+		}
+	}
+	else {
+		SDL_LogWarn(SDL_LOG_CATEGORY_APPLICATION, "GameLogic: Cannot scale to camera, mainCamera is null");
 	}
 }
