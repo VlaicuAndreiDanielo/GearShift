@@ -73,11 +73,31 @@ void GameLogic::startGame() {
 	mainCamera->getWorldTransform().setLockX(true);
 	gameObjects.push_back(mainCamera);
 
-	auto road1 = std::make_shared<GameObject>(centerX, centerY-400, 1400.0f, 700.0f, true);
+	auto road1 = std::make_shared<GameObject>(centerX, centerY-400, 1400.0f, 720.0f, true);
 	road1->setSprite(SpriteType::ROAD);
 	gameObjects.push_back(road1);
 	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road1));
-	auto road2 = std::make_shared<GameObject>(centerX, centerY+300, 1400.0f, 700.0f, true);
+
+
+	for (int i = 0; i < 3; i++) {
+		auto roadGuard = std::make_shared<GameObject>(centerX - 405.0f, centerY - 640.0f + i * 240.0f, 30.0f, 240.0f, true);
+		roadGuard->setSprite(SpriteType::ROAD_GUARD);
+		roadGuard->getWorldTransform().setFixed(true);
+		collisionManager->addCollider<BoxCollider>(roadGuard, 30.0f, 240.0f);
+		gameObjects.push_back(roadGuard);
+		objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadGuard));
+	}
+	for (int i = 0; i < 3; i++) {
+		auto roadGuard = std::make_shared<GameObject>(centerX + 405.0f, centerY - 640.0f + i * 240.0f, 30.0f, 240.0f, true);
+		roadGuard->setWorldTransform(roadGuard->getWorldTransform().getPos(), 3.14f);
+		roadGuard->setSprite(SpriteType::ROAD_GUARD);
+		roadGuard->getWorldTransform().setFixed(true);
+		collisionManager->addCollider<BoxCollider>(roadGuard, 30.0f, 240.0f);
+		gameObjects.push_back(roadGuard);
+		objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadGuard));
+	}
+
+	auto road2 = std::make_shared<GameObject>(centerX, centerY+300, 1400.0f, 720.0f, true);
 	road2->setSprite(SpriteType::ROAD);
 	gameObjects.push_back(road2);
 	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road2));

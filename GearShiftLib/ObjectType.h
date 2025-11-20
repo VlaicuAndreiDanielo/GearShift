@@ -5,6 +5,7 @@ enum class ObjectType {
 	PLAYER,
 	CAMERA,
 	ROAD,
+	ROAD_GUARD,
 	ENEMY,
 	OBSTACLE
 };
