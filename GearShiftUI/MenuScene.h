@@ -9,7 +9,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <memory>
 
-class MenuScene : public Scene {
+class MenuScene : public IScene {
 private:
     Renderer* renderer;
     SceneMgr* sceneMgr;

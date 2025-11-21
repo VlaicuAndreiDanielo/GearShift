@@ -8,7 +8,7 @@
 #include "IGame.h"
 #include <memory>
 
-class GameScene : public Scene {
+class GameScene : public IScene {
 private:
     Renderer* renderer;
     SceneMgr* sceneMgr;

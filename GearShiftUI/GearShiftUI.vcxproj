@@ -167,6 +167,7 @@
     <ClInclude Include="FuelTimer.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="IScene.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="ObjectRenderer.h" />
     <ClInclude Include="Renderer.h" />

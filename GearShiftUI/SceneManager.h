@@ -3,27 +3,12 @@
 #include <unordered_map>
 #include <string>
 #include <SDL2/SDL.h>
-
-class Scene {
-public:
-    virtual ~Scene() = default;
-    virtual void update(float dt) = 0;
-    virtual void render() = 0;
-    virtual void handleEvent(SDL_Event& e) = 0;
-    virtual std::string getName() const = 0;
-
-    // Lifecycle methods - called when scene becomes active/inactive
-    // Implement to initialize/load resources when entering
-    virtual void onEnter() = 0;
-    
-    // Implement to cleanup/save state when exiting
-    virtual void onExit() = 0;
-};
+#include "IScene.h"
 
 class SceneMgr {
 private:
-    std::unordered_map<std::string, std::shared_ptr<Scene>> scenes;
-    std::shared_ptr<Scene> current;
+    std::unordered_map<std::string, std::shared_ptr<IScene>> scenes;
+    std::shared_ptr<IScene> current;
     std::string nextName;
     bool shouldChange;
 
@@ -34,7 +19,7 @@ public:
     SceneMgr();
 
     // Add a scene to the manager
-    void add(const std::string& name, std::shared_ptr<Scene> scene);
+    void add(const std::string& name, std::shared_ptr<IScene> scene);
     
     // Request a scene change (happens on next update)
     void change(const std::string& name);
@@ -45,6 +30,6 @@ public:
     void handleEvent(SDL_Event& e);
 
     // Getters
-    std::shared_ptr<Scene> getCurrent() const { return current; }
+    std::shared_ptr<IScene> getCurrent() const { return current; }
     bool has(const std::string& name) const;
 };

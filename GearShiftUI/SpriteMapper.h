@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include "SpriteType.h"
 
-class SpriteMapper {
+static class SpriteMapper {
 public:
 	static const std::string getSpritePath(SpriteType sprite);
 private:

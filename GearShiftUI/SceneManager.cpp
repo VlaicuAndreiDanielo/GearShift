@@ -3,7 +3,7 @@
 
 SceneMgr::SceneMgr() : shouldChange(false) {}
 
-void SceneMgr::add(const std::string& name, std::shared_ptr<Scene> scene) {
+void SceneMgr::add(const std::string& name, std::shared_ptr<IScene> scene) {
     if (!scene) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SceneManager: Cannot add null scene '%s'", name.c_str());
         return;
