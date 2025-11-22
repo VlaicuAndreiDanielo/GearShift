@@ -61,6 +61,7 @@ void GameLogic::update(float dt, const IInputState& input) {
 		break;
 
 	case GameState::GameOver:
+		return;
 		// game over logic
 		break;
 	}
@@ -178,4 +179,6 @@ void GameLogic::onFuelEmpty() {
 	SDL_Log("GameLogic: Fuel empty ? GAME OVER");
 	currentState = GameState::GameOver;
 }
+
+
 

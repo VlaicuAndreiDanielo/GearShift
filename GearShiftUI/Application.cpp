@@ -2,6 +2,7 @@
 #include "MenuScene.h"
 #include "GameScene.h"
 #include "GameLogic.h"
+#include "GameOverScene.h"
 
 Application::Application()
 	: running(false), lastTime(0) {
@@ -45,9 +46,14 @@ void Application::initializeScenes() {
 		return;
 	}
 
+	auto gameOverScene = std::make_shared<GameOverScene>(
+		renderer.get(), &sceneMgr
+	);
+
 	// Register scenes with manager (first scene will auto-initialize via onEnter)
 	sceneMgr.add("Menu", menuScene);
 	sceneMgr.add("Game", gameScene);
+	sceneMgr.add("GameOver", gameOverScene);
 
 	SDL_Log("Application: All scenes registered");
 }

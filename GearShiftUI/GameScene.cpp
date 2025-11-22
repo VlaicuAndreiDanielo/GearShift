@@ -55,6 +55,13 @@ void GameScene::update(float dt) {
             gameShared->onFuelEmpty();
         }
     }
+    if (auto gameShared = game.lock()) {
+        if (gameShared->getState() == GameState::GameOver) {
+            SDL_Log("GameScene: Switching to GameOver scene");
+            sceneMgr->change("GameOver");
+            return;
+        }
+    }
 }
 
 void GameScene::render() {

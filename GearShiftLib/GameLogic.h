@@ -32,6 +32,7 @@ public:
 	GameState getState() const override { return currentState; }
 	float getTime() const override { return gameTime; }
 	int getScore() const override { return score; }
+	bool isGameOver() const{ return currentState == GameState::GameOver; }
 
 	// game logic
 	void applyMouseForce(int x, int y, bool pressed) override;
