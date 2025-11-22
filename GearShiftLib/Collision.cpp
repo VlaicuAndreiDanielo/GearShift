@@ -19,6 +19,7 @@ float CollisionManager::Collision::getPenetrationDepth() const { return penetrat
 
 void CollisionManager::Collision::resolve() const
 {
+	if (colliderA->isTrigger() || colliderB->isTrigger()) return; //If trigger, do not resolve collision 
 	// Simple resolution: move objects apart along collision normal by penetration depth
 	auto objA = colliderA->getMasterObject();
 	auto objB = colliderB->getMasterObject();

@@ -20,7 +20,7 @@ public:
 	void setParent(std::shared_ptr<GameObject> parentObj);
 	Transform& getWorldTransform();
 	void setWorldTransform(Vec2 pos, float rotation);
-	virtual ObjectType getType() const;
+	ObjectType getType() const;
 	SpriteType getSprite() const;
 	void setSprite(SpriteType sprite);
 	void setActive(bool isActive);
@@ -40,9 +40,10 @@ protected:
 	float width = 0.0f;
 	float height = 0.0f;
 	SpriteType sprite = SpriteType::NONE;
+	ObjectType type = ObjectType::NONE;
 	virtual void onCollision(std::shared_ptr<Collider> other);
 	void parentUpdate(Vec2 deltaPos, float deltaRotation);
-private:
 	std::optional<std::weak_ptr<GameObject>> parent = std::nullopt;
+private:
 	std::vector<std::weak_ptr<GameObject>> children;
 };

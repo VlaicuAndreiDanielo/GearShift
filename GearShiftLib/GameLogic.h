@@ -40,6 +40,7 @@ public:
 private:
 	GameLogic(int screenW, int screenH);
 	void scaleToCamera();
+	void createRoadSegments();
 
 	std::shared_ptr<class IFabric> fabric;
 	std::shared_ptr<class Camera> mainCamera;

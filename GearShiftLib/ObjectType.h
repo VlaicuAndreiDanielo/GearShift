@@ -2,6 +2,7 @@
 
 enum class ObjectType {
 	NONE,
+	TRIGGER,
 	PLAYER,
 	CAMERA,
 	ROAD,

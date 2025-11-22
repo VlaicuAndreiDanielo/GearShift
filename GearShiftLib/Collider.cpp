@@ -22,6 +22,17 @@ std::shared_ptr<GameObject> CollisionManager::Collider::getMasterObject() const
 	return masterObject.lock();
 }
 
+void CollisionManager::Collider::setTrigger(bool trigger)
+{
+	this->trigger = trigger;
+}
+
+bool CollisionManager::Collider::isTrigger() const
+{
+	return this->trigger;
+}
+
+
 
 void CollisionManager::Collider::notifyCollision(std::shared_ptr<Collider> other) {
 	if (auto masterShared = this->masterObject.lock()) {

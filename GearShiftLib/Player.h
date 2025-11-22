@@ -4,8 +4,7 @@
 
 class Player : public GameObject {
 public:
-	ObjectType getType() const override;
-    static std::shared_ptr<Player> create(std::weak_ptr<CollisionManager> colisionManager, float startX, float startY);
+    static std::shared_ptr<Player> create(std::weak_ptr<CollisionManager> collisionManager, float startX, float startY);
     // update using abstract input interface
     void update(float dt, const IInputState& input) override;
 

@@ -19,7 +19,7 @@ void GameObject::setWorldTransform(Vec2 pos, float rotation)
 	}
 }
 
-ObjectType GameObject::getType() const { return ObjectType::NONE; }
+ObjectType GameObject::getType() const { return this->type; }
 
 SpriteType GameObject::getSprite() const { return this->sprite; }
 

@@ -13,11 +13,11 @@ Player::Player(float startX, float startY)
 	boundMaxX(1920), boundMaxY(1080)
 {
 	this->sprite = SpriteType::PLAYER;
+	this->type = ObjectType::PLAYER;
 }
 
 
 
-ObjectType Player::getType() const { return ObjectType::PLAYER; }
 
 std::shared_ptr<Player> Player::create(std::weak_ptr<CollisionManager> collisionManager, float startX, float startY)
 {
@@ -74,10 +74,10 @@ void Player::handleInput(const IInputState& input)
     if (input.isLeftPressed())  vx = -baseSpeed;
     if (input.isRightPressed()) vx = baseSpeed;
 
-    if (vx != 0 && vy != 0) {
-        vx *= 0.707f;
-        vy *= 0.707f;
-    }
+    //if (vx != 0 && vy != 0) {
+    //    vx *= 0.707f;
+    //    vy *= 0.707f;
+    //}
 }
 
 // Query state (for rendering in UI layer) -> dont overlap 

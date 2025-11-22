@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "BoxCollider.h"
 #include "FabricPhysics.h"
+#include "RoadSegment.h"
 
 GameLogic::GameLogic(int screenW, int screenH)
 	: collisionManager{ std::make_shared<CollisionManager>() },
@@ -78,34 +79,36 @@ void GameLogic::startGame() {
 	mainCamera->getWorldTransform().setLockX(true);
 	gameObjects.push_back(mainCamera);
 
-	auto road1 = std::make_shared<GameObject>(centerX, centerY - 400, 1400.0f, 720.0f, true);
-	road1->setSprite(SpriteType::ROAD);
-	gameObjects.push_back(road1);
-	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road1));
+	createRoadSegments();
+
+	//auto road1 = std::make_shared<GameObject>(centerX, centerY - 400, 1400.0f, 720.0f, true);
+	//road1->setSprite(SpriteType::ROAD);
+	//gameObjects.push_back(road1);
+	//objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road1));
 
 
-	for (int i = 0; i < 3; i++) {
-		auto roadGuard = std::make_shared<GameObject>(centerX - 405.0f, centerY - 640.0f + i * 240.0f, 30.0f, 240.0f, true);
-		roadGuard->setSprite(SpriteType::ROAD_GUARD);
-		roadGuard->getWorldTransform().setFixed(true);
-		collisionManager->addCollider<BoxCollider>(roadGuard, 30.0f, 240.0f);
-		gameObjects.push_back(roadGuard);
-		objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadGuard));
-	}
-	for (int i = 0; i < 3; i++) {
-		auto roadGuard = std::make_shared<GameObject>(centerX + 405.0f, centerY - 640.0f + i * 240.0f, 30.0f, 240.0f, true);
-		roadGuard->setWorldTransform(roadGuard->getWorldTransform().getPos(), 3.14f);
-		roadGuard->setSprite(SpriteType::ROAD_GUARD);
-		roadGuard->getWorldTransform().setFixed(true);
-		collisionManager->addCollider<BoxCollider>(roadGuard, 30.0f, 240.0f);
-		gameObjects.push_back(roadGuard);
-		objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadGuard));
-	}
+	//for (int i = 0; i < 3; i++) {
+	//	auto roadGuard = std::make_shared<GameObject>(centerX - 405.0f, centerY - 640.0f + i * 240.0f, 30.0f, 240.0f, true);
+	//	roadGuard->setSprite(SpriteType::ROAD_GUARD);
+	//	roadGuard->getWorldTransform().setFixed(true);
+	//	collisionManager->addCollider<BoxCollider>(roadGuard, 30.0f, 240.0f);
+	//	gameObjects.push_back(roadGuard);
+	//	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadGuard));
+	//}
+	//for (int i = 0; i < 3; i++) {
+	//	auto roadGuard = std::make_shared<GameObject>(centerX + 405.0f, centerY - 640.0f + i * 240.0f, 30.0f, 240.0f, true);
+	//	roadGuard->setWorldTransform(roadGuard->getWorldTransform().getPos(), 3.14f);
+	//	roadGuard->setSprite(SpriteType::ROAD_GUARD);
+	//	roadGuard->getWorldTransform().setFixed(true);
+	//	collisionManager->addCollider<BoxCollider>(roadGuard, 30.0f, 240.0f);
+	//	gameObjects.push_back(roadGuard);
+	//	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadGuard));
+	//}
 
-	auto road2 = std::make_shared<GameObject>(centerX, centerY + 300, 1400.0f, 720.0f, true);
-	road2->setSprite(SpriteType::ROAD);
-	gameObjects.push_back(road2);
-	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road2));
+	//auto road2 = std::make_shared<GameObject>(centerX, centerY + 300, 1400.0f, 720.0f, true);
+	//road2->setSprite(SpriteType::ROAD);
+	//gameObjects.push_back(road2);
+	//objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road2));
 
 	auto player = Player::create(collisionManager, centerX, centerY + 300.0f);
 	player->setBounds(screenWidth, screenHeight);
@@ -117,6 +120,31 @@ void GameLogic::startGame() {
 	// reset game stats
 	score = 0;
 	gameTime = 0;
+}
+
+void GameLogic::createRoadSegments()
+{
+	float centerX = screenWidth / 2.0f;
+	float centerY = screenHeight / 2.0f;
+
+	int roadCount = 5;
+	float offsetY = 500.0f;
+	std::vector<std::shared_ptr<GameObject>> roadGuards;
+	for (int i = 0; i < roadCount; i++) {
+		auto roadObjectsList = RoadSegment::create(collisionManager, centerX, centerY + offsetY - i * 720.0f, 1400.0f, 720.0f, roadCount);
+		gameObjects.push_back(roadObjectsList[0]);
+		objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadObjectsList[0]));
+		gameObjects.push_back(roadObjectsList[1]);
+		objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadObjectsList[1]));
+
+		for (int i = 2; i < roadObjectsList.size(); i++) {
+			roadGuards.push_back(roadObjectsList[i]);
+		}
+	}
+	for (auto& obj : roadGuards) {
+		gameObjects.push_back(obj);
+		objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(obj));
+	}
 }
 
 
@@ -174,6 +202,8 @@ void GameLogic::scaleToCamera()
 		SDL_LogWarn(SDL_LOG_CATEGORY_APPLICATION, "GameLogic: Cannot scale to camera, mainCamera is null");
 	}
 }
+
+
 
 void GameLogic::onFuelEmpty() {
 	SDL_Log("GameLogic: Fuel empty ? GAME OVER");
