@@ -25,6 +25,12 @@ private:
     float vx, vy;
     float speed;
 
+    float currentSpeed;
+    float maxSpeed;
+    float acceleration;
+    float deceleration;
+    float baseSpeed;
+
 
     // boundaries
     int boundMaxX, boundMaxY;

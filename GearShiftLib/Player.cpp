@@ -3,11 +3,19 @@
 #include <algorithm>
 
 Player::Player(float startX, float startY)
-	: GameObject{ startX, startY, 150, 170, true }, vx{ 0 }, vy{ 0 }, speed{ 300.0f },
-	boundMaxX{ 1920 }, boundMaxY{ 1080 }
+	: GameObject{ startX, startY, 150, 170, true },
+	vx(0), vy(0),
+	currentSpeed(0.0f),
+	maxSpeed(1000.0f),        
+	acceleration(200.0f),    
+	deceleration(100.0f),   
+	baseSpeed(600.0f),       
+	boundMaxX(1920), boundMaxY(1080)
 {
 	this->sprite = SpriteType::PLAYER;
 }
+
+
 
 ObjectType Player::getType() const { return ObjectType::PLAYER; }
 
@@ -23,6 +31,7 @@ std::shared_ptr<Player> Player::create(std::weak_ptr<CollisionManager> collision
 void Player::update(float dt, const IInputState& input)
 {
 	if (!active) return;
+
 	handleInput(input);
 
 	this->localTransform.setPosition({
@@ -37,31 +46,38 @@ void Player::update(float dt, const IInputState& input)
 		});
 }
 
-void Player::handleInput(const IInputState& input) {
-	vx = 0;
-	vy = 0;
 
-	if (!active) return;
+void Player::handleInput(const IInputState& input)
+{
+    vx = 0;
 
-	// use abstract input interface
-	if (input.isUpPressed()) {
-		vy = -speed;
-	}
-	if (input.isDownPressed()) {
-		vy = speed;
-	}
-	if (input.isLeftPressed()) {
-		vx = -speed;
-	}
-	if (input.isRightPressed()) {
-		vx = speed;
-	}
+    float dt = 1.0f / 60.0f;
 
-	// normalize diagonal movement no longer 2x speed on vertices 
-	if (vx != 0 && vy != 0) {
-		vx *= 0.707f;  // 1/sqrt(2)
-		vy *= 0.707f;
-	}
+    if (input.isUpPressed()) {
+        currentSpeed += acceleration * dt;
+        if (currentSpeed > maxSpeed)
+            currentSpeed = maxSpeed;
+    }
+    else {
+        currentSpeed -= deceleration * dt;
+        if (currentSpeed < 0)
+            currentSpeed = 0;
+    }
+
+    vy = -currentSpeed;
+
+    if (input.isDownPressed()) {
+        currentSpeed = 0;
+        vy = baseSpeed;
+    }
+
+    if (input.isLeftPressed())  vx = -baseSpeed;
+    if (input.isRightPressed()) vx = baseSpeed;
+
+    if (vx != 0 && vy != 0) {
+        vx *= 0.707f;
+        vy *= 0.707f;
+    }
 }
 
 // Query state (for rendering in UI layer) -> dont overlap 
