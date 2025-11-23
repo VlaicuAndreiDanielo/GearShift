@@ -1,4 +1,5 @@
 #include "GameScene.h"
+#include "GameOverScene.h"
 
 GameScene::GameScene(Renderer* rend, SceneMgr* mgr, std::weak_ptr<IGame> logic, InputHandler* input)
     : renderer(rend), sceneMgr(mgr), game(logic), inputHandler(input) {
@@ -55,13 +56,25 @@ void GameScene::update(float dt) {
             gameShared->onFuelEmpty();
         }
     }
+
     if (auto gameShared = game.lock()) {
         if (gameShared->getState() == GameState::GameOver) {
+
+            int finalScore = scoreManager->getScore();
+
+            if (auto gameOverScene = sceneMgr->getScene("GameOver")) {
+                auto gos = std::dynamic_pointer_cast<GameOverScene>(gameOverScene);
+                if (gos) {
+                    gos->setFinalScore(finalScore);
+                }
+            }
+
             SDL_Log("GameScene: Switching to GameOver scene");
             sceneMgr->change("GameOver");
             return;
         }
     }
+
 }
 
 void GameScene::render() {

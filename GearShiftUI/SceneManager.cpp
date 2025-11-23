@@ -82,3 +82,11 @@ void SceneMgr::handleEvent(SDL_Event& e) {
 bool SceneMgr::has(const std::string& name) const {
     return scenes.find(name) != scenes.end();
 }
+
+std::shared_ptr<IScene> SceneMgr::getScene(const std::string& name) const {
+    auto it = scenes.find(name);
+    if (it != scenes.end()) {
+        return it->second;
+    }
+    return nullptr;
+}

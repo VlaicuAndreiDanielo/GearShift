@@ -18,7 +18,7 @@ private:
     
     std::unique_ptr<ObjectRenderer> objectRenderer;
     std::unique_ptr<FuelTimer> fuelTimer;
-    std::unique_ptr<ScoreManager> scoreManager;
+	std::unique_ptr<ScoreManager> scoreManager;
 
 public:
     GameScene(Renderer* rend, SceneMgr* mgr, std::weak_ptr<IGame> logic, InputHandler* input);

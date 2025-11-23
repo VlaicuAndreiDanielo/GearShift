@@ -13,6 +13,7 @@ private:
 
     float timeAlive;
     float autoReturnTime;
+    int finalScore;
 
     TTF_Font* font = nullptr;
 
@@ -25,6 +26,7 @@ public:
     void handleEvent(SDL_Event& e) override;
 
     std::string getName() const override { return "GameOver"; }
+    void setFinalScore(int score) { finalScore = score; }
 
     void onEnter() override;
     void onExit() override;

@@ -23,6 +23,8 @@ public:
     
     // Request a scene change (happens on next update)
     void change(const std::string& name);
+
+    std::shared_ptr<IScene> getScene(const std::string& name) const;
     
     // Core loop methods
     void update(float dt);

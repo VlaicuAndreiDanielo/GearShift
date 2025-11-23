@@ -76,6 +76,26 @@ void GameOverScene::render() {
 
             SDL_FreeSurface(surf);
         }
+        if (font) {
+            SDL_Color yellow{ 255, 230, 0, 255 };
+
+            std::string scoreText = "Final Score: " + std::to_string(finalScore);
+
+            SDL_Surface* surf2 = TTF_RenderText_Blended(font, scoreText.c_str(), yellow);
+            if (surf2) {
+                SDL_Texture* tex2 = SDL_CreateTextureFromSurface(sdl, surf2);
+
+                int w2, h2;
+                SDL_QueryTexture(tex2, NULL, NULL, &w2, &h2);
+
+                SDL_Rect dst2{600 + (720 - w2) / 2, 400 + 150 + 10, w2, h2};
+
+                SDL_RenderCopy(sdl, tex2, NULL, &dst2);
+
+                SDL_DestroyTexture(tex2);
+                SDL_FreeSurface(surf2);
+            }
+        }
     }
     else {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Font is null in render()");

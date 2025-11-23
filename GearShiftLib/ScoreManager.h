@@ -11,6 +11,7 @@ public:
     void update(float dt);
     void render();
     void reset();
+	int getScore() { return score; }
 
 private:
     SDL_Renderer* renderer;
