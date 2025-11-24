@@ -30,8 +30,10 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="GameObjectAdapter.cpp" />
+    <ClCompile Include="PlayerTrigger.cpp" />
     <ClCompile Include="RoadSegment.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
+    <ClCompile Include="TrafficBaseNPC.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -52,9 +54,11 @@
     <ClInclude Include="ObjectType.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="GameObjectAdapter.h" />
+    <ClInclude Include="PlayerTrigger.h" />
     <ClInclude Include="RoadSegment.h" />
     <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="SpriteType.h" />
+    <ClInclude Include="TrafficBaseNPC.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>

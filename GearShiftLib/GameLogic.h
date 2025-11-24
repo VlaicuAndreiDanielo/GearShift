@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <random>
 #include "IGame.h"
 #include "Player.h"
 #include "IInputState.h"
@@ -41,6 +42,7 @@ private:
 	GameLogic(int screenW, int screenH);
 	void scaleToCamera();
 	void createRoadSegments();
+	void createNPCs();
 
 	std::shared_ptr<class IFabric> fabric;
 	std::shared_ptr<class Camera> mainCamera;
@@ -57,5 +59,7 @@ private:
 
 	// game stats -> reference 
 	int score;
+
+	std::mt19937 rng;
 
 };

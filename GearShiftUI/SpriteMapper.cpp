@@ -4,7 +4,8 @@ const std::unordered_map<SpriteType, std::string> SpriteMapper::spritePathMap {
 	{ SpriteType::NONE, "" },
 	{ SpriteType::PLAYER, "assets/images/PlayerCar.png" },
 	{ SpriteType::ROAD, "assets/images/road.png"},
-	{ SpriteType::ROAD_GUARD, "assets/images/road_guard.png"}
+	{ SpriteType::ROAD_GUARD, "assets/images/road_guard.png"},
+	{ SpriteType::BASE_NPC, "assets/images/PlayerCar.png"},
 };
 const std::string SpriteMapper::getSpritePath(SpriteType sprite)
 {

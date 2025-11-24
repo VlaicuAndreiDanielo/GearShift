@@ -5,5 +5,5 @@ enum class SpriteType {
 	PLAYER,
 	ROAD,
 	ROAD_GUARD,
-	ENEMY,
+	BASE_NPC,
 };

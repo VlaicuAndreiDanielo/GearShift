@@ -5,13 +5,15 @@
 #include "BoxCollider.h"
 #include "FabricPhysics.h"
 #include "RoadSegment.h"
+#include "TrafficBaseNPC.h"
 
 GameLogic::GameLogic(int screenW, int screenH)
 	: collisionManager{ std::make_shared<CollisionManager>() },
 	fabric{ Fabric::create(130,75,16.0f) },
 	screenWidth(screenW), screenHeight(screenH),
 	currentState(GameState::Menu),
-	gameTime(0), score(0) {
+	gameTime(0), score(0),
+	rng{ std::random_device{}() } {
 	// player created when game starts (not in menu)
 }
 
@@ -80,35 +82,7 @@ void GameLogic::startGame() {
 	gameObjects.push_back(mainCamera);
 
 	createRoadSegments();
-
-	//auto road1 = std::make_shared<GameObject>(centerX, centerY - 400, 1400.0f, 720.0f, true);
-	//road1->setSprite(SpriteType::ROAD);
-	//gameObjects.push_back(road1);
-	//objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road1));
-
-
-	//for (int i = 0; i < 3; i++) {
-	//	auto roadGuard = std::make_shared<GameObject>(centerX - 405.0f, centerY - 640.0f + i * 240.0f, 30.0f, 240.0f, true);
-	//	roadGuard->setSprite(SpriteType::ROAD_GUARD);
-	//	roadGuard->getWorldTransform().setFixed(true);
-	//	collisionManager->addCollider<BoxCollider>(roadGuard, 30.0f, 240.0f);
-	//	gameObjects.push_back(roadGuard);
-	//	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadGuard));
-	//}
-	//for (int i = 0; i < 3; i++) {
-	//	auto roadGuard = std::make_shared<GameObject>(centerX + 405.0f, centerY - 640.0f + i * 240.0f, 30.0f, 240.0f, true);
-	//	roadGuard->setWorldTransform(roadGuard->getWorldTransform().getPos(), 3.14f);
-	//	roadGuard->setSprite(SpriteType::ROAD_GUARD);
-	//	roadGuard->getWorldTransform().setFixed(true);
-	//	collisionManager->addCollider<BoxCollider>(roadGuard, 30.0f, 240.0f);
-	//	gameObjects.push_back(roadGuard);
-	//	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(roadGuard));
-	//}
-
-	//auto road2 = std::make_shared<GameObject>(centerX, centerY + 300, 1400.0f, 720.0f, true);
-	//road2->setSprite(SpriteType::ROAD);
-	//gameObjects.push_back(road2);
-	//objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(road2));
+	createNPCs();
 
 	auto player = Player::create(collisionManager, centerX, centerY + 300.0f);
 	player->setBounds(screenWidth, screenHeight);
@@ -144,6 +118,22 @@ void GameLogic::createRoadSegments()
 	for (auto& obj : roadGuards) {
 		gameObjects.push_back(obj);
 		objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(obj));
+	}
+}
+
+void GameLogic::createNPCs()
+{
+	float centerX = screenWidth / 2.0f;
+	float centerY = screenHeight / 2.0f;
+
+	int npcCount = 10;
+
+	for (int i = 0; i < npcCount; i++) {
+		auto npcObjectsList = TrafficBaseNPC::create(collisionManager, rng, centerX, centerY, 150.0f, 170.0f, 810.0f, 720.0f, 100.0f, 300.0f);
+		for (auto& obj : npcObjectsList) {
+			gameObjects.push_back(obj);
+			objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(obj));
+		}
 	}
 }
 

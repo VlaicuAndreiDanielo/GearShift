@@ -1,25 +1,20 @@
 #pragma once
 #include "GameObject.h"
+#include "PlayerTrigger.h"
 
 class RoadSegment : public GameObject {
 public:
-	static std::vector<std::shared_ptr<GameObject>> create(std::weak_ptr<CollisionManager> colisionManager, float startX, float startY, float width, float height, int totalRoadCount);
+	static std::vector<std::shared_ptr<GameObject>> create(std::weak_ptr<CollisionManager> collisionManager, float startX, float startY, float width, float height, int totalRoadCount);
 
-	class RoadTrigger : public GameObject {
-	public:
-		RoadTrigger(float startX, float startY, float width, float height);
-	protected:
-		void onCollision(std::shared_ptr<CollisionManager::Collider> other) override;
-	};
 
-	std::shared_ptr<RoadTrigger> getTrigger() const { return trigger; }
+	std::shared_ptr<PlayerTrigger> getTrigger() const { return trigger; }
 protected:
-	friend class RoadTrigger;
+	friend class PlayerTrigger;
 	void playerTriggered();
 
 private:
 	RoadSegment(float startX, float startY, float width, float height, int totalRoadCount);
-	void createTrigger();
-	std::shared_ptr<RoadTrigger> trigger;
+	void createTrigger(std::weak_ptr<CollisionManager> collisionManager);
+	std::shared_ptr<PlayerTrigger> trigger;
 	int roadCount;
 };

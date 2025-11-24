@@ -64,20 +64,16 @@ void Player::handleInput(const IInputState& input)
             currentSpeed = 0;
     }
 
-    vy = -currentSpeed;
-
     if (input.isDownPressed()) {
-        currentSpeed = 0;
-        vy = baseSpeed;
+		currentSpeed -= 2 * deceleration * dt;
+		if (currentSpeed < 0)
+			currentSpeed = 0;
     }
+
+    vy = -currentSpeed;
 
     if (input.isLeftPressed())  vx = -baseSpeed;
     if (input.isRightPressed()) vx = baseSpeed;
-
-    //if (vx != 0 && vy != 0) {
-    //    vx *= 0.707f;
-    //    vy *= 0.707f;
-    //}
 }
 
 // Query state (for rendering in UI layer) -> dont overlap 

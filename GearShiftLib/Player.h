@@ -22,7 +22,6 @@ protected:
 private:
     Player(float startX, float startY);
     float vx, vy;
-    float speed;
 
     float currentSpeed;
     float maxSpeed;
