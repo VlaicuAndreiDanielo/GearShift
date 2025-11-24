@@ -53,6 +53,7 @@
     <ClInclude Include="IGame.h" />
     <ClInclude Include="IInputState.h" />
     <ClInclude Include="IGameObject.h" />
+    <ClInclude Include="IPlayerListener.h" />
     <ClInclude Include="ObjectType.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="GameObjectAdapter.h" />

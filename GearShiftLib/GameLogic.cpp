@@ -93,6 +93,7 @@ void GameLogic::startGame() {
 	createNPCs();
 
 	auto player = Player::create(collisionManager, centerX, centerY + 300.0f);
+	player->addListener(shared_from_this());
 	player->setBounds(screenWidth, screenHeight);
 	gameObjects.push_back(player);
 	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(player));
@@ -237,6 +238,11 @@ void GameLogic::spawnFuelCanister()
 void GameLogic::setFuelRecharged()
 {
 	isFuelRecharged = !isFuelRecharged;
+}
+
+void GameLogic::onPlayerEliminated()
+{
+	currentState = GameState::GameOver;
 }
 
 

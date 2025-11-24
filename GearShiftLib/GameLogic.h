@@ -8,7 +8,7 @@
 #include "CollisionManager.h"
 #include "GameScene.h"
 
-class GameLogic : public IGame {
+class GameLogic : public IGame, public IPlayerListener, public std::enable_shared_from_this<GameLogic> {
 public:
 
 	static std::shared_ptr<IGame> create(int screenW, int screenH);
@@ -41,6 +41,8 @@ public:
 	bool isFuelRecharged = false;
 	void setFuelRecharged();
 	bool getIsFuelRecharged() const { return isFuelRecharged; }
+
+	void onPlayerEliminated() override;
 
 private:
 	GameLogic(int screenW, int screenH);

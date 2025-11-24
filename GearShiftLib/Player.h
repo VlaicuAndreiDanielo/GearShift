@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "IPlayerListener.h"
 
 
 class Player : public GameObject {
@@ -16,11 +17,17 @@ public:
     // collision bounds-> reference
     void setBounds(int maxX, int maxY);
 
+    void addListener(PlayerListenerPtr listener);
+    void removeListener(PlayerListenerPtr listener);
+
 protected:
 	void onCollision(std::shared_ptr<Collider> other) override;
 
 private:
     Player(float startX, float startY);
+    void notifyPlayerEliminated();
+    void cleanupExpiredListeners();
+    std::vector<PlayerListenerWeakPtr> m_listeners;
     float vx, vy;
 
     float currentSpeed;
