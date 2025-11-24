@@ -33,4 +33,5 @@ public:
     void onExit() override;
 
     bool isFuelFinished() const;
+	void collectFuelCanister();
 };

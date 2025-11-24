@@ -21,6 +21,8 @@ public:
 	virtual float getTime() const = 0;
 	virtual int getScore() const = 0;
 	virtual void onFuelEmpty() = 0;
+	virtual bool getIsFuelRecharged() const = 0;
+	virtual void setFuelRecharged() = 0;
 	virtual void applyMouseForce(int x, int y, bool pressed) = 0;
 
 	virtual ~IGame() = default;

@@ -25,6 +25,7 @@
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="FabricPhysics.cpp" />
+    <ClCompile Include="FuelCanister.cpp" />
     <ClCompile Include="FuelManager.cpp" />
     <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="FabricPhysics.h" />
+    <ClInclude Include="FuelCanister.h" />
     <ClInclude Include="FuelManager.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="GameObject.h" />

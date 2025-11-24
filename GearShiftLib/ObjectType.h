@@ -8,5 +8,6 @@ enum class ObjectType {
 	ROAD,
 	ROAD_GUARD,
 	NPC,
-	OBSTACLE
+	OBSTACLE,
+	FUEL
 };

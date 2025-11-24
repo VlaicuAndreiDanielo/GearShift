@@ -6,4 +6,5 @@ enum class SpriteType {
 	ROAD,
 	ROAD_GUARD,
 	BASE_NPC,
+	FUEL_CANISTER,
 };

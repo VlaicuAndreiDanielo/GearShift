@@ -3,6 +3,9 @@
 #include "BoxCollider.h"
 #include "TrafficBaseNPC.h"
 
+
+int RoadSegment::segmentPassCounter = 0;
+
 RoadSegment::RoadSegment(float startX, float startY, float width, float height, int totalRoadCount) :
 	GameObject{ startX, startY, width, height, true },
 	roadCount{ totalRoadCount }
@@ -55,4 +58,6 @@ void RoadSegment::playerTriggered()
 	Vec2 distance = Vec2{ 0, -roadCount * height };
 	localTransform.setPosition(localTransform.getPos() + distance);
 	parentUpdate(distance, 0.0f);
+
+	RoadSegment::segmentPassCounter++;
 }

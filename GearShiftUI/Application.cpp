@@ -41,6 +41,7 @@ void Application::initializeScenes() {
 	auto gameScene = std::make_shared<GameScene>(
 		renderer.get(), &sceneMgr, gameLogic, inputHandler.get()
 	);
+
 	if (!gameScene) {
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Application: Failed to create game scene");
 		return;

@@ -6,6 +6,7 @@
 #include "FabricPhysics.h"
 #include "RoadSegment.h"
 #include "TrafficBaseNPC.h"
+#include "FuelCanister.h"
 
 GameLogic::GameLogic(int screenW, int screenH)
 	: collisionManager{ std::make_shared<CollisionManager>() },
@@ -32,6 +33,13 @@ void GameLogic::update(float dt, const IInputState& input) {
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "GameLogic: Fabric is null in update");
 		return;
 	}
+	if (RoadSegment::segmentPassCounter >= 3)
+	{
+		RoadSegment::segmentPassCounter = 0;
+		spawnFuelCanister();
+	}
+
+
 
 	// update based on game state
 	switch (currentState) {
@@ -94,6 +102,7 @@ void GameLogic::startGame() {
 	// reset game stats
 	score = 0;
 	gameTime = 0;
+
 }
 
 void GameLogic::createRoadSegments()
@@ -199,6 +208,40 @@ void GameLogic::onFuelEmpty() {
 	SDL_Log("GameLogic: Fuel empty ? GAME OVER");
 	currentState = GameState::GameOver;
 }
+
+void GameLogic::spawnFuelCanister()
+{
+	float centerX = screenWidth / 2.0f;
+
+	float highestY = 999999999.0f;
+	for (auto& obj : gameObjects) {
+		if (obj->getType() == ObjectType::ROAD) {
+			float y = obj->getWorldTransform().getY();
+			if (y < highestY)
+				highestY = y;
+		}
+	}
+
+	float w = 80.0f;
+	float h = 80.0f;
+
+	auto fuel = std::make_shared<FuelCanister>(centerX, highestY, w, h, this);
+
+	if (collisionManager)
+		collisionManager->addCollider<BoxCollider>(fuel, w, h);
+
+	gameObjects.push_back(fuel);
+	objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(fuel));
+}
+
+void GameLogic::setFuelRecharged()
+{
+	isFuelRecharged = !isFuelRecharged;
+}
+
+
+
+
 
 
 

@@ -34,9 +34,13 @@ public:
 	float getTime() const override { return gameTime; }
 	int getScore() const override { return score; }
 	bool isGameOver() const{ return currentState == GameState::GameOver; }
+	void spawnFuelCanister();
 
 	// game logic
 	void applyMouseForce(int x, int y, bool pressed) override;
+	bool isFuelRecharged = false;
+	void setFuelRecharged();
+	bool getIsFuelRecharged() const { return isFuelRecharged; }
 
 private:
 	GameLogic(int screenW, int screenH);

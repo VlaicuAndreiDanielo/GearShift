@@ -16,6 +16,8 @@ void GameScene::onEnter() {
     scoreManager = std::make_unique<ScoreManager>(renderer->getSDLRenderer());
 
     SDL_Log("GameScene: Entered and initialized rendering components");
+
+
 }
 
 void GameScene::onExit() {
@@ -74,6 +76,13 @@ void GameScene::update(float dt) {
             return;
         }
     }
+    if (auto gameShared = game.lock()) {
+        if (gameShared->getIsFuelRecharged()) {
+            collectFuelCanister(); 
+            gameShared->setFuelRecharged();
+        }
+    }
+
 
 }
 
@@ -102,3 +111,11 @@ void GameScene::render() {
 bool GameScene::isFuelFinished() const {
     return fuelTimer ? fuelTimer->isFinished() : false;
 }
+
+void GameScene::collectFuelCanister() {
+    if (fuelTimer) {
+        fuelTimer->reset();
+        SDL_Log("FuelTimer reset due to collecting a canister");
+    }
+}
+
