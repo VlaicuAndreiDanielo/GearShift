@@ -139,7 +139,7 @@ void GameLogic::createNPCs()
 	int npcCount = 10;
 
 	for (int i = 0; i < npcCount; i++) {
-		auto npcObjectsList = TrafficBaseNPC::create(collisionManager, rng, centerX, centerY, 150.0f, 170.0f, 810.0f, 720.0f, 100.0f, 300.0f);
+		auto npcObjectsList = TrafficBaseNPC::create(collisionManager, rng, centerX, centerY, 95.0f, 170.0f, 810.0f, 720.0f, 100.0f, 300.0f);
 		for (auto& obj : npcObjectsList) {
 			gameObjects.push_back(obj);
 			objectAdapters.emplace_back(std::make_shared<GameObjectAdapter>(obj));

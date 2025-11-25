@@ -3,7 +3,7 @@
 #include <algorithm>
 
 Player::Player(float startX, float startY)
-	: GameObject{ startX, startY, 150, 170, true },
+	: GameObject{ startX, startY, 95.0f, 170.0f, true },
 	vx(0), vy(0),
 	currentSpeed(0.0f),
 	maxSpeed(1000.0f),

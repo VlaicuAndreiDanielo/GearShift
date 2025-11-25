@@ -41,4 +41,5 @@ private:
 	std::uniform_real_distribution<float> speedDist;
 	std::uniform_real_distribution<float> xPosDist;
 	std::uniform_real_distribution<float> yPosDist;
+	std::uniform_int_distribution<int> spriteDist;
 };

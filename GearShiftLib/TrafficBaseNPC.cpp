@@ -12,9 +12,10 @@ TrafficBaseNPC::TrafficBaseNPC(std::mt19937& gameRng, float startX, float startY
 	rng{ gameRng },
 	speedDist{ minSpeed, maxSpeed },
 	xPosDist{ startX - roadWidth / 2 + width, startX + roadWidth / 2 - width },
-	yPosDist{ 5 * roadHeight, 20 * roadHeight }
+	yPosDist{ 5 * roadHeight, 20 * roadHeight },
+	spriteDist{ 1,4 }
 {
-	this->sprite = SpriteType::BASE_NPC;
+	this->sprite = SpriteType::BASE_NPC_1;
 	this->type = ObjectType::NPC;
 }
 
@@ -59,6 +60,8 @@ void TrafficBaseNPC::createSlowDownTrigger(std::weak_ptr<CollisionManager> colli
 
 void TrafficBaseNPC::respawn()
 {
+	int newSprite = spriteDist(rng);
+	this->sprite = static_cast<SpriteType>(static_cast<int>(SpriteType::BASE_NPC_1) + newSprite - 1);
 	float newSpeed = speedDist(rng);
 	float newXPos = xPosDist(rng);
 	float newYPosDistance = yPosDist(rng);
