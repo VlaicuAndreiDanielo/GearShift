@@ -7,6 +7,7 @@
 #include "ObjectRenderer.h"
 #include "IGame.h"
 #include <memory>
+#include <SDL2/SDL_ttf.h>
 
 class GameScene : public IScene {
 private:
@@ -19,6 +20,7 @@ private:
     std::unique_ptr<ObjectRenderer> objectRenderer;
     std::unique_ptr<FuelTimer> fuelTimer;
 	std::unique_ptr<ScoreManager> scoreManager;
+    TTF_Font* font;
 
 public:
     GameScene(Renderer* rend, SceneMgr* mgr, std::weak_ptr<IGame> logic, InputHandler* input);
@@ -34,4 +36,6 @@ public:
 
     bool isFuelFinished() const;
 	void collectFuelCanister();
+private:
+    void renderPausedText();
 };

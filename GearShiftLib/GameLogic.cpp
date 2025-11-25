@@ -22,7 +22,7 @@ std::shared_ptr<IGame> GameLogic::create(int screenW, int screenH) {
 	return std::shared_ptr<IGame>(new GameLogic(screenW, screenH));
 }
 
-void GameLogic::update(float dt, const IInputState& input) {
+void GameLogic::update(float dt, IInputState& input) {
 	gameTime += dt;
 
 	// update fabric if it exists

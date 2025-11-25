@@ -9,7 +9,7 @@
 
 class IGame {
 public:
-	virtual void update(float dt, const IInputState& input) = 0;
+	virtual void update(float dt, IInputState& input) = 0;
 	virtual void startGame() = 0;
 	virtual void pauseGame() = 0;
 	virtual void resumeGame() = 0;

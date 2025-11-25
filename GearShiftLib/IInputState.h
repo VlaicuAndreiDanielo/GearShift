@@ -14,7 +14,7 @@ struct IInputState {
     // action input
     virtual bool isAcceleratePressed() const = 0;
     virtual bool isBrakePressed() const = 0;
-    virtual bool isPausePressed() const = 0;
+    virtual bool isPausePressed() = 0;
 
     // mouse input (for menu interactions)
     virtual int getMouseX() const = 0;

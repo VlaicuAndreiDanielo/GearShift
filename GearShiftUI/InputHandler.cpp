@@ -48,8 +48,16 @@ bool InputHandler::isBrakePressed() const {
     return keyState[SDL_SCANCODE_S] || keyState[SDL_SCANCODE_DOWN];
 }
 
-bool InputHandler::isPausePressed() const {
-    return keyState[SDL_SCANCODE_ESCAPE] || keyState[SDL_SCANCODE_P];
+bool InputHandler::isPausePressed() {
+    if (keyState[SDL_SCANCODE_ESCAPE] || keyState[SDL_SCANCODE_P]) {
+        if (pausePressedLastFrame) return false;
+        else {
+            pausePressedLastFrame = true;
+            return true;
+        }
+    }
+    pausePressedLastFrame = false;
+    return false;
 }
 
 int InputHandler::getMouseX() const {

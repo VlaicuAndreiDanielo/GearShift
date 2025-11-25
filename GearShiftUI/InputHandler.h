@@ -9,6 +9,7 @@ private:
     const Uint8* keyState;
     int mouseX, mouseY;
     bool mousePressed;
+	bool pausePressedLastFrame = false;
 
 public:
     InputHandler();
@@ -25,7 +26,7 @@ public:
 
     bool isAcceleratePressed() const override;
     bool isBrakePressed() const override;
-    bool isPausePressed() const override;
+    bool isPausePressed() override;
 
     int getMouseX() const override;
     int getMouseY() const override;

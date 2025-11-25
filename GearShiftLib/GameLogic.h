@@ -13,7 +13,7 @@ public:
 	static std::shared_ptr<IGame> create(int screenW, int screenH);
 
 	// core update loop
-	void update(float dt, const IInputState& input) override;
+	void update(float dt, IInputState& input) override;
 
 	// state management
 	void startGame() override;
