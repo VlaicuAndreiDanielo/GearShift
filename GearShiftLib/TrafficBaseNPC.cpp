@@ -66,6 +66,7 @@ void TrafficBaseNPC::respawn()
 	float newXPos = xPosDist(rng);
 	float newYPosDistance = yPosDist(rng);
 	this->desiredSpeed = newSpeed;
+	this->speed = this->desiredSpeed;
 
 	const Vec2& localPos = localTransform.getPos();
 

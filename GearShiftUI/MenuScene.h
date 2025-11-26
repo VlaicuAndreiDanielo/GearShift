@@ -20,6 +20,7 @@ private:
     std::unique_ptr<CRT> crt;
     std::unique_ptr<Wave> wave;
     std::unique_ptr<Btn> playBtn;
+    std::unique_ptr<Btn> exitBtn;
 
     TTF_Font* font;
     SDL_Texture* carTexture;

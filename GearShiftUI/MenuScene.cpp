@@ -53,6 +53,23 @@ void MenuScene::onEnter() {
 		}
 		});
 
+	// Create exit button below the play button
+	exitBtn = std::make_unique<Btn>(sdlRend, font, "EXIT",
+		w / 2 - 120, h / 2 + 290, 240, 70);
+
+	if (!exitBtn) {
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "MenuScene: Failed to create exit button");
+		return;
+	}
+
+	// Set button callback to exit the application
+	exitBtn->setClick([this]() {
+		SDL_Event quitEvent;
+		quitEvent.type = SDL_QUIT;
+		SDL_PushEvent(&quitEvent);
+		});
+
+
 	// Load car menu sprite
 	SDL_Surface* carSurf = nullptr;
 	const char* paths[] = {
@@ -88,6 +105,7 @@ void MenuScene::onEnter() {
 
 void MenuScene::onExit() {
 	// Clean up resources in reverse order of creation
+	exitBtn.reset();
 	playBtn.reset();
 	wave.reset();
 	crt.reset();
@@ -118,6 +136,15 @@ void MenuScene::handleEvent(SDL_Event& e) {
 		}
 		else if (e.type == SDL_MOUSEBUTTONUP) {
 			playBtn->handleClick(e.motion.x, e.motion.y);
+		}
+	}
+
+	if (exitBtn) {
+		if (e.type == SDL_MOUSEMOTION) {
+			exitBtn->update(e.motion.x, e.motion.y);
+		}
+		else if (e.type == SDL_MOUSEBUTTONUP) {
+			exitBtn->handleClick(e.motion.x, e.motion.y);
 		}
 	}
 }
@@ -189,6 +216,10 @@ void MenuScene::render() {
 	// Render button
 	if (playBtn) {
 		playBtn->render(sdlRend);
+	}
+
+	if (exitBtn) {
+		exitBtn->render(sdlRend);
 	}
 
 	// End CRT rendering
