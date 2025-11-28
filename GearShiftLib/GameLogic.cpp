@@ -203,7 +203,6 @@ void GameLogic::scaleToCamera()
 	if (mainCamera) {
 		Vec2 camPos = mainCamera->getWorldTransform().getPos();
 		float cameraRotation = mainCamera->getWorldTransform().getRotation();
-		//Vec2 screenCenter{ static_cast<float>(screenWidth / 2), static_cast<float>(screenHeight / 2) };
 		for (auto& obj : gameObjects) {
 			Vec2 currentPos = obj->getWorldTransform().getPos();
 			float currentRotation = obj->getWorldTransform().getRotation();
