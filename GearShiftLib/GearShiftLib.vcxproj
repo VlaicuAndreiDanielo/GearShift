@@ -19,11 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ApplyMouseForceCommand.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="CommandManager.cpp" />
+    <ClCompile Include="ExitApplicationCommand.cpp" />
     <ClCompile Include="FabricPhysics.cpp" />
     <ClCompile Include="FuelCanister.cpp" />
     <ClCompile Include="FuelManager.cpp" />
@@ -31,24 +34,30 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="GameObjectAdapter.cpp" />
+    <ClCompile Include="PauseGameCommand.cpp" />
     <ClCompile Include="PlayerTrigger.cpp" />
     <ClCompile Include="RoadSegment.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
+    <ClCompile Include="StartGameCommand.cpp" />
     <ClCompile Include="TrafficBaseNPC.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ApplyMouseForceCommand.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CommandManager.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="ExitApplicationCommand.h" />
     <ClInclude Include="FabricPhysics.h" />
     <ClInclude Include="FuelCanister.h" />
     <ClInclude Include="FuelManager.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="ICommand.h" />
     <ClInclude Include="IFabric.h" />
     <ClInclude Include="IFuelManager.h" />
     <ClInclude Include="IGame.h" />
@@ -57,12 +66,14 @@
     <ClInclude Include="IPlayerListener.h" />
     <ClInclude Include="IScoreManager.h" />
     <ClInclude Include="ObjectType.h" />
+    <ClInclude Include="PauseGameCommand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="GameObjectAdapter.h" />
     <ClInclude Include="PlayerTrigger.h" />
     <ClInclude Include="RoadSegment.h" />
     <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="SpriteType.h" />
+    <ClInclude Include="StartGameCommand.h" />
     <ClInclude Include="TrafficBaseNPC.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vec2.h" />

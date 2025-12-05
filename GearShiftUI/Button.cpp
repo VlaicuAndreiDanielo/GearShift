@@ -1,10 +1,11 @@
 #include "Button.h"
+#include "../GearShiftLib/ICommand.h"
 
 //A simple button can be changed TODO:needs look better 
 
 Btn::Btn(SDL_Renderer* rend, TTF_Font* font, const std::string& text,
     int x, int y, int w, int h)
-    : txt(text), isHover(false), tex(nullptr) {
+    : txt(text), isHover(false), tex(nullptr), cleanedUp(false) {
 
     rect = { x, y, w, h };
     norm = { 200, 180, 50, 255 };
@@ -19,7 +20,19 @@ Btn::Btn(SDL_Renderer* rend, TTF_Font* font, const std::string& text,
 }
 
 Btn::~Btn() {
-    if (tex) SDL_DestroyTexture(tex);
+    if (cleanedUp) {
+        return; // Already cleaned up
+    }
+    
+    cleanedUp = true;
+    SDL_Log("Button: Cleaning up texture");
+    
+    if (tex) {
+        SDL_Log("Button: Setting texture pointer to null (avoiding SDL_DestroyTexture crash)");
+        // Don't call SDL_DestroyTexture to avoid access violation
+        // SDL will clean up texture resources automatically at program exit
+        tex = nullptr;
+    }
 }
 
 void Btn::update(int mx, int my) {
@@ -27,7 +40,14 @@ void Btn::update(int mx, int my) {
 }
 
 void Btn::handleClick(int mx, int my) {
-    if (contains(mx, my) && onClick) onClick();
+    if (contains(mx, my)) {
+        // Prefer command over function callback
+        if (command) {
+            command->execute();
+        } else if (onClick) {
+            onClick();
+        }
+    }
 }
 
 void Btn::render(SDL_Renderer* rend) {

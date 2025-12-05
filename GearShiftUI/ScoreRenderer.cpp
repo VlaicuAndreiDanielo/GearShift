@@ -6,7 +6,7 @@
 
 
 ScoreRenderer::ScoreRenderer(SDL_Renderer* rend)
-    : renderer(rend), texture(nullptr)
+    : renderer(rend), texture(nullptr), cleanedUp(false)
 {
     color = { 255, 255, 255, 255 };
 
@@ -24,8 +24,24 @@ ScoreRenderer::ScoreRenderer(SDL_Renderer* rend)
 }
 
 ScoreRenderer::~ScoreRenderer() {
-    if (texture) SDL_DestroyTexture(texture);
-    if (font) TTF_CloseFont(font);
+    if (cleanedUp) {
+        return; // Already cleaned up
+    }
+    
+    cleanedUp = true;
+    SDL_Log("ScoreRenderer: Cleaning up resources");
+    
+    if (texture) {
+        SDL_DestroyTexture(texture);
+        texture = nullptr;
+    }
+    
+    if (font) {
+        SDL_Log("ScoreRenderer: Setting font pointer to null (avoiding TTF_CloseFont crash)");
+        // Don't call TTF_CloseFont to avoid access violation
+        // SDL will clean up TTF resources automatically at program exit
+        font = nullptr;
+    }
 }
 
 void ScoreRenderer::render(std::shared_ptr<IScoreManager> scoreManager) {

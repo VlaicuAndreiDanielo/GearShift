@@ -15,6 +15,9 @@ private:
     SDL_Color color;
     SDL_Texture* texture;
     SDL_Rect rect;
+    
+    // Cleanup flag to prevent double-cleanup
+    bool cleanedUp;
 
     void updateTexture(int score);
 };

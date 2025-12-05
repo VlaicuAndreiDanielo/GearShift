@@ -1,13 +1,18 @@
 #include "MenuScene.h"
+#include "../GearShiftLib/StartGameCommand.h"
+#include "../GearShiftLib/ExitApplicationCommand.h"
+#include "../GearShiftLib/ApplyMouseForceCommand.h"
 
 
-MenuScene::MenuScene(Renderer* rend, SceneMgr* mgr, std::weak_ptr<IGame> logic, InputHandler* input)
+MenuScene::MenuScene(Renderer* rend, SceneMgr* mgr, std::weak_ptr<IGame> logic, InputHandler* input, std::shared_ptr<CommandManager> globalCommandMgr)
 	: renderer(rend), sceneMgr(mgr), game(logic), inputHandler(input),
-	font(nullptr), carTexture(nullptr) {
+	font(nullptr), carTexture(nullptr), commandMgr(globalCommandMgr), cleanedUp(false) {
 }
 
 MenuScene::~MenuScene() {
-	onExit();  // Ensure cleanup happens
+	if (!cleanedUp) {
+		onExit();  // Only call if not already cleaned up
+	}
 }
 
 void MenuScene::onEnter() {
@@ -24,6 +29,9 @@ void MenuScene::onEnter() {
 	// Create visual effects
 	crt = std::make_unique<CRT>(sdlRend, w, h);
 	wave = std::make_unique<Wave>(w, h, 32);
+
+	// Setup command system
+	setupCommands();
 
 	// Load font with fallback paths
 	font = TTF_OpenFont("arial.ttf", 32);
@@ -43,15 +51,10 @@ void MenuScene::onEnter() {
 		return;
 	}
 
-	// Set button callback to transition to game
-	playBtn->setClick([this]() {
-		if (auto gameShared = game.lock()) {
-			gameShared->startGame();
-		}
-		if (sceneMgr) {
-			sceneMgr->change("Game");
-		}
-		});
+	// Set button command to start game
+	auto startGameCmd = std::make_shared<StartGameCommand>(game);
+	commandMgr->registerCommand("start_game", startGameCmd);
+	playBtn->setCommand(startGameCmd);
 
 	// Create exit button below the play button
 	exitBtn = std::make_unique<Btn>(sdlRend, font, "EXIT",
@@ -62,12 +65,10 @@ void MenuScene::onEnter() {
 		return;
 	}
 
-	// Set button callback to exit the application
-	exitBtn->setClick([this]() {
-		SDL_Event quitEvent;
-		quitEvent.type = SDL_QUIT;
-		SDL_PushEvent(&quitEvent);
-		});
+	// Set button command to exit the application
+	auto exitCmd = std::make_shared<ExitApplicationCommand>();
+	commandMgr->registerCommand("exit_app", exitCmd);
+	exitBtn->setCommand(exitCmd);
 
 
 	// Load car menu sprite
@@ -104,23 +105,35 @@ void MenuScene::onEnter() {
 }
 
 void MenuScene::onExit() {
+	if (cleanedUp) {
+		SDL_Log("MenuScene: Already cleaned up, skipping");
+		return; // Already cleaned up
+	}
+	
+	cleanedUp = true;
+	SDL_Log("MenuScene: Starting cleanup process");
+
 	// Clean up resources in reverse order of creation
 	exitBtn.reset();
 	playBtn.reset();
 	wave.reset();
 	crt.reset();
+	SDL_Log("MenuScene: UI components cleaned");
 
 	if (carTexture) {
 		SDL_DestroyTexture(carTexture);
 		carTexture = nullptr;
+		SDL_Log("MenuScene: Car texture destroyed");
 	}
 
 	if (font) {
-		TTF_CloseFont(font);
+		SDL_Log("MenuScene: Setting font pointer to null (avoiding TTF_CloseFont crash)");
+		// Don't call TTF_CloseFont to avoid access violation
+		// SDL will clean up TTF resources automatically at program exit
 		font = nullptr;
 	}
 
-	SDL_Log("MenuScene: Exited and cleaned up");
+	SDL_Log("MenuScene: Cleanup completed");
 }
 
 void MenuScene::handleEvent(SDL_Event& e) {
@@ -159,13 +172,20 @@ void MenuScene::update(float dt) {
 	if (auto gameShared = game.lock()) {
 		gameShared->update(dt, *inputHandler);
 
+		// Check if game was started and transition to Game scene
+		if (gameShared->getState() == GameState::Playing) {
+			if (sceneMgr) {
+				sceneMgr->change("Game");
+				SDL_Log("MenuScene: Game started, transitioning to Game scene");
+				return; // Exit update early since we're changing scenes
+			}
+		}
+
 		// Apply mouse force for visual effect
 		if (inputHandler && inputHandler->isMousePressed()) {
-			gameShared->applyMouseForce(
-				inputHandler->getMouseX(),
-				inputHandler->getMouseY(),
-				true
-			);
+			auto mouseForceCmd = std::make_shared<ApplyMouseForceCommand>(
+				game, inputHandler->getMouseX(), inputHandler->getMouseY(), true);
+			commandMgr->executeCommand(mouseForceCmd);
 		}
 	}
 
@@ -230,4 +250,13 @@ void MenuScene::render() {
 	if (renderer) {
 		renderer->present();
 	}
+}
+
+void MenuScene::setupCommands() {
+	if (!commandMgr) {
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "MenuScene: CommandManager not initialized");
+		return;
+	}
+	
+	SDL_Log("MenuScene: Commands setup completed");
 }

@@ -2,40 +2,53 @@
 #include "GameOverScene.h"
 #include "FuelRenderer.h"
 #include "IScoreManager.h"
+#include "../GearShiftLib/CommandManager.h"
+#include "../GearShiftLib/PauseGameCommand.h"
 
-GameScene::GameScene(Renderer* rend, SceneMgr* mgr, std::weak_ptr<IGame> logic, InputHandler* input)
-	: renderer(rend), sceneMgr(mgr), game(logic), inputHandler(input), font(nullptr) {
+GameScene::GameScene(Renderer* rend, SceneMgr* mgr, std::weak_ptr<IGame> logic, InputHandler* input, std::shared_ptr<CommandManager> globalCommandMgr)
+	: renderer(rend), sceneMgr(mgr), game(logic), inputHandler(input), font(nullptr),
+	commandMgr(globalCommandMgr) {
 }
 
-void GameScene::onEnter() {
-	if (!renderer || game.expired()) {
-		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "GameScene: Missing renderer or gameLogic");
-		return;
-	}
+void GameScene::onEnter() {  
+   if (!renderer || game.expired()) {  
+       SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "GameScene: Missing renderer or gameLogic");  
+       return;  
+   }  
 
-	objectRenderer = std::make_unique<ObjectRenderer>(renderer->getSDLRenderer());
-	fuelRenderer = std::make_unique<FuelRenderer>(850, 20, 300, 20, renderer->getSDLRenderer());
-	scoreRenderer = std::make_unique<ScoreRenderer>(renderer->getSDLRenderer());
+   // Setup command system  
+   setupCommands();  
 
-	// Initialize font for paused text
-	if (TTF_WasInit() == 0) {
-		if (TTF_Init() == -1) {
-			SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "TTF_Init failed: %s", TTF_GetError());
-		}
-	}
-	font = TTF_OpenFont("assets/fonts/VipnagorgiallaBd.otf", 72);
-	if (!font) {
-		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load font for paused text: %s", TTF_GetError());
-	}
+   objectRenderer = std::make_unique<ObjectRenderer>(renderer->getSDLRenderer());  
+   fuelRenderer = std::make_unique<FuelRenderer>(850, 20, 300, 20, renderer->getSDLRenderer());  
+   scoreRenderer = std::make_unique<ScoreRenderer>(renderer->getSDLRenderer());  
 
-	SDL_Log("GameScene: Entered and initialized rendering components");
+   // Initialize font for paused text  
+   if (TTF_WasInit() == 0) {  
+       if (TTF_Init() == -1) {  
+           SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "TTF_Init failed: %s", TTF_GetError());  
+       }  
+   }  
+   font = TTF_OpenFont("assets/fonts/VipnagorgiallaBd.otf", 72);  
+   if (!font) {  
+       SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load font for paused text: %s", TTF_GetError());  
+   }  
+
+   // Setup input command bindings  
+   if (inputHandler && commandMgr) {  
+       inputHandler->bindKeyToCommand(SDL_SCANCODE_P, "pause_game");  
+       inputHandler->bindKeyToCommand(SDL_SCANCODE_ESCAPE, "pause_game");  
+   }  
+
+   SDL_Log("GameScene: Entered and initialized rendering components");  
 }
 
 void GameScene::onExit() {
 	objectRenderer.reset();
 
 	if (font) {
-		TTF_CloseFont(font);
+		SDL_Log("GameScene: Setting font pointer to null (avoiding TTF_CloseFont crash)");
+		// Don't call TTF_CloseFont to avoid access violation
 		font = nullptr;
 	}
 
@@ -55,6 +68,9 @@ void GameScene::handleEvent(SDL_Event& e) {
 void GameScene::update(float dt) {
 	if (inputHandler) {
 		inputHandler->updateKeyboard();
+		
+		// Execute any input commands (like pause)
+		inputHandler->executeKeyCommands();
 
 		if (auto gameShared = game.lock()) {
 			gameShared->update(dt, *inputHandler);
@@ -78,8 +94,6 @@ void GameScene::update(float dt) {
 			return;
 		}
 	}
-
-
 }
 
 void GameScene::render() {
@@ -151,5 +165,18 @@ void GameScene::renderPausedText() {
 	SDL_RenderCopy(sdlRend, tex, NULL, &dst);
 	SDL_DestroyTexture(tex);
 	SDL_FreeSurface(surf);
+}
+
+void GameScene::setupCommands() {
+	if (!commandMgr) {
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "GameScene: CommandManager not initialized");
+		return;
+	}
+
+	// Register pause/resume command
+	auto pauseCmd = std::make_shared<PauseGameCommand>(game);
+	commandMgr->registerCommand("pause_game", pauseCmd);
+	
+	SDL_Log("GameScene: Commands setup completed");
 }
 

@@ -10,7 +10,11 @@ GameOverScene::GameOverScene(Renderer* rend, SceneMgr* mgr)
 }
 
 GameOverScene::~GameOverScene() {
-    if (font) TTF_CloseFont(font);
+    if (font) {
+        SDL_Log("GameOverScene: Setting font pointer to null (avoiding TTF_CloseFont crash)");
+        // Don't call TTF_CloseFont to avoid access violation
+        font = nullptr;
+    }
 }
 
 void GameOverScene::onEnter() {

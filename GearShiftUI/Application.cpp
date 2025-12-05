@@ -11,7 +11,18 @@ Application::Application()
 }
 
 Application::~Application() {
-	// Resources are automatically cleaned up via smart pointers
+    SDL_Log("Application: Destructor - cleaning up resources");
+    
+    // Clear input handler to break command manager reference
+    if (inputHandler) {
+        inputHandler.reset();
+    }
+    
+    // Clear other components
+    gameLogic.reset();
+    renderer.reset();
+    
+    SDL_Log("Application: Cleanup completed");
 }
 
 void Application::initializeComponents() {
@@ -21,8 +32,12 @@ void Application::initializeComponents() {
 	// Create game logic
 	gameLogic = GameLogic::create(WINDOW_WIDTH, WINDOW_HEIGHT);
 
+	// Create global command manager
+	globalCommandMgr = std::make_shared<CommandManager>();
+
 	// Create input handler
 	inputHandler = std::make_unique<InputHandler>();
+	inputHandler->setCommandManager(globalCommandMgr);
 
 	SDL_Log("Application: Core components initialized");
 }
@@ -30,7 +45,7 @@ void Application::initializeComponents() {
 void Application::initializeScenes() {
 	// Create menu scene with shared resources
 	auto menuScene = std::make_shared<MenuScene>(
-		renderer.get(), &sceneMgr, gameLogic, inputHandler.get()
+		renderer.get(), &sceneMgr, gameLogic, inputHandler.get(), globalCommandMgr
 	);
 	if (!menuScene) {
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Application: Failed to create menu scene");
@@ -39,7 +54,7 @@ void Application::initializeScenes() {
 
 	// Create game scene with shared resources
 	auto gameScene = std::make_shared<GameScene>(
-		renderer.get(), &sceneMgr, gameLogic, inputHandler.get()
+		renderer.get(), &sceneMgr, gameLogic, inputHandler.get(), globalCommandMgr
 	);
 
 	if (!gameScene) {

@@ -5,6 +5,12 @@ InputHandler::InputHandler()
     keyState = SDL_GetKeyboardState(nullptr);
 }
 
+InputHandler::~InputHandler() {
+    SDL_Log("InputHandler: Destructor - clearing command manager reference");
+    commandManager.reset();
+    keyBindings.clear();
+}
+
 void InputHandler::update(SDL_Event& e) {
     if (e.type == SDL_MOUSEMOTION) {
         mouseX = e.motion.x;
@@ -74,4 +80,39 @@ bool InputHandler::isMousePressed() const {
 
 void InputHandler::reset() {
     mousePressed = false;
+}
+
+void InputHandler::bindKeyToCommand(SDL_Scancode key, const std::string& commandName) {
+    keyBindings[key] = commandName;
+    SDL_Log("InputHandler: Bound key %d to command '%s'", key, commandName.c_str());
+}
+
+void InputHandler::executeKeyCommands() {
+    if (!commandManager) {
+        return; // No command manager available
+    }
+    
+    if (!keyState) {
+        return; // No keyboard state available
+    }
+    
+    // Check each bound key and execute its command if pressed
+    for (const auto& binding : keyBindings) {
+        SDL_Scancode key = binding.first;
+        const std::string& commandName = binding.second;
+        
+        if (keyState[key]) {
+            // Special handling for pause to prevent rapid toggling
+            if (commandName == "pause_game" && key == SDL_SCANCODE_P) {
+                if (!pausePressedLastFrame) {
+                    commandManager->executeCommand(commandName);
+                    pausePressedLastFrame = true;
+                }
+            } else if (key != SDL_SCANCODE_P) {
+                commandManager->executeCommand(commandName);
+            }
+        } else if (key == SDL_SCANCODE_P) {
+            pausePressedLastFrame = false;
+        }
+    }
 }

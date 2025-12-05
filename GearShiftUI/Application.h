@@ -4,6 +4,7 @@
 #include "Renderer.h"
 #include "SceneManager.h"
 #include "InputHandler.h"
+#include "../GearShiftLib/CommandManager.h"
 
 class Application {
 private:
@@ -16,6 +17,9 @@ private:
     std::shared_ptr<class IGame> gameLogic;
     std::unique_ptr<InputHandler> inputHandler;
     SceneMgr sceneMgr;
+    
+    // Global command manager
+    std::shared_ptr<CommandManager> globalCommandMgr;
 
     // Main loop state
  bool running;
