@@ -6,7 +6,7 @@ StartGameCommand::StartGameCommand(std::weak_ptr<IGame> gameLogic)
 
 bool StartGameCommand::canExecute() const {
     if (auto gameShared = game.lock()) {
-        // Can only start game if we're in Menu state
+
         return gameShared->getState() == GameState::Menu;
     }
     return false;

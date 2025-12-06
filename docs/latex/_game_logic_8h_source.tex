@@ -1,0 +1,95 @@
+\doxysection{Game\+Logic.\+h}
+\hypertarget{_game_logic_8h_source}{}\label{_game_logic_8h_source}\index{GearShiftLib/GameLogic.h@{GearShiftLib/GameLogic.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}IGame.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Player.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}IInputState.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}IGameObject.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}CollisionManager.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }GameLogic\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_game}{IGame}},}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_player_listener}{IPlayerListener}},}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}\ std::enable\_shared\_from\_this<GameLogic>\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<IGame>\ \mbox{\hyperlink{class_game_logic_a982196dac919c242893916aee3073cd5}{create}}(\textcolor{keywordtype}{int}\ screenW,\ \textcolor{keywordtype}{int}\ screenH);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_a9a8260da0427f5409b3f9f6b83d963bb}{update}}(\textcolor{keywordtype}{float}\ dt,\ \mbox{\hyperlink{struct_i_input_state}{IInputState}}\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ management\ stare\ joc\ -\/-\/-\/}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_a656fda280719e0bd27a6dfe0f35e42dd}{startGame}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_a90e6d7ffbdd6cbde5fc17381d89e9627}{pauseGame}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_a8e0c2a92d48684c9985c605237a26751}{resumeGame}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_a411c0bae1945a64a2baf3da284df7d00}{endGame}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::shared\_ptr<IGameObject>>\&\ \mbox{\hyperlink{class_game_logic_a6fc32191f56871d06b1e2dc001c51915}{getGameObjects}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ acces\ la\ „pânza”\ de\ fundal\ (fabric)\ -\/-\/-\/}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00061\ \ \ \ \ std::shared\_ptr<class\ IFabric>\ \mbox{\hyperlink{class_game_logic_ad714efaa05a18d2ae43043549dd38cb4}{getFabric}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<class\ IFabric>\ \mbox{\hyperlink{class_game_logic_ad714efaa05a18d2ae43043549dd38cb4}{getFabric}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00067\ \ \ \ \ GameState\ \mbox{\hyperlink{class_game_logic_a908d607f951f2ce194073b4af6addb5e}{getState}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ currentState;\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_logic_aae41ae6abe10b6c4129b69c8ed973e2b}{getTime}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ gameTime;\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00073\ \ \ \ \ std::shared\_ptr<class\ IScoreManager>\ \mbox{\hyperlink{class_game_logic_a863b5cea60b8b15db234487d1bd78c5e}{getScoreManager}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_logic_a43001a93a0ec96805d8c65891b901329}{isGameOver}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ currentState\ ==\ GameState::GameOver;\ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_a5a697beb3862977039c965121cbe9e8f}{spawnFuelCanister}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ logică\ de\ joc\ suplimentară\ -\/-\/-\/}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_a58b7c8116a1717662b7081ebc17008e8}{applyMouseForce}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ pressed)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00091\ \ \ \ \ std::shared\_ptr<class\ IFuelManager>\ \mbox{\hyperlink{class_game_logic_a732c5149a919f127b632ec1aa2069cc9}{getFuelManager}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_a34c85a937fdbf8047a062a97d1c95336}{setFuelRecharged}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_adaa6c09faa4e4c847b8e0c2bfa6f590d}{onPlayerEliminated}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{class_game_logic}{GameLogic}}(\textcolor{keywordtype}{int}\ screenW,\ \textcolor{keywordtype}{int}\ screenH);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ scaleToCamera();}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ createRoadSegments();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ createNPCs();}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ onFuelEmpty();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ resurse\ joc\ -\/-\/-\/}}
+\DoxyCodeLine{00120\ \ \ \ \ std::shared\_ptr<class\ IFabric>\ \ \ \ \ \ \ fabric;}
+\DoxyCodeLine{00121\ \ \ \ \ std::shared\_ptr<class\ FuelManager>\ \ \ fuelManager;}
+\DoxyCodeLine{00122\ \ \ \ \ std::shared\_ptr<class\ ScoreManager>\ \ scoreManager;}
+\DoxyCodeLine{00123\ \ \ \ \ std::shared\_ptr<class\ Camera>\ \ \ \ \ \ \ \ mainCamera;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00126\ \ \ \ \ std::vector<std::shared\_ptr<GameObject>>\ gameObjects;}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00129\ \ \ \ \ std::vector<std::shared\_ptr<IGameObject>>\ objectAdapters;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ std::shared\_ptr<CollisionManager>\ collisionManager;\ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ stare\ joc\ -\/-\/-\/}}
+\DoxyCodeLine{00134\ \ \ \ \ GameState\ currentState;\ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ gameTime;\ \ \ \ \ \ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ screenWidth;\ \ \ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ screenHeight;\ \ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ statistici\ joc\ -\/-\/-\/}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{int}\ score;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ std::mt19937\ rng;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00143\ \};}
+
+\end{DoxyCode}

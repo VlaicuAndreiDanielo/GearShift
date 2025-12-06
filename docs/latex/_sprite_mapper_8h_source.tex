@@ -1,0 +1,20 @@
+\doxysection{Sprite\+Mapper.\+h}
+\hypertarget{_sprite_mapper_8h_source}{}\label{_sprite_mapper_8h_source}\index{GearShiftUI/SpriteMapper.h@{GearShiftUI/SpriteMapper.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SpriteType.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }SpriteMapper\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_sprite_mapper_ae5b563e495e4abca41369572627cdfa9}{getSpritePath}}(SpriteType\ sprite);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ SpriteMapper();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::unordered\_map<SpriteType,\ std::string>\ spritePathMap;}
+\DoxyCodeLine{00027\ \};}
+
+\end{DoxyCode}

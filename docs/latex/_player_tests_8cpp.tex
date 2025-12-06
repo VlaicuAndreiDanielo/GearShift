@@ -1,0 +1,51 @@
+\doxysection{Gear\+Shift\+Tests/\+Player\+Tests.cpp File Reference}
+\hypertarget{_player_tests_8cpp}{}\label{_player_tests_8cpp}\index{GearShiftTests/PlayerTests.cpp@{GearShiftTests/PlayerTests.cpp}}
+
+
+Unit tests pentru \doxylink{class_player}{Player} (creare, mișcare, limite, listener).  
+
+
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$gmock/gmock.\+h$>$}\newline
+{\ttfamily \#include "{}Player.\+h"{}}\newline
+{\ttfamily \#include "{}Collision\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Box\+Collider.\+h"{}}\newline
+{\ttfamily \#include "{}IPlayer\+Listener.\+h"{}}\newline
+{\ttfamily \#include "{}Traffic\+Base\+NPC.\+h"{}}\newline
+{\ttfamily \#include $<$random$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_mock_input}{Mock\+Input}}
+\begin{DoxyCompactList}\small\item\em Mock pentru interfața \doxylink{struct_i_input_state}{IInput\+State} folosită în testele \doxylink{class_game_logic}{Game\+Logic}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_mock_listener}{Mock\+Listener}}
+\begin{DoxyCompactList}\small\item\em Mock pentru \doxylink{class_i_player_listener}{IPlayer\+Listener} folosit pentru a verifica notificările. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_player_tests_8cpp_ab1a680e7e61767fcfaea49774313205e}\label{_player_tests_8cpp_ab1a680e7e61767fcfaea49774313205e} 
+{\bfseries TEST} (Player\+Test, Create)
+\item 
+\Hypertarget{_player_tests_8cpp_a729fc59755829f17a1d30c42f30da78a}\label{_player_tests_8cpp_a729fc59755829f17a1d30c42f30da78a} 
+{\bfseries TEST} (Player\+Test, ClampX)
+\item 
+\Hypertarget{_player_tests_8cpp_a9fcb75092ccf57df4ea4b93686eedcc9}\label{_player_tests_8cpp_a9fcb75092ccf57df4ea4b93686eedcc9} 
+{\bfseries TEST} (Player\+Test, Move\+Left)
+\item 
+\Hypertarget{_player_tests_8cpp_a8b5672c9435fe7e807bf63b75bf8c4af}\label{_player_tests_8cpp_a8b5672c9435fe7e807bf63b75bf8c4af} 
+{\bfseries TEST} (Player\+Test, Move\+Right)
+\item 
+\Hypertarget{_player_tests_8cpp_aeff727b98ed1d20c1cd2c8d40d6dea2c}\label{_player_tests_8cpp_aeff727b98ed1d20c1cd2c8d40d6dea2c} 
+{\bfseries TEST} (Player\+Test, Accelerate\+Up)
+\item 
+\Hypertarget{_player_tests_8cpp_ab2639e71d9abab4bc4dec5ff995df6fd}\label{_player_tests_8cpp_ab2639e71d9abab4bc4dec5ff995df6fd} 
+{\bfseries TEST} (Player\+Test, Listener\+With\+Collision)
+\item 
+\Hypertarget{_player_tests_8cpp_a52f62bbc8d0102ca74eca8b81d27cdb9}\label{_player_tests_8cpp_a52f62bbc8d0102ca74eca8b81d27cdb9} 
+{\bfseries TEST} (Player\+Test, Add\+Remove\+Listener)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Unit tests pentru \doxylink{class_player}{Player} (creare, mișcare, limite, listener). 
+

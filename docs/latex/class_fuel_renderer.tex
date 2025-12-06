@@ -1,0 +1,99 @@
+\doxysection{Fuel\+Renderer Class Reference}
+\hypertarget{class_fuel_renderer}{}\label{class_fuel_renderer}\index{FuelRenderer@{FuelRenderer}}
+
+
+HUD pentru afișarea fuel-\/ului (timp de joc) + iconiță de canistră.  
+
+
+
+
+{\ttfamily \#include $<$Fuel\+Renderer.\+h$>$}
+
+Inheritance diagram for Fuel\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fuel_renderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fuel_renderer_ae1037f3cf2437d45230388802379e34d}{Fuel\+Renderer}} (int x, int y, int w, int h, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_fuel_renderer}{Fuel\+Renderer} cu poziție și dimensiune date. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fuel_renderer_aafe21942430610318323f7a380aaa71a}{render}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_fuel_manager}{IFuel\+Manager}} $>$ manager)
+\begin{DoxyCompactList}\small\item\em Randează bara de fuel în funcție de starea managerului. \end{DoxyCompactList}\item 
+\Hypertarget{class_fuel_renderer_af2bc11368a94eeb3164b6695dab69c71}\label{class_fuel_renderer_af2bc11368a94eeb3164b6695dab69c71} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Fuel\+Renderer} ()
+\begin{DoxyCompactList}\small\item\em Destructor – eliberează textura canistrei, dacă e încărcată. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_sprite_manager}{Sprite\+Manager}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_sprite_manager_ac7833f20b6b04b484eb2e376ef86ca8a}{draw\+Texture\+Over\+Rect}} (SDL\+\_\+\+Rect rect, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture)
+\begin{DoxyCompactList}\small\item\em Desenează o textură pe întregul dreptunghi dat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sprite_manager_ac05a08feda33e08a949ae448775f45a8}{draw\+Texture\+Over\+Rect}} (const SDL\+\_\+\+Rect \&rect, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture, double angle\+Radians)
+\begin{DoxyCompactList}\small\item\em Desenează o textură rotită peste dreptunghiul dat. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_sprite_manager_acd2a7f278d8152624000334cb0ee8a83}{get\+Texture}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Obține (și cache-\/uiește) textura pentru un path dat. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_sprite_manager_a216ecb1046a7419596f902f8b3bde7c2}{Sprite\+Manager}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_sprite_manager}{Sprite\+Manager} pentru un anumit SDL\+\_\+\+Renderer. \end{DoxyCompactList}\item 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Sprite\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructor – distruge toate texturile din cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+HUD pentru afișarea fuel-\/ului (timp de joc) + iconiță de canistră. 
+
+Desenează o bară de fundal, o zonă umplută proporțional cu current\+Time / max\+Time și un sprite cu canistra de fuel lângă bară. 
+
+\label{doc-constructors}
+\Hypertarget{class_fuel_renderer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fuel_renderer_ae1037f3cf2437d45230388802379e34d}\index{FuelRenderer@{FuelRenderer}!FuelRenderer@{FuelRenderer}}
+\index{FuelRenderer@{FuelRenderer}!FuelRenderer@{FuelRenderer}}
+\doxysubsubsection{\texorpdfstring{FuelRenderer()}{FuelRenderer()}}
+{\footnotesize\ttfamily \label{class_fuel_renderer_ae1037f3cf2437d45230388802379e34d} 
+Fuel\+Renderer\+::\+Fuel\+Renderer (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{w}{, }\item[{int}]{h}{, }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer}{}\end{DoxyParamCaption})}
+
+
+
+Creează un \doxylink{class_fuel_renderer}{Fuel\+Renderer} cu poziție și dimensiune date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Poziția X a colțului stânga-\/sus al barei. \\
+\hline
+{\em y} & Poziția Y a colțului stânga-\/sus al barei. \\
+\hline
+{\em w} & Lățimea barei. \\
+\hline
+{\em h} & Înălțimea barei. \\
+\hline
+{\em renderer} & Renderer-\/ul SDL folosit pentru desen și încărcat textură. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_fuel_renderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fuel_renderer_aafe21942430610318323f7a380aaa71a}\index{FuelRenderer@{FuelRenderer}!render@{render}}
+\index{render@{render}!FuelRenderer@{FuelRenderer}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_fuel_renderer_aafe21942430610318323f7a380aaa71a} 
+void Fuel\+Renderer\+::render (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_fuel_manager}{IFuel\+Manager}} $>$}]{manager}{}\end{DoxyParamCaption})}
+
+
+
+Randează bara de fuel în funcție de starea managerului. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & Managerul de fuel (timp rămas / timp maxim). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Fuel\+Renderer.\+h\item 
+Gear\+Shift\+UI/Fuel\+Renderer.\+cpp\end{DoxyCompactItemize}

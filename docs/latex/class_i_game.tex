@@ -1,0 +1,265 @@
+\doxysection{IGame Class Reference}
+\hypertarget{class_i_game}{}\label{class_i_game}\index{IGame@{IGame}}
+
+
+Interfață de nivel înalt pentru logica unui joc.  
+
+
+
+
+{\ttfamily \#include $<$IGame.\+h$>$}
+
+Inheritance diagram for IGame\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_game}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_game_af7a6bfc29b39be3abd5a3521116d4333}{update}} (float dt, \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&input)=0
+\begin{DoxyCompactList}\small\item\em Actualizează logica jocului pentru un frame. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_game_af174e89498832afc7458be23a6ebc3a6}{start\+Game}} ()=0
+\begin{DoxyCompactList}\small\item\em Pornește o rundă nouă de joc. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_game_ac5358528485560057e0886288546fee1}{pause\+Game}} ()=0
+\begin{DoxyCompactList}\small\item\em Pune jocul în pauză. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_game_a5e927000c91fcad984d6004edff3d2eb}{resume\+Game}} ()=0
+\begin{DoxyCompactList}\small\item\em Reia jocul din pauză. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_game_ad92572b43a4e076b724047fc2403a557}{end\+Game}} ()=0
+\begin{DoxyCompactList}\small\item\em Încheie jocul curent și eliberează resursele rundei. \end{DoxyCompactList}\item 
+virtual const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} $>$ $>$ \& \mbox{\hyperlink{class_i_game_a0460c6b0f16f669dcf77f9257f3d78a7}{get\+Game\+Objects}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține obiectele de joc într-\/o formă adaptată pentru UI. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_fabric}{IFabric}} $>$ \mbox{\hyperlink{class_i_game_a05dab7ce3382f9ea0566b86935af5854}{get\+Fabric}} ()=0
+\begin{DoxyCompactList}\small\item\em Obține pânza (cloth-\/ul) utilizată ca efect de fundal. \end{DoxyCompactList}\item 
+virtual const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_fabric}{IFabric}} $>$ \mbox{\hyperlink{class_i_game_a39bb5eba406db2400b205e5d49d64c25}{get\+Fabric}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține pânza (cloth-\/ul) în variantă constantă. \end{DoxyCompactList}\item 
+virtual Game\+State \mbox{\hyperlink{class_i_game_a44de7e08e7ee294be051445a84306299}{get\+State}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține starea curentă a jocului. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_i_game_acdfa56ecee3527d10414525bec036b02}{get\+Time}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține timpul total scurs în runda curentă. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_game_ac808e225941c4b88f846858f76138359}{apply\+Mouse\+Force}} (int x, int y, bool pressed)=0
+\begin{DoxyCompactList}\small\item\em Aplică o forță în pânză pe baza input-\/ului de mouse. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ class \mbox{\hyperlink{class_i_score_manager}{IScore\+Manager}} $>$ \mbox{\hyperlink{class_i_game_a29f018944beee08ab18d01994ee7abcc}{get\+Score\+Manager}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține managerul de scor. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ class \mbox{\hyperlink{class_i_fuel_manager}{IFuel\+Manager}} $>$ \mbox{\hyperlink{class_i_game_a00093eafb55ce9edfcad6af9580f3429}{get\+Fuel\+Manager}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține managerul de fuel. \end{DoxyCompactList}\item 
+\Hypertarget{class_i_game_a91b14c1b6019364120d5c5e4d4c64414}\label{class_i_game_a91b14c1b6019364120d5c5e4d4c64414} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IGame} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfață de nivel înalt pentru logica unui joc. 
+
+Expune operații pentru bucla principală de update, managementul stării, acces la obiecte, pânza de fundal și managerii de scor/fuel. 
+
+\label{doc-func-members}
+\Hypertarget{class_i_game_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_game_ac808e225941c4b88f846858f76138359}\index{IGame@{IGame}!applyMouseForce@{applyMouseForce}}
+\index{applyMouseForce@{applyMouseForce}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{applyMouseForce()}{applyMouseForce()}}
+{\footnotesize\ttfamily \label{class_i_game_ac808e225941c4b88f846858f76138359} 
+virtual void IGame\+::apply\+Mouse\+Force (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{bool}]{pressed}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Aplică o forță în pânză pe baza input-\/ului de mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Coordonata X a mouse-\/ului. \\
+\hline
+{\em y} & Coordonata Y a mouse-\/ului. \\
+\hline
+{\em pressed} & True dacă mouse-\/ul este apăsat. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a58b7c8116a1717662b7081ebc17008e8}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_ad92572b43a4e076b724047fc2403a557}\index{IGame@{IGame}!endGame@{endGame}}
+\index{endGame@{endGame}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{endGame()}{endGame()}}
+{\footnotesize\ttfamily \label{class_i_game_ad92572b43a4e076b724047fc2403a557} 
+virtual void IGame\+::end\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Încheie jocul curent și eliberează resursele rundei. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a411c0bae1945a64a2baf3da284df7d00}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_a39bb5eba406db2400b205e5d49d64c25}\index{IGame@{IGame}!getFabric@{getFabric}}
+\index{getFabric@{getFabric}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{getFabric()}{getFabric()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_i_game_a39bb5eba406db2400b205e5d49d64c25} 
+virtual const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_fabric}{IFabric}} $>$ IGame\+::get\+Fabric (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține pânza (cloth-\/ul) în variantă constantă. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a1b6a44fe74a02c404442890cf413df9b}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_a05dab7ce3382f9ea0566b86935af5854}\index{IGame@{IGame}!getFabric@{getFabric}}
+\index{getFabric@{getFabric}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{getFabric()}{getFabric()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_i_game_a05dab7ce3382f9ea0566b86935af5854} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_fabric}{IFabric}} $>$ IGame\+::get\+Fabric (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține pânza (cloth-\/ul) utilizată ca efect de fundal. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_ad714efaa05a18d2ae43043549dd38cb4}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_a00093eafb55ce9edfcad6af9580f3429}\index{IGame@{IGame}!getFuelManager@{getFuelManager}}
+\index{getFuelManager@{getFuelManager}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{getFuelManager()}{getFuelManager()}}
+{\footnotesize\ttfamily \label{class_i_game_a00093eafb55ce9edfcad6af9580f3429} 
+virtual std\+::shared\+\_\+ptr$<$ class \mbox{\hyperlink{class_i_fuel_manager}{IFuel\+Manager}} $>$ IGame\+::get\+Fuel\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține managerul de fuel. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a732c5149a919f127b632ec1aa2069cc9}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_a0460c6b0f16f669dcf77f9257f3d78a7}\index{IGame@{IGame}!getGameObjects@{getGameObjects}}
+\index{getGameObjects@{getGameObjects}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{getGameObjects()}{getGameObjects()}}
+{\footnotesize\ttfamily \label{class_i_game_a0460c6b0f16f669dcf77f9257f3d78a7} 
+virtual const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} $>$ $>$ \& IGame\+::get\+Game\+Objects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține obiectele de joc într-\/o formă adaptată pentru UI. 
+
+\begin{DoxyReturn}{Returns}
+Vector de pointeri la \doxylink{class_i_game_object}{IGame\+Object} pentru randare. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a6fc32191f56871d06b1e2dc001c51915}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_a29f018944beee08ab18d01994ee7abcc}\index{IGame@{IGame}!getScoreManager@{getScoreManager}}
+\index{getScoreManager@{getScoreManager}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{getScoreManager()}{getScoreManager()}}
+{\footnotesize\ttfamily \label{class_i_game_a29f018944beee08ab18d01994ee7abcc} 
+virtual std\+::shared\+\_\+ptr$<$ class \mbox{\hyperlink{class_i_score_manager}{IScore\+Manager}} $>$ IGame\+::get\+Score\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține managerul de scor. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a863b5cea60b8b15db234487d1bd78c5e}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_a44de7e08e7ee294be051445a84306299}\index{IGame@{IGame}!getState@{getState}}
+\index{getState@{getState}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \label{class_i_game_a44de7e08e7ee294be051445a84306299} 
+virtual Game\+State IGame\+::get\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține starea curentă a jocului. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a908d607f951f2ce194073b4af6addb5e}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_acdfa56ecee3527d10414525bec036b02}\index{IGame@{IGame}!getTime@{getTime}}
+\index{getTime@{getTime}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{getTime()}{getTime()}}
+{\footnotesize\ttfamily \label{class_i_game_acdfa56ecee3527d10414525bec036b02} 
+virtual float IGame\+::get\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține timpul total scurs în runda curentă. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_aae41ae6abe10b6c4129b69c8ed973e2b}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_ac5358528485560057e0886288546fee1}\index{IGame@{IGame}!pauseGame@{pauseGame}}
+\index{pauseGame@{pauseGame}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{pauseGame()}{pauseGame()}}
+{\footnotesize\ttfamily \label{class_i_game_ac5358528485560057e0886288546fee1} 
+virtual void IGame\+::pause\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pune jocul în pauză. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a90e6d7ffbdd6cbde5fc17381d89e9627}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_a5e927000c91fcad984d6004edff3d2eb}\index{IGame@{IGame}!resumeGame@{resumeGame}}
+\index{resumeGame@{resumeGame}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{resumeGame()}{resumeGame()}}
+{\footnotesize\ttfamily \label{class_i_game_a5e927000c91fcad984d6004edff3d2eb} 
+virtual void IGame\+::resume\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Reia jocul din pauză. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a8e0c2a92d48684c9985c605237a26751}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_af174e89498832afc7458be23a6ebc3a6}\index{IGame@{IGame}!startGame@{startGame}}
+\index{startGame@{startGame}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{startGame()}{startGame()}}
+{\footnotesize\ttfamily \label{class_i_game_af174e89498832afc7458be23a6ebc3a6} 
+virtual void IGame\+::start\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pornește o rundă nouă de joc. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a656fda280719e0bd27a6dfe0f35e42dd}{Game\+Logic}}.
+
+\Hypertarget{class_i_game_af7a6bfc29b39be3abd5a3521116d4333}\index{IGame@{IGame}!update@{update}}
+\index{update@{update}!IGame@{IGame}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_i_game_af7a6bfc29b39be3abd5a3521116d4333} 
+virtual void IGame\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{, }\item[{\mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&}]{input}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Actualizează logica jocului pentru un frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame (în secunde). \\
+\hline
+{\em input} & Starea curentă a input-\/ului (tastatură, mouse etc.). \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_a9a8260da0427f5409b3f9f6b83d963bb}{Game\+Logic}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/IGame.\+h\end{DoxyCompactItemize}

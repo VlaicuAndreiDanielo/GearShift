@@ -1,0 +1,71 @@
+\doxysection{Game\+Object.\+h}
+\hypertarget{_game_object_8h_source}{}\label{_game_object_8h_source}\index{GearShiftLib/GameObject.h@{GearShiftLib/GameObject.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CollisionManager.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Transform.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ObjectType.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}SpriteType.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}IInputState.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}\ :\ \textcolor{keyword}{public}\ std::enable\_shared\_from\_this<GameObject>\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}(\textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_object_afa3bf48882a927f94a6d922045a435e0}{active}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{\string~GameObject}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_acd37ab71f82ad1e0c96eebae60e35f23}{handleUpdate}}(\textcolor{keywordtype}{float}\ dt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_i_input_state}{IInputState}}\&\ input);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a64c309c90f0f81c2b71359de05e95ebb}{setParent}}(std::shared\_ptr<GameObject>\ parentObj);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_transform}{Transform}}\&\ \mbox{\hyperlink{class_game_object_a9977f1cf1ed8a7a7016a0b862e343aa3}{getWorldTransform}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_afb265fbcf4cced50adfc4b41f3c8271c}{setWorldTransform}}(\mbox{\hyperlink{struct_vec2}{Vec2}}\ pos,\ \textcolor{keywordtype}{float}\ rotation);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \ \ ObjectType\ \mbox{\hyperlink{class_game_object_aa5f10650ee2a5bef523eb889cc6bd0ba}{getType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \ \ \ \ SpriteType\ \mbox{\hyperlink{class_game_object_af11db955d544cac07360cc4b2945103d}{getSprite}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a7aa3fbf2d05b8ae467dead2f51460ab9}{setSprite}}(SpriteType\ \mbox{\hyperlink{class_game_object_a54ba7d711ecf699551885b3e2e24e205}{sprite}});}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_ac1795f3c42222ca43f0d91f25c994f81}{setActive}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_object_abe79de441ec36735859f8e0e20888033}{isActive}});}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_object_abe79de441ec36735859f8e0e20888033}{isActive}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a665147ee46e9b62442b2d6b9835c4dd4}{getWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a927400453a0989e2f5b765031f4d861c}{getHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a7400fd25c213fa0ee6a894d69d0e0078}{setSize}}(\textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_aeeec3a63938c9d9807a9007fcfc6580c}{update}}(\textcolor{keywordtype}{float}\ dt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_i_input_state}{IInputState}}\&\ input);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_collision_manager_1_1_collider}{CollisionManager::Collider}};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_transform}{Transform}}\ \mbox{\hyperlink{class_game_object_aa731fd34a2cf43b047c3ae52a7e26245}{worldTransform}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_transform}{Transform}}\ \mbox{\hyperlink{class_game_object_a18069e3c6d1bbc9e076617033110a50c}{localTransform}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ std::shared\_ptr<Collider>\ \mbox{\hyperlink{class_game_object_a0ccb96c40c83d776ca94efe1f70809cf}{collider}};\ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_object_afa3bf48882a927f94a6d922045a435e0}{active}}\ =\ \textcolor{keyword}{true};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}}\ =\ 0.0f;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}}\ =\ 0.0f;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ SpriteType\ \mbox{\hyperlink{class_game_object_a54ba7d711ecf699551885b3e2e24e205}{sprite}}\ =\ SpriteType::NONE;\ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ ObjectType\ \mbox{\hyperlink{class_game_object_a280ab05ffa48cf4d328565f079162e50}{type}}\ =\ ObjectType::NONE;\ \ \ \ }
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a1f11eed1432234d5d204fdc609a89fe2}{onCollision}}(std::shared\_ptr<Collider>\ other);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a21c47fc0d7f0a7716e4089b026f32cf3}{parentUpdate}}(\mbox{\hyperlink{struct_vec2}{Vec2}}\ deltaPos,\ \textcolor{keywordtype}{float}\ deltaRotation);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00121\ \ \ \ \ std::optional<std::weak\_ptr<GameObject>>\ \mbox{\hyperlink{class_game_object_ace948960d988975d7065bdad324df347}{parent}}\ =\ std::nullopt;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00125\ \ \ \ \ std::vector<std::weak\_ptr<GameObject>>\ children;}
+\DoxyCodeLine{00126\ \};}
+
+\end{DoxyCode}

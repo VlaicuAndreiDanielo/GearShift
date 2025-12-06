@@ -1,0 +1,161 @@
+\doxysection{Road\+Segment Class Reference}
+\hypertarget{class_road_segment}{}\label{class_road_segment}\index{RoadSegment@{RoadSegment}}
+
+
+Segment de drum pe care rulează mașina.  
+
+
+
+
+{\ttfamily \#include $<$Road\+Segment.\+h$>$}
+
+Inheritance diagram for Road\+Segment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_road_segment}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_road_segment_afc66bd479e581da033ed5f2920bbd63a}\label{class_road_segment_afc66bd479e581da033ed5f2920bbd63a} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player_trigger}{Player\+Trigger}} $>$ {\bfseries get\+Trigger} () const
+\begin{DoxyCompactList}\small\item\em Obține trigger-\/ul asociat acestui segment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Game\+Object} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor implicit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_ad4c2a8cd00a47c2c5bf0f9818f75ee20}{Game\+Object}} (float startX, float startY, float \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}}, float \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}}, bool \mbox{\hyperlink{class_game_object_afa3bf48882a927f94a6d922045a435e0}{active}})
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_game_object}{Game\+Object} cu poziție și dimensiune specificate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_acd37ab71f82ad1e0c96eebae60e35f23}{handle\+Update}} (float dt, const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&input)
+\begin{DoxyCompactList}\small\item\em Wrapper pentru update care menține corect ierarhia părinte–copil. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a64c309c90f0f81c2b71359de05e95ebb}{set\+Parent}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ parent\+Obj)
+\begin{DoxyCompactList}\small\item\em Setează Game\+Object-\/ul părinte pentru acest obiect. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform}{Transform}} \& \mbox{\hyperlink{class_game_object_a9977f1cf1ed8a7a7016a0b862e343aa3}{get\+World\+Transform}} ()
+\begin{DoxyCompactList}\small\item\em Obține transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_afb265fbcf4cced50adfc4b41f3c8271c}{set\+World\+Transform}} (\mbox{\hyperlink{struct_vec2}{Vec2}} pos, float rotation)
+\begin{DoxyCompactList}\small\item\em Setează transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+Object\+Type {\bfseries get\+Type} () const
+\begin{DoxyCompactList}\small\item\em Obține tipul logic al obiectului (Road, \doxylink{class_player}{Player}, Fuel etc.). \end{DoxyCompactList}\item 
+Sprite\+Type {\bfseries get\+Sprite} () const
+\begin{DoxyCompactList}\small\item\em Obține tipul de sprite asociat obiectului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7aa3fbf2d05b8ae467dead2f51460ab9}{set\+Sprite}} (Sprite\+Type \mbox{\hyperlink{class_game_object_a54ba7d711ecf699551885b3e2e24e205}{sprite}})
+\begin{DoxyCompactList}\small\item\em Setează sprite-\/ul asociat obiectului. \end{DoxyCompactList}\item 
+void {\bfseries set\+Active} (bool \mbox{\hyperlink{class_game_object_abe79de441ec36735859f8e0e20888033}{is\+Active}})
+\begin{DoxyCompactList}\small\item\em Activează sau dezactivează obiectul. \end{DoxyCompactList}\item 
+bool {\bfseries is\+Active} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă obiectul este activ. \end{DoxyCompactList}\item 
+float {\bfseries get\+Width} () const
+\begin{DoxyCompactList}\small\item\em Obține lățimea obiectului. \end{DoxyCompactList}\item 
+float {\bfseries get\+Height} () const
+\begin{DoxyCompactList}\small\item\em Obține înălțimea obiectului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7400fd25c213fa0ee6a894d69d0e0078}{set\+Size}} (float w, float h)
+\begin{DoxyCompactList}\small\item\em Setează dimensiunea obiectului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{class_road_segment_a120839d74c2b47f04ae8405099626d1c}{create}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$ collision\+Manager, float startX, float startY, float \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}}, float \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}}, int total\+Road\+Count)
+\begin{DoxyCompactList}\small\item\em Creează un segment de drum, trigger-\/ul aferent și gărdulețele. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_road_segment_aede527eb9f1c2476f2cddc9f9c52352d}\label{class_road_segment_aede527eb9f1c2476f2cddc9f9c52352d} 
+static int {\bfseries segment\+Pass\+Counter} = 0
+\begin{DoxyCompactList}\small\item\em Contor global al numărului de segmente de drum trecute de \doxylink{class_player}{Player}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_road_segment_a6e60ee0799e42c478c41fe3804b4f3db}{player\+Triggered}} ()
+\begin{DoxyCompactList}\small\item\em Metodă apelată când Player\+Trigger-\/ul asociat este activat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_game_object_aeeec3a63938c9d9807a9007fcfc6580c}{update}} (float dt, const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&input)
+\begin{DoxyCompactList}\small\item\em Actualizare specifică pentru tipul concret de \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_object_a1f11eed1432234d5d204fdc609a89fe2}{on\+Collision}} (std\+::shared\+\_\+ptr$<$ Collider $>$ other)
+\begin{DoxyCompactList}\small\item\em Callback la coliziune cu un alt collider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a21c47fc0d7f0a7716e4089b026f32cf3}{parent\+Update}} (\mbox{\hyperlink{struct_vec2}{Vec2}} delta\+Pos, float delta\+Rotation)
+\begin{DoxyCompactList}\small\item\em Propagă modificările de poziție și rotație către copii. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_road_segment_ab0e444fe9b7ebfa80b38ceff5cf7dfa6}\label{class_road_segment_ab0e444fe9b7ebfa80b38ceff5cf7dfa6} 
+class {\bfseries Player\+Trigger}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_transform}{Transform}} {\bfseries world\+Transform}
+\begin{DoxyCompactList}\small\item\em Transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform}{Transform}} {\bfseries local\+Transform}
+\begin{DoxyCompactList}\small\item\em Transform-\/ul relativ la părinte. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ Collider $>$ {\bfseries collider}
+\begin{DoxyCompactList}\small\item\em Collider-\/ul atașat (dacă există). \end{DoxyCompactList}\item 
+bool {\bfseries active} = true
+\begin{DoxyCompactList}\small\item\em Flag de activare. \end{DoxyCompactList}\item 
+float {\bfseries width} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Lățimea obiectului. \end{DoxyCompactList}\item 
+float {\bfseries height} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Înălțimea obiectului. \end{DoxyCompactList}\item 
+Sprite\+Type {\bfseries sprite} = Sprite\+Type\+::\+NONE
+\begin{DoxyCompactList}\small\item\em Sprite-\/ul asociat. \end{DoxyCompactList}\item 
+Object\+Type {\bfseries type} = Object\+Type\+::\+NONE
+\begin{DoxyCompactList}\small\item\em Tipul logic al obiectului. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ {\bfseries parent} = std\+::nullopt
+\begin{DoxyCompactList}\small\item\em Părinte opțional al acestui \doxylink{class_game_object}{Game\+Object} (pentru ierarhii). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Segment de drum pe care rulează mașina. 
+
+Conține un trigger pentru detectarea trecerii Player-\/ului și poate avea atașate gărdulețe de margine ca Game\+Object-\/uri copil. Se repoziționează pentru a simula un drum infinit. 
+
+\label{doc-func-members}
+\Hypertarget{class_road_segment_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_road_segment_a120839d74c2b47f04ae8405099626d1c}\index{RoadSegment@{RoadSegment}!create@{create}}
+\index{create@{create}!RoadSegment@{RoadSegment}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{class_road_segment_a120839d74c2b47f04ae8405099626d1c} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ Road\+Segment\+::create (\begin{DoxyParamCaption}\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$}]{collision\+Manager}{, }\item[{float}]{startX}{, }\item[{float}]{startY}{, }\item[{float}]{width}{, }\item[{float}]{height}{, }\item[{int}]{total\+Road\+Count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creează un segment de drum, trigger-\/ul aferent și gărdulețele. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em collision\+Manager} & Managerul de coliziuni pentru collider-\/e. \\
+\hline
+{\em startX} & Poziția inițială X a segmentului. \\
+\hline
+{\em startY} & Poziția inițială Y a segmentului. \\
+\hline
+{\em width} & Lățimea segmentului (în lume). \\
+\hline
+{\em height} & Înălțimea segmentului (în lume). \\
+\hline
+{\em total\+Road\+Count} & Numărul total de segmente folosite în scenă. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un vector cu Game\+Object-\/urile create (segment, trigger, gărdulețe). 
+\end{DoxyReturn}
+\Hypertarget{class_road_segment_a6e60ee0799e42c478c41fe3804b4f3db}\index{RoadSegment@{RoadSegment}!playerTriggered@{playerTriggered}}
+\index{playerTriggered@{playerTriggered}!RoadSegment@{RoadSegment}}
+\doxysubsubsection{\texorpdfstring{playerTriggered()}{playerTriggered()}}
+{\footnotesize\ttfamily \label{class_road_segment_a6e60ee0799e42c478c41fe3804b4f3db} 
+void Road\+Segment\+::player\+Triggered (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Metodă apelată când Player\+Trigger-\/ul asociat este activat. 
+
+Repoziționează segmentul (și copiii săi) mai sus, pentru a simula un drum care se „repetă” și incrementează segment\+Pass\+Counter. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Road\+Segment.\+h\item 
+Gear\+Shift\+Lib/Road\+Segment.\+cpp\end{DoxyCompactItemize}

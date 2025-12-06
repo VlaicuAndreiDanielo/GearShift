@@ -1,0 +1,52 @@
+\doxysection{Sprite\+Mapper Class Reference}
+\hypertarget{class_sprite_mapper}{}\label{class_sprite_mapper}\index{SpriteMapper@{SpriteMapper}}
+
+
+Map static între Sprite\+Type și path-\/ul fișierului imagine.  
+
+
+
+
+{\ttfamily \#include $<$Sprite\+Mapper.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::string \mbox{\hyperlink{class_sprite_mapper_ae5b563e495e4abca41369572627cdfa9}{get\+Sprite\+Path}} (Sprite\+Type sprite)
+\begin{DoxyCompactList}\small\item\em Obține path-\/ul texturii asociate unui tip de sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Map static între Sprite\+Type și path-\/ul fișierului imagine. 
+
+Folosit de layer-\/ul de randare pentru a obține rapid calea către textura corectă în funcție de tipul de sprite (PLAYER, ROAD, NPC etc.). 
+
+\label{doc-func-members}
+\Hypertarget{class_sprite_mapper_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sprite_mapper_ae5b563e495e4abca41369572627cdfa9}\index{SpriteMapper@{SpriteMapper}!getSpritePath@{getSpritePath}}
+\index{getSpritePath@{getSpritePath}!SpriteMapper@{SpriteMapper}}
+\doxysubsubsection{\texorpdfstring{getSpritePath()}{getSpritePath()}}
+{\footnotesize\ttfamily \label{class_sprite_mapper_ae5b563e495e4abca41369572627cdfa9} 
+const std\+::string Sprite\+Mapper\+::get\+Sprite\+Path (\begin{DoxyParamCaption}\item[{Sprite\+Type}]{sprite}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Obține path-\/ul texturii asociate unui tip de sprite. 
+
+Dacă sprite-\/ul nu există în map, poate întoarce un path gol sau unul default, în funcție de implementare.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & Tipul de sprite pentru care se caută path-\/ul. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Calea către fișierul imagine din assets. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Sprite\+Mapper.\+h\item 
+Gear\+Shift\+UI/Sprite\+Mapper.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,133 @@
+\doxysection{Btn Class Reference}
+\hypertarget{class_btn}{}\label{class_btn}\index{Btn@{Btn}}
+
+
+Buton UI simplu folosit în meniuri.  
+
+
+
+
+{\ttfamily \#include $<$Button.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_btn_a161b44c1b6948e28f4bd42a5d6376507}{Btn}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rend, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, const std\+::string \&text, int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em Creează un buton cu text, poziție și dimensiune date. \end{DoxyCompactList}\item 
+\Hypertarget{class_btn_aea8d04ec59748c21d591b13656bd6c0d}\label{class_btn_aea8d04ec59748c21d591b13656bd6c0d} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Btn} ()
+\begin{DoxyCompactList}\small\item\em Destructor – marchează textura pentru cleanup sigur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_btn_a30bad301728c4537743d5a128cd20dae}{update}} (int mx, int my)
+\begin{DoxyCompactList}\small\item\em Actualizează starea de hover în funcție de poziția mouse-\/ului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_btn_a379947d4d315c8bf2a39838c852879ad}{handle\+Click}} (int mx, int my)
+\begin{DoxyCompactList}\small\item\em Gestionează un click de mouse la coordonatele date. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_btn_a41a835b387c513a06abadd368227a5f6}{render}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rend)
+\begin{DoxyCompactList}\small\item\em Randează butonul (rect + text) folosind renderer-\/ul dat. \end{DoxyCompactList}\item 
+\Hypertarget{class_btn_afcd61d991aa5f50b0edfb4d87fd2295d}\label{class_btn_afcd61d991aa5f50b0edfb4d87fd2295d} 
+void {\bfseries set\+Command} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_command}{ICommand}} $>$ cmd)
+\begin{DoxyCompactList}\small\item\em Setează comanda care va fi executată la click. \end{DoxyCompactList}\item 
+\Hypertarget{class_btn_aac1b3bbfcc72440a9faaf31aa929db7d}\label{class_btn_aac1b3bbfcc72440a9faaf31aa929db7d} 
+void {\bfseries set\+Click} (std\+::function$<$ void()$>$ cb)
+\begin{DoxyCompactList}\small\item\em Setează un callback funcțional pentru click (interfață legacy). \end{DoxyCompactList}\item 
+\Hypertarget{class_btn_adbf56352fc1abed206dc13e667b5f240}\label{class_btn_adbf56352fc1abed206dc13e667b5f240} 
+bool {\bfseries contains} (int x, int y) const
+\begin{DoxyCompactList}\small\item\em Verifică dacă un punct (x,y) se află în interiorul butonului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Buton UI simplu folosit în meniuri. 
+
+Desenează un dreptunghi colorat cu text centrat, detectează hover-\/ul și click-\/ul și, la click, execută fie o \doxylink{class_i_command}{ICommand}, fie un callback funcțional. 
+
+\label{doc-constructors}
+\Hypertarget{class_btn_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_btn_a161b44c1b6948e28f4bd42a5d6376507}\index{Btn@{Btn}!Btn@{Btn}}
+\index{Btn@{Btn}!Btn@{Btn}}
+\doxysubsubsection{\texorpdfstring{Btn()}{Btn()}}
+{\footnotesize\ttfamily \label{class_btn_a161b44c1b6948e28f4bd42a5d6376507} 
+Btn\+::\+Btn (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rend}{, }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font}{, }\item[{const std\+::string \&}]{text}{, }\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{w}{, }\item[{int}]{h}{}\end{DoxyParamCaption})}
+
+
+
+Creează un buton cu text, poziție și dimensiune date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rend} & Renderer-\/ul SDL folosit pentru a crea textura textului. \\
+\hline
+{\em font} & Fontul folosit pentru text. \\
+\hline
+{\em text} & Textul de afișat. \\
+\hline
+{\em x} & Poziția X a butonului. \\
+\hline
+{\em y} & Poziția Y a butonului. \\
+\hline
+{\em w} & Lățimea butonului. \\
+\hline
+{\em h} & Înălțimea butonului. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_btn_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_btn_a379947d4d315c8bf2a39838c852879ad}\index{Btn@{Btn}!handleClick@{handleClick}}
+\index{handleClick@{handleClick}!Btn@{Btn}}
+\doxysubsubsection{\texorpdfstring{handleClick()}{handleClick()}}
+{\footnotesize\ttfamily \label{class_btn_a379947d4d315c8bf2a39838c852879ad} 
+void Btn\+::handle\+Click (\begin{DoxyParamCaption}\item[{int}]{mx}{, }\item[{int}]{my}{}\end{DoxyParamCaption})}
+
+
+
+Gestionează un click de mouse la coordonatele date. 
+
+Dacă click-\/ul este în interiorul butonului, preferă să execute \doxylink{class_i_command}{ICommand} (dacă există), altfel callback-\/ul funcțional.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mx} & Coordonata X a click-\/ului. \\
+\hline
+{\em my} & Coordonata Y a click-\/ului. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_btn_a41a835b387c513a06abadd368227a5f6}\index{Btn@{Btn}!render@{render}}
+\index{render@{render}!Btn@{Btn}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_btn_a41a835b387c513a06abadd368227a5f6} 
+void Btn\+::render (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rend}{}\end{DoxyParamCaption})}
+
+
+
+Randează butonul (rect + text) folosind renderer-\/ul dat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rend} & Renderer-\/ul SDL folosit la desenare. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_btn_a30bad301728c4537743d5a128cd20dae}\index{Btn@{Btn}!update@{update}}
+\index{update@{update}!Btn@{Btn}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_btn_a30bad301728c4537743d5a128cd20dae} 
+void Btn\+::update (\begin{DoxyParamCaption}\item[{int}]{mx}{, }\item[{int}]{my}{}\end{DoxyParamCaption})}
+
+
+
+Actualizează starea de hover în funcție de poziția mouse-\/ului. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mx} & Coordonata X a mouse-\/ului. \\
+\hline
+{\em my} & Coordonata Y a mouse-\/ului. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Button.\+h\item 
+Gear\+Shift\+UI/Button.\+cpp\end{DoxyCompactItemize}

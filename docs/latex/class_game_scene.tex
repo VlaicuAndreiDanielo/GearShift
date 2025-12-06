@@ -1,0 +1,176 @@
+\doxysection{Game\+Scene Class Reference}
+\hypertarget{class_game_scene}{}\label{class_game_scene}\index{GameScene@{GameScene}}
+
+
+Scena principală de joc (gameplay).  
+
+
+
+
+{\ttfamily \#include $<$Game\+Scene.\+h$>$}
+
+Inheritance diagram for Game\+Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_scene}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_scene_a602012246616566e5c7c0826d1434218}{Game\+Scene}} (\mbox{\hyperlink{class_renderer}{Renderer}} \texorpdfstring{$\ast$}{*}rend, \mbox{\hyperlink{class_scene_mgr}{Scene\+Mgr}} \texorpdfstring{$\ast$}{*}mgr, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$ logic, \mbox{\hyperlink{class_input_handler}{Input\+Handler}} \texorpdfstring{$\ast$}{*}input, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_manager}{Command\+Manager}} $>$ global\+Command\+Mgr)
+\begin{DoxyCompactList}\small\item\em Creează o scenă de joc. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_scene_a9d4720cfdab4b927f8f51ab4f7c77222}\label{class_game_scene_a9d4720cfdab4b927f8f51ab4f7c77222} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Game\+Scene} () override=default
+\begin{DoxyCompactList}\small\item\em Destructor default – cleanup-\/ul principal este în \doxylink{class_game_scene_a6bce76ae91d9c93fe75d5dd85a374f04}{on\+Exit()}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_scene_aad17e16a70f552f38fb55b336ac1bb2e}{update}} (float dt) override
+\begin{DoxyCompactList}\small\item\em Actualizează logica scenei (input, comenzi, \doxylink{class_game_logic}{Game\+Logic}). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_scene_af107c5ffdf361b4e0b718f486cbc7d0e}{render}} () override
+\begin{DoxyCompactList}\small\item\em Randează toate obiectele de joc + HUD + overlay de pauză. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_scene_a1322f70cc3a4363a82350f28ae88ec06}{handle\+Event}} (SDL\+\_\+\+Event \&e) override
+\begin{DoxyCompactList}\small\item\em Procesează evenimente SDL (forward către \doxylink{class_input_handler}{Input\+Handler}). \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_game_scene_a537a18adf7f1ce8d07e8421acfe0e41e}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Numele scenei – "{}\+Game"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_scene_a67d37132fa3092e9cd6c7819deeaefcd}{on\+Enter}} () override
+\begin{DoxyCompactList}\small\item\em Se apelează când scena devine activă. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_scene_a6bce76ae91d9c93fe75d5dd85a374f04}{on\+Exit}} () override
+\begin{DoxyCompactList}\small\item\em Se apelează când scena iese din activ. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_scene}{IScene}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IScene} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scena principală de joc (gameplay). 
+
+Se ocupă de\+:
+\begin{DoxyItemize}
+\item randarea obiectelor de joc (mașini, drum, fuel etc.);
+\item randarea HUD-\/ului (fuel + scor);
+\item gestionarea pauzei (overlay „\+PAUSED” + \doxylink{class_pause_game_command}{Pause\+Game\+Command});
+\item tranziția către \doxylink{class_game_over_scene}{Game\+Over\+Scene} la final de rundă. 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_game_scene_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_scene_a602012246616566e5c7c0826d1434218}\index{GameScene@{GameScene}!GameScene@{GameScene}}
+\index{GameScene@{GameScene}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GameScene()}{GameScene()}}
+{\footnotesize\ttfamily \label{class_game_scene_a602012246616566e5c7c0826d1434218} 
+Game\+Scene\+::\+Game\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_renderer}{Renderer}} \texorpdfstring{$\ast$}{*}}]{rend}{, }\item[{\mbox{\hyperlink{class_scene_mgr}{Scene\+Mgr}} \texorpdfstring{$\ast$}{*}}]{mgr}{, }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$}]{logic}{, }\item[{\mbox{\hyperlink{class_input_handler}{Input\+Handler}} \texorpdfstring{$\ast$}{*}}]{input}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_manager}{Command\+Manager}} $>$}]{global\+Command\+Mgr}{}\end{DoxyParamCaption})}
+
+
+
+Creează o scenă de joc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rend} & Renderer-\/ul folosit pentru desen. \\
+\hline
+{\em mgr} & Managerul de scene. \\
+\hline
+{\em logic} & Logica jocului (\doxylink{class_i_game}{IGame}). \\
+\hline
+{\em input} & Handler-\/ul de input. \\
+\hline
+{\em global\+Command\+Mgr} & \doxylink{class_command_manager}{Command\+Manager} global. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_game_scene_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_scene_a537a18adf7f1ce8d07e8421acfe0e41e}\index{GameScene@{GameScene}!getName@{getName}}
+\index{getName@{getName}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_game_scene_a537a18adf7f1ce8d07e8421acfe0e41e} 
+std\+::string Game\+Scene\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Numele scenei – "{}\+Game"{}. 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_a643fc851596bdb01b2e7b3f32f1a9762}{IScene}}.
+
+\Hypertarget{class_game_scene_a1322f70cc3a4363a82350f28ae88ec06}\index{GameScene@{GameScene}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily \label{class_game_scene_a1322f70cc3a4363a82350f28ae88ec06} 
+void Game\+Scene\+::handle\+Event (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \&}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Procesează evenimente SDL (forward către \doxylink{class_input_handler}{Input\+Handler}). 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_af82cc977474b930850543329eeee4b12}{IScene}}.
+
+\Hypertarget{class_game_scene_a67d37132fa3092e9cd6c7819deeaefcd}\index{GameScene@{GameScene}!onEnter@{onEnter}}
+\index{onEnter@{onEnter}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{onEnter()}{onEnter()}}
+{\footnotesize\ttfamily \label{class_game_scene_a67d37132fa3092e9cd6c7819deeaefcd} 
+void Game\+Scene\+::on\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Se apelează când scena devine activă. 
+
+Inițializează rendererele, HUD-\/ul, fontul și bind-\/urile de taste pentru pauză. 
+
+Implements \mbox{\hyperlink{class_i_scene_abdd19162accdecdf35effd38e306716d}{IScene}}.
+
+\Hypertarget{class_game_scene_a6bce76ae91d9c93fe75d5dd85a374f04}\index{GameScene@{GameScene}!onExit@{onExit}}
+\index{onExit@{onExit}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{onExit()}{onExit()}}
+{\footnotesize\ttfamily \label{class_game_scene_a6bce76ae91d9c93fe75d5dd85a374f04} 
+void Game\+Scene\+::on\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Se apelează când scena iese din activ. 
+
+Eliberează resursele de randare și închide runda de joc (end\+Game()). 
+
+Implements \mbox{\hyperlink{class_i_scene_aa84ab647ec058087c58aaac70ad515e0}{IScene}}.
+
+\Hypertarget{class_game_scene_af107c5ffdf361b4e0b718f486cbc7d0e}\index{GameScene@{GameScene}!render@{render}}
+\index{render@{render}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_game_scene_af107c5ffdf361b4e0b718f486cbc7d0e} 
+void Game\+Scene\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Randează toate obiectele de joc + HUD + overlay de pauză. 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_aadeac260f2cfd96ab519a10eaa785c01}{IScene}}.
+
+\Hypertarget{class_game_scene_aad17e16a70f552f38fb55b336ac1bb2e}\index{GameScene@{GameScene}!update@{update}}
+\index{update@{update}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_game_scene_aad17e16a70f552f38fb55b336ac1bb2e} 
+void Game\+Scene\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Actualizează logica scenei (input, comenzi, \doxylink{class_game_logic}{Game\+Logic}). 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_a490479e914172e4f36d13fe3a66da759}{IScene}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Game\+Scene.\+h\item 
+Gear\+Shift\+UI/Game\+Scene.\+cpp\end{DoxyCompactItemize}

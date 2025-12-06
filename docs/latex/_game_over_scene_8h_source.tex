@@ -1,0 +1,44 @@
+\doxysection{Game\+Over\+Scene.\+h}
+\hypertarget{_game_over_scene_8h_source}{}\label{_game_over_scene_8h_source}\index{GearShiftUI/GameOverScene.h@{GearShiftUI/GameOverScene.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}IScene.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Renderer.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SceneManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_over_scene_ac2ef674ce9d6ae56107676ac2addbf93}{GameOverScene}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_scene}{IScene}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_renderer}{Renderer}}*\ renderer;\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_scene_mgr}{SceneMgr}}*\ sceneMgr;\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ timeAlive;\ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ autoReturnTime;\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ finalScore;\ \ \ \ \ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ TTF\_Font*\ font\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_game_over_scene_ac2ef674ce9d6ae56107676ac2addbf93}{GameOverScene}}(\mbox{\hyperlink{class_renderer}{Renderer}}*\ rend,\ \mbox{\hyperlink{class_scene_mgr}{SceneMgr}}*\ mgr);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_game_over_scene_a82ddda529c5321c02566d6b17886c74f}{\string~GameOverScene}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_over_scene_a661212e2faed364b639fc2a7e7a54bfd}{update}}(\textcolor{keywordtype}{float}\ dt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_over_scene_ae11d4f02c12bbe04b31c9cc3612ba329}{render}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_over_scene_a63cae423ed9c5033e377cea65e0ded35}{handleEvent}}(SDL\_Event\&\ e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00049\ \ \ \ \ std::string\ \mbox{\hyperlink{class_game_over_scene_a989064ffa95a8801af3c751255cc2997}{getName}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}GameOver"{}};\ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_over_scene_a16e1a608dc78093bdf9ce2e7dfacf8e1}{setFinalScore}}(\textcolor{keywordtype}{int}\ score)\ \{\ finalScore\ =\ score;\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_over_scene_ae5d9f3554275cf80a1cbe6aab9b80912}{onEnter}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_over_scene_a0f674f503a7e8082544cdf29e084412e}{onExit}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00061\ \};}
+
+\end{DoxyCode}

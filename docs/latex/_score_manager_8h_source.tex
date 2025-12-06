@@ -1,0 +1,25 @@
+\doxysection{Score\+Manager.\+h}
+\hypertarget{_score_manager_8h_source}{}\label{_score_manager_8h_source}\index{GearShiftLib/ScoreManager.h@{GearShiftLib/ScoreManager.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}IScoreManager.h"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_score_manager_a4f3866ff832127664543349da5c4fbf4}{ScoreManager}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_score_manager}{IScoreManager}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_score_manager_a4f3866ff832127664543349da5c4fbf4}{ScoreManager}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_score_manager_a69ceaad9127afadd2320bac8c5ea8306}{\string~ScoreManager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_manager_a2b312c06fa236d4e65e2c9713c5d88ed}{update}}(\textcolor{keywordtype}{float}\ dt);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_manager_aac93ad8683d4d98b7dc67972f7086e15}{reset}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_score_manager_a7cbef2e23fe4be202359d9a1d67ea86d}{getScore}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ score;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ accumulator;\ \ }
+\DoxyCodeLine{00031\ \};}
+
+\end{DoxyCode}

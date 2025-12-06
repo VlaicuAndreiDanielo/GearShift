@@ -1,0 +1,86 @@
+\doxysection{Score\+Manager Class Reference}
+\hypertarget{class_score_manager}{}\label{class_score_manager}\index{ScoreManager@{ScoreManager}}
+
+
+Manager simplu pentru scorul jucătorului.  
+
+
+
+
+{\ttfamily \#include $<$Score\+Manager.\+h$>$}
+
+Inheritance diagram for Score\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_score_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_score_manager_a4f3866ff832127664543349da5c4fbf4}\label{class_score_manager_a4f3866ff832127664543349da5c4fbf4} 
+{\bfseries Score\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_score_manager}{Score\+Manager} cu scor inițial 0. \end{DoxyCompactList}\item 
+\Hypertarget{class_score_manager_a69ceaad9127afadd2320bac8c5ea8306}\label{class_score_manager_a69ceaad9127afadd2320bac8c5ea8306} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Score\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual default. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_manager_a2b312c06fa236d4e65e2c9713c5d88ed}{update}} (float dt)
+\begin{DoxyCompactList}\small\item\em Actualizează scorul în funcție de timpul scurs. \end{DoxyCompactList}\item 
+\Hypertarget{class_score_manager_aac93ad8683d4d98b7dc67972f7086e15}\label{class_score_manager_aac93ad8683d4d98b7dc67972f7086e15} 
+void {\bfseries reset} ()
+\begin{DoxyCompactList}\small\item\em Resetează scorul la 0 și golește accumulator-\/ul intern. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_score_manager_a7cbef2e23fe4be202359d9a1d67ea86d}{get\+Score}} () override
+\begin{DoxyCompactList}\small\item\em Obține scorul curent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_score_manager}{IScore\+Manager}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IScore\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manager simplu pentru scorul jucătorului. 
+
+Acumulează puncte în timp (de exemplu 10 puncte / secundă) și oferă metode pentru resetarea și interogarea scorului curent. 
+
+\label{doc-func-members}
+\Hypertarget{class_score_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_score_manager_a7cbef2e23fe4be202359d9a1d67ea86d}\index{ScoreManager@{ScoreManager}!getScore@{getScore}}
+\index{getScore@{getScore}!ScoreManager@{ScoreManager}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily \label{class_score_manager_a7cbef2e23fe4be202359d9a1d67ea86d} 
+int Score\+Manager\+::get\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obține scorul curent. 
+
+\begin{DoxyReturn}{Returns}
+Scorul curent al jucătorului. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_score_manager_a857a4ae3a7cb9ffa19a20e8f23d4cc04}{IScore\+Manager}}.
+
+\Hypertarget{class_score_manager_a2b312c06fa236d4e65e2c9713c5d88ed}\index{ScoreManager@{ScoreManager}!update@{update}}
+\index{update@{update}!ScoreManager@{ScoreManager}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_score_manager_a2b312c06fa236d4e65e2c9713c5d88ed} 
+void Score\+Manager\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Actualizează scorul în funcție de timpul scurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame (în secunde). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Score\+Manager.\+h\item 
+Gear\+Shift\+Lib/Score\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,3 +1,8 @@
+/**
+ * \file Source.cpp
+ * \brief Punctul de intrare pentru suita de teste GoogleTest/GoogleMock.
+ */
+
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 

@@ -1,0 +1,83 @@
+\doxysection{Traffic\+Base\+NPC.\+h}
+\hypertarget{_traffic_base_n_p_c_8h_source}{}\label{_traffic_base_n_p_c_8h_source}\index{GearShiftLib/TrafficBaseNPC.h@{GearShiftLib/TrafficBaseNPC.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}GameObject.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}PlayerTrigger.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }TrafficBaseNPC\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::shared\_ptr<GameObject>>\ \mbox{\hyperlink{class_traffic_base_n_p_c_a633e309ded1e876e23f10c13955adb06}{create}}(}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::weak\_ptr<CollisionManager>\ collisionManager,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::mt19937\&\ gameRng,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}},}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ roadWidth,\ \textcolor{keywordtype}{float}\ roadHeight,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ minSpeed,\ \textcolor{keywordtype}{float}\ maxSpeed}
+\DoxyCodeLine{00039\ \ \ \ \ );}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00042\ \ \ \ \ std::shared\_ptr<PlayerTrigger>\ \mbox{\hyperlink{class_traffic_base_n_p_c_a74b2207691a7d86829a3f424d8a76a04}{getRespawnTrigger}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_traffic_base_n_p_c_1_1_slow_down_trigger_a166bc9ecbaf4186f3fdbbb08037cb117}{SlowDownTrigger}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<SlowDownTrigger>\ \mbox{\hyperlink{class_traffic_base_n_p_c_1_1_slow_down_trigger_a8eefbc87f5f3c60d904644e87161517f}{create}}(}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ std::weak\_ptr<CollisionManager>\ collisionManager,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_traffic_base_n_p_c_1_1_slow_down_trigger_a166bc9ecbaf4186f3fdbbb08037cb117}{SlowDownTrigger}}(\textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_traffic_base_n_p_c_1_1_slow_down_trigger_a232dde51d80dfd3abbd3d64b2668263f}{onCollision}}(std::shared\_ptr<CollisionManager::Collider>\ other)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00076\ \ \ \ \ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00079\ \ \ \ \ std::shared\_ptr<TrafficBaseNPC::SlowDownTrigger>\ \mbox{\hyperlink{class_traffic_base_n_p_c_ac7c3b6e71e33b8cda2487258357c2bec}{getSlowDownTrigger}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }PlayerTrigger;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_traffic_base_n_p_c_1_1_slow_down_trigger}{SlowDownTrigger}};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_traffic_base_n_p_c_a5015d83448077cf0cd388c7f66955faa}{stop}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_traffic_base_n_p_c_add8b3a2b2fda145068f26df804e9ca6d}{playerTriggered}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_traffic_base_n_p_c_a75d707ce9b81b735ef300f402636c1b4}{update}}(\textcolor{keywordtype}{float}\ dt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_i_input_state}{IInputState}}\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00103\ \ \ \ \ TrafficBaseNPC(std::mt19937\&\ gameRng,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}},}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ roadWidth,\ \textcolor{keywordtype}{float}\ roadHeight,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ minSpeed,\ \textcolor{keywordtype}{float}\ maxSpeed);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ createRespawnTrigger(std::weak\_ptr<CollisionManager>\ collisionManager);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ createSlowDownTrigger(std::weak\_ptr<CollisionManager>\ collisionManager);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ respawn();}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ std::shared\_ptr<PlayerTrigger>\ respawnTrigger;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00121\ \ \ \ \ std::shared\_ptr<TrafficBaseNPC::SlowDownTrigger>\ slowDownTrigger;\ \ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{float}\ roadWidth\ =\ 100.0f;\ \ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{float}\ roadHeight\ =\ 100.0f;\ \ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{float}\ roadCenterX\ =\ 50.0f;\ \ \ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{float}\ speed\ =\ 5.0f;\ \ \ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{float}\ desiredSpeed\ =\ 5.0f;\ \ \ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{float}\ minSpeed\ =\ 0.0f;\ \ \ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{float}\ maxSpeed\ =\ 50.0f;\ \ }
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{bool}\ isStopping\ =\ \textcolor{keyword}{false};\ \ \ \ \ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ std::mt19937\&\ rng;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ std::uniform\_real\_distribution<float>\ speedDist;\ \ }
+\DoxyCodeLine{00136\ \ \ \ \ std::uniform\_real\_distribution<float>\ xPosDist;\ \ \ }
+\DoxyCodeLine{00137\ \ \ \ \ std::uniform\_real\_distribution<float>\ yPosDist;\ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ std::uniform\_int\_distribution<int>\ \ \ spriteDist;\ \ }
+\DoxyCodeLine{00139\ \};}
+
+\end{DoxyCode}

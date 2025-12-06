@@ -1,0 +1,19 @@
+\doxysection{Player\+Trigger.\+h}
+\hypertarget{_player_trigger_8h_source}{}\label{_player_trigger_8h_source}\index{GearShiftLib/PlayerTrigger.h@{GearShiftLib/PlayerTrigger.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}GameObject.h"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player_trigger_abca91de6def185d907d7d4a19deba337}{PlayerTrigger}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<PlayerTrigger>\ \mbox{\hyperlink{class_player_trigger_a004755167e21a5a0c1ab0de20ccddf97}{create}}(std::weak\_ptr<CollisionManager>\ collisionManager,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}});}
+\DoxyCodeLine{00021\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_player_trigger_abca91de6def185d907d7d4a19deba337}{PlayerTrigger}}(\textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}});}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_trigger_a49075cf9c6b71d0f2d5c0b1fca504b84}{onCollision}}(std::shared\_ptr<CollisionManager::Collider>\ other)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ \};}
+
+\end{DoxyCode}

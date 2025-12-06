@@ -1,0 +1,33 @@
+\doxysection{Fuel\+Renderer.\+h}
+\hypertarget{_fuel_renderer_8h_source}{}\label{_fuel_renderer_8h_source}\index{GearShiftUI/FuelRenderer.h@{GearShiftUI/FuelRenderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}SpriteManager.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}IFuelManager.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fuel_renderer_ae1037f3cf2437d45230388802379e34d}{FuelRenderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_sprite_manager_a216ecb1046a7419596f902f8b3bde7c2}{SpriteManager}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_fuel_renderer_ae1037f3cf2437d45230388802379e34d}{FuelRenderer}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ SDL\_Renderer*\ renderer);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fuel_renderer_aafe21942430610318323f7a380aaa71a}{render}}(std::shared\_ptr<IFuelManager>\ manager);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_fuel_renderer_af2bc11368a94eeb3164b6695dab69c71}{\string~FuelRenderer}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ SDL\_Renderer*\ renderer;\ }
+\DoxyCodeLine{00031\ \ \ \ \ SDL\_Rect\ \ \ \ \ \ barRect;\ \ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ SDL\_Color\ bgColor;\ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ SDL\_Color\ fillColor;\ \ \ \ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ squareSize;\ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ spacing;\ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ SDL\_Rect\ \ spriteSquare;\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fuelSpritePath\ =\ \textcolor{stringliteral}{"{}assets/images/FuelCanister.png"{}};\ }
+\DoxyCodeLine{00041\ \ \ \ \ SDL\_Texture*\ fuelTexture\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,31 @@
+\doxysection{Fuel\+Canister.\+h}
+\hypertarget{_fuel_canister_8h_source}{}\label{_fuel_canister_8h_source}\index{GearShiftLib/FuelCanister.h@{GearShiftLib/FuelCanister.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}GameObject.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}GameLogic.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}CollisionManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fuel_canister_a6c7f335f8f1fa9c0d47208ba0f72d334}{FuelCanister}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_fuel_canister_a6c7f335f8f1fa9c0d47208ba0f72d334}{FuelCanister}}(\textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}},\ \mbox{\hyperlink{class_game_logic}{GameLogic}}*\ \mbox{\hyperlink{class_fuel_canister_ac7a8b00f3353a733354720387d6658d7}{gameLogic}});}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fuel_canister_aac890800fed25249db7ce6cfc56e99a3}{update}}(\textcolor{keywordtype}{float}\ dt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_i_input_state}{IInputState}}\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fuel_canister_a2398fe83ad85f99abd191c3a0ab32f4e}{onCollision}}(std::shared\_ptr<CollisionManager::Collider>\ other)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_game_logic}{GameLogic}}*\ \mbox{\hyperlink{class_fuel_canister_ac7a8b00f3353a733354720387d6658d7}{gameLogic}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::shared\_ptr<GameObject>>\ \mbox{\hyperlink{class_fuel_canister_abdcf947d51159361ea5666d727d6c8b2}{create}}(}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::weak\_ptr<CollisionManager>\ collisionManager,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,\ \mbox{\hyperlink{class_game_logic}{GameLogic}}*\ \mbox{\hyperlink{class_fuel_canister_ac7a8b00f3353a733354720387d6658d7}{gameLogic}}}
+\DoxyCodeLine{00050\ \ \ \ \ );}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ momentan\ nu\ ai\ câmpuri\ private,\ dar\ poți\ adăuga\ aici\ în\ viitor}}
+\DoxyCodeLine{00054\ \};}
+
+\end{DoxyCode}

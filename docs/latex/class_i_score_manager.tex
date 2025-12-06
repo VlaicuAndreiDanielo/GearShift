@@ -1,0 +1,57 @@
+\doxysection{IScore\+Manager Class Reference}
+\hypertarget{class_i_score_manager}{}\label{class_i_score_manager}\index{IScoreManager@{IScoreManager}}
+
+
+Interfață pentru managerul de scor.  
+
+
+
+
+{\ttfamily \#include $<$IScore\+Manager.\+h$>$}
+
+Inheritance diagram for IScore\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_score_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \mbox{\hyperlink{class_i_score_manager_a857a4ae3a7cb9ffa19a20e8f23d4cc04}{get\+Score}} ()=0
+\begin{DoxyCompactList}\small\item\em Obține scorul curent. \end{DoxyCompactList}\item 
+\Hypertarget{class_i_score_manager_a6ca0255648b1d39be9d484f3ebd7e3fa}\label{class_i_score_manager_a6ca0255648b1d39be9d484f3ebd7e3fa} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IScore\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfață pentru managerul de scor. 
+
+Permite logici diferite de calcul al scorului (strategy) prin implementări alternative care expun aceeași metodă de interogare. 
+
+\label{doc-func-members}
+\Hypertarget{class_i_score_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_score_manager_a857a4ae3a7cb9ffa19a20e8f23d4cc04}\index{IScoreManager@{IScoreManager}!getScore@{getScore}}
+\index{getScore@{getScore}!IScoreManager@{IScoreManager}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily \label{class_i_score_manager_a857a4ae3a7cb9ffa19a20e8f23d4cc04} 
+virtual int IScore\+Manager\+::get\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține scorul curent. 
+
+\begin{DoxyReturn}{Returns}
+Scorul jucătorului calculat de implementarea concretă. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_score_manager_a7cbef2e23fe4be202359d9a1d67ea86d}{Score\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/IScore\+Manager.\+h\end{DoxyCompactItemize}

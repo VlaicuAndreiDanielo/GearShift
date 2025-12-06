@@ -1,0 +1,36 @@
+\doxysection{IFabric.\+h}
+\hypertarget{_i_fabric_8h_source}{}\label{_i_fabric_8h_source}\index{GearShiftLib/IFabric.h@{GearShiftLib/IFabric.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_pt_abf4d7d9d047a767f8595bb5ea7207e0c}{Pt}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{float}\ x,\ \mbox{\hyperlink{struct_pt_aa1691942aaaff6f62e068379439b02a9}{y}};\ \ \ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{float}\ ox,\ \mbox{\hyperlink{struct_pt_ac915518bad1189c28c1670329a9efe73}{oy}};\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{float}\ fx,\ \mbox{\hyperlink{struct_pt_a97126138a11b3c07d00bed56db29884f}{fy}};\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_pt_a59fc9e9b7d18fbdf7bfb2898ecfde8ea}{pinned}};\ \ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{struct_pt_abf4d7d9d047a767f8595bb5ea7207e0c}{Pt}}(\textcolor{keywordtype}{float}\ \_x,\ \textcolor{keywordtype}{float}\ \_y)\ :\ x(\_x),\ \mbox{\hyperlink{struct_pt_aa1691942aaaff6f62e068379439b02a9}{y}}(\_y),\ ox(\_x),\ \mbox{\hyperlink{struct_pt_ac915518bad1189c28c1670329a9efe73}{oy}}(\_y),}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ fx(0),\ \mbox{\hyperlink{struct_pt_a97126138a11b3c07d00bed56db29884f}{fy}}(0),\ \mbox{\hyperlink{struct_pt_a59fc9e9b7d18fbdf7bfb2898ecfde8ea}{pinned}}(false)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_fabric}{IFabric}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_fabric_acdb4b25c34e5649b8db83183ec915794}{update}}(\textcolor{keywordtype}{float}\ dt)\ =\ 0;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_fabric_ae48aa3664bd90c4b7ae599b1c480a4d4}{applyForce}}(\textcolor{keywordtype}{float}\ mx,\ \textcolor{keywordtype}{float}\ my,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ strength)\ =\ 0;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_fabric_a5543ed6f6ed26a53bf16641e2990dad8}{reset}}()\ =\ 0;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<Pt>\&\ \mbox{\hyperlink{class_i_fabric_a80789078fa72f2ca40c0c5c7c60867af}{getPts}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_i_fabric_a6a97176664dc797d140114c8318a101a}{getW}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_i_fabric_a701a581d4796e55dee16d41ed7426198}{getH}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_pt}{Pt}}\&\ \mbox{\hyperlink{class_i_fabric_a606c2a3e5e0507257cafde0963b5ba70}{getPt}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ =\ 0;}
+\DoxyCodeLine{00059\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,49 @@
+\doxysection{Button.\+h}
+\hypertarget{_button_8h_source}{}\label{_button_8h_source}\index{GearShiftUI/Button.h@{GearShiftUI/Button.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Forward\ declaration}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_command}{ICommand}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_btn_a161b44c1b6948e28f4bd42a5d6376507}{Btn}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ SDL\_Rect\ rect;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ txt;\ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ SDL\_Texture*\ tex;\ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ SDL\_Color\ norm;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ SDL\_Color\ hover;\ \ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ isHover;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ std::shared\_ptr<ICommand>\ command;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ std::function<void()>\ onClick;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ cleanedUp;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_btn_a161b44c1b6948e28f4bd42a5d6376507}{Btn}}(SDL\_Renderer*\ rend,\ TTF\_Font*\ font,\ \textcolor{keyword}{const}\ std::string\&\ text,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_btn_aea8d04ec59748c21d591b13656bd6c0d}{\string~Btn}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_btn_a30bad301728c4537743d5a128cd20dae}{update}}(\textcolor{keywordtype}{int}\ mx,\ \textcolor{keywordtype}{int}\ my);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_btn_a379947d4d315c8bf2a39838c852879ad}{handleClick}}(\textcolor{keywordtype}{int}\ mx,\ \textcolor{keywordtype}{int}\ my);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_btn_a41a835b387c513a06abadd368227a5f6}{render}}(SDL\_Renderer*\ rend);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_btn_afcd61d991aa5f50b0edfb4d87fd2295d}{setCommand}}(std::shared\_ptr<ICommand>\ cmd)\ \{\ command\ =\ cmd;\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_btn_aac1b3bbfcc72440a9faaf31aa929db7d}{setClick}}(std::function<\textcolor{keywordtype}{void}()>\ cb)\ \{\ onClick\ =\ cb;\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_btn_adbf56352fc1abed206dc13e667b5f240}{contains}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ \};}
+
+\end{DoxyCode}

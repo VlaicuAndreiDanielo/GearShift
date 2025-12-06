@@ -1,0 +1,36 @@
+\doxysection{Collision.\+h}
+\hypertarget{_collision_8h_source}{}\label{_collision_8h_source}\index{GearShiftLib/Collision.h@{GearShiftLib/Collision.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}CollisionManager.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Vec2.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_collision_manager_1_1_collision}{CollisionManager::Collision}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_collision_manager_1_1_collision_a441dd6b470f5275a3c0d9afea1a65f55}{Collision}}(std::shared\_ptr<const\ Collider>\ a,\ std::shared\_ptr<const\ Collider>\ b);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_collision_manager_1_1_collision_a441dd6b470f5275a3c0d9afea1a65f55}{\string~Collision}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \ \ \ \ std::shared\_ptr<const\ Collider>\ \mbox{\hyperlink{class_collision_manager_1_1_collision_a7d37fb30991caca40c0f4aac14b330aa}{getColliderA}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00023\ \ \ \ \ std::shared\_ptr<const\ Collider>\ \mbox{\hyperlink{class_collision_manager_1_1_collision_ae0536683788c468f4b1d5a42834cc6e9}{getColliderB}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_collision_manager_1_1_collision_a2bcccc3a1b7469ab56dd9ce6fa85db82}{setCollisionNormal}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ normal);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ \mbox{\hyperlink{class_collision_manager_1_1_collision_ae9c52ed42452fd766a3dbc7d605d3a20}{getCollisionNormal}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_collision_manager_1_1_collision_a0ed6f457f977f13864204e9610a706f7}{setPenetrationDepth}}(\textcolor{keywordtype}{float}\ depth);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_collision_manager_1_1_collision_a156960c1a26bde3e56fe005ffef46299}{getPenetrationDepth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_collision_manager_1_1_collision_af58eadd8004188443bfe9727ea02591f}{resolve}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ std::shared\_ptr<const\ Collider>\ colliderA;\ \ }
+\DoxyCodeLine{00053\ \ \ \ \ std::shared\_ptr<const\ Collider>\ colliderB;\ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ \ collisionNormal\ =\ \mbox{\hyperlink{struct_vec2}{Vec2}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ penetrationDepth\ =\ 0.0f;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \};}
+
+\end{DoxyCode}

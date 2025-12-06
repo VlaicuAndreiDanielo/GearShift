@@ -1,8 +1,20 @@
+﻿/**
+ * \file GameLogicTests.cpp
+ * \brief Unit tests pentru GameLogic (stări, timp, fabric, obiecte).
+ *
+ * Folosește GoogleMock pentru a simula IInputState și verifică:
+ *  - crearea jocului și starea inițială;
+ *  - existența și dimensiunea pânzei (IFabric);
+ *  - tranzițiile de stare (start/pause/resume/end);
+ *  - incrementarea timpului de joc în update().
+ */
+
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "GameLogic.h"
 #include "IInputState.h"
 
+ /// \brief Mock pentru interfața IInputState folosită în testele GameLogic.
 class MockInput : public IInputState {
 public:
     MOCK_METHOD(bool, isUpPressed, (), (const, override));

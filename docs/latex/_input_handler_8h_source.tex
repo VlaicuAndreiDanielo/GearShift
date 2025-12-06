@@ -1,0 +1,60 @@
+\doxysection{Input\+Handler.\+h}
+\hypertarget{_input_handler_8h_source}{}\label{_input_handler_8h_source}\index{GearShiftUI/InputHandler.h@{GearShiftUI/InputHandler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../GearShiftLib/IInputState.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../GearShiftLib/CommandManager.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_input_handler_a698aa4af4f326a9881835fda251ca996}{InputHandler}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_i_input_state}{IInputState}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{const}\ Uint8*\ keyState;\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ \ mouseX;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \ mouseY;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ mousePressed;\ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ pausePressedLastFrame\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \ \ \ \ std::shared\_ptr<CommandManager>\ commandManager;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \ \ \ \ std::unordered\_map<SDL\_Scancode,\ std::string>\ keyBindings;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_input_handler_a698aa4af4f326a9881835fda251ca996}{InputHandler}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_input_handler_ac1f7efb54b34d433d6ffba62627452b6}{\string~InputHandler}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_handler_a2fde37e417a3c9ef74a57bee42d59879}{update}}(SDL\_Event\&\ e);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_handler_ab48f616a5b8c16930cefd58fb0249180}{updateKeyboard}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Command\ system\ integration\ -\/-\/-\/}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_handler_af07e82e60c46216ac563474f1219aeb6}{setCommandManager}}(std::shared\_ptr<CommandManager>\ cmdMgr)\ \{\ commandManager\ =\ cmdMgr;\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_handler_addefbe09f6f00647e5e62c1c9bdb6537}{bindKeyToCommand}}(SDL\_Scancode\ key,\ \textcolor{keyword}{const}\ std::string\&\ commandName);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_handler_a3042e34e43165f712663dc0c8f7ab8ac}{executeKeyCommands}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ IInputState\ implementation\ -\/-\/-\/}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_handler_a24431a4c85bdb7a19ddb2c032129e0f2}{isUpPressed}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_handler_a1d44384366a40d18a783a25b1e47d584}{isDownPressed}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_handler_a650d578b0f13d8ac1cce106c2c81d290}{isLeftPressed}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_handler_ad9a032c3bfc745cf914e6b8b22cec12e}{isRightPressed}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_handler_a8c8098a8684098f3e0e52933d3937b17}{isAcceleratePressed}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_handler_ab679294cf4b7ef8fb0c650d378459011}{isBrakePressed}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_handler_a39d88e74af33a2834ab51f1931b011da}{isPausePressed}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{class_input_handler_abd03b3c81d04a034988aa40f547511c1}{getMouseX}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{class_input_handler_a39fe265adc7fecb2e04d044aede74c88}{getMouseY}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_handler_a573008f2838b768cf5455e8667939172}{isMousePressed}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_handler_a1e7028e9c3c69eaf9749a2b6cc8d5967}{reset}}();}
+\DoxyCodeLine{00081\ \};}
+
+\end{DoxyCode}

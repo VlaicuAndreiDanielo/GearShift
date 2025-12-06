@@ -1,0 +1,153 @@
+\doxysection{Command\+Manager Class Reference}
+\hypertarget{class_command_manager}{}\label{class_command_manager}\index{CommandManager@{CommandManager}}
+
+
+Manager pentru comandă (Command pattern) cu suport de undo.  
+
+
+
+
+{\ttfamily \#include $<$Command\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_command_manager_abb209730bbd96dc85c803ed16cc5ba3d}\label{class_command_manager_abb209730bbd96dc85c803ed16cc5ba3d} 
+{\bfseries Command\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_command_manager}{Command\+Manager} gol. \end{DoxyCompactList}\item 
+\Hypertarget{class_command_manager_ae6a6acf03e200dfc65a7a26fbbfd207d}\label{class_command_manager_ae6a6acf03e200dfc65a7a26fbbfd207d} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Command\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ curăță comenzile și stack-\/ul de undo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_manager_ac3771ff6bf845f3a4ceaeb95bfaa8098}{register\+Command}} (const std\+::string \&name, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_command}{ICommand}} $>$ command)
+\begin{DoxyCompactList}\small\item\em Înregistrează o comandă sub un nume dat. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_command_manager_a28a77297b515897ef41f684609b14664}{execute\+Command}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Execută o comandă după numele înregistrat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_manager_a269b7d6b5dc91408fd04dd7a5d092f78}{execute\+Command}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_command}{ICommand}} $>$ command)
+\begin{DoxyCompactList}\small\item\em Execută direct o comandă dată. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_command_manager_a826c5375fefbf3616ccf9d7a88937d8e}{undo}} ()
+\begin{DoxyCompactList}\small\item\em Anulează ultima comandă care suportă undo. \end{DoxyCompactList}\item 
+\Hypertarget{class_command_manager_a854a05d2fb396249a670dcf1b4867fac}\label{class_command_manager_a854a05d2fb396249a670dcf1b4867fac} 
+bool {\bfseries has\+Command} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Verifică dacă există o comandă cu numele dat. \end{DoxyCompactList}\item 
+\Hypertarget{class_command_manager_a4ab6e51cc44bdf843a5e4c1c39ff7119}\label{class_command_manager_a4ab6e51cc44bdf843a5e4c1c39ff7119} 
+std\+::vector$<$ std\+::string $>$ {\bfseries get\+Command\+Names} () const
+\begin{DoxyCompactList}\small\item\em Obține lista cu toate numele de comenzi înregistrate. \end{DoxyCompactList}\item 
+\Hypertarget{class_command_manager_a89853e1d00d16308922e874113cd810a}\label{class_command_manager_a89853e1d00d16308922e874113cd810a} 
+void {\bfseries clear\+Commands} ()
+\begin{DoxyCompactList}\small\item\em Șterge toate comenzile înregistrate. \end{DoxyCompactList}\item 
+\Hypertarget{class_command_manager_a2676cc73377c320f287e1f1336e7fb7e}\label{class_command_manager_a2676cc73377c320f287e1f1336e7fb7e} 
+void {\bfseries clear\+Undo\+Stack} ()
+\begin{DoxyCompactList}\small\item\em Golește stack-\/ul de undo. \end{DoxyCompactList}\item 
+\Hypertarget{class_command_manager_a92b77ca160df700d0dcc13ee8e498e26}\label{class_command_manager_a92b77ca160df700d0dcc13ee8e498e26} 
+size\+\_\+t {\bfseries get\+Undo\+Stack\+Size} () const
+\begin{DoxyCompactList}\small\item\em Obține dimensiunea curentă a stack-\/ului de undo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_command_manager_a5fe0d1a275a4bf431cdff40e6e3c3982}{is\+Valid\+Command}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_command}{ICommand}} $>$ command) const
+\begin{DoxyCompactList}\small\item\em Verifică dacă un obiect comandă este valid pentru înregistrare. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manager pentru comandă (Command pattern) cu suport de undo. 
+
+Reține un registru de comenzi numite și un stack de undo. Se ocupă de\+:
+\begin{DoxyItemize}
+\item înregistrarea comenzilor;
+\item executarea lor în siguranță (try/catch + logging);
+\item gestionarea stack-\/ului de undo până la o dimensiune maximă. 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_command_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_command_manager_a28a77297b515897ef41f684609b14664}\index{CommandManager@{CommandManager}!executeCommand@{executeCommand}}
+\index{executeCommand@{executeCommand}!CommandManager@{CommandManager}}
+\doxysubsubsection{\texorpdfstring{executeCommand()}{executeCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_command_manager_a28a77297b515897ef41f684609b14664} 
+bool Command\+Manager\+::execute\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Execută o comandă după numele înregistrat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Numele comenzii. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true dacă s-\/a găsit comanda și s-\/a încercat executarea ei, false altfel. 
+\end{DoxyReturn}
+\Hypertarget{class_command_manager_a269b7d6b5dc91408fd04dd7a5d092f78}\index{CommandManager@{CommandManager}!executeCommand@{executeCommand}}
+\index{executeCommand@{executeCommand}!CommandManager@{CommandManager}}
+\doxysubsubsection{\texorpdfstring{executeCommand()}{executeCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_command_manager_a269b7d6b5dc91408fd04dd7a5d092f78} 
+void Command\+Manager\+::execute\+Command (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_command}{ICommand}} $>$}]{command}{}\end{DoxyParamCaption})}
+
+
+
+Execută direct o comandă dată. 
+
+Verifică {\ttfamily can\+Execute()}, apelează {\ttfamily execute()} și, dacă {\ttfamily can\+Undo()} este true, o introduce în stack-\/ul de undo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Comanda de executat. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_command_manager_a5fe0d1a275a4bf431cdff40e6e3c3982}\index{CommandManager@{CommandManager}!isValidCommand@{isValidCommand}}
+\index{isValidCommand@{isValidCommand}!CommandManager@{CommandManager}}
+\doxysubsubsection{\texorpdfstring{isValidCommand()}{isValidCommand()}}
+{\footnotesize\ttfamily \label{class_command_manager_a5fe0d1a275a4bf431cdff40e6e3c3982} 
+bool Command\+Manager\+::is\+Valid\+Command (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_command}{ICommand}} $>$}]{command}{}\end{DoxyParamCaption}) const}
+
+
+
+Verifică dacă un obiect comandă este valid pentru înregistrare. 
+
+Verifică dacă pointerul nu este null și dacă {\ttfamily get\+Description()} întoarce un string non-\/empty.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Comanda de validat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true dacă este validă, false altfel. 
+\end{DoxyReturn}
+\Hypertarget{class_command_manager_ac3771ff6bf845f3a4ceaeb95bfaa8098}\index{CommandManager@{CommandManager}!registerCommand@{registerCommand}}
+\index{registerCommand@{registerCommand}!CommandManager@{CommandManager}}
+\doxysubsubsection{\texorpdfstring{registerCommand()}{registerCommand()}}
+{\footnotesize\ttfamily \label{class_command_manager_ac3771ff6bf845f3a4ceaeb95bfaa8098} 
+void Command\+Manager\+::register\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_command}{ICommand}} $>$}]{command}{}\end{DoxyParamCaption})}
+
+
+
+Înregistrează o comandă sub un nume dat. 
+
+Dacă numele este deja folosit, comanda existentă va fi suprascrisă.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Numele comenzii (cheia din map). \\
+\hline
+{\em command} & Obiectul comandă. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_command_manager_a826c5375fefbf3616ccf9d7a88937d8e}\index{CommandManager@{CommandManager}!undo@{undo}}
+\index{undo@{undo}!CommandManager@{CommandManager}}
+\doxysubsubsection{\texorpdfstring{undo()}{undo()}}
+{\footnotesize\ttfamily \label{class_command_manager_a826c5375fefbf3616ccf9d7a88937d8e} 
+bool Command\+Manager\+::undo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Anulează ultima comandă care suportă undo. 
+
+Apelează {\ttfamily \doxylink{class_command_manager_a826c5375fefbf3616ccf9d7a88937d8e}{undo()}} pe comanda din vârful stack-\/ului și o scoate din stack. \begin{DoxyReturn}{Returns}
+true dacă o comandă a fost anulată, false dacă stack-\/ul e gol. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Command\+Manager.\+h\item 
+Gear\+Shift\+Lib/Command\+Manager.\+cpp\end{DoxyCompactItemize}

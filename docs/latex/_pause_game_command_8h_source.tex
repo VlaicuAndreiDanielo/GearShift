@@ -1,0 +1,24 @@
+\doxysection{Pause\+Game\+Command.\+h}
+\hypertarget{_pause_game_command_8h_source}{}\label{_pause_game_command_8h_source}\index{GearShiftLib/PauseGameCommand.h@{GearShiftLib/PauseGameCommand.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}ICommand.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}IGame.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_pause_game_command_a6eada4280e65b7496f5e4288a1700067}{PauseGameCommand}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_command}{ICommand}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ std::weak\_ptr<IGame>\ game;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_pause_game_command_a6eada4280e65b7496f5e4288a1700067}{PauseGameCommand}}(std::weak\_ptr<IGame>\ gameLogic);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_pause_game_command_a164f956d5bf369202e3897ccff989d87}{canExecute}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pause_game_command_ae07335a30da442c02cf394c7af4407a5}{execute}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_pause_game_command_acba6b455d4f8a248c91a8a147b905b4e}{getDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00031\ \};}
+
+\end{DoxyCode}

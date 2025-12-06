@@ -1,0 +1,62 @@
+\doxysection{Menu\+Scene.\+h}
+\hypertarget{_menu_scene_8h_source}{}\label{_menu_scene_8h_source}\index{GearShiftUI/MenuScene.h@{GearShiftUI/MenuScene.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}SceneManager.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Renderer.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}InputHandler.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CRTEffect.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}WaveEffect.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Button.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}IGame.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../GearShiftLib/CommandManager.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_menu_scene_a9e4ce9820172951f5ce955ebc9638f73}{MenuScene}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_scene}{IScene}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_renderer}{Renderer}}*\ renderer;\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_scene_mgr}{SceneMgr}}*\ sceneMgr;\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ std::weak\_ptr<IGame>\ game;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_input_handler}{InputHandler}}*\ inputHandler;\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ std::shared\_ptr<CommandManager>\ commandMgr;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ std::unique\_ptr<CRT>\ \ crt;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ std::unique\_ptr<Wave>\ wave;\ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ std::unique\_ptr<Btn>\ \ playBtn;\ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ std::unique\_ptr<Btn>\ \ exitBtn;\ \ \ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ TTF\_Font*\ font;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ SDL\_Texture*\ carTexture;\ }
+\DoxyCodeLine{00036\ \ \ \ \ SDL\_Rect\ \ \ \ carRect;\ \ \ \ \ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ cleanedUp;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ setupCommands();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_menu_scene_a9e4ce9820172951f5ce955ebc9638f73}{MenuScene}}(\mbox{\hyperlink{class_renderer}{Renderer}}*\ rend,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_mgr}{SceneMgr}}*\ mgr,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::weak\_ptr<IGame>\ logic,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_input_handler}{InputHandler}}*\ input,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::shared\_ptr<CommandManager>\ globalCommandMgr);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_menu_scene_a893677e367fc51e87c5d4d8e8e4fb7e1}{\string~MenuScene}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_scene_a1ab177b257495ed8d19136a85282a29a}{update}}(\textcolor{keywordtype}{float}\ dt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_scene_a3799d8d5abea024b5a171ab69b86a4d6}{render}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_scene_ab6d8eb92c8af4fc23bea934ea30cc4ec}{handleEvent}}(SDL\_Event\&\ e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00076\ \ \ \ \ std::string\ \mbox{\hyperlink{class_menu_scene_af33a37698fe4919fa6bd13d431a57abb}{getName}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Menu"{}};\ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_scene_a87456d73b643a56c6a1aa53b14fd31c6}{onEnter}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_scene_aa1d11e281a3f416c1f476466e5b5b666}{onExit}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00087\ \};}
+
+\end{DoxyCode}

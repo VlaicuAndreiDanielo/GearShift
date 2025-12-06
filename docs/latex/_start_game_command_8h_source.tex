@@ -1,0 +1,24 @@
+\doxysection{Start\+Game\+Command.\+h}
+\hypertarget{_start_game_command_8h_source}{}\label{_start_game_command_8h_source}\index{GearShiftLib/StartGameCommand.h@{GearShiftLib/StartGameCommand.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}ICommand.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}IGame.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_start_game_command_a48a081f9fe98fb9b94137a904ca31978}{StartGameCommand}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_command}{ICommand}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ std::weak\_ptr<IGame>\ game;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_start_game_command_a48a081f9fe98fb9b94137a904ca31978}{StartGameCommand}}(std::weak\_ptr<IGame>\ gameLogic);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_start_game_command_a36b2463838de8d011240cd55beaef956}{canExecute}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_start_game_command_a78db4c99fbcee401f9472e817f5d05ac}{execute}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_start_game_command_ab4b861ce1b325e539bb08164c1a5587d}{getDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00034\ \};}
+
+\end{DoxyCode}

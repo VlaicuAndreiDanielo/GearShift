@@ -1,0 +1,282 @@
+\doxysection{Input\+Handler Class Reference}
+\hypertarget{class_input_handler}{}\label{class_input_handler}\index{InputHandler@{InputHandler}}
+
+
+Handler pentru input-\/ul de la utilizator.  
+
+
+
+
+{\ttfamily \#include $<$Input\+Handler.\+h$>$}
+
+Inheritance diagram for Input\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_input_handler}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_input_handler_a698aa4af4f326a9881835fda251ca996}\label{class_input_handler_a698aa4af4f326a9881835fda251ca996} 
+{\bfseries Input\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_input_handler}{Input\+Handler} și inițializează starea tastaturii. \end{DoxyCompactList}\item 
+\Hypertarget{class_input_handler_ac1f7efb54b34d433d6ffba62627452b6}\label{class_input_handler_ac1f7efb54b34d433d6ffba62627452b6} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Input\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Destructor – eliberează referințele la \doxylink{class_command_manager}{Command\+Manager}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_handler_a2fde37e417a3c9ef74a57bee42d59879}{update}} (SDL\+\_\+\+Event \&e)
+\begin{DoxyCompactList}\small\item\em Procesează un eveniment SDL pentru mouse (mișcare / click). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_handler_ab48f616a5b8c16930cefd58fb0249180}{update\+Keyboard}} ()
+\begin{DoxyCompactList}\small\item\em Actualizează pointerul către starea tastaturii SDL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_handler_af07e82e60c46216ac563474f1219aeb6}{set\+Command\+Manager}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_manager}{Command\+Manager}} $>$ cmd\+Mgr)
+\begin{DoxyCompactList}\small\item\em Setează Command\+Manager-\/ul folosit pentru execuția comenzilor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_handler_addefbe09f6f00647e5e62c1c9bdb6537}{bind\+Key\+To\+Command}} (SDL\+\_\+\+Scancode key, const std\+::string \&command\+Name)
+\begin{DoxyCompactList}\small\item\em Leagă o tastă de numele unei comenzi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_handler_a3042e34e43165f712663dc0c8f7ab8ac}{execute\+Key\+Commands}} ()
+\begin{DoxyCompactList}\small\item\em Verifică tastele apăsate și execută comenzile legate. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_handler_a24431a4c85bdb7a19ddb2c032129e0f2}{is\+Up\+Pressed}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă input-\/ul „sus” este apăsat. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_handler_a1d44384366a40d18a783a25b1e47d584}{is\+Down\+Pressed}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă input-\/ul „jos” este apăsat. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_handler_a650d578b0f13d8ac1cce106c2c81d290}{is\+Left\+Pressed}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă input-\/ul „stânga” este apăsat. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_handler_ad9a032c3bfc745cf914e6b8b22cec12e}{is\+Right\+Pressed}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă input-\/ul „dreapta” este apăsat. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_handler_a8c8098a8684098f3e0e52933d3937b17}{is\+Accelerate\+Pressed}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă accelerația este apăsată. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_handler_ab679294cf4b7ef8fb0c650d378459011}{is\+Brake\+Pressed}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă frâna este apăsată. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_handler_a39d88e74af33a2834ab51f1931b011da}{is\+Pause\+Pressed}} () override
+\begin{DoxyCompactList}\small\item\em Verifică dacă pauza a fost apăsată „o singură dată”. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_input_handler_abd03b3c81d04a034988aa40f547511c1}{get\+MouseX}} () const override
+\begin{DoxyCompactList}\small\item\em Obține coordonata X a mouse-\/ului în fereastră. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_input_handler_a39fe265adc7fecb2e04d044aede74c88}{get\+MouseY}} () const override
+\begin{DoxyCompactList}\small\item\em Obține coordonata Y a mouse-\/ului în fereastră. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_handler_a573008f2838b768cf5455e8667939172}{is\+Mouse\+Pressed}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă un buton de mouse este apăsat. \end{DoxyCompactList}\item 
+\Hypertarget{class_input_handler_a1e7028e9c3c69eaf9749a2b6cc8d5967}\label{class_input_handler_a1e7028e9c3c69eaf9749a2b6cc8d5967} 
+void {\bfseries reset} ()
+\begin{DoxyCompactList}\small\item\em Resetează starea butoanelor de mouse (folosit după click). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler pentru input-\/ul de la utilizator. 
+
+Expune {\ttfamily \doxylink{struct_i_input_state}{IInput\+State}} pentru logica de joc și, în plus, mapează taste la comenzi (Command pattern) prin {\ttfamily \doxylink{class_command_manager}{Command\+Manager}}. 
+
+\label{doc-func-members}
+\Hypertarget{class_input_handler_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_input_handler_addefbe09f6f00647e5e62c1c9bdb6537}\index{InputHandler@{InputHandler}!bindKeyToCommand@{bindKeyToCommand}}
+\index{bindKeyToCommand@{bindKeyToCommand}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{bindKeyToCommand()}{bindKeyToCommand()}}
+{\footnotesize\ttfamily \label{class_input_handler_addefbe09f6f00647e5e62c1c9bdb6537} 
+void Input\+Handler\+::bind\+Key\+To\+Command (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Scancode}]{key}{, }\item[{const std\+::string \&}]{command\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Leagă o tastă de numele unei comenzi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Codul de tastă SDL (scancode). \\
+\hline
+{\em command\+Name} & Numele comenzii înregistrate în \doxylink{class_command_manager}{Command\+Manager}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_input_handler_a3042e34e43165f712663dc0c8f7ab8ac}\index{InputHandler@{InputHandler}!executeKeyCommands@{executeKeyCommands}}
+\index{executeKeyCommands@{executeKeyCommands}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{executeKeyCommands()}{executeKeyCommands()}}
+{\footnotesize\ttfamily \label{class_input_handler_a3042e34e43165f712663dc0c8f7ab8ac} 
+void Input\+Handler\+::execute\+Key\+Commands (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifică tastele apăsate și execută comenzile legate. 
+
+Se ocupă și de debounce pentru comanda de pauză ({\ttfamily pause\+\_\+game}). \Hypertarget{class_input_handler_abd03b3c81d04a034988aa40f547511c1}\index{InputHandler@{InputHandler}!getMouseX@{getMouseX}}
+\index{getMouseX@{getMouseX}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{getMouseX()}{getMouseX()}}
+{\footnotesize\ttfamily \label{class_input_handler_abd03b3c81d04a034988aa40f547511c1} 
+int Input\+Handler\+::get\+MouseX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obține coordonata X a mouse-\/ului în fereastră. 
+
+
+
+Implements \mbox{\hyperlink{struct_i_input_state_a6e9e2d7481be774aa1b8d4eb740e4e88}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_a39fe265adc7fecb2e04d044aede74c88}\index{InputHandler@{InputHandler}!getMouseY@{getMouseY}}
+\index{getMouseY@{getMouseY}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{getMouseY()}{getMouseY()}}
+{\footnotesize\ttfamily \label{class_input_handler_a39fe265adc7fecb2e04d044aede74c88} 
+int Input\+Handler\+::get\+MouseY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obține coordonata Y a mouse-\/ului în fereastră. 
+
+
+
+Implements \mbox{\hyperlink{struct_i_input_state_ab3e6645fa67b324fd3f61b8f6d7bb13d}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_a8c8098a8684098f3e0e52933d3937b17}\index{InputHandler@{InputHandler}!isAcceleratePressed@{isAcceleratePressed}}
+\index{isAcceleratePressed@{isAcceleratePressed}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{isAcceleratePressed()}{isAcceleratePressed()}}
+{\footnotesize\ttfamily \label{class_input_handler_a8c8098a8684098f3e0e52933d3937b17} 
+bool Input\+Handler\+::is\+Accelerate\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă accelerația este apăsată. 
+
+
+
+Implements \mbox{\hyperlink{struct_i_input_state_a1befa7e194162022e81caca0b25127f9}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_ab679294cf4b7ef8fb0c650d378459011}\index{InputHandler@{InputHandler}!isBrakePressed@{isBrakePressed}}
+\index{isBrakePressed@{isBrakePressed}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{isBrakePressed()}{isBrakePressed()}}
+{\footnotesize\ttfamily \label{class_input_handler_ab679294cf4b7ef8fb0c650d378459011} 
+bool Input\+Handler\+::is\+Brake\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă frâna este apăsată. 
+
+
+
+Implements \mbox{\hyperlink{struct_i_input_state_a1f4334ec8630438c9e7129b7c3c59850}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_a1d44384366a40d18a783a25b1e47d584}\index{InputHandler@{InputHandler}!isDownPressed@{isDownPressed}}
+\index{isDownPressed@{isDownPressed}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{isDownPressed()}{isDownPressed()}}
+{\footnotesize\ttfamily \label{class_input_handler_a1d44384366a40d18a783a25b1e47d584} 
+bool Input\+Handler\+::is\+Down\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă input-\/ul „jos” este apăsat. 
+
+
+
+Implements \mbox{\hyperlink{struct_i_input_state_a9d37db6c9ef579c05c67c3d445c67cf7}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_a650d578b0f13d8ac1cce106c2c81d290}\index{InputHandler@{InputHandler}!isLeftPressed@{isLeftPressed}}
+\index{isLeftPressed@{isLeftPressed}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{isLeftPressed()}{isLeftPressed()}}
+{\footnotesize\ttfamily \label{class_input_handler_a650d578b0f13d8ac1cce106c2c81d290} 
+bool Input\+Handler\+::is\+Left\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă input-\/ul „stânga” este apăsat. 
+
+
+
+Implements \mbox{\hyperlink{struct_i_input_state_a732a23c8f30bcf6170d7e32d14c8e64f}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_a573008f2838b768cf5455e8667939172}\index{InputHandler@{InputHandler}!isMousePressed@{isMousePressed}}
+\index{isMousePressed@{isMousePressed}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{isMousePressed()}{isMousePressed()}}
+{\footnotesize\ttfamily \label{class_input_handler_a573008f2838b768cf5455e8667939172} 
+bool Input\+Handler\+::is\+Mouse\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă un buton de mouse este apăsat. 
+
+
+
+Implements \mbox{\hyperlink{struct_i_input_state_aeff6d46f6cf7e3b2c72807c01dcbcccb}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_a39d88e74af33a2834ab51f1931b011da}\index{InputHandler@{InputHandler}!isPausePressed@{isPausePressed}}
+\index{isPausePressed@{isPausePressed}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{isPausePressed()}{isPausePressed()}}
+{\footnotesize\ttfamily \label{class_input_handler_a39d88e74af33a2834ab51f1931b011da} 
+bool Input\+Handler\+::is\+Pause\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă pauza a fost apăsată „o singură dată”. 
+
+Implementată cu debounce\+: întoarce true doar când tasta tocmai a fost apăsată. 
+
+Implements \mbox{\hyperlink{struct_i_input_state_abb8054e9eac3be65e0068f0eb180f0a2}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_ad9a032c3bfc745cf914e6b8b22cec12e}\index{InputHandler@{InputHandler}!isRightPressed@{isRightPressed}}
+\index{isRightPressed@{isRightPressed}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{isRightPressed()}{isRightPressed()}}
+{\footnotesize\ttfamily \label{class_input_handler_ad9a032c3bfc745cf914e6b8b22cec12e} 
+bool Input\+Handler\+::is\+Right\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă input-\/ul „dreapta” este apăsat. 
+
+
+
+Implements \mbox{\hyperlink{struct_i_input_state_a31ff4830a37c2992e534de8f742751b7}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_a24431a4c85bdb7a19ddb2c032129e0f2}\index{InputHandler@{InputHandler}!isUpPressed@{isUpPressed}}
+\index{isUpPressed@{isUpPressed}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{isUpPressed()}{isUpPressed()}}
+{\footnotesize\ttfamily \label{class_input_handler_a24431a4c85bdb7a19ddb2c032129e0f2} 
+bool Input\+Handler\+::is\+Up\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă input-\/ul „sus” este apăsat. 
+
+
+
+Implements \mbox{\hyperlink{struct_i_input_state_a394a87779cbaa5473d05663bd5ad6826}{IInput\+State}}.
+
+\Hypertarget{class_input_handler_af07e82e60c46216ac563474f1219aeb6}\index{InputHandler@{InputHandler}!setCommandManager@{setCommandManager}}
+\index{setCommandManager@{setCommandManager}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{setCommandManager()}{setCommandManager()}}
+{\footnotesize\ttfamily \label{class_input_handler_af07e82e60c46216ac563474f1219aeb6} 
+void Input\+Handler\+::set\+Command\+Manager (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_manager}{Command\+Manager}} $>$}]{cmd\+Mgr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setează Command\+Manager-\/ul folosit pentru execuția comenzilor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd\+Mgr} & Managerul de comenzi partajat. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_input_handler_a2fde37e417a3c9ef74a57bee42d59879}\index{InputHandler@{InputHandler}!update@{update}}
+\index{update@{update}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_input_handler_a2fde37e417a3c9ef74a57bee42d59879} 
+void Input\+Handler\+::update (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \&}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Procesează un eveniment SDL pentru mouse (mișcare / click). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Evenimentul SDL de analizat. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_input_handler_ab48f616a5b8c16930cefd58fb0249180}\index{InputHandler@{InputHandler}!updateKeyboard@{updateKeyboard}}
+\index{updateKeyboard@{updateKeyboard}!InputHandler@{InputHandler}}
+\doxysubsubsection{\texorpdfstring{updateKeyboard()}{updateKeyboard()}}
+{\footnotesize\ttfamily \label{class_input_handler_ab48f616a5b8c16930cefd58fb0249180} 
+void Input\+Handler\+::update\+Keyboard (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualizează pointerul către starea tastaturii SDL. 
+
+Trebuie apelată o dată pe frame, înainte de a citi tastele. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Input\+Handler.\+h\item 
+Gear\+Shift\+UI/Input\+Handler.\+cpp\end{DoxyCompactItemize}

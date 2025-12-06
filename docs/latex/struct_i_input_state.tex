@@ -1,0 +1,195 @@
+\doxysection{IInput\+State Struct Reference}
+\hypertarget{struct_i_input_state}{}\label{struct_i_input_state}\index{IInputState@{IInputState}}
+
+
+Interfață care descrie starea curentă a input-\/ului de la utilizator.  
+
+
+
+
+{\ttfamily \#include $<$IInput\+State.\+h$>$}
+
+Inheritance diagram for IInput\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_i_input_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{struct_i_input_state_a394a87779cbaa5473d05663bd5ad6826}{is\+Up\+Pressed}} () const =0
+\begin{DoxyCompactList}\small\item\em Verifică dacă input-\/ul „sus” este apăsat. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{struct_i_input_state_a9d37db6c9ef579c05c67c3d445c67cf7}{is\+Down\+Pressed}} () const =0
+\begin{DoxyCompactList}\small\item\em Verifică dacă input-\/ul „jos” este apăsat. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{struct_i_input_state_a732a23c8f30bcf6170d7e32d14c8e64f}{is\+Left\+Pressed}} () const =0
+\begin{DoxyCompactList}\small\item\em Verifică dacă input-\/ul „stânga” este apăsat. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{struct_i_input_state_a31ff4830a37c2992e534de8f742751b7}{is\+Right\+Pressed}} () const =0
+\begin{DoxyCompactList}\small\item\em Verifică dacă input-\/ul „dreapta” este apăsat. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{struct_i_input_state_a1befa7e194162022e81caca0b25127f9}{is\+Accelerate\+Pressed}} () const =0
+\begin{DoxyCompactList}\small\item\em Verifică dacă accelerația este apăsată. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{struct_i_input_state_a1f4334ec8630438c9e7129b7c3c59850}{is\+Brake\+Pressed}} () const =0
+\begin{DoxyCompactList}\small\item\em Verifică dacă frâna este apăsată. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{struct_i_input_state_abb8054e9eac3be65e0068f0eb180f0a2}{is\+Pause\+Pressed}} ()=0
+\begin{DoxyCompactList}\small\item\em Verifică dacă tasta de pauză este apăsată. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{struct_i_input_state_a6e9e2d7481be774aa1b8d4eb740e4e88}{get\+MouseX}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține coordonata X a mouse-\/ului în fereastră. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{struct_i_input_state_ab3e6645fa67b324fd3f61b8f6d7bb13d}{get\+MouseY}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține coordonata Y a mouse-\/ului în fereastră. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{struct_i_input_state_aeff6d46f6cf7e3b2c72807c01dcbcccb}{is\+Mouse\+Pressed}} () const =0
+\begin{DoxyCompactList}\small\item\em Verifică dacă un buton de mouse este apăsat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfață care descrie starea curentă a input-\/ului de la utilizator. 
+
+Implementările concrete (de ex. din SDL) furnizează informații despre tastele apăsate și despre mouse, astfel încât logica de joc să fie independentă de framework-\/ul de input. 
+
+\label{doc-func-members}
+\Hypertarget{struct_i_input_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_i_input_state_a6e9e2d7481be774aa1b8d4eb740e4e88}\index{IInputState@{IInputState}!getMouseX@{getMouseX}}
+\index{getMouseX@{getMouseX}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{getMouseX()}{getMouseX()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_a6e9e2d7481be774aa1b8d4eb740e4e88} 
+virtual int IInput\+State\+::get\+MouseX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține coordonata X a mouse-\/ului în fereastră. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_abd03b3c81d04a034988aa40f547511c1}{Input\+Handler}}.
+
+\Hypertarget{struct_i_input_state_ab3e6645fa67b324fd3f61b8f6d7bb13d}\index{IInputState@{IInputState}!getMouseY@{getMouseY}}
+\index{getMouseY@{getMouseY}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{getMouseY()}{getMouseY()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_ab3e6645fa67b324fd3f61b8f6d7bb13d} 
+virtual int IInput\+State\+::get\+MouseY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține coordonata Y a mouse-\/ului în fereastră. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_a39fe265adc7fecb2e04d044aede74c88}{Input\+Handler}}.
+
+\Hypertarget{struct_i_input_state_a1befa7e194162022e81caca0b25127f9}\index{IInputState@{IInputState}!isAcceleratePressed@{isAcceleratePressed}}
+\index{isAcceleratePressed@{isAcceleratePressed}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{isAcceleratePressed()}{isAcceleratePressed()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_a1befa7e194162022e81caca0b25127f9} 
+virtual bool IInput\+State\+::is\+Accelerate\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă accelerația este apăsată. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_a8c8098a8684098f3e0e52933d3937b17}{Input\+Handler}}.
+
+\Hypertarget{struct_i_input_state_a1f4334ec8630438c9e7129b7c3c59850}\index{IInputState@{IInputState}!isBrakePressed@{isBrakePressed}}
+\index{isBrakePressed@{isBrakePressed}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{isBrakePressed()}{isBrakePressed()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_a1f4334ec8630438c9e7129b7c3c59850} 
+virtual bool IInput\+State\+::is\+Brake\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă frâna este apăsată. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_ab679294cf4b7ef8fb0c650d378459011}{Input\+Handler}}.
+
+\Hypertarget{struct_i_input_state_a9d37db6c9ef579c05c67c3d445c67cf7}\index{IInputState@{IInputState}!isDownPressed@{isDownPressed}}
+\index{isDownPressed@{isDownPressed}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{isDownPressed()}{isDownPressed()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_a9d37db6c9ef579c05c67c3d445c67cf7} 
+virtual bool IInput\+State\+::is\+Down\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă input-\/ul „jos” este apăsat. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_a1d44384366a40d18a783a25b1e47d584}{Input\+Handler}}.
+
+\Hypertarget{struct_i_input_state_a732a23c8f30bcf6170d7e32d14c8e64f}\index{IInputState@{IInputState}!isLeftPressed@{isLeftPressed}}
+\index{isLeftPressed@{isLeftPressed}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{isLeftPressed()}{isLeftPressed()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_a732a23c8f30bcf6170d7e32d14c8e64f} 
+virtual bool IInput\+State\+::is\+Left\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă input-\/ul „stânga” este apăsat. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_a650d578b0f13d8ac1cce106c2c81d290}{Input\+Handler}}.
+
+\Hypertarget{struct_i_input_state_aeff6d46f6cf7e3b2c72807c01dcbcccb}\index{IInputState@{IInputState}!isMousePressed@{isMousePressed}}
+\index{isMousePressed@{isMousePressed}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{isMousePressed()}{isMousePressed()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_aeff6d46f6cf7e3b2c72807c01dcbcccb} 
+virtual bool IInput\+State\+::is\+Mouse\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă un buton de mouse este apăsat. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_a573008f2838b768cf5455e8667939172}{Input\+Handler}}.
+
+\Hypertarget{struct_i_input_state_abb8054e9eac3be65e0068f0eb180f0a2}\index{IInputState@{IInputState}!isPausePressed@{isPausePressed}}
+\index{isPausePressed@{isPausePressed}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{isPausePressed()}{isPausePressed()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_abb8054e9eac3be65e0068f0eb180f0a2} 
+virtual bool IInput\+State\+::is\+Pause\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă tasta de pauză este apăsată. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_a39d88e74af33a2834ab51f1931b011da}{Input\+Handler}}.
+
+\Hypertarget{struct_i_input_state_a31ff4830a37c2992e534de8f742751b7}\index{IInputState@{IInputState}!isRightPressed@{isRightPressed}}
+\index{isRightPressed@{isRightPressed}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{isRightPressed()}{isRightPressed()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_a31ff4830a37c2992e534de8f742751b7} 
+virtual bool IInput\+State\+::is\+Right\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă input-\/ul „dreapta” este apăsat. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_ad9a032c3bfc745cf914e6b8b22cec12e}{Input\+Handler}}.
+
+\Hypertarget{struct_i_input_state_a394a87779cbaa5473d05663bd5ad6826}\index{IInputState@{IInputState}!isUpPressed@{isUpPressed}}
+\index{isUpPressed@{isUpPressed}!IInputState@{IInputState}}
+\doxysubsubsection{\texorpdfstring{isUpPressed()}{isUpPressed()}}
+{\footnotesize\ttfamily \label{struct_i_input_state_a394a87779cbaa5473d05663bd5ad6826} 
+virtual bool IInput\+State\+::is\+Up\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă input-\/ul „sus” este apăsat. 
+
+
+
+Implemented in \mbox{\hyperlink{class_input_handler_a24431a4c85bdb7a19ddb2c032129e0f2}{Input\+Handler}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/IInput\+State.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,59 @@
+\doxysection{Game\+Scene.\+h}
+\hypertarget{_game_scene_8h_source}{}\label{_game_scene_8h_source}\index{GearShiftUI/GameScene.h@{GearShiftUI/GameScene.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}FuelRenderer.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}ScoreRenderer.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SceneManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Renderer.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}InputHandler.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ObjectRenderer.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}IGame.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../GearShiftLib/CommandManager.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_scene_a602012246616566e5c7c0826d1434218}{GameScene}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_scene}{IScene}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_renderer}{Renderer}}*\ renderer;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_scene_mgr}{SceneMgr}}*\ sceneMgr;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ std::weak\_ptr<IGame>\ game;\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_input_handler}{InputHandler}}*\ inputHandler;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ std::shared\_ptr<CommandManager>\ commandMgr;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::unique\_ptr<ObjectRenderer>\ objectRenderer;\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::unique\_ptr<FuelRenderer>\ \ \ fuelRenderer;\ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ std::unique\_ptr<ScoreRenderer>\ \ scoreRenderer;\ \ }
+\DoxyCodeLine{00033\ \ \ \ \ TTF\_Font*\ font;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ setupCommands();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_game_scene_a602012246616566e5c7c0826d1434218}{GameScene}}(\mbox{\hyperlink{class_renderer}{Renderer}}*\ rend,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_mgr}{SceneMgr}}*\ mgr,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::weak\_ptr<IGame>\ logic,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_input_handler}{InputHandler}}*\ input,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ std::shared\_ptr<CommandManager>\ globalCommandMgr);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_game_scene_a9d4720cfdab4b927f8f51ab4f7c77222}{\string~GameScene}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_scene_aad17e16a70f552f38fb55b336ac1bb2e}{update}}(\textcolor{keywordtype}{float}\ dt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_scene_af107c5ffdf361b4e0b718f486cbc7d0e}{render}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_scene_a1322f70cc3a4363a82350f28ae88ec06}{handleEvent}}(SDL\_Event\&\ e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ std::string\ \mbox{\hyperlink{class_game_scene_a537a18adf7f1ce8d07e8421acfe0e41e}{getName}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Game"{}};\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_scene_a67d37132fa3092e9cd6c7819deeaefcd}{onEnter}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_scene_a6bce76ae91d9c93fe75d5dd85a374f04}{onExit}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ renderPausedText();}
+\DoxyCodeLine{00083\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,22 @@
+\doxysection{ICommand.\+h}
+\hypertarget{_i_command_8h_source}{}\label{_i_command_8h_source}\index{GearShiftLib/ICommand.h@{GearShiftLib/ICommand.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_command}{ICommand}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_i_command_aa8a6346c5a0dcfe7fd49413a69e854ef}{\string~ICommand}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_command_a00859f1d6d2b7eb843614fb4ffd63bbb}{canExecute}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_command_ace81beb0beea968f876f292446bf1120}{execute}}()\ =\ 0;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_command_af3b58eb0635d03cf1039b9747d72edec}{undo}}()\ \{\}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_command_ab2767c2ef69b77e94210a437cdc9e179}{canUndo}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_i_command_aed5df7f936d3f0f5262f8d14d0fd84d8}{getDescription}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00038\ \};}
+
+\end{DoxyCode}

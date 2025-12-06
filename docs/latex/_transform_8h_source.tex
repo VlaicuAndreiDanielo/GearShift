@@ -1,0 +1,62 @@
+\doxysection{Transform.\+h}
+\hypertarget{_transform_8h_source}{}\label{_transform_8h_source}\index{GearShiftLib/Transform.h@{GearShiftLib/Transform.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Vec2.h"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}(\mbox{\hyperlink{struct_vec2}{Vec2}}\ startPos);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}(\mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}\&\ operator=(\mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{Transform}}\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}{\string~Transform}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ \mbox{\hyperlink{class_transform_abfb404da8c4b12783e1f320e265f621f}{getPos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_transform_a0442455d4f0a1ac93ee182540affd0d7}{getX}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_transform_a0087140481033f1fbffadec75ce8ecd4}{getY}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transform_ab7f82c782c253bed90af1a4c9d3e2ef1}{setPosition}}(\mbox{\hyperlink{struct_vec2}{Vec2}}\ pos);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transform_a850d56f925f1dea8d5c0e031976bcfc8}{setX}}(\textcolor{keywordtype}{float}\ newX);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transform_a45aae7040640f9cafe9f34423be56f16}{setY}}(\textcolor{keywordtype}{float}\ newY);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transform_a47448fac5dd5faa91cd923a46084b20a}{setRotation}}(\textcolor{keywordtype}{float}\ radians);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_transform_a58b6b97bbe83f323086b9a24511addc0}{getRotation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transform_a14c779f170c658b0128c645f14ee55c4}{setFixed}}(\textcolor{keywordtype}{bool}\ fixed);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_transform_afb07177ef5dd1d12206eca816d6505f1}{getFixed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transform_a07e9adcfdb7712208d9285d905002729}{setLockX}}(\textcolor{keywordtype}{bool}\ lockX);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transform_ab57ab7ae4ee4bbb79272495c9b255a4c}{setLockY}}(\textcolor{keywordtype}{bool}\ lockY);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transform_a1075a2cf7d8b5aab29c9d79593f6ec7a}{setLockRotation}}(\textcolor{keywordtype}{bool}\ lockRotation);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_transform_a3067e5a0892a178f88b43600fae8ddc2}{isXLocked}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_transform_a4938d9e8a7e316da771ba00905fae9f8}{isYLocked}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_transform_a29aefba98a73d775d0b6f554c705423d}{isRotationLocked}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ \ position;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{float}\ rotation\ =\ 0.0f;\ \ \ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{bool}\ isFixed\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ xLocked\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ yLocked\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ rotationLocked\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00092\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,139 @@
+\doxysection{Box\+Collider Class Reference}
+\hypertarget{class_box_collider}{}\label{class_box_collider}\index{BoxCollider@{BoxCollider}}
+
+
+Colider dreptunghiular (oriented bounding box) pentru un \doxylink{class_game_object}{Game\+Object}.  
+
+
+
+
+{\ttfamily \#include $<$Box\+Collider.\+h$>$}
+
+Inheritance diagram for Box\+Collider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_box_collider}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_box_collider_abad7993477e33af6b744207fd9124243}{Box\+Collider}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$ manager, float width, float height)
+\begin{DoxyCompactList}\small\item\em Creează un colider de tip box și îl leagă de un \doxylink{class_collision_manager}{Collision\+Manager}. \end{DoxyCompactList}\item 
+std\+::optional$<$ Collision $>$ \mbox{\hyperlink{class_box_collider_ab100a62186b565afb3b0749825b4b2ab}{check\+Collision\+With}} (const \mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}} \&other) const override
+\begin{DoxyCompactList}\small\item\em Verifică coliziunea cu un alt collider generic. \end{DoxyCompactList}\item 
+std\+::optional$<$ Collision $>$ \mbox{\hyperlink{class_box_collider_a981c480684ce86e97be6b1e2db9646cc}{check\+Collision\+With}} (const \mbox{\hyperlink{class_box_collider}{Box\+Collider}} \&other) const override
+\begin{DoxyCompactList}\small\item\em Verifică coliziunea cu un alt \doxylink{class_box_collider}{Box\+Collider}. \end{DoxyCompactList}\item 
+\Hypertarget{class_box_collider_ad2491aa305713067cea8a1a647276fa1}\label{class_box_collider_ad2491aa305713067cea8a1a647276fa1} 
+float {\bfseries get\+Width} () const
+\begin{DoxyCompactList}\small\item\em Obține lățimea coliderului. \end{DoxyCompactList}\item 
+\Hypertarget{class_box_collider_a96d55de87e9cd6545e5624488faf78f3}\label{class_box_collider_a96d55de87e9cd6545e5624488faf78f3} 
+float {\bfseries get\+Height} () const
+\begin{DoxyCompactList}\small\item\em Obține înălțimea coliderului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_collision_manager_1_1_collider}{Collision\+Manager\+::\+Collider}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$ manager)
+\begin{DoxyCompactList}\small\item\em Creează un collider gestionat de un \doxylink{class_collision_manager}{Collision\+Manager}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Collider} ()
+\begin{DoxyCompactList}\small\item\em Destructor virtual; dezînregistrează collider-\/ul din manager. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ \mbox{\hyperlink{class_collision_manager_1_1_collider_ac76bceca8dfccce043e2393ccb5f732d}{get\+Master\+Object}} () const
+\begin{DoxyCompactList}\small\item\em Obține Game\+Object-\/ul de care este atașat collider-\/ul. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision_manager_1_1_collider_a692fe62311cf651d7405985e6a10fdd8}{notify\+Collision}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}} $>$ other)
+\begin{DoxyCompactList}\small\item\em Notifică Game\+Object-\/ul master că a avut loc o coliziune. \end{DoxyCompactList}\item 
+virtual std\+::optional$<$ \mbox{\hyperlink{class_collision_manager_1_1_collision}{Collision}} $>$ \mbox{\hyperlink{class_collision_manager_1_1_collider_a69698755836d384e288eb0b91ebd4b22}{check\+Collision\+With}} (const class \mbox{\hyperlink{class_box_collider}{Box\+Collider}} \&other) const =0
+\begin{DoxyCompactList}\small\item\em Verifică coliziunea cu un \doxylink{class_box_collider}{Box\+Collider} concret. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision_manager_1_1_collider_aafc27740719c6d8cebc1a6d01ec60d78}{set\+Trigger}} (bool trigger)
+\begin{DoxyCompactList}\small\item\em Setează modul trigger pentru collider. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_collision_manager_1_1_collider_a77efb88facbd69bbe03312926b1491bc}{is\+Trigger}} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă acest collider este trigger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_collision_manager_1_1_collider}{Collision\+Manager\+::\+Collider}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_collision_manager_1_1_collider_aa1d3133d3d20b22dc2dcca93e5e0f630}{attach\+To\+Game\+Object}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ master)
+\begin{DoxyCompactList}\small\item\em Atașează collider-\/ul la un \doxylink{class_game_object}{Game\+Object} și îl înregistrează în manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Colider dreptunghiular (oriented bounding box) pentru un \doxylink{class_game_object}{Game\+Object}. 
+
+Reprezintă un paralelogram 2D atașat unui \doxylink{class_game_object}{Game\+Object}, folosit pentru detecția coliziunilor cu alți Box\+Collider-\/i prin Separating Axis Theorem. 
+
+\label{doc-constructors}
+\Hypertarget{class_box_collider_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_box_collider_abad7993477e33af6b744207fd9124243}\index{BoxCollider@{BoxCollider}!BoxCollider@{BoxCollider}}
+\index{BoxCollider@{BoxCollider}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{BoxCollider()}{BoxCollider()}}
+{\footnotesize\ttfamily \label{class_box_collider_abad7993477e33af6b744207fd9124243} 
+Box\+Collider\+::\+Box\+Collider (\begin{DoxyParamCaption}\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$}]{manager}{, }\item[{float}]{width}{, }\item[{float}]{height}{}\end{DoxyParamCaption})}
+
+
+
+Creează un colider de tip box și îl leagă de un \doxylink{class_collision_manager}{Collision\+Manager}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & Managerul de coliziuni care va administra acest collider. \\
+\hline
+{\em width} & Lățimea box-\/ului în unitățile lumii. \\
+\hline
+{\em height} & Înălțimea box-\/ului în unitățile lumii. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_box_collider_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_box_collider_a981c480684ce86e97be6b1e2db9646cc}\index{BoxCollider@{BoxCollider}!checkCollisionWith@{checkCollisionWith}}
+\index{checkCollisionWith@{checkCollisionWith}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{checkCollisionWith()}{checkCollisionWith()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_box_collider_a981c480684ce86e97be6b1e2db9646cc} 
+std\+::optional$<$ Collision $>$ Box\+Collider\+::check\+Collision\+With (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_box_collider}{Box\+Collider}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Verifică coliziunea cu un alt \doxylink{class_box_collider}{Box\+Collider}. 
+
+Utilizează Separating Axis Theorem pe axe derivate din muchiile celor două box-\/uri pentru a determina intersecția și vectorul de corecție.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Celălalt box collider. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un obiect Collision dacă există coliziune, std\+::nullopt altfel. 
+\end{DoxyReturn}
+\Hypertarget{class_box_collider_ab100a62186b565afb3b0749825b4b2ab}\index{BoxCollider@{BoxCollider}!checkCollisionWith@{checkCollisionWith}}
+\index{checkCollisionWith@{checkCollisionWith}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{checkCollisionWith()}{checkCollisionWith()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_box_collider_ab100a62186b565afb3b0749825b4b2ab} 
+std\+::optional$<$ Collision $>$ Box\+Collider\+::check\+Collision\+With (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică coliziunea cu un alt collider generic. 
+
+Folosește double-\/dispatch\+: delegă verificarea către metoda {\ttfamily other.\+check\+Collision\+With(\texorpdfstring{$\ast$}{*}this)}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Colliderul cu care se verifică intersecția. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un obiect Collision dacă există coliziune, std\+::nullopt altfel. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_collision_manager_1_1_collider_ab16809b13d260e32b14be8f4cae55592}{Collision\+Manager\+::\+Collider}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Box\+Collider.\+h\item 
+Gear\+Shift\+Lib/Box\+Collider.\+cpp\end{DoxyCompactItemize}

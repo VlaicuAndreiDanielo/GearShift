@@ -5,7 +5,7 @@ ApplyMouseForceCommand::ApplyMouseForceCommand(std::weak_ptr<IGame> gameLogic, i
     : game(gameLogic), mouseX(x), mouseY(y), pressed(isPressed) {}
 
 bool ApplyMouseForceCommand::canExecute() const {
-    // Check if game exists and mouse coordinates are valid
+
     if (auto gameShared = game.lock()) {
         return mouseX >= 0 && mouseY >= 0;
     }

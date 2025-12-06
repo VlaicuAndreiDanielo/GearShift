@@ -1,0 +1,44 @@
+\doxysection{IGame.\+h}
+\hypertarget{_i_game_8h_source}{}\label{_i_game_8h_source}\index{GearShiftLib/IGame.h@{GearShiftLib/IGame.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}IInputState.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}IGameObject.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameState.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}IFabric.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_game}{IGame}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_game_af7a6bfc29b39be3abd5a3521116d4333}{update}}(\textcolor{keywordtype}{float}\ dt,\ \mbox{\hyperlink{struct_i_input_state}{IInputState}}\&\ input)\ =\ 0;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_game_af174e89498832afc7458be23a6ebc3a6}{startGame}}()\ =\ 0;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_game_ac5358528485560057e0886288546fee1}{pauseGame}}()\ =\ 0;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_game_a5e927000c91fcad984d6004edff3d2eb}{resumeGame}}()\ =\ 0;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_game_ad92572b43a4e076b724047fc2403a557}{endGame}}()\ =\ 0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<std::shared\_ptr<IGameObject>>\&\ \mbox{\hyperlink{class_i_game_a0460c6b0f16f669dcf77f9257f3d78a7}{getGameObjects}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<IFabric>\ \mbox{\hyperlink{class_i_game_a05dab7ce3382f9ea0566b86935af5854}{getFabric}}()\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::shared\_ptr<IFabric>\ \mbox{\hyperlink{class_i_game_a39bb5eba406db2400b205e5d49d64c25}{getFabric}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ GameState\ \mbox{\hyperlink{class_i_game_a44de7e08e7ee294be051445a84306299}{getState}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_i_game_acdfa56ecee3527d10414525bec036b02}{getTime}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_game_ac808e225941c4b88f846858f76138359}{applyMouseForce}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ pressed)\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<class\ IScoreManager>\ \mbox{\hyperlink{class_i_game_a29f018944beee08ab18d01994ee7abcc}{getScoreManager}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<class\ IFuelManager>\ \mbox{\hyperlink{class_i_game_a00093eafb55ce9edfcad6af9580f3429}{getFuelManager}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_i_game_a91b14c1b6019364120d5c5e4d4c64414}{\string~IGame}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00065\ \};}
+
+\end{DoxyCode}

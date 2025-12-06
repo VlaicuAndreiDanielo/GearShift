@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['inputhandler_0',['InputHandler',['../class_input_handler.html#a698aa4af4f326a9881835fda251ca996',1,'InputHandler']]],
+  ['isacceleratepressed_1',['isAcceleratePressed',['../struct_i_input_state.html#a1befa7e194162022e81caca0b25127f9',1,'IInputState::isAcceleratePressed()'],['../class_input_handler.html#a8c8098a8684098f3e0e52933d3937b17',1,'InputHandler::isAcceleratePressed()']]],
+  ['isactive_2',['isActive',['../class_game_object.html#abe79de441ec36735859f8e0e20888033',1,'GameObject::isActive()'],['../class_game_object_adapter.html#aa1e192e11e05bd0dc120e1443fade795',1,'GameObjectAdapter::isActive()'],['../class_i_game_object.html#a7a8a786f36a014a51102ff2912ada5e3',1,'IGameObject::isActive()']]],
+  ['isbrakepressed_3',['isBrakePressed',['../struct_i_input_state.html#a1f4334ec8630438c9e7129b7c3c59850',1,'IInputState::isBrakePressed()'],['../class_input_handler.html#ab679294cf4b7ef8fb0c650d378459011',1,'InputHandler::isBrakePressed()']]],
+  ['isdownpressed_4',['isDownPressed',['../struct_i_input_state.html#a9d37db6c9ef579c05c67c3d445c67cf7',1,'IInputState::isDownPressed()'],['../class_input_handler.html#a1d44384366a40d18a783a25b1e47d584',1,'InputHandler::isDownPressed()']]],
+  ['isfinished_5',['isFinished',['../class_fuel_manager.html#a645612418dc22a35f2c100dc8a729575',1,'FuelManager::isFinished()'],['../class_i_fuel_manager.html#a5198faefec0ce37a68333b1cb20cfcf6',1,'IFuelManager::isFinished()']]],
+  ['isgameover_6',['isGameOver',['../class_game_logic.html#a43001a93a0ec96805d8c65891b901329',1,'GameLogic']]],
+  ['isleftpressed_7',['isLeftPressed',['../struct_i_input_state.html#a732a23c8f30bcf6170d7e32d14c8e64f',1,'IInputState::isLeftPressed()'],['../class_input_handler.html#a650d578b0f13d8ac1cce106c2c81d290',1,'InputHandler::isLeftPressed()']]],
+  ['ismousepressed_8',['isMousePressed',['../struct_i_input_state.html#aeff6d46f6cf7e3b2c72807c01dcbcccb',1,'IInputState::isMousePressed()'],['../class_input_handler.html#a573008f2838b768cf5455e8667939172',1,'InputHandler::isMousePressed()']]],
+  ['ispausepressed_9',['isPausePressed',['../struct_i_input_state.html#abb8054e9eac3be65e0068f0eb180f0a2',1,'IInputState::isPausePressed()'],['../class_input_handler.html#a39d88e74af33a2834ab51f1931b011da',1,'InputHandler::isPausePressed()']]],
+  ['isrightpressed_10',['isRightPressed',['../struct_i_input_state.html#a31ff4830a37c2992e534de8f742751b7',1,'IInputState::isRightPressed()'],['../class_input_handler.html#ad9a032c3bfc745cf914e6b8b22cec12e',1,'InputHandler::isRightPressed()']]],
+  ['isrotationlocked_11',['isRotationLocked',['../class_transform.html#a29aefba98a73d775d0b6f554c705423d',1,'Transform']]],
+  ['istrigger_12',['isTrigger',['../class_collision_manager_1_1_collider.html#a77efb88facbd69bbe03312926b1491bc',1,'CollisionManager::Collider']]],
+  ['isuppressed_13',['isUpPressed',['../struct_i_input_state.html#a394a87779cbaa5473d05663bd5ad6826',1,'IInputState::isUpPressed()'],['../class_input_handler.html#a24431a4c85bdb7a19ddb2c032129e0f2',1,'InputHandler::isUpPressed()']]],
+  ['isvalidcommand_14',['isValidCommand',['../class_command_manager.html#a5fe0d1a275a4bf431cdff40e6e3c3982',1,'CommandManager']]],
+  ['isxlocked_15',['isXLocked',['../class_transform.html#a3067e5a0892a178f88b43600fae8ddc2',1,'Transform']]],
+  ['isylocked_16',['isYLocked',['../class_transform.html#a4938d9e8a7e316da771ba00905fae9f8',1,'Transform']]]
+];

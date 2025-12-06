@@ -1,0 +1,215 @@
+\doxysection{Traffic\+Base\+NPC Class Reference}
+\hypertarget{class_traffic_base_n_p_c}{}\label{class_traffic_base_n_p_c}\index{TrafficBaseNPC@{TrafficBaseNPC}}
+
+
+Mașină NPC de bază din trafic.  
+
+
+
+
+{\ttfamily \#include $<$Traffic\+Base\+NPC.\+h$>$}
+
+Inheritance diagram for Traffic\+Base\+NPC\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_traffic_base_n_p_c}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_traffic_base_n_p_c_1_1_slow_down_trigger}{Slow\+Down\+Trigger}}
+\begin{DoxyCompactList}\small\item\em Trigger intern folosit pentru încetinirea NPC-\/ului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_traffic_base_n_p_c_a74b2207691a7d86829a3f424d8a76a04}\label{class_traffic_base_n_p_c_a74b2207691a7d86829a3f424d8a76a04} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player_trigger}{Player\+Trigger}} $>$ {\bfseries get\+Respawn\+Trigger} () const
+\begin{DoxyCompactList}\small\item\em Obține trigger-\/ul folosit pentru respawn-\/ul NPC-\/ului. \end{DoxyCompactList}\item 
+\Hypertarget{class_traffic_base_n_p_c_ac7c3b6e71e33b8cda2487258357c2bec}\label{class_traffic_base_n_p_c_ac7c3b6e71e33b8cda2487258357c2bec} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_traffic_base_n_p_c_1_1_slow_down_trigger}{Traffic\+Base\+NPC\+::\+Slow\+Down\+Trigger}} $>$ {\bfseries get\+Slow\+Down\+Trigger} () const
+\begin{DoxyCompactList}\small\item\em Obține trigger-\/ul de încetinire asociat acestui NPC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Game\+Object} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor implicit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_ad4c2a8cd00a47c2c5bf0f9818f75ee20}{Game\+Object}} (float startX, float startY, float \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}}, float \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}}, bool \mbox{\hyperlink{class_game_object_afa3bf48882a927f94a6d922045a435e0}{active}})
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_game_object}{Game\+Object} cu poziție și dimensiune specificate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_acd37ab71f82ad1e0c96eebae60e35f23}{handle\+Update}} (float dt, const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&input)
+\begin{DoxyCompactList}\small\item\em Wrapper pentru update care menține corect ierarhia părinte–copil. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a64c309c90f0f81c2b71359de05e95ebb}{set\+Parent}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ parent\+Obj)
+\begin{DoxyCompactList}\small\item\em Setează Game\+Object-\/ul părinte pentru acest obiect. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform}{Transform}} \& \mbox{\hyperlink{class_game_object_a9977f1cf1ed8a7a7016a0b862e343aa3}{get\+World\+Transform}} ()
+\begin{DoxyCompactList}\small\item\em Obține transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_afb265fbcf4cced50adfc4b41f3c8271c}{set\+World\+Transform}} (\mbox{\hyperlink{struct_vec2}{Vec2}} pos, float rotation)
+\begin{DoxyCompactList}\small\item\em Setează transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+Object\+Type {\bfseries get\+Type} () const
+\begin{DoxyCompactList}\small\item\em Obține tipul logic al obiectului (Road, \doxylink{class_player}{Player}, Fuel etc.). \end{DoxyCompactList}\item 
+Sprite\+Type {\bfseries get\+Sprite} () const
+\begin{DoxyCompactList}\small\item\em Obține tipul de sprite asociat obiectului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7aa3fbf2d05b8ae467dead2f51460ab9}{set\+Sprite}} (Sprite\+Type \mbox{\hyperlink{class_game_object_a54ba7d711ecf699551885b3e2e24e205}{sprite}})
+\begin{DoxyCompactList}\small\item\em Setează sprite-\/ul asociat obiectului. \end{DoxyCompactList}\item 
+void {\bfseries set\+Active} (bool \mbox{\hyperlink{class_game_object_abe79de441ec36735859f8e0e20888033}{is\+Active}})
+\begin{DoxyCompactList}\small\item\em Activează sau dezactivează obiectul. \end{DoxyCompactList}\item 
+bool {\bfseries is\+Active} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă obiectul este activ. \end{DoxyCompactList}\item 
+float {\bfseries get\+Width} () const
+\begin{DoxyCompactList}\small\item\em Obține lățimea obiectului. \end{DoxyCompactList}\item 
+float {\bfseries get\+Height} () const
+\begin{DoxyCompactList}\small\item\em Obține înălțimea obiectului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7400fd25c213fa0ee6a894d69d0e0078}{set\+Size}} (float w, float h)
+\begin{DoxyCompactList}\small\item\em Setează dimensiunea obiectului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{class_traffic_base_n_p_c_a633e309ded1e876e23f10c13955adb06}{create}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$ collision\+Manager, std\+::mt19937 \&game\+Rng, float startX, float startY, float \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}}, float \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}}, float road\+Width, float road\+Height, float min\+Speed, float max\+Speed)
+\begin{DoxyCompactList}\small\item\em Creează un NPC de trafic și obiectele asociate (trigger-\/e). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_traffic_base_n_p_c_a5015d83448077cf0cd388c7f66955faa}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Marchează NPC-\/ul ca „în proces de oprire”. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_traffic_base_n_p_c_add8b3a2b2fda145068f26df804e9ca6d}{player\+Triggered}} ()
+\begin{DoxyCompactList}\small\item\em Metodă apelată de \doxylink{class_player_trigger}{Player\+Trigger} când jucătorul depășește NPC-\/ul. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_traffic_base_n_p_c_a75d707ce9b81b735ef300f402636c1b4}{update}} (float dt, const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&input) override
+\begin{DoxyCompactList}\small\item\em Actualizează deplasarea NPC-\/ului pe verticală și viteza în timp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_game_object_a1f11eed1432234d5d204fdc609a89fe2}{on\+Collision}} (std\+::shared\+\_\+ptr$<$ Collider $>$ other)
+\begin{DoxyCompactList}\small\item\em Callback la coliziune cu un alt collider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a21c47fc0d7f0a7716e4089b026f32cf3}{parent\+Update}} (\mbox{\hyperlink{struct_vec2}{Vec2}} delta\+Pos, float delta\+Rotation)
+\begin{DoxyCompactList}\small\item\em Propagă modificările de poziție și rotație către copii. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_traffic_base_n_p_c_ab0e444fe9b7ebfa80b38ceff5cf7dfa6}\label{class_traffic_base_n_p_c_ab0e444fe9b7ebfa80b38ceff5cf7dfa6} 
+class {\bfseries Player\+Trigger}
+\item 
+\Hypertarget{class_traffic_base_n_p_c_a17710b48436823287d2561220682bab6}\label{class_traffic_base_n_p_c_a17710b48436823287d2561220682bab6} 
+class {\bfseries Slow\+Down\+Trigger}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_transform}{Transform}} {\bfseries world\+Transform}
+\begin{DoxyCompactList}\small\item\em Transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform}{Transform}} {\bfseries local\+Transform}
+\begin{DoxyCompactList}\small\item\em Transform-\/ul relativ la părinte. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ Collider $>$ {\bfseries collider}
+\begin{DoxyCompactList}\small\item\em Collider-\/ul atașat (dacă există). \end{DoxyCompactList}\item 
+bool {\bfseries active} = true
+\begin{DoxyCompactList}\small\item\em Flag de activare. \end{DoxyCompactList}\item 
+float {\bfseries width} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Lățimea obiectului. \end{DoxyCompactList}\item 
+float {\bfseries height} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Înălțimea obiectului. \end{DoxyCompactList}\item 
+Sprite\+Type {\bfseries sprite} = Sprite\+Type\+::\+NONE
+\begin{DoxyCompactList}\small\item\em Sprite-\/ul asociat. \end{DoxyCompactList}\item 
+Object\+Type {\bfseries type} = Object\+Type\+::\+NONE
+\begin{DoxyCompactList}\small\item\em Tipul logic al obiectului. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ {\bfseries parent} = std\+::nullopt
+\begin{DoxyCompactList}\small\item\em Părinte opțional al acestui \doxylink{class_game_object}{Game\+Object} (pentru ierarhii). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Mașină NPC de bază din trafic. 
+
+Se deplasează pe drum cu o viteză aleatoare în intervalul \mbox{[}min\+Speed, max\+Speed\mbox{]}, se repoziționează (respawn) în fața camerei când este depășită de jucător și folosește trigger-\/e suplimentare pentru a încetini în funcție de trafic. \+:content\+Reference\mbox{[}oaicite\+:1\mbox{]}\{index=1\} 
+
+\label{doc-func-members}
+\Hypertarget{class_traffic_base_n_p_c_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_traffic_base_n_p_c_a633e309ded1e876e23f10c13955adb06}\index{TrafficBaseNPC@{TrafficBaseNPC}!create@{create}}
+\index{create@{create}!TrafficBaseNPC@{TrafficBaseNPC}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{class_traffic_base_n_p_c_a633e309ded1e876e23f10c13955adb06} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ Traffic\+Base\+NPC\+::create (\begin{DoxyParamCaption}\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$}]{collision\+Manager}{, }\item[{std\+::mt19937 \&}]{game\+Rng}{, }\item[{float}]{startX}{, }\item[{float}]{startY}{, }\item[{float}]{width}{, }\item[{float}]{height}{, }\item[{float}]{road\+Width}{, }\item[{float}]{road\+Height}{, }\item[{float}]{min\+Speed}{, }\item[{float}]{max\+Speed}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creează un NPC de trafic și obiectele asociate (trigger-\/e). 
+
+Creează\+:
+\begin{DoxyItemize}
+\item NPC-\/ul propriu-\/zis;
+\item un \doxylink{class_player_trigger}{Player\+Trigger} pentru respawn;
+\item un \doxylink{class_traffic_base_n_p_c_1_1_slow_down_trigger}{Slow\+Down\+Trigger} pentru încetinire în funcție de trafic;
+\item atașează un \doxylink{class_box_collider}{Box\+Collider} NPC-\/ului.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em collision\+Manager} & Managerul de coliziuni. \\
+\hline
+{\em game\+Rng} & Generatorul de numere aleatoare al jocului (partajat). \\
+\hline
+{\em startX} & Poziția inițială X. \\
+\hline
+{\em startY} & Poziția inițială Y. \\
+\hline
+{\em width} & Lățimea mașinii NPC. \\
+\hline
+{\em height} & Înălțimea mașinii NPC. \\
+\hline
+{\em road\+Width} & Lățimea drumului. \\
+\hline
+{\em road\+Height} & Înălțimea unui segment de drum. \\
+\hline
+{\em min\+Speed} & Viteza minimă generată pentru NPC. \\
+\hline
+{\em max\+Speed} & Viteza maximă generată pentru NPC. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un vector cu Game\+Object-\/urile create (NPC + trigger-\/e). 
+\end{DoxyReturn}
+\Hypertarget{class_traffic_base_n_p_c_add8b3a2b2fda145068f26df804e9ca6d}\index{TrafficBaseNPC@{TrafficBaseNPC}!playerTriggered@{playerTriggered}}
+\index{playerTriggered@{playerTriggered}!TrafficBaseNPC@{TrafficBaseNPC}}
+\doxysubsubsection{\texorpdfstring{playerTriggered()}{playerTriggered()}}
+{\footnotesize\ttfamily \label{class_traffic_base_n_p_c_add8b3a2b2fda145068f26df804e9ca6d} 
+void Traffic\+Base\+NPC\+::player\+Triggered (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Metodă apelată de \doxylink{class_player_trigger}{Player\+Trigger} când jucătorul depășește NPC-\/ul. 
+
+Repoziționează NPC-\/ul în fața camerei prin respawn(). \Hypertarget{class_traffic_base_n_p_c_a5015d83448077cf0cd388c7f66955faa}\index{TrafficBaseNPC@{TrafficBaseNPC}!stop@{stop}}
+\index{stop@{stop}!TrafficBaseNPC@{TrafficBaseNPC}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{class_traffic_base_n_p_c_a5015d83448077cf0cd388c7f66955faa} 
+void Traffic\+Base\+NPC\+::stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Marchează NPC-\/ul ca „în proces de oprire”. 
+
+La următorul update viteza este redusă gradual până aproape de 0. \+:content\+Reference\mbox{[}oaicite\+:4\mbox{]}\{index=4\} \Hypertarget{class_traffic_base_n_p_c_a75d707ce9b81b735ef300f402636c1b4}\index{TrafficBaseNPC@{TrafficBaseNPC}!update@{update}}
+\index{update@{update}!TrafficBaseNPC@{TrafficBaseNPC}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_traffic_base_n_p_c_a75d707ce9b81b735ef300f402636c1b4} 
+void Traffic\+Base\+NPC\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{, }\item[{const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&}]{input}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Actualizează deplasarea NPC-\/ului pe verticală și viteza în timp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame. \\
+\hline
+{\em input} & Input-\/ul curent (nefolosit în implementarea actuală). \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_aeeec3a63938c9d9807a9007fcfc6580c}{Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Traffic\+Base\+NPC.\+h\item 
+Gear\+Shift\+Lib/Traffic\+Base\+NPC.\+cpp\end{DoxyCompactItemize}

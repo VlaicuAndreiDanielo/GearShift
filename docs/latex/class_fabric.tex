@@ -1,0 +1,205 @@
+\doxysection{Fabric Class Reference}
+\hypertarget{class_fabric}{}\label{class_fabric}\index{Fabric@{Fabric}}
+
+
+Implementare de pânză (cloth) 2D bazată pe masă–arc.  
+
+
+
+
+{\ttfamily \#include $<$Fabric\+Physics.\+h$>$}
+
+Inheritance diagram for Fabric\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fabric}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fabric_af3f45721bc671e0d501e71a454be154c}{update}} (float dt) override
+\begin{DoxyCompactList}\small\item\em Actualizează simularea pânzei pentru un frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fabric_ad14bd3140b20563ff9af1be96b958bde}{apply\+Force}} (float mx, float my, float radius, float strength) override
+\begin{DoxyCompactList}\small\item\em Aplică o forță locală asupra pânzei. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fabric_a2562b01232e8cc22ef65c5604a989cb4}{reset}} () override
+\begin{DoxyCompactList}\small\item\em Resetează pânza la poziția inițială. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{struct_pt}{Pt}} $>$ \& \mbox{\hyperlink{class_fabric_ad0032d25409bb87cb870e3bcc0ae3304}{get\+Pts}} () const override
+\begin{DoxyCompactList}\small\item\em Obține vectorul cu toate punctele pânzei. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_fabric_a19c49ed825a01ba63c97daa2570a9736}{getW}} () const override
+\begin{DoxyCompactList}\small\item\em Obține numărul de puncte pe axa X. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_fabric_ac5a10bf10fb83a987e3ef89ed43ea397}{getH}} () const override
+\begin{DoxyCompactList}\small\item\em Obține numărul de puncte pe axa Y. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_pt}{Pt}} \& \mbox{\hyperlink{class_fabric_a433a9a273f4ffdfdbc0b5d9111a483a5}{get\+Pt}} (int x, int y) override
+\begin{DoxyCompactList}\small\item\em Obține referința la un punct din grilă. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_fabric}{IFabric}} $>$ \mbox{\hyperlink{class_fabric_ab6815617505e3f528940f3966f86913c}{create}} (int width, int height, float spacing)
+\begin{DoxyCompactList}\small\item\em Creează o instanță de \doxylink{class_fabric}{Fabric} cu o grilă de dimensiune dată. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementare de pânză (cloth) 2D bazată pe masă–arc. 
+
+Reprezintă o rețea de puncte conectate care se comportă ca un material flexibil. Poate fi actualizată în timp, perturbată cu forțe locale și resetată. 
+
+\label{doc-func-members}
+\Hypertarget{class_fabric_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fabric_ad14bd3140b20563ff9af1be96b958bde}\index{Fabric@{Fabric}!applyForce@{applyForce}}
+\index{applyForce@{applyForce}!Fabric@{Fabric}}
+\doxysubsubsection{\texorpdfstring{applyForce()}{applyForce()}}
+{\footnotesize\ttfamily \label{class_fabric_ad14bd3140b20563ff9af1be96b958bde} 
+void Fabric\+::apply\+Force (\begin{DoxyParamCaption}\item[{float}]{mx}{, }\item[{float}]{my}{, }\item[{float}]{radius}{, }\item[{float}]{strength}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Aplică o forță locală asupra pânzei. 
+
+Toate punctele aflate într-\/un cerc de rază {\ttfamily radius} în jurul (mx, my) vor primi o forță proporțională cu distanța până la centru.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mx} & Coordonata X a centrului (de ex. mouse). \\
+\hline
+{\em my} & Coordonata Y a centrului. \\
+\hline
+{\em radius} & Raza zonei de influență. \\
+\hline
+{\em strength} & Intensitatea forței aplicate. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_fabric_ae48aa3664bd90c4b7ae599b1c480a4d4}{IFabric}}.
+
+\Hypertarget{class_fabric_ab6815617505e3f528940f3966f86913c}\index{Fabric@{Fabric}!create@{create}}
+\index{create@{create}!Fabric@{Fabric}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{class_fabric_ab6815617505e3f528940f3966f86913c} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_fabric}{IFabric}} $>$ Fabric\+::create (\begin{DoxyParamCaption}\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{float}]{spacing}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creează o instanță de \doxylink{class_fabric}{Fabric} cu o grilă de dimensiune dată. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Numărul de puncte pe axa X. \\
+\hline
+{\em height} & Numărul de puncte pe axa Y. \\
+\hline
+{\em spacing} & Distanța inițială între puncte. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un shared\+\_\+ptr către \doxylink{class_i_fabric}{IFabric} implementat de \doxylink{class_fabric}{Fabric}. 
+\end{DoxyReturn}
+\Hypertarget{class_fabric_ac5a10bf10fb83a987e3ef89ed43ea397}\index{Fabric@{Fabric}!getH@{getH}}
+\index{getH@{getH}!Fabric@{Fabric}}
+\doxysubsubsection{\texorpdfstring{getH()}{getH()}}
+{\footnotesize\ttfamily \label{class_fabric_ac5a10bf10fb83a987e3ef89ed43ea397} 
+int Fabric\+::getH (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obține numărul de puncte pe axa Y. 
+
+
+
+Implements \mbox{\hyperlink{class_i_fabric_a701a581d4796e55dee16d41ed7426198}{IFabric}}.
+
+\Hypertarget{class_fabric_a433a9a273f4ffdfdbc0b5d9111a483a5}\index{Fabric@{Fabric}!getPt@{getPt}}
+\index{getPt@{getPt}!Fabric@{Fabric}}
+\doxysubsubsection{\texorpdfstring{getPt()}{getPt()}}
+{\footnotesize\ttfamily \label{class_fabric_a433a9a273f4ffdfdbc0b5d9111a483a5} 
+\mbox{\hyperlink{struct_pt}{Pt}} \& Fabric\+::get\+Pt (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obține referința la un punct din grilă. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Indexul pe axa X (0 .. w-\/1). \\
+\hline
+{\em y} & Indexul pe axa Y (0 .. h-\/1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referință la punctul cerut. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_fabric_a606c2a3e5e0507257cafde0963b5ba70}{IFabric}}.
+
+\Hypertarget{class_fabric_ad0032d25409bb87cb870e3bcc0ae3304}\index{Fabric@{Fabric}!getPts@{getPts}}
+\index{getPts@{getPts}!Fabric@{Fabric}}
+\doxysubsubsection{\texorpdfstring{getPts()}{getPts()}}
+{\footnotesize\ttfamily \label{class_fabric_ad0032d25409bb87cb870e3bcc0ae3304} 
+const std\+::vector$<$ \mbox{\hyperlink{struct_pt}{Pt}} $>$ \& Fabric\+::get\+Pts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obține vectorul cu toate punctele pânzei. 
+
+
+
+Implements \mbox{\hyperlink{class_i_fabric_a80789078fa72f2ca40c0c5c7c60867af}{IFabric}}.
+
+\Hypertarget{class_fabric_a19c49ed825a01ba63c97daa2570a9736}\index{Fabric@{Fabric}!getW@{getW}}
+\index{getW@{getW}!Fabric@{Fabric}}
+\doxysubsubsection{\texorpdfstring{getW()}{getW()}}
+{\footnotesize\ttfamily \label{class_fabric_a19c49ed825a01ba63c97daa2570a9736} 
+int Fabric\+::getW (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obține numărul de puncte pe axa X. 
+
+
+
+Implements \mbox{\hyperlink{class_i_fabric_a6a97176664dc797d140114c8318a101a}{IFabric}}.
+
+\Hypertarget{class_fabric_a2562b01232e8cc22ef65c5604a989cb4}\index{Fabric@{Fabric}!reset@{reset}}
+\index{reset@{reset}!Fabric@{Fabric}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_fabric_a2562b01232e8cc22ef65c5604a989cb4} 
+void Fabric\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Resetează pânza la poziția inițială. 
+
+
+
+Implements \mbox{\hyperlink{class_i_fabric_a5543ed6f6ed26a53bf16641e2990dad8}{IFabric}}.
+
+\Hypertarget{class_fabric_af3f45721bc671e0d501e71a454be154c}\index{Fabric@{Fabric}!update@{update}}
+\index{update@{update}!Fabric@{Fabric}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_fabric_af3f45721bc671e0d501e71a454be154c} 
+void Fabric\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Actualizează simularea pânzei pentru un frame. 
+
+Aplică integrarea pozițiilor pentru punctele ne-\/pinned și relaxează constrângerile dintre puncte pentru a menține rigiditatea.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_fabric_acdb4b25c34e5649b8db83183ec915794}{IFabric}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Fabric\+Physics.\+h\item 
+Gear\+Shift\+Lib/Fabric\+Physics.\+cpp\end{DoxyCompactItemize}

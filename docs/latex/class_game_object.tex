@@ -1,0 +1,305 @@
+\doxysection{Game\+Object Class Reference}
+\hypertarget{class_game_object}{}\label{class_game_object}\index{GameObject@{GameObject}}
+
+
+Bază abstractă pentru toate obiectele din lume.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Object.\+h$>$}
+
+Inheritance diagram for Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.866426cm]{class_game_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}\label{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518} 
+{\bfseries Game\+Object} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor implicit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_ad4c2a8cd00a47c2c5bf0f9818f75ee20}{Game\+Object}} (float startX, float startY, float \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}}, float \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}}, bool \mbox{\hyperlink{class_game_object_afa3bf48882a927f94a6d922045a435e0}{active}})
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_game_object}{Game\+Object} cu poziție și dimensiune specificate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_acd37ab71f82ad1e0c96eebae60e35f23}{handle\+Update}} (float dt, const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&input)
+\begin{DoxyCompactList}\small\item\em Wrapper pentru update care menține corect ierarhia părinte–copil. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a64c309c90f0f81c2b71359de05e95ebb}{set\+Parent}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ parent\+Obj)
+\begin{DoxyCompactList}\small\item\em Setează Game\+Object-\/ul părinte pentru acest obiect. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform}{Transform}} \& \mbox{\hyperlink{class_game_object_a9977f1cf1ed8a7a7016a0b862e343aa3}{get\+World\+Transform}} ()
+\begin{DoxyCompactList}\small\item\em Obține transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_afb265fbcf4cced50adfc4b41f3c8271c}{set\+World\+Transform}} (\mbox{\hyperlink{struct_vec2}{Vec2}} pos, float rotation)
+\begin{DoxyCompactList}\small\item\em Setează transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_aa5f10650ee2a5bef523eb889cc6bd0ba}\label{class_game_object_aa5f10650ee2a5bef523eb889cc6bd0ba} 
+Object\+Type {\bfseries get\+Type} () const
+\begin{DoxyCompactList}\small\item\em Obține tipul logic al obiectului (Road, \doxylink{class_player}{Player}, Fuel etc.). \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_af11db955d544cac07360cc4b2945103d}\label{class_game_object_af11db955d544cac07360cc4b2945103d} 
+Sprite\+Type {\bfseries get\+Sprite} () const
+\begin{DoxyCompactList}\small\item\em Obține tipul de sprite asociat obiectului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7aa3fbf2d05b8ae467dead2f51460ab9}{set\+Sprite}} (Sprite\+Type \mbox{\hyperlink{class_game_object_a54ba7d711ecf699551885b3e2e24e205}{sprite}})
+\begin{DoxyCompactList}\small\item\em Setează sprite-\/ul asociat obiectului. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_ac1795f3c42222ca43f0d91f25c994f81}\label{class_game_object_ac1795f3c42222ca43f0d91f25c994f81} 
+void {\bfseries set\+Active} (bool \mbox{\hyperlink{class_game_object_abe79de441ec36735859f8e0e20888033}{is\+Active}})
+\begin{DoxyCompactList}\small\item\em Activează sau dezactivează obiectul. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_abe79de441ec36735859f8e0e20888033}\label{class_game_object_abe79de441ec36735859f8e0e20888033} 
+bool {\bfseries is\+Active} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă obiectul este activ. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_a665147ee46e9b62442b2d6b9835c4dd4}\label{class_game_object_a665147ee46e9b62442b2d6b9835c4dd4} 
+float {\bfseries get\+Width} () const
+\begin{DoxyCompactList}\small\item\em Obține lățimea obiectului. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_a927400453a0989e2f5b765031f4d861c}\label{class_game_object_a927400453a0989e2f5b765031f4d861c} 
+float {\bfseries get\+Height} () const
+\begin{DoxyCompactList}\small\item\em Obține înălțimea obiectului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7400fd25c213fa0ee6a894d69d0e0078}{set\+Size}} (float w, float h)
+\begin{DoxyCompactList}\small\item\em Setează dimensiunea obiectului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_game_object_aeeec3a63938c9d9807a9007fcfc6580c}{update}} (float dt, const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&input)
+\begin{DoxyCompactList}\small\item\em Actualizare specifică pentru tipul concret de \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_object_a1f11eed1432234d5d204fdc609a89fe2}{on\+Collision}} (std\+::shared\+\_\+ptr$<$ Collider $>$ other)
+\begin{DoxyCompactList}\small\item\em Callback la coliziune cu un alt collider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a21c47fc0d7f0a7716e4089b026f32cf3}{parent\+Update}} (\mbox{\hyperlink{struct_vec2}{Vec2}} delta\+Pos, float delta\+Rotation)
+\begin{DoxyCompactList}\small\item\em Propagă modificările de poziție și rotație către copii. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_object_aa731fd34a2cf43b047c3ae52a7e26245}\label{class_game_object_aa731fd34a2cf43b047c3ae52a7e26245} 
+\mbox{\hyperlink{class_transform}{Transform}} {\bfseries world\+Transform}
+\begin{DoxyCompactList}\small\item\em Transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_a18069e3c6d1bbc9e076617033110a50c}\label{class_game_object_a18069e3c6d1bbc9e076617033110a50c} 
+\mbox{\hyperlink{class_transform}{Transform}} {\bfseries local\+Transform}
+\begin{DoxyCompactList}\small\item\em Transform-\/ul relativ la părinte. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_a0ccb96c40c83d776ca94efe1f70809cf}\label{class_game_object_a0ccb96c40c83d776ca94efe1f70809cf} 
+std\+::shared\+\_\+ptr$<$ Collider $>$ {\bfseries collider}
+\begin{DoxyCompactList}\small\item\em Collider-\/ul atașat (dacă există). \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_afa3bf48882a927f94a6d922045a435e0}\label{class_game_object_afa3bf48882a927f94a6d922045a435e0} 
+bool {\bfseries active} = true
+\begin{DoxyCompactList}\small\item\em Flag de activare. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_af797cec05ff1d3cbc694fc7036add37b}\label{class_game_object_af797cec05ff1d3cbc694fc7036add37b} 
+float {\bfseries width} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Lățimea obiectului. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}\label{class_game_object_a0ae9c255f47b6148c26d0333a72d0625} 
+float {\bfseries height} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Înălțimea obiectului. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_a54ba7d711ecf699551885b3e2e24e205}\label{class_game_object_a54ba7d711ecf699551885b3e2e24e205} 
+Sprite\+Type {\bfseries sprite} = Sprite\+Type\+::\+NONE
+\begin{DoxyCompactList}\small\item\em Sprite-\/ul asociat. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_a280ab05ffa48cf4d328565f079162e50}\label{class_game_object_a280ab05ffa48cf4d328565f079162e50} 
+Object\+Type {\bfseries type} = Object\+Type\+::\+NONE
+\begin{DoxyCompactList}\small\item\em Tipul logic al obiectului. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_object_ace948960d988975d7065bdad324df347}\label{class_game_object_ace948960d988975d7065bdad324df347} 
+std\+::optional$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ {\bfseries parent} = std\+::nullopt
+\begin{DoxyCompactList}\small\item\em Părinte opțional al acestui \doxylink{class_game_object}{Game\+Object} (pentru ierarhii). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_object_a8b9589fa4f720c6948bd4190e3aa87f3}\label{class_game_object_a8b9589fa4f720c6948bd4190e3aa87f3} 
+class {\bfseries Collision\+Manager\+::\+Collider}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bază abstractă pentru toate obiectele din lume. 
+
+Reprezintă un obiect 2D cu poziție, rotație, dimensiune, sprite și tip. Instanțele trebuie gestionate prin std\+::shared\+\_\+ptr. 
+
+\label{doc-constructors}
+\Hypertarget{class_game_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_object_ad4c2a8cd00a47c2c5bf0f9818f75ee20}\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}}
+{\footnotesize\ttfamily \label{class_game_object_ad4c2a8cd00a47c2c5bf0f9818f75ee20} 
+Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{float}]{startX}{ = {\ttfamily 0}, }\item[{float}]{startY}{ = {\ttfamily 0}, }\item[{float}]{width}{ = {\ttfamily 0}, }\item[{float}]{height}{ = {\ttfamily 0}, }\item[{bool}]{active}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Creează un \doxylink{class_game_object}{Game\+Object} cu poziție și dimensiune specificate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em startX} & Poziția inițială X în lume. \\
+\hline
+{\em startY} & Poziția inițială Y în lume. \\
+\hline
+{\em width} & Lățimea obiectului. \\
+\hline
+{\em height} & Înălțimea obiectului. \\
+\hline
+{\em active} & True dacă obiectul este activ la început. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_game_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_object_a9977f1cf1ed8a7a7016a0b862e343aa3}\index{GameObject@{GameObject}!getWorldTransform@{getWorldTransform}}
+\index{getWorldTransform@{getWorldTransform}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{getWorldTransform()}{getWorldTransform()}}
+{\footnotesize\ttfamily \label{class_game_object_a9977f1cf1ed8a7a7016a0b862e343aa3} 
+\mbox{\hyperlink{class_transform}{Transform}} \& Game\+Object\+::get\+World\+Transform (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Obține transform-\/ul în spațiul lumii. 
+
+\begin{DoxyReturn}{Returns}
+Referință la Transform-\/ul world al obiectului. 
+\end{DoxyReturn}
+\Hypertarget{class_game_object_acd37ab71f82ad1e0c96eebae60e35f23}\index{GameObject@{GameObject}!handleUpdate@{handleUpdate}}
+\index{handleUpdate@{handleUpdate}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{handleUpdate()}{handleUpdate()}}
+{\footnotesize\ttfamily \label{class_game_object_acd37ab71f82ad1e0c96eebae60e35f23} 
+void Game\+Object\+::handle\+Update (\begin{DoxyParamCaption}\item[{float}]{dt}{, }\item[{const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Wrapper pentru update care menține corect ierarhia părinte–copil. 
+
+Apelează metoda virtuală \doxylink{class_game_object_aeeec3a63938c9d9807a9007fcfc6580c}{update()}, apoi propagă modificările către copii pe baza diferențelor de transform (local/world).
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame. \\
+\hline
+{\em input} & Starea curentă a input-\/ului. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_object_a1f11eed1432234d5d204fdc609a89fe2}\index{GameObject@{GameObject}!onCollision@{onCollision}}
+\index{onCollision@{onCollision}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{onCollision()}{onCollision()}}
+{\footnotesize\ttfamily \label{class_game_object_a1f11eed1432234d5d204fdc609a89fe2} 
+void Game\+Object\+::on\+Collision (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Collider $>$}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Callback la coliziune cu un alt collider. 
+
+Implementările derivate pot suprascrie pentru a reacționa la coliziuni.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Collider-\/ul cu care a avut loc coliziunea. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_player_a15ba0e56262c5133108e32546cc3e66e}{Player}}.
+
+\Hypertarget{class_game_object_a21c47fc0d7f0a7716e4089b026f32cf3}\index{GameObject@{GameObject}!parentUpdate@{parentUpdate}}
+\index{parentUpdate@{parentUpdate}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{parentUpdate()}{parentUpdate()}}
+{\footnotesize\ttfamily \label{class_game_object_a21c47fc0d7f0a7716e4089b026f32cf3} 
+void Game\+Object\+::parent\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{delta\+Pos}{, }\item[{float}]{delta\+Rotation}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Propagă modificările de poziție și rotație către copii. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Pos} & Diferența de poziție locală. \\
+\hline
+{\em delta\+Rotation} & Diferența de rotație locală. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_object_a64c309c90f0f81c2b71359de05e95ebb}\index{GameObject@{GameObject}!setParent@{setParent}}
+\index{setParent@{setParent}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setParent()}{setParent()}}
+{\footnotesize\ttfamily \label{class_game_object_a64c309c90f0f81c2b71359de05e95ebb} 
+void Game\+Object\+::set\+Parent (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$}]{parent\+Obj}{}\end{DoxyParamCaption})}
+
+
+
+Setează Game\+Object-\/ul părinte pentru acest obiect. 
+
+Actualizează transform-\/ul local și înregistrează acest obiect ca și copil.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent\+Obj} & Obiectul părinte. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_object_a7400fd25c213fa0ee6a894d69d0e0078}\index{GameObject@{GameObject}!setSize@{setSize}}
+\index{setSize@{setSize}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily \label{class_game_object_a7400fd25c213fa0ee6a894d69d0e0078} 
+void Game\+Object\+::set\+Size (\begin{DoxyParamCaption}\item[{float}]{w}{, }\item[{float}]{h}{}\end{DoxyParamCaption})}
+
+
+
+Setează dimensiunea obiectului. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Noua lățime. \\
+\hline
+{\em h} & Noua înălțime. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_object_a7aa3fbf2d05b8ae467dead2f51460ab9}\index{GameObject@{GameObject}!setSprite@{setSprite}}
+\index{setSprite@{setSprite}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setSprite()}{setSprite()}}
+{\footnotesize\ttfamily \label{class_game_object_a7aa3fbf2d05b8ae467dead2f51460ab9} 
+void Game\+Object\+::set\+Sprite (\begin{DoxyParamCaption}\item[{Sprite\+Type}]{sprite}{}\end{DoxyParamCaption})}
+
+
+
+Setează sprite-\/ul asociat obiectului. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & Tipul de sprite din atlas. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_object_afb265fbcf4cced50adfc4b41f3c8271c}\index{GameObject@{GameObject}!setWorldTransform@{setWorldTransform}}
+\index{setWorldTransform@{setWorldTransform}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setWorldTransform()}{setWorldTransform()}}
+{\footnotesize\ttfamily \label{class_game_object_afb265fbcf4cced50adfc4b41f3c8271c} 
+void Game\+Object\+::set\+World\+Transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{pos}{, }\item[{float}]{rotation}{}\end{DoxyParamCaption})}
+
+
+
+Setează transform-\/ul în spațiul lumii. 
+
+Dacă obiectul nu are părinte valid, actualizează și transform-\/ul local.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Poziția în lume. \\
+\hline
+{\em rotation} & Rotația în lume (grade). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_object_aeeec3a63938c9d9807a9007fcfc6580c}\index{GameObject@{GameObject}!update@{update}}
+\index{update@{update}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_game_object_aeeec3a63938c9d9807a9007fcfc6580c} 
+void Game\+Object\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{, }\item[{const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&}]{input}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Actualizare specifică pentru tipul concret de \doxylink{class_game_object}{Game\+Object}. 
+
+Implementările derivatelor ar trebui să suprascrie această metodă pentru a implementa comportamentul de frame.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame. \\
+\hline
+{\em input} & Starea curentă a input-\/ului. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_fuel_canister_aac890800fed25249db7ce6cfc56e99a3}{Fuel\+Canister}}, \mbox{\hyperlink{class_player_a1f57c9995b840256c314925c53686025}{Player}}, and \mbox{\hyperlink{class_traffic_base_n_p_c_a75d707ce9b81b735ef300f402636c1b4}{Traffic\+Base\+NPC}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Game\+Object.\+h\item 
+Gear\+Shift\+Lib/Game\+Object.\+cpp\end{DoxyCompactItemize}

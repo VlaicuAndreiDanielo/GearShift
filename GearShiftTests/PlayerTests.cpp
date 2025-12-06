@@ -1,3 +1,8 @@
+﻿/**
+ * \file PlayerTests.cpp
+ * \brief Unit tests pentru Player (creare, mișcare, limite, listener).
+ */
+
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "Player.h"
@@ -7,6 +12,7 @@
 #include "TrafficBaseNPC.h"
 #include <random>
 
+ /// \brief Mock pentru IInputState folosit în testele Player.
 class MockInput : public IInputState {
 public:
     MOCK_METHOD(bool, isUpPressed, (), (const, override));
@@ -21,6 +27,7 @@ public:
     MOCK_METHOD(bool, isMousePressed, (), (const, override));
 };
 
+/// \brief Mock pentru IPlayerListener folosit pentru a verifica notificările.
 class MockListener : public IPlayerListener {
 public:
     MOCK_METHOD(void, onPlayerEliminated, (), (override));

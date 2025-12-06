@@ -1,0 +1,113 @@
+\doxysection{ICommand Class Reference}
+\hypertarget{class_i_command}{}\label{class_i_command}\index{ICommand@{ICommand}}
+
+
+Interfață de bază pentru toate comenzile (Command pattern).  
+
+
+
+
+{\ttfamily \#include $<$ICommand.\+h$>$}
+
+Inheritance diagram for ICommand\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.555556cm]{class_i_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_command_aa8a6346c5a0dcfe7fd49413a69e854ef}\label{class_i_command_aa8a6346c5a0dcfe7fd49413a69e854ef} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+ICommand} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_command_a00859f1d6d2b7eb843614fb4ffd63bbb}{can\+Execute}} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă comanda poate fi executată în starea curentă. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_command_ace81beb0beea968f876f292446bf1120}{execute}} ()=0
+\begin{DoxyCompactList}\small\item\em Execută efectiv comanda. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_command_af3b58eb0635d03cf1039b9747d72edec}{undo}} ()
+\begin{DoxyCompactList}\small\item\em Anulează efectul comenzii, dacă este suportat. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_command_ab2767c2ef69b77e94210a437cdc9e179}{can\+Undo}} () const
+\begin{DoxyCompactList}\small\item\em Indică dacă această comandă suportă operația de undo. \end{DoxyCompactList}\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_command_aed5df7f936d3f0f5262f8d14d0fd84d8}{get\+Description}} () const =0
+\begin{DoxyCompactList}\small\item\em Descriere textuală a comenzii. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfață de bază pentru toate comenzile (Command pattern). 
+
+Comenzile pot fi executate, opțional anulate (undo), și furnizează o descriere textuală pentru logging și debugging. 
+
+\label{doc-func-members}
+\Hypertarget{class_i_command_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_command_a00859f1d6d2b7eb843614fb4ffd63bbb}\index{ICommand@{ICommand}!canExecute@{canExecute}}
+\index{canExecute@{canExecute}!ICommand@{ICommand}}
+\doxysubsubsection{\texorpdfstring{canExecute()}{canExecute()}}
+{\footnotesize\ttfamily \label{class_i_command_a00859f1d6d2b7eb843614fb4ffd63bbb} 
+virtual bool ICommand\+::can\+Execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă comanda poate fi executată în starea curentă. 
+
+Implementările pot valida contextul (ex. starea jocului). Implicit true. \begin{DoxyReturn}{Returns}
+true dacă poate fi executată, false altfel. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_apply_mouse_force_command_a2c9da3b986499795a26c260efc719253}{Apply\+Mouse\+Force\+Command}}, \mbox{\hyperlink{class_pause_game_command_a164f956d5bf369202e3897ccff989d87}{Pause\+Game\+Command}}, and \mbox{\hyperlink{class_start_game_command_a36b2463838de8d011240cd55beaef956}{Start\+Game\+Command}}.
+
+\Hypertarget{class_i_command_ab2767c2ef69b77e94210a437cdc9e179}\index{ICommand@{ICommand}!canUndo@{canUndo}}
+\index{canUndo@{canUndo}!ICommand@{ICommand}}
+\doxysubsubsection{\texorpdfstring{canUndo()}{canUndo()}}
+{\footnotesize\ttfamily \label{class_i_command_ab2767c2ef69b77e94210a437cdc9e179} 
+virtual bool ICommand\+::can\+Undo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Indică dacă această comandă suportă operația de undo. 
+
+Implicit false. Dacă o comandă suprascrie {\ttfamily \doxylink{class_i_command_af3b58eb0635d03cf1039b9747d72edec}{undo()}}, ar trebui să suprascrie și {\ttfamily \doxylink{class_i_command_ab2767c2ef69b77e94210a437cdc9e179}{can\+Undo()}} pentru a întoarce true. \Hypertarget{class_i_command_ace81beb0beea968f876f292446bf1120}\index{ICommand@{ICommand}!execute@{execute}}
+\index{execute@{execute}!ICommand@{ICommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_i_command_ace81beb0beea968f876f292446bf1120} 
+virtual void ICommand\+::execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Execută efectiv comanda. 
+
+Implementările concrete trebuie să definească această metodă. 
+
+Implemented in \mbox{\hyperlink{class_apply_mouse_force_command_a4a77ad4bdf40e08c9bd28119ef2a41a1}{Apply\+Mouse\+Force\+Command}}, \mbox{\hyperlink{class_exit_application_command_a8a041a12fa96a3d791002ca23cee1226}{Exit\+Application\+Command}}, \mbox{\hyperlink{class_pause_game_command_ae07335a30da442c02cf394c7af4407a5}{Pause\+Game\+Command}}, and \mbox{\hyperlink{class_start_game_command_a78db4c99fbcee401f9472e817f5d05ac}{Start\+Game\+Command}}.
+
+\Hypertarget{class_i_command_aed5df7f936d3f0f5262f8d14d0fd84d8}\index{ICommand@{ICommand}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!ICommand@{ICommand}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily \label{class_i_command_aed5df7f936d3f0f5262f8d14d0fd84d8} 
+virtual const char \texorpdfstring{$\ast$}{*} ICommand\+::get\+Description (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Descriere textuală a comenzii. 
+
+Folosită pentru logging, debugging și UI (de ex. meniuri de debug). 
+
+Implemented in \mbox{\hyperlink{class_apply_mouse_force_command_aba107df0913fd232ad961bca2a7f646d}{Apply\+Mouse\+Force\+Command}}, \mbox{\hyperlink{class_exit_application_command_a279827c5d5ec87e479f4216afa098bda}{Exit\+Application\+Command}}, \mbox{\hyperlink{class_pause_game_command_acba6b455d4f8a248c91a8a147b905b4e}{Pause\+Game\+Command}}, and \mbox{\hyperlink{class_start_game_command_ab4b861ce1b325e539bb08164c1a5587d}{Start\+Game\+Command}}.
+
+\Hypertarget{class_i_command_af3b58eb0635d03cf1039b9747d72edec}\index{ICommand@{ICommand}!undo@{undo}}
+\index{undo@{undo}!ICommand@{ICommand}}
+\doxysubsubsection{\texorpdfstring{undo()}{undo()}}
+{\footnotesize\ttfamily \label{class_i_command_af3b58eb0635d03cf1039b9747d72edec} 
+virtual void ICommand\+::undo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Anulează efectul comenzii, dacă este suportat. 
+
+Implementarea implicită nu face nimic. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/ICommand.\+h\end{DoxyCompactItemize}

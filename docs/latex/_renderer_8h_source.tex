@@ -1,0 +1,33 @@
+\doxysection{Renderer.\+h}
+\hypertarget{_renderer_8h_source}{}\label{_renderer_8h_source}\index{GearShiftUI/Renderer.h@{GearShiftUI/Renderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_renderer_a5e8b96e0e92bc4a3aa4df5a142c0ecf4}{Renderer}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ SDL\_Window*\ win;\ \ \ }
+\DoxyCodeLine{00013\ \ \ \ \ SDL\_Renderer*\ rend;\ \ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ width;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ height;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_renderer_a5e8b96e0e92bc4a3aa4df5a142c0ecf4}{Renderer}}(\textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}{\string~Renderer}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ SDL\_Renderer*\ \mbox{\hyperlink{class_renderer_a3f458c6bfb20201f0100681f2ccc0f86}{getSDLRenderer}}()\ \{\ \textcolor{keywordflow}{return}\ rend;\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_renderer_a02b89a44df4b28fa45d3c5cd2389f60d}{getWidth}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ width;\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_renderer_aed7fcb8740a5b6a81b3882485a390520}{getHeight}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ height;\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a6a4e80a1a5138086929184f5f1d05a8f}{clear}}(Uint8\ r\ =\ 0,\ Uint8\ g\ =\ 0,\ Uint8\ b\ =\ 0);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a7d85cdc8646b62f8439d95309f2b8487}{present}}();}
+\DoxyCodeLine{00045\ \};}
+
+\end{DoxyCode}

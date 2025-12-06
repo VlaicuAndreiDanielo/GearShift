@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['defaultglobaltestpartresultreporter_0',['DefaultGlobalTestPartResultReporter',['../classtesting_1_1internal_1_1_default_global_test_part_result_reporter.html',1,'testing::internal']]],
+  ['defaultnamegenerator_1',['DefaultNameGenerator',['../structtesting_1_1internal_1_1_default_name_generator.html',1,'testing::internal']]],
+  ['defaultperthreadtestpartresultreporter_2',['DefaultPerThreadTestPartResultReporter',['../classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter.html',1,'testing::internal']]],
+  ['defaultvalue_3',['DefaultValue',['../classtesting_1_1_default_value.html',1,'testing']]],
+  ['defaultvalue_3c_20t_20_26_20_3e_4',['DefaultValue&lt; T &amp; &gt;',['../classtesting_1_1_default_value_3_01_t_01_6_01_4.html',1,'testing']]],
+  ['defaultvalue_3c_20void_20_3e_5',['DefaultValue&lt; void &gt;',['../classtesting_1_1_default_value_3_01void_01_4.html',1,'testing']]],
+  ['defined_3a_6',['The following macros can be defined:',['../dir_40787a6fe407959c2ba1c9ef29544663.html#autotoc_md5',1,'']]],
+  ['deleteargaction_7',['DeleteArgAction',['../structtesting_1_1internal_1_1_delete_arg_action.html',1,'testing::internal']]],
+  ['disclaimer_8',['Legal Disclaimer',['../md__r_e_a_d_m_e.html#autotoc_md23',1,'']]],
+  ['disjunction_9',['disjunction',['../structtesting_1_1internal_1_1disjunction.html',1,'testing::internal']]],
+  ['disjunction_3c_20p1_20_3e_10',['disjunction&lt; P1 &gt;',['../structtesting_1_1internal_1_1disjunction_3_01_p1_01_4.html',1,'testing::internal']]],
+  ['disjunction_3c_20p1_2c_20ps_2e_2e_2e_20_3e_11',['disjunction&lt; P1, Ps... &gt;',['../structtesting_1_1internal_1_1disjunction_3_01_p1_00_01_ps_8_8_8_01_4.html',1,'testing::internal']]],
+  ['doallaction_12',['DoAllAction',['../classtesting_1_1internal_1_1_do_all_action.html',1,'testing::internal']]],
+  ['doallaction_3c_20finalaction_20_3e_13',['DoAllAction&lt; FinalAction &gt;',['../classtesting_1_1internal_1_1_do_all_action_3_01_final_action_01_4.html',1,'testing::internal']]],
+  ['doallaction_3c_20initialaction_2c_20otheractions_2e_2e_2e_20_3e_14',['DoAllAction&lt; InitialAction, OtherActions... &gt;',['../classtesting_1_1internal_1_1_do_all_action_3_01_initial_action_00_01_other_actions_8_8_8_01_4.html',1,'testing::internal']]],
+  ['doallaction_3c_20otheractions_2e_2e_2e_20_3e_15',['DoAllAction&lt; OtherActions... &gt;',['../classtesting_1_1internal_1_1_do_all_action.html',1,'testing::internal']]],
+  ['dodefaultaction_16',['DoDefaultAction',['../classtesting_1_1internal_1_1_do_default_action.html',1,'testing::internal']]],
+  ['don_20t_20have_20vcpkg_20already_3a_17',['If you don&apos;t have &lt;span class=&quot;tt&quot;&gt;vcpkg&lt;/span&gt; already:',['../md__r_e_a_d_m_e.html#autotoc_md22',1,'']]],
+  ['don_20t_20scratch_20the_20car_18',['&lt;b&gt;Drive it like you stole it, but don&apos;t scratch the car!&lt;/b&gt;',['../md__r_e_a_d_m_e.html#autotoc_md13',1,'']]],
+  ['drawtextureoverrect_19',['drawTextureOverRect',['../class_sprite_manager.html#ac7833f20b6b04b484eb2e376ef86ca8a',1,'SpriteManager::drawTextureOverRect(SDL_Rect rect, SDL_Texture *texture)'],['../class_sprite_manager.html#ac05a08feda33e08a949ae448775f45a8',1,'SpriteManager::drawTextureOverRect(const SDL_Rect &amp;rect, SDL_Texture *texture, double angleRadians)']]],
+  ['drive_20a_20car_20on_20a_20road_20avoiding_20other_20cars_20or_20crashing_20into_20them_20',['A 2D game in which you drive a car on a road, avoiding other cars or... crashing into them.',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
+  ['drive_20it_20like_20you_20stole_20it_20but_20don_20t_20scratch_20the_20car_21',['&lt;b&gt;Drive it like you stole it, but don&apos;t scratch the car!&lt;/b&gt;',['../md__r_e_a_d_m_e.html#autotoc_md13',1,'']]]
+];

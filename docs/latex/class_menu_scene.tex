@@ -1,0 +1,174 @@
+\doxysection{Menu\+Scene Class Reference}
+\hypertarget{class_menu_scene}{}\label{class_menu_scene}\index{MenuScene@{MenuScene}}
+
+
+Scena de meniu principal al jocului.  
+
+
+
+
+{\ttfamily \#include $<$Menu\+Scene.\+h$>$}
+
+Inheritance diagram for Menu\+Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_menu_scene}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_scene_a9e4ce9820172951f5ce955ebc9638f73}{Menu\+Scene}} (\mbox{\hyperlink{class_renderer}{Renderer}} \texorpdfstring{$\ast$}{*}rend, \mbox{\hyperlink{class_scene_mgr}{Scene\+Mgr}} \texorpdfstring{$\ast$}{*}mgr, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$ logic, \mbox{\hyperlink{class_input_handler}{Input\+Handler}} \texorpdfstring{$\ast$}{*}input, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_manager}{Command\+Manager}} $>$ global\+Command\+Mgr)
+\begin{DoxyCompactList}\small\item\em Creează scena de meniu. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_scene_a893677e367fc51e87c5d4d8e8e4fb7e1}\label{class_menu_scene_a893677e367fc51e87c5d4d8e8e4fb7e1} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Menu\+Scene} () override
+\begin{DoxyCompactList}\small\item\em Destructor – se ocupă de cleanup sigur prin {\ttfamily \doxylink{class_menu_scene_aa1d11e281a3f416c1f476466e5b5b666}{on\+Exit()}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_scene_a1ab177b257495ed8d19136a85282a29a}{update}} (float dt) override
+\begin{DoxyCompactList}\small\item\em Actualizează logica meniului (fabric, efecte, comenzi). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_scene_a3799d8d5abea024b5a171ab69b86a4d6}{render}} () override
+\begin{DoxyCompactList}\small\item\em Randează meniul (fundal, mașină, butoane). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_scene_ab6d8eb92c8af4fc23bea934ea30cc4ec}{handle\+Event}} (SDL\+\_\+\+Event \&e) override
+\begin{DoxyCompactList}\small\item\em Gestionează evenimentele SDL (mouse, tastatură). \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_menu_scene_af33a37698fe4919fa6bd13d431a57abb}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Numele scenei – "{}\+Menu"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_scene_a87456d73b643a56c6a1aa53b14fd31c6}{on\+Enter}} () override
+\begin{DoxyCompactList}\small\item\em Se apelează când scena devine activă. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_scene_aa1d11e281a3f416c1f476466e5b5b666}{on\+Exit}} () override
+\begin{DoxyCompactList}\small\item\em Se apelează când scena iese din activ. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_scene}{IScene}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IScene} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scena de meniu principal al jocului. 
+
+Afișează fundalul animat (wave + fabric), efectul \doxylink{class_c_r_t}{CRT}, mașina din meniu și butoanele PLAY / EXIT. Folosește Command pattern pentru\+:
+\begin{DoxyItemize}
+\item start de joc ({\ttfamily \doxylink{class_start_game_command}{Start\+Game\+Command}});
+\item ieșire din aplicație ({\ttfamily \doxylink{class_exit_application_command}{Exit\+Application\+Command}}). 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_menu_scene_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_menu_scene_a9e4ce9820172951f5ce955ebc9638f73}\index{MenuScene@{MenuScene}!MenuScene@{MenuScene}}
+\index{MenuScene@{MenuScene}!MenuScene@{MenuScene}}
+\doxysubsubsection{\texorpdfstring{MenuScene()}{MenuScene()}}
+{\footnotesize\ttfamily \label{class_menu_scene_a9e4ce9820172951f5ce955ebc9638f73} 
+Menu\+Scene\+::\+Menu\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_renderer}{Renderer}} \texorpdfstring{$\ast$}{*}}]{rend}{, }\item[{\mbox{\hyperlink{class_scene_mgr}{Scene\+Mgr}} \texorpdfstring{$\ast$}{*}}]{mgr}{, }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$}]{logic}{, }\item[{\mbox{\hyperlink{class_input_handler}{Input\+Handler}} \texorpdfstring{$\ast$}{*}}]{input}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_manager}{Command\+Manager}} $>$}]{global\+Command\+Mgr}{}\end{DoxyParamCaption})}
+
+
+
+Creează scena de meniu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rend} & Renderer-\/ul folosit pentru desen. \\
+\hline
+{\em mgr} & Managerul de scene. \\
+\hline
+{\em logic} & Logica jocului (\doxylink{class_i_game}{IGame}). \\
+\hline
+{\em input} & Handler-\/ul de input. \\
+\hline
+{\em global\+Command\+Mgr} & \doxylink{class_command_manager}{Command\+Manager} global. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_menu_scene_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_menu_scene_af33a37698fe4919fa6bd13d431a57abb}\index{MenuScene@{MenuScene}!getName@{getName}}
+\index{getName@{getName}!MenuScene@{MenuScene}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_menu_scene_af33a37698fe4919fa6bd13d431a57abb} 
+std\+::string Menu\+Scene\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Numele scenei – "{}\+Menu"{}. 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_a643fc851596bdb01b2e7b3f32f1a9762}{IScene}}.
+
+\Hypertarget{class_menu_scene_ab6d8eb92c8af4fc23bea934ea30cc4ec}\index{MenuScene@{MenuScene}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!MenuScene@{MenuScene}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily \label{class_menu_scene_ab6d8eb92c8af4fc23bea934ea30cc4ec} 
+void Menu\+Scene\+::handle\+Event (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \&}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gestionează evenimentele SDL (mouse, tastatură). 
+
+Se forward-\/ează și la {\ttfamily \doxylink{class_input_handler}{Input\+Handler}}, și la butoane. 
+
+Implements \mbox{\hyperlink{class_i_scene_af82cc977474b930850543329eeee4b12}{IScene}}.
+
+\Hypertarget{class_menu_scene_a87456d73b643a56c6a1aa53b14fd31c6}\index{MenuScene@{MenuScene}!onEnter@{onEnter}}
+\index{onEnter@{onEnter}!MenuScene@{MenuScene}}
+\doxysubsubsection{\texorpdfstring{onEnter()}{onEnter()}}
+{\footnotesize\ttfamily \label{class_menu_scene_a87456d73b643a56c6a1aa53b14fd31c6} 
+void Menu\+Scene\+::on\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Se apelează când scena devine activă. 
+
+Încarcă fontul, texturile, creează efectele și butoanele. 
+
+Implements \mbox{\hyperlink{class_i_scene_abdd19162accdecdf35effd38e306716d}{IScene}}.
+
+\Hypertarget{class_menu_scene_aa1d11e281a3f416c1f476466e5b5b666}\index{MenuScene@{MenuScene}!onExit@{onExit}}
+\index{onExit@{onExit}!MenuScene@{MenuScene}}
+\doxysubsubsection{\texorpdfstring{onExit()}{onExit()}}
+{\footnotesize\ttfamily \label{class_menu_scene_aa1d11e281a3f416c1f476466e5b5b666} 
+void Menu\+Scene\+::on\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Se apelează când scena iese din activ. 
+
+Eliberează resursele vizuale și UI. 
+
+Implements \mbox{\hyperlink{class_i_scene_aa84ab647ec058087c58aaac70ad515e0}{IScene}}.
+
+\Hypertarget{class_menu_scene_a3799d8d5abea024b5a171ab69b86a4d6}\index{MenuScene@{MenuScene}!render@{render}}
+\index{render@{render}!MenuScene@{MenuScene}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_menu_scene_a3799d8d5abea024b5a171ab69b86a4d6} 
+void Menu\+Scene\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Randează meniul (fundal, mașină, butoane). 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_aadeac260f2cfd96ab519a10eaa785c01}{IScene}}.
+
+\Hypertarget{class_menu_scene_a1ab177b257495ed8d19136a85282a29a}\index{MenuScene@{MenuScene}!update@{update}}
+\index{update@{update}!MenuScene@{MenuScene}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_menu_scene_a1ab177b257495ed8d19136a85282a29a} 
+void Menu\+Scene\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Actualizează logica meniului (fabric, efecte, comenzi). 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_a490479e914172e4f36d13fe3a66da759}{IScene}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Menu\+Scene.\+h\item 
+Gear\+Shift\+UI/Menu\+Scene.\+cpp\end{DoxyCompactItemize}

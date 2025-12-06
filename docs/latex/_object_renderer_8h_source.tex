@@ -1,0 +1,27 @@
+\doxysection{Object\+Renderer.\+h}
+\hypertarget{_object_renderer_8h_source}{}\label{_object_renderer_8h_source}\index{GearShiftUI/ObjectRenderer.h@{GearShiftUI/ObjectRenderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}IGameObject.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SpriteManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_object_renderer_a9451199ca156ce0ac352048cf0859e08}{ObjectRenderer}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_object_renderer_a9451199ca156ce0ac352048cf0859e08}{ObjectRenderer}}(SDL\_Renderer*\ renderer);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_object_renderer_a728788753d586d1357c520e3e89128b7}{\string~ObjectRenderer}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_object_renderer_a6883454524f1da244b115ec3412cee95}{render}}(\textcolor{keyword}{const}\ std::shared\_ptr<IGameObject>\ \textcolor{keywordtype}{object});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_object_renderer_a18acead69444bbc58ce0d0e3141a1385}{setColor}}(Uint8\ r,\ Uint8\ g,\ Uint8\ b);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ SDL\_Color\ \ \ \ \ color;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_sprite_manager}{SpriteManager}}\ spriteManager;\ }
+\DoxyCodeLine{00038\ \ \ \ \ SDL\_Renderer*\ renderer;\ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}

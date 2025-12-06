@@ -1,0 +1,203 @@
+\doxysection{Collision\+Manager\+::Collider Class Reference}
+\hypertarget{class_collision_manager_1_1_collider}{}\label{class_collision_manager_1_1_collider}\index{CollisionManager::Collider@{CollisionManager::Collider}}
+
+
+Bază abstractă pentru toate tipurile de collider.  
+
+
+
+
+{\ttfamily \#include $<$Collider.\+h$>$}
+
+Inheritance diagram for Collision\+Manager\+::Collider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_collision_manager_1_1_collider}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$ manager)
+\begin{DoxyCompactList}\small\item\em Creează un collider gestionat de un \doxylink{class_collision_manager}{Collision\+Manager}. \end{DoxyCompactList}\item 
+\Hypertarget{class_collision_manager_1_1_collider_a94b0a2b6dc5ee4a6e9ba86717eee1b00}\label{class_collision_manager_1_1_collider_a94b0a2b6dc5ee4a6e9ba86717eee1b00} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Collider} ()
+\begin{DoxyCompactList}\small\item\em Destructor virtual; dezînregistrează collider-\/ul din manager. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ \mbox{\hyperlink{class_collision_manager_1_1_collider_ac76bceca8dfccce043e2393ccb5f732d}{get\+Master\+Object}} () const
+\begin{DoxyCompactList}\small\item\em Obține Game\+Object-\/ul de care este atașat collider-\/ul. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision_manager_1_1_collider_a692fe62311cf651d7405985e6a10fdd8}{notify\+Collision}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}} $>$ other)
+\begin{DoxyCompactList}\small\item\em Notifică Game\+Object-\/ul master că a avut loc o coliziune. \end{DoxyCompactList}\item 
+virtual std\+::optional$<$ \mbox{\hyperlink{class_collision_manager_1_1_collision}{Collision}} $>$ \mbox{\hyperlink{class_collision_manager_1_1_collider_ab16809b13d260e32b14be8f4cae55592}{check\+Collision\+With}} (const \mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}} \&other) const =0
+\begin{DoxyCompactList}\small\item\em Verifică coliziunea cu un alt collider generic. \end{DoxyCompactList}\item 
+virtual std\+::optional$<$ \mbox{\hyperlink{class_collision_manager_1_1_collision}{Collision}} $>$ \mbox{\hyperlink{class_collision_manager_1_1_collider_a69698755836d384e288eb0b91ebd4b22}{check\+Collision\+With}} (const class \mbox{\hyperlink{class_box_collider}{Box\+Collider}} \&other) const =0
+\begin{DoxyCompactList}\small\item\em Verifică coliziunea cu un \doxylink{class_box_collider}{Box\+Collider} concret. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision_manager_1_1_collider_aafc27740719c6d8cebc1a6d01ec60d78}{set\+Trigger}} (bool trigger)
+\begin{DoxyCompactList}\small\item\em Setează modul trigger pentru collider. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_collision_manager_1_1_collider_a77efb88facbd69bbe03312926b1491bc}{is\+Trigger}} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă acest collider este trigger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_collision_manager_1_1_collider_aa1d3133d3d20b22dc2dcca93e5e0f630}{attach\+To\+Game\+Object}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ master)
+\begin{DoxyCompactList}\small\item\em Atașează collider-\/ul la un \doxylink{class_game_object}{Game\+Object} și îl înregistrează în manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_collision_manager_1_1_collider_ada571d1392469161e357c21f21d53e2d}\label{class_collision_manager_1_1_collider_ada571d1392469161e357c21f21d53e2d} 
+class {\bfseries Collision\+Manager}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bază abstractă pentru toate tipurile de collider. 
+
+Un \doxylink{class_collision_manager_1_1_collider}{Collider} este asociat unui \doxylink{class_game_object}{Game\+Object} și gestionat de un \doxylink{class_collision_manager}{Collision\+Manager}. Instanțele trebuie create și deținute prin std\+::shared\+\_\+ptr. 
+
+\label{doc-constructors}
+\Hypertarget{class_collision_manager_1_1_collider_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}\index{CollisionManager::Collider@{CollisionManager::Collider}!Collider@{Collider}}
+\index{Collider@{Collider}!CollisionManager::Collider@{CollisionManager::Collider}}
+\doxysubsubsection{\texorpdfstring{Collider()}{Collider()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1} 
+Collision\+Manager\+::\+Collider\+::\+Collider (\begin{DoxyParamCaption}\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$}]{manager}{}\end{DoxyParamCaption})}
+
+
+
+Creează un collider gestionat de un \doxylink{class_collision_manager}{Collision\+Manager}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & Managerul responsabil de înregistrarea și actualizarea coliziunilor. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_collision_manager_1_1_collider_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_collision_manager_1_1_collider_aa1d3133d3d20b22dc2dcca93e5e0f630}\index{CollisionManager::Collider@{CollisionManager::Collider}!attachToGameObject@{attachToGameObject}}
+\index{attachToGameObject@{attachToGameObject}!CollisionManager::Collider@{CollisionManager::Collider}}
+\doxysubsubsection{\texorpdfstring{attachToGameObject()}{attachToGameObject()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collider_aa1d3133d3d20b22dc2dcca93e5e0f630} 
+void Collision\+Manager\+::\+Collider\+::attach\+To\+Game\+Object (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$}]{master}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Atașează collider-\/ul la un \doxylink{class_game_object}{Game\+Object} și îl înregistrează în manager. 
+
+Această metodă este apelată de \doxylink{class_collision_manager}{Collision\+Manager} în \doxylink{class_collision_manager_aaac779441e9c2c8af3137967be949f08}{add\+Collider()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em master} & Game\+Object-\/ul de care se atașează collider-\/ul. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_collision_manager_1_1_collider_a69698755836d384e288eb0b91ebd4b22}\index{CollisionManager::Collider@{CollisionManager::Collider}!checkCollisionWith@{checkCollisionWith}}
+\index{checkCollisionWith@{checkCollisionWith}!CollisionManager::Collider@{CollisionManager::Collider}}
+\doxysubsubsection{\texorpdfstring{checkCollisionWith()}{checkCollisionWith()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collider_a69698755836d384e288eb0b91ebd4b22} 
+virtual std\+::optional$<$ \mbox{\hyperlink{class_collision_manager_1_1_collision}{Collision}} $>$ Collision\+Manager\+::\+Collider\+::check\+Collision\+With (\begin{DoxyParamCaption}\item[{const class \mbox{\hyperlink{class_box_collider}{Box\+Collider}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică coliziunea cu un \doxylink{class_box_collider}{Box\+Collider} concret. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Collider-\/ul box de comparat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un obiect \doxylink{class_collision_manager_1_1_collision}{Collision} dacă există coliziune, std\+::nullopt altfel. 
+\end{DoxyReturn}
+\Hypertarget{class_collision_manager_1_1_collider_ab16809b13d260e32b14be8f4cae55592}\index{CollisionManager::Collider@{CollisionManager::Collider}!checkCollisionWith@{checkCollisionWith}}
+\index{checkCollisionWith@{checkCollisionWith}!CollisionManager::Collider@{CollisionManager::Collider}}
+\doxysubsubsection{\texorpdfstring{checkCollisionWith()}{checkCollisionWith()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collider_ab16809b13d260e32b14be8f4cae55592} 
+virtual std\+::optional$<$ \mbox{\hyperlink{class_collision_manager_1_1_collision}{Collision}} $>$ Collision\+Manager\+::\+Collider\+::check\+Collision\+With (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică coliziunea cu un alt collider generic. 
+
+Aceasta este partea de bază a mecanismului de double-\/dispatch.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Collider-\/ul de comparat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un obiect \doxylink{class_collision_manager_1_1_collision}{Collision} dacă există coliziune, std\+::nullopt altfel. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_box_collider_ab100a62186b565afb3b0749825b4b2ab}{Box\+Collider}}.
+
+\Hypertarget{class_collision_manager_1_1_collider_ac76bceca8dfccce043e2393ccb5f732d}\index{CollisionManager::Collider@{CollisionManager::Collider}!getMasterObject@{getMasterObject}}
+\index{getMasterObject@{getMasterObject}!CollisionManager::Collider@{CollisionManager::Collider}}
+\doxysubsubsection{\texorpdfstring{getMasterObject()}{getMasterObject()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collider_ac76bceca8dfccce043e2393ccb5f732d} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ Collision\+Manager\+::\+Collider\+::get\+Master\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obține Game\+Object-\/ul de care este atașat collider-\/ul. 
+
+\begin{DoxyReturn}{Returns}
+Un shared\+\_\+ptr către Game\+Object-\/ul master sau nullptr dacă nu mai există. 
+\end{DoxyReturn}
+\Hypertarget{class_collision_manager_1_1_collider_a77efb88facbd69bbe03312926b1491bc}\index{CollisionManager::Collider@{CollisionManager::Collider}!isTrigger@{isTrigger}}
+\index{isTrigger@{isTrigger}!CollisionManager::Collider@{CollisionManager::Collider}}
+\doxysubsubsection{\texorpdfstring{isTrigger()}{isTrigger()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collider_a77efb88facbd69bbe03312926b1491bc} 
+bool Collision\+Manager\+::\+Collider\+::is\+Trigger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Verifică dacă acest collider este trigger. 
+
+\begin{DoxyReturn}{Returns}
+True dacă este trigger, false dacă este collider solid. 
+\end{DoxyReturn}
+\Hypertarget{class_collision_manager_1_1_collider_a692fe62311cf651d7405985e6a10fdd8}\index{CollisionManager::Collider@{CollisionManager::Collider}!notifyCollision@{notifyCollision}}
+\index{notifyCollision@{notifyCollision}!CollisionManager::Collider@{CollisionManager::Collider}}
+\doxysubsubsection{\texorpdfstring{notifyCollision()}{notifyCollision()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collider_a692fe62311cf651d7405985e6a10fdd8} 
+void Collision\+Manager\+::\+Collider\+::notify\+Collision (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}} $>$}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Notifică Game\+Object-\/ul master că a avut loc o coliziune. 
+
+Apelează metoda {\ttfamily on\+Collision(other)} pe Game\+Object-\/ul master.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Collider-\/ul cu care s-\/a produs coliziunea. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_collision_manager_1_1_collider_aafc27740719c6d8cebc1a6d01ec60d78}\index{CollisionManager::Collider@{CollisionManager::Collider}!setTrigger@{setTrigger}}
+\index{setTrigger@{setTrigger}!CollisionManager::Collider@{CollisionManager::Collider}}
+\doxysubsubsection{\texorpdfstring{setTrigger()}{setTrigger()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collider_aafc27740719c6d8cebc1a6d01ec60d78} 
+void Collision\+Manager\+::\+Collider\+::set\+Trigger (\begin{DoxyParamCaption}\item[{bool}]{trigger}{}\end{DoxyParamCaption})}
+
+
+
+Setează modul trigger pentru collider. 
+
+Dacă este trigger, coliziile nu vor fi rezolvate fizic, dar notificările către \doxylink{class_game_object}{Game\+Object} vor avea loc în continuare.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trigger} & True dacă este trigger, false dacă este collider solid. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Collider.\+h\item 
+Gear\+Shift\+Lib/Collider.\+cpp\end{DoxyCompactItemize}

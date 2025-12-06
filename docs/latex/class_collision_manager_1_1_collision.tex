@@ -1,0 +1,120 @@
+\doxysection{Collision\+Manager\+::Collision Class Reference}
+\hypertarget{class_collision_manager_1_1_collision}{}\label{class_collision_manager_1_1_collision}\index{CollisionManager::Collision@{CollisionManager::Collision}}
+
+
+Reprezintă o coliziune între două collider-\/e.  
+
+
+
+
+{\ttfamily \#include $<$Collision.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_collision_manager_1_1_collision_a441dd6b470f5275a3c0d9afea1a65f55}{Collision}} (std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_collision_manager_1_1_collider}{Collider}} $>$ a, std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_collision_manager_1_1_collider}{Collider}} $>$ b)
+\begin{DoxyCompactList}\small\item\em Creează o coliziune între două collider-\/e. \end{DoxyCompactList}\item 
+\Hypertarget{class_collision_manager_1_1_collision_a7d37fb30991caca40c0f4aac14b330aa}\label{class_collision_manager_1_1_collision_a7d37fb30991caca40c0f4aac14b330aa} 
+std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_collision_manager_1_1_collider}{Collider}} $>$ {\bfseries get\+ColliderA} () const
+\begin{DoxyCompactList}\small\item\em Obține primul collider implicat. \end{DoxyCompactList}\item 
+\Hypertarget{class_collision_manager_1_1_collision_ae0536683788c468f4b1d5a42834cc6e9}\label{class_collision_manager_1_1_collision_ae0536683788c468f4b1d5a42834cc6e9} 
+std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_collision_manager_1_1_collider}{Collider}} $>$ {\bfseries get\+ColliderB} () const
+\begin{DoxyCompactList}\small\item\em Obține al doilea collider implicat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision_manager_1_1_collision_a2bcccc3a1b7469ab56dd9ce6fa85db82}{set\+Collision\+Normal}} (const \mbox{\hyperlink{struct_vec2}{Vec2}} \&normal)
+\begin{DoxyCompactList}\small\item\em Setează normala coliziunii. \end{DoxyCompactList}\item 
+\Hypertarget{class_collision_manager_1_1_collision_ae9c52ed42452fd766a3dbc7d605d3a20}\label{class_collision_manager_1_1_collision_ae9c52ed42452fd766a3dbc7d605d3a20} 
+\mbox{\hyperlink{struct_vec2}{Vec2}} {\bfseries get\+Collision\+Normal} () const
+\begin{DoxyCompactList}\small\item\em Obține normala coliziunii. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision_manager_1_1_collision_a0ed6f457f977f13864204e9610a706f7}{set\+Penetration\+Depth}} (float depth)
+\begin{DoxyCompactList}\small\item\em Setează adâncimea de penetrare. \end{DoxyCompactList}\item 
+\Hypertarget{class_collision_manager_1_1_collision_a156960c1a26bde3e56fe005ffef46299}\label{class_collision_manager_1_1_collision_a156960c1a26bde3e56fe005ffef46299} 
+float {\bfseries get\+Penetration\+Depth} () const
+\begin{DoxyCompactList}\small\item\em Obține adâncimea de penetrare. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision_manager_1_1_collision_af58eadd8004188443bfe9727ea02591f}{resolve}} () const
+\begin{DoxyCompactList}\small\item\em Rezolvă coliziunea mutând Game\+Object-\/urile implicate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reprezintă o coliziune între două collider-\/e. 
+
+Conține collider-\/ele implicate, normală de coliziune și adâncimea de penetrare, precum și logica simplă de rezolvare a coliziunii. 
+
+\label{doc-constructors}
+\Hypertarget{class_collision_manager_1_1_collision_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_collision_manager_1_1_collision_a441dd6b470f5275a3c0d9afea1a65f55}\index{CollisionManager::Collision@{CollisionManager::Collision}!Collision@{Collision}}
+\index{Collision@{Collision}!CollisionManager::Collision@{CollisionManager::Collision}}
+\doxysubsubsection{\texorpdfstring{Collision()}{Collision()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collision_a441dd6b470f5275a3c0d9afea1a65f55} 
+Collision\+Manager\+::\+Collision\+::\+Collision (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_collision_manager_1_1_collider}{Collider}} $>$}]{a}{, }\item[{std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_collision_manager_1_1_collider}{Collider}} $>$}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Creează o coliziune între două collider-\/e. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primul collider implicat (de obicei „\+A” în calcul). \\
+\hline
+{\em b} & Al doilea collider implicat (de obicei „\+B”). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_collision_manager_1_1_collision_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_collision_manager_1_1_collision_af58eadd8004188443bfe9727ea02591f}\index{CollisionManager::Collision@{CollisionManager::Collision}!resolve@{resolve}}
+\index{resolve@{resolve}!CollisionManager::Collision@{CollisionManager::Collision}}
+\doxysubsubsection{\texorpdfstring{resolve()}{resolve()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collision_af58eadd8004188443bfe9727ea02591f} 
+void Collision\+Manager\+::\+Collision\+::resolve (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Rezolvă coliziunea mutând Game\+Object-\/urile implicate. 
+
+
+\begin{DoxyItemize}
+\item Dacă oricare collider este trigger, nu se aplică rezolvare fizică.
+\item Dacă ambele obiecte sunt fixe, nu se mișcă niciunul.
+\item Dacă doar unul este fix, se mișcă celălalt complet.
+\item Dacă ambele sunt mobile, se împart corecțiile pe jumătate. 
+\end{DoxyItemize}\Hypertarget{class_collision_manager_1_1_collision_a2bcccc3a1b7469ab56dd9ce6fa85db82}\index{CollisionManager::Collision@{CollisionManager::Collision}!setCollisionNormal@{setCollisionNormal}}
+\index{setCollisionNormal@{setCollisionNormal}!CollisionManager::Collision@{CollisionManager::Collision}}
+\doxysubsubsection{\texorpdfstring{setCollisionNormal()}{setCollisionNormal()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collision_a2bcccc3a1b7469ab56dd9ce6fa85db82} 
+void Collision\+Manager\+::\+Collision\+::set\+Collision\+Normal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_vec2}{Vec2}} \&}]{normal}{}\end{DoxyParamCaption})}
+
+
+
+Setează normala coliziunii. 
+
+Normala ar trebui să indice direcția în care „\+B” este împins față de „\+A”.
+
+
+\begin{DoxyParams}{Parameters}
+{\em normal} & Vector normalizat al coliziunii. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_collision_manager_1_1_collision_a0ed6f457f977f13864204e9610a706f7}\index{CollisionManager::Collision@{CollisionManager::Collision}!setPenetrationDepth@{setPenetrationDepth}}
+\index{setPenetrationDepth@{setPenetrationDepth}!CollisionManager::Collision@{CollisionManager::Collision}}
+\doxysubsubsection{\texorpdfstring{setPenetrationDepth()}{setPenetrationDepth()}}
+{\footnotesize\ttfamily \label{class_collision_manager_1_1_collision_a0ed6f457f977f13864204e9610a706f7} 
+void Collision\+Manager\+::\+Collision\+::set\+Penetration\+Depth (\begin{DoxyParamCaption}\item[{float}]{depth}{}\end{DoxyParamCaption})}
+
+
+
+Setează adâncimea de penetrare. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em depth} & Cantitatea de intersecție de-\/a lungul normalei. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Collision.\+h\item 
+Gear\+Shift\+Lib/Collision.\+cpp\end{DoxyCompactItemize}

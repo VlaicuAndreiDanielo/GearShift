@@ -1,0 +1,123 @@
+\doxysection{Sprite\+Manager Class Reference}
+\hypertarget{class_sprite_manager}{}\label{class_sprite_manager}\index{SpriteManager@{SpriteManager}}
+
+
+Manager simplu de texturi cu caching.  
+
+
+
+
+{\ttfamily \#include $<$Sprite\+Manager.\+h$>$}
+
+Inheritance diagram for Sprite\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sprite_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_sprite_manager_ac7833f20b6b04b484eb2e376ef86ca8a}{draw\+Texture\+Over\+Rect}} (SDL\+\_\+\+Rect rect, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture)
+\begin{DoxyCompactList}\small\item\em Desenează o textură pe întregul dreptunghi dat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sprite_manager_ac05a08feda33e08a949ae448775f45a8}{draw\+Texture\+Over\+Rect}} (const SDL\+\_\+\+Rect \&rect, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture, double angle\+Radians)
+\begin{DoxyCompactList}\small\item\em Desenează o textură rotită peste dreptunghiul dat. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_sprite_manager_acd2a7f278d8152624000334cb0ee8a83}{get\+Texture}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Obține (și cache-\/uiește) textura pentru un path dat. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_sprite_manager_a216ecb1046a7419596f902f8b3bde7c2}{Sprite\+Manager}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_sprite_manager}{Sprite\+Manager} pentru un anumit SDL\+\_\+\+Renderer. \end{DoxyCompactList}\item 
+\Hypertarget{class_sprite_manager_ae01a31b1c80f676604ba55c93b499e1f}\label{class_sprite_manager_ae01a31b1c80f676604ba55c93b499e1f} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Sprite\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructor – distruge toate texturile din cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manager simplu de texturi cu caching. 
+
+Încarcă texturi de pe disc la prima cerere și le reține într-\/un cache (map de la path la SDL\+\_\+\+Texture\texorpdfstring{$\ast$}{*}). Oferă și metode helper pentru desen. 
+
+\label{doc-constructors}
+\Hypertarget{class_sprite_manager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sprite_manager_a216ecb1046a7419596f902f8b3bde7c2}\index{SpriteManager@{SpriteManager}!SpriteManager@{SpriteManager}}
+\index{SpriteManager@{SpriteManager}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{SpriteManager()}{SpriteManager()}}
+{\footnotesize\ttfamily \label{class_sprite_manager_a216ecb1046a7419596f902f8b3bde7c2} 
+Sprite\+Manager\+::\+Sprite\+Manager (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer}{}\end{DoxyParamCaption})}
+
+
+
+Creează un \doxylink{class_sprite_manager}{Sprite\+Manager} pentru un anumit SDL\+\_\+\+Renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Renderer-\/ul folosit la încărcare și desen. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_sprite_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sprite_manager_ac05a08feda33e08a949ae448775f45a8}\index{SpriteManager@{SpriteManager}!drawTextureOverRect@{drawTextureOverRect}}
+\index{drawTextureOverRect@{drawTextureOverRect}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{drawTextureOverRect()}{drawTextureOverRect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_sprite_manager_ac05a08feda33e08a949ae448775f45a8} 
+void Sprite\+Manager\+::draw\+Texture\+Over\+Rect (\begin{DoxyParamCaption}\item[{const SDL\+\_\+\+Rect \&}]{rect}{, }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture}{, }\item[{double}]{angle\+Radians}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Desenează o textură rotită peste dreptunghiul dat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect} & Dreptunghiul destinație în coordonate ecran. \\
+\hline
+{\em texture} & Textura de desenat (poate fi nullptr). \\
+\hline
+{\em angle\+Radians} & Unghiul de rotație în radiani în jurul centrului rect-\/ului. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sprite_manager_ac7833f20b6b04b484eb2e376ef86ca8a}\index{SpriteManager@{SpriteManager}!drawTextureOverRect@{drawTextureOverRect}}
+\index{drawTextureOverRect@{drawTextureOverRect}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{drawTextureOverRect()}{drawTextureOverRect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_sprite_manager_ac7833f20b6b04b484eb2e376ef86ca8a} 
+void Sprite\+Manager\+::draw\+Texture\+Over\+Rect (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect}]{rect}{, }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture}{}\end{DoxyParamCaption})}
+
+
+
+Desenează o textură pe întregul dreptunghi dat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect} & Dreptunghiul destinație în coordonate ecran. \\
+\hline
+{\em texture} & Textura de desenat (poate fi nullptr). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sprite_manager_acd2a7f278d8152624000334cb0ee8a83}\index{SpriteManager@{SpriteManager}!getTexture@{getTexture}}
+\index{getTexture@{getTexture}!SpriteManager@{SpriteManager}}
+\doxysubsubsection{\texorpdfstring{getTexture()}{getTexture()}}
+{\footnotesize\ttfamily \label{class_sprite_manager_acd2a7f278d8152624000334cb0ee8a83} 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} Sprite\+Manager\+::get\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Obține (și cache-\/uiește) textura pentru un path dat. 
+
+Dacă textura nu este încă încărcată, o încarcă prin IMG\+\_\+\+Load\+Texture, o introduce în cache și apoi o întoarce.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Calea către fișierul imagine. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer la SDL\+\_\+\+Texture sau nullptr în caz de eroare. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Sprite\+Manager.\+h\item 
+Gear\+Shift\+UI/Sprite\+Manager.\+cpp\end{DoxyCompactItemize}

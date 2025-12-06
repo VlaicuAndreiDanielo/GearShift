@@ -1,0 +1,99 @@
+\doxysection{Object\+Renderer Class Reference}
+\hypertarget{class_object_renderer}{}\label{class_object_renderer}\index{ObjectRenderer@{ObjectRenderer}}
+
+
+\doxylink{class_renderer}{Renderer} pentru un singur obiect de joc.  
+
+
+
+
+{\ttfamily \#include $<$Object\+Renderer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_object_renderer_a9451199ca156ce0ac352048cf0859e08}{Object\+Renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_object_renderer}{Object\+Renderer} legat de un SDL\+\_\+\+Renderer. \end{DoxyCompactList}\item 
+\Hypertarget{class_object_renderer_a728788753d586d1357c520e3e89128b7}\label{class_object_renderer_a728788753d586d1357c520e3e89128b7} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Object\+Renderer} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_object_renderer_a6883454524f1da244b115ec3412cee95}{render}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} $>$ object)
+\begin{DoxyCompactList}\small\item\em Randează un obiect de joc. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_object_renderer_a18acead69444bbc58ce0d0e3141a1385}{set\+Color}} (Uint8 r, Uint8 g, Uint8 b)
+\begin{DoxyCompactList}\small\item\em Setează culoarea dreptunghiului de fundal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_renderer}{Renderer} pentru un singur obiect de joc. 
+
+Desenează mai întâi un dreptunghi colorat (hitbox / fundal) și apoi sprite-\/ul asociat, obținut prin {\ttfamily \doxylink{class_sprite_manager}{Sprite\+Manager}} și {\ttfamily \doxylink{class_sprite_mapper}{Sprite\+Mapper}}. 
+
+\label{doc-constructors}
+\Hypertarget{class_object_renderer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_object_renderer_a9451199ca156ce0ac352048cf0859e08}\index{ObjectRenderer@{ObjectRenderer}!ObjectRenderer@{ObjectRenderer}}
+\index{ObjectRenderer@{ObjectRenderer}!ObjectRenderer@{ObjectRenderer}}
+\doxysubsubsection{\texorpdfstring{ObjectRenderer()}{ObjectRenderer()}}
+{\footnotesize\ttfamily \label{class_object_renderer_a9451199ca156ce0ac352048cf0859e08} 
+Object\+Renderer\+::\+Object\+Renderer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer}{}\end{DoxyParamCaption})}
+
+
+
+Creează un \doxylink{class_object_renderer}{Object\+Renderer} legat de un SDL\+\_\+\+Renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Renderer-\/ul SDL folosit pentru desen. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_object_renderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_object_renderer_a6883454524f1da244b115ec3412cee95}\index{ObjectRenderer@{ObjectRenderer}!render@{render}}
+\index{render@{render}!ObjectRenderer@{ObjectRenderer}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_object_renderer_a6883454524f1da244b115ec3412cee95} 
+void Object\+Renderer\+::render (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} $>$}]{object}{}\end{DoxyParamCaption})}
+
+
+
+Randează un obiect de joc. 
+
+
+\begin{DoxyEnumerate}
+\item Desenează un dreptunghi de culoare configurată;
+\item Desenează sprite-\/ul mapat la {\ttfamily object-\/\texorpdfstring{$>$}{>}get\+Sprite()} peste acel rect.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & Obiectul de randat (\doxylink{class_i_game_object}{IGame\+Object} adaptor). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_object_renderer_a18acead69444bbc58ce0d0e3141a1385}\index{ObjectRenderer@{ObjectRenderer}!setColor@{setColor}}
+\index{setColor@{setColor}!ObjectRenderer@{ObjectRenderer}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily \label{class_object_renderer_a18acead69444bbc58ce0d0e3141a1385} 
+void Object\+Renderer\+::set\+Color (\begin{DoxyParamCaption}\item[{Uint8}]{r}{, }\item[{Uint8}]{g}{, }\item[{Uint8}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Setează culoarea dreptunghiului de fundal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Componenta roșu (0–255). \\
+\hline
+{\em g} & Componenta verde (0–255). \\
+\hline
+{\em b} & Componenta albastru (0–255). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Object\+Renderer.\+h\item 
+Gear\+Shift\+UI/Object\+Renderer.\+cpp\end{DoxyCompactItemize}

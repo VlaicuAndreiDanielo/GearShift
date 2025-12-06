@@ -1,0 +1,177 @@
+\doxysection{Game\+Over\+Scene Class Reference}
+\hypertarget{class_game_over_scene}{}\label{class_game_over_scene}\index{GameOverScene@{GameOverScene}}
+
+
+Scena afișată la sfârșitul jocului (Game Over).  
+
+
+
+
+{\ttfamily \#include $<$Game\+Over\+Scene.\+h$>$}
+
+Inheritance diagram for Game\+Over\+Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_over_scene}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_over_scene_ac2ef674ce9d6ae56107676ac2addbf93}{Game\+Over\+Scene}} (\mbox{\hyperlink{class_renderer}{Renderer}} \texorpdfstring{$\ast$}{*}rend, \mbox{\hyperlink{class_scene_mgr}{Scene\+Mgr}} \texorpdfstring{$\ast$}{*}mgr)
+\begin{DoxyCompactList}\small\item\em Creează o scenă Game\+Over legată de renderer și scene manager. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_over_scene_a82ddda529c5321c02566d6b17886c74f}\label{class_game_over_scene_a82ddda529c5321c02566d6b17886c74f} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Game\+Over\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Destructor – eliberează resursele fontului (gestionat safe in cpp). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_over_scene_a661212e2faed364b639fc2a7e7a54bfd}{update}} (float dt) override
+\begin{DoxyCompactList}\small\item\em Actualizează timer-\/ul intern și revine în Menu la nevoie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_over_scene_ae11d4f02c12bbe04b31c9cc3612ba329}{render}} () override
+\begin{DoxyCompactList}\small\item\em Randează ecranul de Game Over și scorul final. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_over_scene_a63cae423ed9c5033e377cea65e0ded35}{handle\+Event}} (SDL\+\_\+\+Event \&e) override
+\begin{DoxyCompactList}\small\item\em Gestionează input-\/ul de la utilizator. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_game_over_scene_a989064ffa95a8801af3c751255cc2997}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Numele scenei (folosit de \doxylink{class_scene_mgr}{Scene\+Mgr}). \end{DoxyCompactList}\item 
+\Hypertarget{class_game_over_scene_a16e1a608dc78093bdf9ce2e7dfacf8e1}\label{class_game_over_scene_a16e1a608dc78093bdf9ce2e7dfacf8e1} 
+void {\bfseries set\+Final\+Score} (int score)
+\begin{DoxyCompactList}\small\item\em Setează scorul final ce va fi rulat pe ecran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_over_scene_ae5d9f3554275cf80a1cbe6aab9b80912}{on\+Enter}} () override
+\begin{DoxyCompactList}\small\item\em Se apelează când scena devine activă. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_over_scene_a0f674f503a7e8082544cdf29e084412e}{on\+Exit}} () override
+\begin{DoxyCompactList}\small\item\em Se apelează când scena iese din activ. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_scene}{IScene}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IScene} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scena afișată la sfârșitul jocului (Game Over). 
+
+Desenează un ecran roșu cu un panou „\+GAME OVER” + scorul final. După câteva secunde revine automat în meniul principal sau poate fi schimbată scena la apăsarea Enter / Escape. 
+
+\label{doc-constructors}
+\Hypertarget{class_game_over_scene_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_over_scene_ac2ef674ce9d6ae56107676ac2addbf93}\index{GameOverScene@{GameOverScene}!GameOverScene@{GameOverScene}}
+\index{GameOverScene@{GameOverScene}!GameOverScene@{GameOverScene}}
+\doxysubsubsection{\texorpdfstring{GameOverScene()}{GameOverScene()}}
+{\footnotesize\ttfamily \label{class_game_over_scene_ac2ef674ce9d6ae56107676ac2addbf93} 
+Game\+Over\+Scene\+::\+Game\+Over\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_renderer}{Renderer}} \texorpdfstring{$\ast$}{*}}]{rend}{, }\item[{\mbox{\hyperlink{class_scene_mgr}{Scene\+Mgr}} \texorpdfstring{$\ast$}{*}}]{mgr}{}\end{DoxyParamCaption})}
+
+
+
+Creează o scenă Game\+Over legată de renderer și scene manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rend} & Renderer-\/ul folosit pentru desen. \\
+\hline
+{\em mgr} & Managerul de scene pentru navigare. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_game_over_scene_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_over_scene_a989064ffa95a8801af3c751255cc2997}\index{GameOverScene@{GameOverScene}!getName@{getName}}
+\index{getName@{getName}!GameOverScene@{GameOverScene}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_game_over_scene_a989064ffa95a8801af3c751255cc2997} 
+std\+::string Game\+Over\+Scene\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Numele scenei (folosit de \doxylink{class_scene_mgr}{Scene\+Mgr}). 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_a643fc851596bdb01b2e7b3f32f1a9762}{IScene}}.
+
+\Hypertarget{class_game_over_scene_a63cae423ed9c5033e377cea65e0ded35}\index{GameOverScene@{GameOverScene}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!GameOverScene@{GameOverScene}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily \label{class_game_over_scene_a63cae423ed9c5033e377cea65e0ded35} 
+void Game\+Over\+Scene\+::handle\+Event (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \&}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gestionează input-\/ul de la utilizator. 
+
+Enter / Escape duc imediat înapoi la „\+Menu”. 
+\begin{DoxyParams}{Parameters}
+{\em e} & Evenimentul SDL de procesat. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_scene_af82cc977474b930850543329eeee4b12}{IScene}}.
+
+\Hypertarget{class_game_over_scene_ae5d9f3554275cf80a1cbe6aab9b80912}\index{GameOverScene@{GameOverScene}!onEnter@{onEnter}}
+\index{onEnter@{onEnter}!GameOverScene@{GameOverScene}}
+\doxysubsubsection{\texorpdfstring{onEnter()}{onEnter()}}
+{\footnotesize\ttfamily \label{class_game_over_scene_ae5d9f3554275cf80a1cbe6aab9b80912} 
+void Game\+Over\+Scene\+::on\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Se apelează când scena devine activă. 
+
+Resetează timer-\/ul și loghează intrarea în scenă. 
+
+Implements \mbox{\hyperlink{class_i_scene_abdd19162accdecdf35effd38e306716d}{IScene}}.
+
+\Hypertarget{class_game_over_scene_a0f674f503a7e8082544cdf29e084412e}\index{GameOverScene@{GameOverScene}!onExit@{onExit}}
+\index{onExit@{onExit}!GameOverScene@{GameOverScene}}
+\doxysubsubsection{\texorpdfstring{onExit()}{onExit()}}
+{\footnotesize\ttfamily \label{class_game_over_scene_a0f674f503a7e8082544cdf29e084412e} 
+void Game\+Over\+Scene\+::on\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Se apelează când scena iese din activ. 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_aa84ab647ec058087c58aaac70ad515e0}{IScene}}.
+
+\Hypertarget{class_game_over_scene_ae11d4f02c12bbe04b31c9cc3612ba329}\index{GameOverScene@{GameOverScene}!render@{render}}
+\index{render@{render}!GameOverScene@{GameOverScene}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_game_over_scene_ae11d4f02c12bbe04b31c9cc3612ba329} 
+void Game\+Over\+Scene\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Randează ecranul de Game Over și scorul final. 
+
+
+
+Implements \mbox{\hyperlink{class_i_scene_aadeac260f2cfd96ab519a10eaa785c01}{IScene}}.
+
+\Hypertarget{class_game_over_scene_a661212e2faed364b639fc2a7e7a54bfd}\index{GameOverScene@{GameOverScene}!update@{update}}
+\index{update@{update}!GameOverScene@{GameOverScene}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_game_over_scene_a661212e2faed364b639fc2a7e7a54bfd} 
+void Game\+Over\+Scene\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Actualizează timer-\/ul intern și revine în Menu la nevoie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame (secunde). \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_scene_a490479e914172e4f36d13fe3a66da759}{IScene}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Game\+Over\+Scene.\+h\item 
+Gear\+Shift\+UI/Game\+Over\+Scene.\+cpp\end{DoxyCompactItemize}

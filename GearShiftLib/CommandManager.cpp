@@ -43,7 +43,6 @@ void CommandManager::executeCommand(std::shared_ptr<ICommand> command) {
         return;
     }
     
-    // Check if command can be executed
     if (!command->canExecute()) {
         SDL_LogWarn(SDL_LOG_CATEGORY_APPLICATION, "CommandManager: Command cannot be executed - %s", command->getDescription());
         return;
@@ -52,12 +51,10 @@ void CommandManager::executeCommand(std::shared_ptr<ICommand> command) {
     try {
         SDL_Log("CommandManager: Executing command - %s", command->getDescription());
         command->execute();
-        
-        // Add to undo stack if command supports undo
+
         if (command->canUndo()) {
             undoStack.push(command);
-            
-            // Limit undo stack size
+
             while (undoStack.size() > MAX_UNDO_STACK_SIZE) {
                 undoStack.pop();
             }

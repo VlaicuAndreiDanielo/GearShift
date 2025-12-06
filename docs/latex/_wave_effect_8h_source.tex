@@ -1,0 +1,33 @@
+\doxysection{Wave\+Effect.\+h}
+\hypertarget{_wave_effect_8h_source}{}\label{_wave_effect_8h_source}\index{GearShiftUI/WaveEffect.h@{GearShiftUI/WaveEffect.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../GearShiftLib/FabricPhysics.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_tile}{Tile}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ \mbox{\hyperlink{struct_tile_a2d87d8813151af6bbd60811964f047a8}{y}};\ \ \ \ \ \ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_tile_a70c6dd59534db12837c05eeb6c93fcc7}{z}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00013\ \ \ \ \ SDL\_Color\ \mbox{\hyperlink{struct_tile_ae18c730a7d6bb65177875518cc096837}{col}};\ }
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_wave_af77ef56eb78d5d974cdc2e2b72c0e189}{Wave}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<Tile>\ tiles;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ size;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ speed;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ amp;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_wave_af77ef56eb78d5d974cdc2e2b72c0e189}{Wave}}(\textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ tileSize);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wave_a6a7aca5ad154a791da48affde3f7edbd}{update}}(\textcolor{keywordtype}{float}\ dt,\ \textcolor{keywordtype}{float}\ time);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wave_a24c416c3a7c443e85b1914555de7564d}{render}}(SDL\_Renderer*\ rend,\ \textcolor{keyword}{const}\ std::vector<Pt>\&\ pts,\ \textcolor{keywordtype}{int}\ fw,\ \textcolor{keywordtype}{int}\ fh);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wave_af0ad2b539dacbf0df4a0f00fd874952d}{loadImg}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path);}
+\DoxyCodeLine{00067\ \};}
+
+\end{DoxyCode}

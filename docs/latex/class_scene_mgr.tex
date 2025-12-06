@@ -1,0 +1,121 @@
+\doxysection{Scene\+Mgr Class Reference}
+\hypertarget{class_scene_mgr}{}\label{class_scene_mgr}\index{SceneMgr@{SceneMgr}}
+
+
+Manager pentru scenele jocului (Menu, Game, Game\+Over etc.).  
+
+
+
+
+{\ttfamily \#include $<$Scene\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_scene_mgr_a449a6b461ef357d07eb7f90546c0fe5f}\label{class_scene_mgr_a449a6b461ef357d07eb7f90546c0fe5f} 
+{\bfseries Scene\+Mgr} ()
+\begin{DoxyCompactList}\small\item\em Construiește un \doxylink{class_scene_mgr}{Scene\+Mgr} gol (fără scene). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_mgr_abea8aaab5d979596e0accd4bbde9e6d4}{add}} (const std\+::string \&name, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_scene}{IScene}} $>$ scene)
+\begin{DoxyCompactList}\small\item\em Adaugă (sau înlocuiește) o scenă sub numele dat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_mgr_a238e76428012ab980f9dd3a13cd20b13}{change}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Cere schimbarea scenei curente cu o alta, după nume. \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_mgr_a79ac5a811c779427826cf228b779bc69}\label{class_scene_mgr_a79ac5a811c779427826cf228b779bc69} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_scene}{IScene}} $>$ {\bfseries get\+Scene} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Obține o scenă după nume, sau nullptr dacă nu există. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_mgr_acbc99da433c225dae4489b2f59367684}{update}} (float dt)
+\begin{DoxyCompactList}\small\item\em Actualizează scena curentă. \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_mgr_a011594c0f65a4408dadda85d9b7d7c9b}\label{class_scene_mgr_a011594c0f65a4408dadda85d9b7d7c9b} 
+void {\bfseries render} ()
+\begin{DoxyCompactList}\small\item\em Randează scena curentă. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_mgr_a9ba088bd0e90473b4bb13a243f8f0023}{handle\+Event}} (SDL\+\_\+\+Event \&e)
+\begin{DoxyCompactList}\small\item\em Trimite un eveniment SDL scenei curente. \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_mgr_aabae927e6482b28906a7d33a0cc6ac42}\label{class_scene_mgr_aabae927e6482b28906a7d33a0cc6ac42} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_scene}{IScene}} $>$ {\bfseries get\+Current} () const
+\begin{DoxyCompactList}\small\item\em Obține scena curentă (poate fi nullptr). \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_mgr_a20baa4b1e243c52edd2096a267883b7d}\label{class_scene_mgr_a20baa4b1e243c52edd2096a267883b7d} 
+bool {\bfseries has} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Verifică dacă există o scenă cu numele dat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manager pentru scenele jocului (Menu, Game, Game\+Over etc.). 
+
+Deține un map de scene, știe scena curentă și gestionează tranzițiile într-\/un mod sigur (tranziția se face la începutul lui \doxylink{class_scene_mgr_acbc99da433c225dae4489b2f59367684}{update()}). 
+
+\label{doc-func-members}
+\Hypertarget{class_scene_mgr_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_scene_mgr_abea8aaab5d979596e0accd4bbde9e6d4}\index{SceneMgr@{SceneMgr}!add@{add}}
+\index{add@{add}!SceneMgr@{SceneMgr}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{class_scene_mgr_abea8aaab5d979596e0accd4bbde9e6d4} 
+void Scene\+Mgr\+::add (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_scene}{IScene}} $>$}]{scene}{}\end{DoxyParamCaption})}
+
+
+
+Adaugă (sau înlocuiește) o scenă sub numele dat. 
+
+Dacă este prima scenă adăugată, devine scena curentă și i se apelează on\+Enter().
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Numele logic al scenei. \\
+\hline
+{\em scene} & Instanța scenei. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_scene_mgr_a238e76428012ab980f9dd3a13cd20b13}\index{SceneMgr@{SceneMgr}!change@{change}}
+\index{change@{change}!SceneMgr@{SceneMgr}}
+\doxysubsubsection{\texorpdfstring{change()}{change()}}
+{\footnotesize\ttfamily \label{class_scene_mgr_a238e76428012ab980f9dd3a13cd20b13} 
+void Scene\+Mgr\+::change (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Cere schimbarea scenei curente cu o alta, după nume. 
+
+Tranziția se va executa la începutul următorului \doxylink{class_scene_mgr_acbc99da433c225dae4489b2f59367684}{update()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Numele scenei spre care se va trece. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_scene_mgr_a9ba088bd0e90473b4bb13a243f8f0023}\index{SceneMgr@{SceneMgr}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!SceneMgr@{SceneMgr}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily \label{class_scene_mgr_a9ba088bd0e90473b4bb13a243f8f0023} 
+void Scene\+Mgr\+::handle\+Event (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \&}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Trimite un eveniment SDL scenei curente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Evenimentul de procesat. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_scene_mgr_acbc99da433c225dae4489b2f59367684}\index{SceneMgr@{SceneMgr}!update@{update}}
+\index{update@{update}!SceneMgr@{SceneMgr}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_scene_mgr_acbc99da433c225dae4489b2f59367684} 
+void Scene\+Mgr\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Actualizează scena curentă. 
+
+Tratează mai întâi orice tranziție pending, apoi apelează \doxylink{class_scene_mgr_acbc99da433c225dae4489b2f59367684}{update()} pe scenă.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time (secunde). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Scene\+Manager.\+h\item 
+Gear\+Shift\+UI/Scene\+Manager.\+cpp\end{DoxyCompactItemize}

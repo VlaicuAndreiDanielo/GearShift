@@ -1,0 +1,52 @@
+\doxysection{Gear\+Shift\+Tests/\+Game\+Logic\+Tests.cpp File Reference}
+\hypertarget{_game_logic_tests_8cpp}{}\label{_game_logic_tests_8cpp}\index{GearShiftTests/GameLogicTests.cpp@{GearShiftTests/GameLogicTests.cpp}}
+
+
+Unit tests pentru \doxylink{class_game_logic}{Game\+Logic} (stări, timp, fabric, obiecte).  
+
+
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$gmock/gmock.\+h$>$}\newline
+{\ttfamily \#include "{}Game\+Logic.\+h"{}}\newline
+{\ttfamily \#include "{}IInput\+State.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_mock_input}{Mock\+Input}}
+\begin{DoxyCompactList}\small\item\em Mock pentru interfața \doxylink{struct_i_input_state}{IInput\+State} folosită în testele \doxylink{class_game_logic}{Game\+Logic}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_game_logic_tests_8cpp_ad40b88a8e1e451553af140429b3206ee}\label{_game_logic_tests_8cpp_ad40b88a8e1e451553af140429b3206ee} 
+{\bfseries TEST} (Game\+Logic\+Test, Create)
+\item 
+\Hypertarget{_game_logic_tests_8cpp_ac8e3b08a1e8487ec6123b65718c4112c}\label{_game_logic_tests_8cpp_ac8e3b08a1e8487ec6123b65718c4112c} 
+{\bfseries TEST} (Game\+Logic\+Test, Has\+Fabric)
+\item 
+\Hypertarget{_game_logic_tests_8cpp_a701dc0ffff9922eaca823383a5f2999a}\label{_game_logic_tests_8cpp_a701dc0ffff9922eaca823383a5f2999a} 
+{\bfseries TEST} (Game\+Logic\+Test, Start\+Game)
+\item 
+\Hypertarget{_game_logic_tests_8cpp_a050e6ffe218efa642a0b256f6757559b}\label{_game_logic_tests_8cpp_a050e6ffe218efa642a0b256f6757559b} 
+{\bfseries TEST} (Game\+Logic\+Test, Pause\+Game)
+\item 
+\Hypertarget{_game_logic_tests_8cpp_a692235af6e4545f7d9693a08a0e766de}\label{_game_logic_tests_8cpp_a692235af6e4545f7d9693a08a0e766de} 
+{\bfseries TEST} (Game\+Logic\+Test, Resume\+Game)
+\item 
+\Hypertarget{_game_logic_tests_8cpp_ab308fca0cdebb7d88db4cb051851fe6b}\label{_game_logic_tests_8cpp_ab308fca0cdebb7d88db4cb051851fe6b} 
+{\bfseries TEST} (Game\+Logic\+Test, End\+Game)
+\item 
+\Hypertarget{_game_logic_tests_8cpp_a84e9a69376760394743ce293f3f5cf0b}\label{_game_logic_tests_8cpp_a84e9a69376760394743ce293f3f5cf0b} 
+{\bfseries TEST} (Game\+Logic\+Test, Update\+Time)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Unit tests pentru \doxylink{class_game_logic}{Game\+Logic} (stări, timp, fabric, obiecte). 
+
+Folosește Google\+Mock pentru a simula \doxylink{struct_i_input_state}{IInput\+State} și verifică\+:
+\begin{DoxyItemize}
+\item crearea jocului și starea inițială;
+\item existența și dimensiunea pânzei (\doxylink{class_i_fabric}{IFabric});
+\item tranzițiile de stare (start/pause/resume/end);
+\item incrementarea timpului de joc în update(). 
+\end{DoxyItemize}

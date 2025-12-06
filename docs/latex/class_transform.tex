@@ -1,0 +1,185 @@
+\doxysection{Transform Class Reference}
+\hypertarget{class_transform}{}\label{class_transform}\index{Transform@{Transform}}
+
+
+Reprezintă poziția și rotația unui obiect în spațiul 2D.  
+
+
+
+
+{\ttfamily \#include $<$Transform.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_transform_a144ce8dcafd13ca66acb5a1636cfc297}\label{class_transform_a144ce8dcafd13ca66acb5a1636cfc297} 
+{\bfseries Transform} ()=default
+\begin{DoxyCompactList}\small\item\em Creează un transform cu poziția (0,0) și rotația 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform_a7a731b341ef00faaebbe40619214b127}{Transform}} (\mbox{\hyperlink{struct_vec2}{Vec2}} start\+Pos)
+\begin{DoxyCompactList}\small\item\em Creează un transform cu o poziție inițială dată. \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_a9631ea5e6a9a45e16ce2967f5d15f597}\label{class_transform_a9631ea5e6a9a45e16ce2967f5d15f597} 
+{\bfseries Transform} (\mbox{\hyperlink{class_transform}{Transform}} \&\&)=default
+\item 
+\Hypertarget{class_transform_a623c9e3c9502f6bb11ced37807ce0339}\label{class_transform_a623c9e3c9502f6bb11ced37807ce0339} 
+{\bfseries Transform} (const \mbox{\hyperlink{class_transform}{Transform}} \&)=default
+\item 
+\Hypertarget{class_transform_a658400006c9707700ef71c14cccdcbdd}\label{class_transform_a658400006c9707700ef71c14cccdcbdd} 
+\mbox{\hyperlink{class_transform}{Transform}} \& {\bfseries operator=} (\mbox{\hyperlink{class_transform}{Transform}} \&\&)=default
+\item 
+\Hypertarget{class_transform_ab9e96d9a3fe4439a5d6eb3b31621d013}\label{class_transform_ab9e96d9a3fe4439a5d6eb3b31621d013} 
+\mbox{\hyperlink{class_transform}{Transform}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_transform}{Transform}} \&)=default
+\item 
+\Hypertarget{class_transform_abfb404da8c4b12783e1f320e265f621f}\label{class_transform_abfb404da8c4b12783e1f320e265f621f} 
+\mbox{\hyperlink{struct_vec2}{Vec2}} {\bfseries get\+Pos} () const
+\begin{DoxyCompactList}\small\item\em Obține poziția curentă. \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_a0442455d4f0a1ac93ee182540affd0d7}\label{class_transform_a0442455d4f0a1ac93ee182540affd0d7} 
+float {\bfseries getX} () const
+\begin{DoxyCompactList}\small\item\em Obține coordonata X curentă. \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_a0087140481033f1fbffadec75ce8ecd4}\label{class_transform_a0087140481033f1fbffadec75ce8ecd4} 
+float {\bfseries getY} () const
+\begin{DoxyCompactList}\small\item\em Obține coordonata Y curentă. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_ab7f82c782c253bed90af1a4c9d3e2ef1}{set\+Position}} (\mbox{\hyperlink{struct_vec2}{Vec2}} pos)
+\begin{DoxyCompactList}\small\item\em Setează poziția completă (X, Y). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_a850d56f925f1dea8d5c0e031976bcfc8}{setX}} (float newX)
+\begin{DoxyCompactList}\small\item\em Setează coordonata X. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_a45aae7040640f9cafe9f34423be56f16}{setY}} (float newY)
+\begin{DoxyCompactList}\small\item\em Setează coordonata Y. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_a47448fac5dd5faa91cd923a46084b20a}{set\+Rotation}} (float radians)
+\begin{DoxyCompactList}\small\item\em Setează rotația (în radiani). \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_a58b6b97bbe83f323086b9a24511addc0}\label{class_transform_a58b6b97bbe83f323086b9a24511addc0} 
+float {\bfseries get\+Rotation} () const
+\begin{DoxyCompactList}\small\item\em Obține rotația curentă (în radiani). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_a14c779f170c658b0128c645f14ee55c4}{set\+Fixed}} (bool fixed)
+\begin{DoxyCompactList}\small\item\em Marchează transform-\/ul ca „fix” (nu este neapărat folosit în toate logicele). \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_afb07177ef5dd1d12206eca816d6505f1}\label{class_transform_afb07177ef5dd1d12206eca816d6505f1} 
+bool {\bfseries get\+Fixed} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă transform-\/ul este marcat ca fix. \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_a07e9adcfdb7712208d9285d905002729}\label{class_transform_a07e9adcfdb7712208d9285d905002729} 
+void {\bfseries set\+LockX} (bool lockX)
+\begin{DoxyCompactList}\small\item\em Blochează / deblochează modificarea coordonatei X. \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_ab57ab7ae4ee4bbb79272495c9b255a4c}\label{class_transform_ab57ab7ae4ee4bbb79272495c9b255a4c} 
+void {\bfseries set\+LockY} (bool lockY)
+\begin{DoxyCompactList}\small\item\em Blochează / deblochează modificarea coordonatei Y. \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_a1075a2cf7d8b5aab29c9d79593f6ec7a}\label{class_transform_a1075a2cf7d8b5aab29c9d79593f6ec7a} 
+void {\bfseries set\+Lock\+Rotation} (bool lock\+Rotation)
+\begin{DoxyCompactList}\small\item\em Blochează / deblochează modificarea rotației. \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_a3067e5a0892a178f88b43600fae8ddc2}\label{class_transform_a3067e5a0892a178f88b43600fae8ddc2} 
+bool {\bfseries is\+XLocked} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă axa X este blocată. \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_a4938d9e8a7e316da771ba00905fae9f8}\label{class_transform_a4938d9e8a7e316da771ba00905fae9f8} 
+bool {\bfseries is\+YLocked} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă axa Y este blocată. \end{DoxyCompactList}\item 
+\Hypertarget{class_transform_a29aefba98a73d775d0b6f554c705423d}\label{class_transform_a29aefba98a73d775d0b6f554c705423d} 
+bool {\bfseries is\+Rotation\+Locked} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă rotația este blocată. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reprezintă poziția și rotația unui obiect în spațiul 2D. 
+
+Oferă metode pentru setarea / citirea poziției, rotației și pentru blocarea modificărilor pe axe sau rotație. \+:content\+Reference\mbox{[}oaicite\+:7\mbox{]}\{index=7\} 
+
+\label{doc-constructors}
+\Hypertarget{class_transform_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_transform_a7a731b341ef00faaebbe40619214b127}\index{Transform@{Transform}!Transform@{Transform}}
+\index{Transform@{Transform}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{Transform()}{Transform()}}
+{\footnotesize\ttfamily \label{class_transform_a7a731b341ef00faaebbe40619214b127} 
+Transform\+::\+Transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{start\+Pos}{}\end{DoxyParamCaption})}
+
+
+
+Creează un transform cu o poziție inițială dată. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Pos} & Poziția inițială. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_transform_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_transform_a14c779f170c658b0128c645f14ee55c4}\index{Transform@{Transform}!setFixed@{setFixed}}
+\index{setFixed@{setFixed}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{setFixed()}{setFixed()}}
+{\footnotesize\ttfamily \label{class_transform_a14c779f170c658b0128c645f14ee55c4} 
+void Transform\+::set\+Fixed (\begin{DoxyParamCaption}\item[{bool}]{fixed}{}\end{DoxyParamCaption})}
+
+
+
+Marchează transform-\/ul ca „fix” (nu este neapărat folosit în toate logicele). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fixed} & True dacă transform-\/ul este fix. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_transform_ab7f82c782c253bed90af1a4c9d3e2ef1}\index{Transform@{Transform}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \label{class_transform_ab7f82c782c253bed90af1a4c9d3e2ef1} 
+void Transform\+::set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{pos}{}\end{DoxyParamCaption})}
+
+
+
+Setează poziția completă (X, Y). 
+
+Dacă axele sunt blocate (lock X/Y), coordonatele respective nu se schimbă. 
+\begin{DoxyParams}{Parameters}
+{\em pos} & Noua poziție. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_transform_a47448fac5dd5faa91cd923a46084b20a}\index{Transform@{Transform}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily \label{class_transform_a47448fac5dd5faa91cd923a46084b20a} 
+void Transform\+::set\+Rotation (\begin{DoxyParamCaption}\item[{float}]{radians}{}\end{DoxyParamCaption})}
+
+
+
+Setează rotația (în radiani). 
+
+Nu are efect dacă rotația este blocată. 
+\begin{DoxyParams}{Parameters}
+{\em radians} & Unghiul în radiani. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_transform_a850d56f925f1dea8d5c0e031976bcfc8}\index{Transform@{Transform}!setX@{setX}}
+\index{setX@{setX}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{setX()}{setX()}}
+{\footnotesize\ttfamily \label{class_transform_a850d56f925f1dea8d5c0e031976bcfc8} 
+void Transform\+::setX (\begin{DoxyParamCaption}\item[{float}]{newX}{}\end{DoxyParamCaption})}
+
+
+
+Setează coordonata X. 
+
+Nu are efect dacă axa X este blocată. 
+\begin{DoxyParams}{Parameters}
+{\em newX} & Noua coordonată X. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_transform_a45aae7040640f9cafe9f34423be56f16}\index{Transform@{Transform}!setY@{setY}}
+\index{setY@{setY}!Transform@{Transform}}
+\doxysubsubsection{\texorpdfstring{setY()}{setY()}}
+{\footnotesize\ttfamily \label{class_transform_a45aae7040640f9cafe9f34423be56f16} 
+void Transform\+::setY (\begin{DoxyParamCaption}\item[{float}]{newY}{}\end{DoxyParamCaption})}
+
+
+
+Setează coordonata Y. 
+
+Nu are efect dacă axa Y este blocată. 
+\begin{DoxyParams}{Parameters}
+{\em newY} & Noua coordonată Y. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Transform.\+h\item 
+Gear\+Shift\+Lib/Transform.\+cpp\end{DoxyCompactItemize}

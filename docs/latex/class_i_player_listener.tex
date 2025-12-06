@@ -1,0 +1,54 @@
+\doxysection{IPlayer\+Listener Class Reference}
+\hypertarget{class_i_player_listener}{}\label{class_i_player_listener}\index{IPlayerListener@{IPlayerListener}}
+
+
+Interfață pentru obiectele interesate de evenimente legate de \doxylink{class_player}{Player}.  
+
+
+
+
+{\ttfamily \#include $<$IPlayer\+Listener.\+h$>$}
+
+Inheritance diagram for IPlayer\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_player_listener}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_player_listener_adc275bfe411206d069ed04825c290325}\label{class_i_player_listener_adc275bfe411206d069ed04825c290325} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IPlayer\+Listener} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_player_listener_a21121ec6ef0e6ceaacf4f01cbd4332f3}{on\+Player\+Eliminated}} ()=0
+\begin{DoxyCompactList}\small\item\em Notificare că Player-\/ul a fost eliminat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfață pentru obiectele interesate de evenimente legate de \doxylink{class_player}{Player}. 
+
+De exemplu, \doxylink{class_game_logic}{Game\+Logic} implementează acest listener pentru a fi notificat când Player-\/ul este eliminat. 
+
+\label{doc-func-members}
+\Hypertarget{class_i_player_listener_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_player_listener_a21121ec6ef0e6ceaacf4f01cbd4332f3}\index{IPlayerListener@{IPlayerListener}!onPlayerEliminated@{onPlayerEliminated}}
+\index{onPlayerEliminated@{onPlayerEliminated}!IPlayerListener@{IPlayerListener}}
+\doxysubsubsection{\texorpdfstring{onPlayerEliminated()}{onPlayerEliminated()}}
+{\footnotesize\ttfamily \label{class_i_player_listener_a21121ec6ef0e6ceaacf4f01cbd4332f3} 
+virtual void IPlayer\+Listener\+::on\+Player\+Eliminated (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Notificare că Player-\/ul a fost eliminat. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_logic_adaa6c09faa4e4c847b8e0c2bfa6f590d}{Game\+Logic}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/IPlayer\+Listener.\+h\end{DoxyCompactItemize}

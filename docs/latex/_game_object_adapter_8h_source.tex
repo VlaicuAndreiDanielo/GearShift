@@ -1,0 +1,31 @@
+\doxysection{Game\+Object\+Adapter.\+h}
+\hypertarget{_game_object_adapter_8h_source}{}\label{_game_object_adapter_8h_source}\index{GearShiftLib/GameObjectAdapter.h@{GearShiftLib/GameObjectAdapter.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}IGameObject.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_object_adapter_a32d629187fb24bb2f2579d3ffb84f030}{GameObjectAdapter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_game_object}{IGameObject}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_game_object_adapter_a32d629187fb24bb2f2579d3ffb84f030}{GameObjectAdapter}}(std::shared\_ptr<class\ GameObject>\ obj);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_adapter_abf6ec175d41edf2452c44b455b648fa9}{getX}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_adapter_a0a3685ab8b819642320168702bf67b90}{getY}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_adapter_a7e80d11aa6b1e8f626a0b4357acfcc32}{getWidth}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_adapter_aca38e3a17c7535740080f87b85c6b1a2}{getHeight}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_adapter_a2f9b4f48bd7d9b04c6e7a7b2c6804728}{getRotation}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ SpriteType\ \mbox{\hyperlink{class_game_object_adapter_abb2af9a5f7f9923980f1b432886508f4}{getSprite}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_object_adapter_aa1e192e11e05bd0dc120e1443fade795}{isActive}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ std::shared\_ptr<class\ GameObject>\ object;}
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}

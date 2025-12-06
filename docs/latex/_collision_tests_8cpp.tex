@@ -1,0 +1,50 @@
+\doxysection{Gear\+Shift\+Tests/\+Collision\+Tests.cpp File Reference}
+\hypertarget{_collision_tests_8cpp}{}\label{_collision_tests_8cpp}\index{GearShiftTests/CollisionTests.cpp@{GearShiftTests/CollisionTests.cpp}}
+
+
+Unit tests pentru \doxylink{class_collision_manager}{Collision\+Manager} și \doxylink{class_box_collider}{Box\+Collider}.  
+
+
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include "{}Collision\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Box\+Collider.\+h"{}}\newline
+{\ttfamily \#include "{}Game\+Object.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_collision_tests_8cpp_a0cb7eaceb65b1fce3535bcfc093a7ef8}\label{_collision_tests_8cpp_a0cb7eaceb65b1fce3535bcfc093a7ef8} 
+{\bfseries TEST} (Collision\+Test, Create\+Manager)
+\item 
+\Hypertarget{_collision_tests_8cpp_a113452e9bea74179f1237b325c672077}\label{_collision_tests_8cpp_a113452e9bea74179f1237b325c672077} 
+{\bfseries TEST} (Collision\+Test, Add\+Collider)
+\item 
+\Hypertarget{_collision_tests_8cpp_a0930e55fb1d33bbd00ef2c0b4c6a531a}\label{_collision_tests_8cpp_a0930e55fb1d33bbd00ef2c0b4c6a531a} 
+{\bfseries TEST} (Collision\+Test, Detect\+Overlap)
+\item 
+\Hypertarget{_collision_tests_8cpp_accef79377902b1913bd8c46ecae01295}\label{_collision_tests_8cpp_accef79377902b1913bd8c46ecae01295} 
+{\bfseries TEST} (Collision\+Test, No\+Overlap)
+\item 
+\Hypertarget{_collision_tests_8cpp_a1c596eb58bc776ac9903bfa037f8e822}\label{_collision_tests_8cpp_a1c596eb58bc776ac9903bfa037f8e822} 
+{\bfseries TEST} (Collision\+Test, Resolve\+Separates)
+\item 
+\Hypertarget{_collision_tests_8cpp_aa68d3d4c7973bb3e5c7bf497495bde33}\label{_collision_tests_8cpp_aa68d3d4c7973bb3e5c7bf497495bde33} 
+{\bfseries TEST} (Collision\+Test, Fixed\+No\+Resolve)
+\item 
+\Hypertarget{_collision_tests_8cpp_a152a2d92979701ccc45025ea25917f68}\label{_collision_tests_8cpp_a152a2d92979701ccc45025ea25917f68} 
+{\bfseries TEST} (Collision\+Test, Trigger\+No\+Resolve)
+\item 
+\Hypertarget{_collision_tests_8cpp_a0beb108a35c7d0be7ca9d692f2dff2d2}\label{_collision_tests_8cpp_a0beb108a35c7d0be7ca9d692f2dff2d2} 
+{\bfseries TEST} (Collision\+Test, Inactive\+No\+Collide)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Unit tests pentru \doxylink{class_collision_manager}{Collision\+Manager} și \doxylink{class_box_collider}{Box\+Collider}. 
+
+Verifică\+:
+\begin{DoxyItemize}
+\item crearea managerului și a colliderelor;
+\item detecția de overlap și lipsa coliziunii;
+\item rezolvarea coliziunilor pentru obiecte mobile / fixe / trigger;
+\item ignorarea obiectelor inactive. 
+\end{DoxyItemize}

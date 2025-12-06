@@ -1,0 +1,90 @@
+\doxysection{Renderer Class Reference}
+\hypertarget{class_renderer}{}\label{class_renderer}\index{Renderer@{Renderer}}
+
+
+Thin wrapper peste fereastra și renderer-\/ul SDL.  
+
+
+
+
+{\ttfamily \#include $<$Renderer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_renderer_a5e8b96e0e92bc4a3aa4df5a142c0ecf4}{Renderer}} (int w, int h)
+\begin{DoxyCompactList}\small\item\em Creează fereastra și renderer-\/ul pentru dimensiunile date. \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}\label{class_renderer_afeee408862d5bd6255a6882d47e6d5cd} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Renderer} ()
+\begin{DoxyCompactList}\small\item\em Destructor – distruge renderer-\/ul, fereastra și închide SDL. \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_a3f458c6bfb20201f0100681f2ccc0f86}\label{class_renderer_a3f458c6bfb20201f0100681f2ccc0f86} 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} {\bfseries get\+SDLRenderer} ()
+\begin{DoxyCompactList}\small\item\em Obține pointerul brut la SDL\+\_\+\+Renderer. \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_a02b89a44df4b28fa45d3c5cd2389f60d}\label{class_renderer_a02b89a44df4b28fa45d3c5cd2389f60d} 
+int {\bfseries get\+Width} () const
+\begin{DoxyCompactList}\small\item\em Obține lățimea ferestrei. \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_aed7fcb8740a5b6a81b3882485a390520}\label{class_renderer_aed7fcb8740a5b6a81b3882485a390520} 
+int {\bfseries get\+Height} () const
+\begin{DoxyCompactList}\small\item\em Obține înălțimea ferestrei. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_renderer_a6a4e80a1a5138086929184f5f1d05a8f}{clear}} (Uint8 r=0, Uint8 g=0, Uint8 b=0)
+\begin{DoxyCompactList}\small\item\em Șterge backbuffer-\/ul cu culoarea dată. \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_a7d85cdc8646b62f8439d95309f2b8487}\label{class_renderer_a7d85cdc8646b62f8439d95309f2b8487} 
+void {\bfseries present} ()
+\begin{DoxyCompactList}\small\item\em Face swap la buffere și afișează conținutul pe ecran. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thin wrapper peste fereastra și renderer-\/ul SDL. 
+
+Se ocupă de inițializarea SDL (video, TTF, PNG), crearea ferestrei și a renderer-\/ului hardware-\/accelerat, plus operațiile de clear/present. 
+
+\label{doc-constructors}
+\Hypertarget{class_renderer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_renderer_a5e8b96e0e92bc4a3aa4df5a142c0ecf4}\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}}
+{\footnotesize\ttfamily \label{class_renderer_a5e8b96e0e92bc4a3aa4df5a142c0ecf4} 
+Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{int}]{w}{, }\item[{int}]{h}{}\end{DoxyParamCaption})}
+
+
+
+Creează fereastra și renderer-\/ul pentru dimensiunile date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Lățimea ferestrei. \\
+\hline
+{\em h} & Înălțimea ferestrei. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_renderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_renderer_a6a4e80a1a5138086929184f5f1d05a8f}\index{Renderer@{Renderer}!clear@{clear}}
+\index{clear@{clear}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{class_renderer_a6a4e80a1a5138086929184f5f1d05a8f} 
+void Renderer\+::clear (\begin{DoxyParamCaption}\item[{Uint8}]{r}{ = {\ttfamily 0}, }\item[{Uint8}]{g}{ = {\ttfamily 0}, }\item[{Uint8}]{b}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Șterge backbuffer-\/ul cu culoarea dată. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Componenta roșu (0–255). \\
+\hline
+{\em g} & Componenta verde (0–255). \\
+\hline
+{\em b} & Componenta albastru (0–255). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Renderer.\+h\item 
+Gear\+Shift\+UI/Renderer.\+cpp\end{DoxyCompactItemize}

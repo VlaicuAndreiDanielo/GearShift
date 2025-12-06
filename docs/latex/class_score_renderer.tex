@@ -1,0 +1,76 @@
+\doxysection{Score\+Renderer Class Reference}
+\hypertarget{class_score_renderer}{}\label{class_score_renderer}\index{ScoreRenderer@{ScoreRenderer}}
+
+
+\doxylink{class_renderer}{Renderer} HUD pentru afișarea scorului jucătorului.  
+
+
+
+
+{\ttfamily \#include $<$Score\+Renderer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_score_renderer_a9d8beea23f20546809a9c9b0edece35d}{Score\+Renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_score_renderer}{Score\+Renderer} asociat cu un SDL\+\_\+\+Renderer. \end{DoxyCompactList}\item 
+\Hypertarget{class_score_renderer_a70b76075e04a58d14bcebe70e08fb096}\label{class_score_renderer_a70b76075e04a58d14bcebe70e08fb096} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Score\+Renderer} ()
+\begin{DoxyCompactList}\small\item\em Destructor – eliberează textura și invalidază pointerul la font. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_renderer_a60b98f4db42887062d85416184fc3faa}{render}} (std\+::shared\+\_\+ptr$<$ class \mbox{\hyperlink{class_i_score_manager}{IScore\+Manager}} $>$ score\+Manager)
+\begin{DoxyCompactList}\small\item\em Randează scorul curent pe ecran. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_renderer}{Renderer} HUD pentru afișarea scorului jucătorului. 
+
+Folosește SDL\+\_\+ttf pentru a randa text de forma "{}\+Score\+: $<$valoare$>$"{} în colțul din dreapta sus al ecranului. 
+
+\label{doc-constructors}
+\Hypertarget{class_score_renderer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_score_renderer_a9d8beea23f20546809a9c9b0edece35d}\index{ScoreRenderer@{ScoreRenderer}!ScoreRenderer@{ScoreRenderer}}
+\index{ScoreRenderer@{ScoreRenderer}!ScoreRenderer@{ScoreRenderer}}
+\doxysubsubsection{\texorpdfstring{ScoreRenderer()}{ScoreRenderer()}}
+{\footnotesize\ttfamily \label{class_score_renderer_a9d8beea23f20546809a9c9b0edece35d} 
+Score\+Renderer\+::\+Score\+Renderer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer}{}\end{DoxyParamCaption})}
+
+
+
+Creează un \doxylink{class_score_renderer}{Score\+Renderer} asociat cu un SDL\+\_\+\+Renderer. 
+
+Încarcă fontul și pregătește textura internă pentru scorul 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Renderer-\/ul SDL folosit la desenarea textului. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_score_renderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_score_renderer_a60b98f4db42887062d85416184fc3faa}\index{ScoreRenderer@{ScoreRenderer}!render@{render}}
+\index{render@{render}!ScoreRenderer@{ScoreRenderer}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_score_renderer_a60b98f4db42887062d85416184fc3faa} 
+void Score\+Renderer\+::render (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ class \mbox{\hyperlink{class_i_score_manager}{IScore\+Manager}} $>$}]{score\+Manager}{}\end{DoxyParamCaption})}
+
+
+
+Randează scorul curent pe ecran. 
+
+Intern, actualizează textura dacă scorul s-\/a schimbat.
+
+
+\begin{DoxyParams}{Parameters}
+{\em score\+Manager} & Managerul care furnizează scorul curent. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Score\+Renderer.\+h\item 
+Gear\+Shift\+UI/Score\+Renderer.\+cpp\end{DoxyCompactItemize}

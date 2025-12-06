@@ -1,9 +1,20 @@
+﻿/**
+ * \file CollisionTests.cpp
+ * \brief Unit tests pentru CollisionManager și BoxCollider.
+ *
+ * Verifică:
+ *  - crearea managerului și a colliderelor;
+ *  - detecția de overlap și lipsa coliziunii;
+ *  - rezolvarea coliziunilor pentru obiecte mobile / fixe / trigger;
+ *  - ignorarea obiectelor inactive.
+ */
+
 #include <gtest/gtest.h>
 #include "CollisionManager.h"
 #include "BoxCollider.h"
 #include "GameObject.h"
 
-// manager
+ // manager
 TEST(CollisionTest, CreateManager) {
     auto mgr = std::make_shared<CollisionManager>();
     ASSERT_NE(mgr, nullptr);

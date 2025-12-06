@@ -1,0 +1,34 @@
+\doxysection{CRTEffect.\+h}
+\hypertarget{_c_r_t_effect_8h_source}{}\label{_c_r_t_effect_8h_source}\index{GearShiftUI/CRTEffect.h@{GearShiftUI/CRTEffect.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_r_t_a01e9eff84922fb80a8e6cec6cb0b0d95}{CRT}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ SDL\_Texture*\ tex;\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ w,\ h;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{float}\ scanInt;\ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{float}\ curve;\ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ time;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ applyPincushionDistortion(SDL\_Renderer*\ rend);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_c_r_t_a01e9eff84922fb80a8e6cec6cb0b0d95}{CRT}}(SDL\_Renderer*\ rend,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_c_r_t_a894798a60eecaf4690aedc3d197f1e1f}{\string~CRT}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_r_t_a21b50036a0d14f0e077a2b4457faf3c4}{begin}}(SDL\_Renderer*\ rend);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_r_t_a7828fa24c1050f2faecc25816b8853cd}{end}}(SDL\_Renderer*\ rend);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_r_t_a4802bc041c60a965a64ef81f13e73ecc}{update}}(\textcolor{keywordtype}{float}\ dt);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_r_t_a582056376f917a125db3f40bb45fbfd7}{setScanInt}}(\textcolor{keywordtype}{float}\ i)\ \{\ scanInt\ =\ i;\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_r_t_a9ea96b57284531eb77c5c729bc13b0c8}{setCurve}}(\textcolor{keywordtype}{float}\ c)\ \{\ curve\ =\ c;\ \}}
+\DoxyCodeLine{00055\ \};}
+
+\end{DoxyCode}

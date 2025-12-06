@@ -1,0 +1,54 @@
+\doxysection{Player.\+h}
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{GearShiftLib/Player.h@{GearShiftLib/Player.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}GameObject.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}IPlayerListener.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }Player\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<Player>\ \mbox{\hyperlink{class_player_a080579202e82a30f58e32445dd98b323}{create}}(std::weak\_ptr<CollisionManager>\ collisionManager,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a1f57c9995b840256c314925c53686025}{update}}(\textcolor{keywordtype}{float}\ dt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_i_input_state}{IInputState}}\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ game\ logic\ /\ query\ state\ -\/-\/-\/}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a692a9b2d472df93b62bfcb5ee4f883d7}{setPosition}}(\textcolor{keywordtype}{float}\ newX,\ \textcolor{keywordtype}{float}\ newY);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a77b608f796ae68f51d1dea6499c15382}{setBounds}}(\textcolor{keywordtype}{int}\ maxX,\ \textcolor{keywordtype}{int}\ maxY);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a2b7447fc35f7daff96a19d5400a6b9d0}{addListener}}(PlayerListenerPtr\ listener);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aaa740b3ebe5c735939db32375cb783c0}{removeListener}}(PlayerListenerPtr\ listener);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a15ba0e56262c5133108e32546cc3e66e}{onCollision}}(std::shared\_ptr<Collider>\ other)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ \ \ \ \ Player(\textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ notifyPlayerEliminated();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ cleanupExpiredListeners();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00073\ \ \ \ \ std::vector<PlayerListenerWeakPtr>\ m\_listeners;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{float}\ vx,\ vy;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{float}\ currentSpeed;\ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{float}\ maxSpeed;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{float}\ acceleration;\ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{float}\ deceleration;\ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{float}\ baseSpeed;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ boundaries}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ boundMaxX;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ boundMaxY;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ handleInput(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_i_input_state}{IInputState}}\&\ input);}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ \ \ \ \ }
+
+\end{DoxyCode}

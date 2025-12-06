@@ -88,3 +88,4 @@ private:
     /// \param input Starea curentă a input-ului.
     void handleInput(const IInputState& input);
 };
+    

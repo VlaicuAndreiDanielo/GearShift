@@ -1,0 +1,30 @@
+\doxysection{Score\+Renderer.\+h}
+\hypertarget{_score_renderer_8h_source}{}\label{_score_renderer_8h_source}\index{GearShiftUI/ScoreRenderer.h@{GearShiftUI/ScoreRenderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_score_renderer_a9d8beea23f20546809a9c9b0edece35d}{ScoreRenderer}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_score_renderer_a9d8beea23f20546809a9c9b0edece35d}{ScoreRenderer}}(SDL\_Renderer*\ renderer);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_score_renderer_a70b76075e04a58d14bcebe70e08fb096}{\string~ScoreRenderer}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_renderer_a60b98f4db42887062d85416184fc3faa}{render}}(std::shared\_ptr<class\ IScoreManager>\ scoreManager);}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ SDL\_Renderer*\ renderer;\ }
+\DoxyCodeLine{00030\ \ \ \ \ TTF\_Font*\ font;\ \ \ \ \ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ SDL\_Color\ \ \ color;\ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ SDL\_Texture*\ texture;\ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ SDL\_Rect\ \ \ \ \ rect;\ \ \ \ \ \ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ cleanedUp;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ updateTexture(\textcolor{keywordtype}{int}\ score);}
+\DoxyCodeLine{00043\ \};}
+
+\end{DoxyCode}

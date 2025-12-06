@@ -1,0 +1,115 @@
+\doxysection{Start\+Game\+Command Class Reference}
+\hypertarget{class_start_game_command}{}\label{class_start_game_command}\index{StartGameCommand@{StartGameCommand}}
+
+
+Command pentru pornirea unei runde noi de joc.  
+
+
+
+
+{\ttfamily \#include $<$Start\+Game\+Command.\+h$>$}
+
+Inheritance diagram for Start\+Game\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_start_game_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_start_game_command_a48a081f9fe98fb9b94137a904ca31978}{Start\+Game\+Command}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$ game\+Logic)
+\begin{DoxyCompactList}\small\item\em Creează o comandă de start game pentru un joc dat. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_start_game_command_a36b2463838de8d011240cd55beaef956}{can\+Execute}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă jocul poate fi pornit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_start_game_command_a78db4c99fbcee401f9472e817f5d05ac}{execute}} () override
+\begin{DoxyCompactList}\small\item\em Pornește jocul dacă este într-\/o stare validă. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_start_game_command_ab4b861ce1b325e539bb08164c1a5587d}{get\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Descriere textuală a comenzii (pentru logging / debugging). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_command}{ICommand}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+ICommand} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_command_af3b58eb0635d03cf1039b9747d72edec}{undo}} ()
+\begin{DoxyCompactList}\small\item\em Anulează efectul comenzii, dacă este suportat. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_command_ab2767c2ef69b77e94210a437cdc9e179}{can\+Undo}} () const
+\begin{DoxyCompactList}\small\item\em Indică dacă această comandă suportă operația de undo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Command pentru pornirea unei runde noi de joc. 
+
+Verifică dacă jocul se află în starea {\ttfamily Game\+State\+::\+Menu} în {\ttfamily \doxylink{class_start_game_command_a36b2463838de8d011240cd55beaef956}{can\+Execute()}} și, la {\ttfamily \doxylink{class_start_game_command_a78db4c99fbcee401f9472e817f5d05ac}{execute()}}, apelează {\ttfamily \doxylink{class_i_game_af174e89498832afc7458be23a6ebc3a6}{IGame\+::start\+Game()}}. Scene transitions și logica UI sunt tratate separat. 
+
+\label{doc-constructors}
+\Hypertarget{class_start_game_command_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_start_game_command_a48a081f9fe98fb9b94137a904ca31978}\index{StartGameCommand@{StartGameCommand}!StartGameCommand@{StartGameCommand}}
+\index{StartGameCommand@{StartGameCommand}!StartGameCommand@{StartGameCommand}}
+\doxysubsubsection{\texorpdfstring{StartGameCommand()}{StartGameCommand()}}
+{\footnotesize\ttfamily \label{class_start_game_command_a48a081f9fe98fb9b94137a904ca31978} 
+Start\+Game\+Command\+::\+Start\+Game\+Command (\begin{DoxyParamCaption}\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$}]{game\+Logic}{}\end{DoxyParamCaption})}
+
+
+
+Creează o comandă de start game pentru un joc dat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Logic} & Jocul asupra căruia se va executa comanda. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_start_game_command_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_start_game_command_a36b2463838de8d011240cd55beaef956}\index{StartGameCommand@{StartGameCommand}!canExecute@{canExecute}}
+\index{canExecute@{canExecute}!StartGameCommand@{StartGameCommand}}
+\doxysubsubsection{\texorpdfstring{canExecute()}{canExecute()}}
+{\footnotesize\ttfamily \label{class_start_game_command_a36b2463838de8d011240cd55beaef956} 
+bool Start\+Game\+Command\+::can\+Execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă jocul poate fi pornit. 
+
+Comanda este executabilă doar dacă jocul există și se află în starea Menu. 
+
+Reimplemented from \mbox{\hyperlink{class_i_command_a00859f1d6d2b7eb843614fb4ffd63bbb}{ICommand}}.
+
+\Hypertarget{class_start_game_command_a78db4c99fbcee401f9472e817f5d05ac}\index{StartGameCommand@{StartGameCommand}!execute@{execute}}
+\index{execute@{execute}!StartGameCommand@{StartGameCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_start_game_command_a78db4c99fbcee401f9472e817f5d05ac} 
+void Start\+Game\+Command\+::execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pornește jocul dacă este într-\/o stare validă. 
+
+Apelează {\ttfamily \doxylink{class_i_game_af174e89498832afc7458be23a6ebc3a6}{IGame\+::start\+Game()}} și loghează rezultatul în SDL log. 
+
+Implements \mbox{\hyperlink{class_i_command_ace81beb0beea968f876f292446bf1120}{ICommand}}.
+
+\Hypertarget{class_start_game_command_ab4b861ce1b325e539bb08164c1a5587d}\index{StartGameCommand@{StartGameCommand}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!StartGameCommand@{StartGameCommand}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily \label{class_start_game_command_ab4b861ce1b325e539bb08164c1a5587d} 
+const char \texorpdfstring{$\ast$}{*} Start\+Game\+Command\+::get\+Description (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Descriere textuală a comenzii (pentru logging / debugging). 
+
+
+
+Implements \mbox{\hyperlink{class_i_command_aed5df7f936d3f0f5262f8d14d0fd84d8}{ICommand}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Start\+Game\+Command.\+h\item 
+Gear\+Shift\+Lib/Start\+Game\+Command.\+cpp\end{DoxyCompactItemize}

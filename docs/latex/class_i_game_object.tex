@@ -1,0 +1,150 @@
+\doxysection{IGame\+Object Class Reference}
+\hypertarget{class_i_game_object}{}\label{class_i_game_object}\index{IGameObject@{IGameObject}}
+
+
+Interfață pentru un obiect de joc utilizat la randare.  
+
+
+
+
+{\ttfamily \#include $<$IGame\+Object.\+h$>$}
+
+Inheritance diagram for IGame\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_game_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual float \mbox{\hyperlink{class_i_game_object_a5ba46562aae4b572da37ffcd76b0b0a1}{getX}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține coordonata X în lume. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_i_game_object_acd69f2cc0ce36e9df3eba628b349fbf7}{getY}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține coordonata Y în lume. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_i_game_object_a7fab7b4d4c1b81d6bb3f713114c5c452}{get\+Width}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține lățimea obiectului. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_i_game_object_a31b969952ee71c4c3812606373191af6}{get\+Height}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține înălțimea obiectului. \end{DoxyCompactList}\item 
+virtual Sprite\+Type \mbox{\hyperlink{class_i_game_object_aed4f5d658f0e1b99747d50476242caa8}{get\+Sprite}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține sprite-\/ul asociat obiectului. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_i_game_object_acd720b4448734a4d04d4b579ae6e4ad5}{get\+Rotation}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține rotația obiectului (de obicei în grade). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_game_object_a7a8a786f36a014a51102ff2912ada5e3}{is\+Active}} () const =0
+\begin{DoxyCompactList}\small\item\em Verifică dacă obiectul este activ și trebuie randat. \end{DoxyCompactList}\item 
+\Hypertarget{class_i_game_object_a3b3946231d664307f7a7f2fb6821abe3}\label{class_i_game_object_a3b3946231d664307f7a7f2fb6821abe3} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IGame\+Object} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfață pentru un obiect de joc utilizat la randare. 
+
+Este un „view simplificat” peste \doxylink{class_game_object}{Game\+Object}, folosit de layer-\/ul de UI pentru a desena obiectele fără să depindă de logica lor internă. 
+
+\label{doc-func-members}
+\Hypertarget{class_i_game_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_game_object_a31b969952ee71c4c3812606373191af6}\index{IGameObject@{IGameObject}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!IGameObject@{IGameObject}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily \label{class_i_game_object_a31b969952ee71c4c3812606373191af6} 
+virtual float IGame\+Object\+::get\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține înălțimea obiectului. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_object_adapter_aca38e3a17c7535740080f87b85c6b1a2}{Game\+Object\+Adapter}}.
+
+\Hypertarget{class_i_game_object_acd720b4448734a4d04d4b579ae6e4ad5}\index{IGameObject@{IGameObject}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!IGameObject@{IGameObject}}
+\doxysubsubsection{\texorpdfstring{getRotation()}{getRotation()}}
+{\footnotesize\ttfamily \label{class_i_game_object_acd720b4448734a4d04d4b579ae6e4ad5} 
+virtual float IGame\+Object\+::get\+Rotation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține rotația obiectului (de obicei în grade). 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_object_adapter_a2f9b4f48bd7d9b04c6e7a7b2c6804728}{Game\+Object\+Adapter}}.
+
+\Hypertarget{class_i_game_object_aed4f5d658f0e1b99747d50476242caa8}\index{IGameObject@{IGameObject}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!IGameObject@{IGameObject}}
+\doxysubsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily \label{class_i_game_object_aed4f5d658f0e1b99747d50476242caa8} 
+virtual Sprite\+Type IGame\+Object\+::get\+Sprite (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține sprite-\/ul asociat obiectului. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_object_adapter_abb2af9a5f7f9923980f1b432886508f4}{Game\+Object\+Adapter}}.
+
+\Hypertarget{class_i_game_object_a7fab7b4d4c1b81d6bb3f713114c5c452}\index{IGameObject@{IGameObject}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!IGameObject@{IGameObject}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily \label{class_i_game_object_a7fab7b4d4c1b81d6bb3f713114c5c452} 
+virtual float IGame\+Object\+::get\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține lățimea obiectului. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_object_adapter_a7e80d11aa6b1e8f626a0b4357acfcc32}{Game\+Object\+Adapter}}.
+
+\Hypertarget{class_i_game_object_a5ba46562aae4b572da37ffcd76b0b0a1}\index{IGameObject@{IGameObject}!getX@{getX}}
+\index{getX@{getX}!IGameObject@{IGameObject}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily \label{class_i_game_object_a5ba46562aae4b572da37ffcd76b0b0a1} 
+virtual float IGame\+Object\+::getX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține coordonata X în lume. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_object_adapter_abf6ec175d41edf2452c44b455b648fa9}{Game\+Object\+Adapter}}.
+
+\Hypertarget{class_i_game_object_acd69f2cc0ce36e9df3eba628b349fbf7}\index{IGameObject@{IGameObject}!getY@{getY}}
+\index{getY@{getY}!IGameObject@{IGameObject}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily \label{class_i_game_object_acd69f2cc0ce36e9df3eba628b349fbf7} 
+virtual float IGame\+Object\+::getY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține coordonata Y în lume. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_object_adapter_a0a3685ab8b819642320168702bf67b90}{Game\+Object\+Adapter}}.
+
+\Hypertarget{class_i_game_object_a7a8a786f36a014a51102ff2912ada5e3}\index{IGameObject@{IGameObject}!isActive@{isActive}}
+\index{isActive@{isActive}!IGameObject@{IGameObject}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily \label{class_i_game_object_a7a8a786f36a014a51102ff2912ada5e3} 
+virtual bool IGame\+Object\+::is\+Active (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă obiectul este activ și trebuie randat. 
+
+
+
+Implemented in \mbox{\hyperlink{class_game_object_adapter_aa1e192e11e05bd0dc120e1443fade795}{Game\+Object\+Adapter}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/IGame\+Object.\+h\end{DoxyCompactItemize}

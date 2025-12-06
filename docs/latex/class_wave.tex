@@ -1,0 +1,123 @@
+\doxysection{Wave Class Reference}
+\hypertarget{class_wave}{}\label{class_wave}\index{Wave@{Wave}}
+
+
+Efect de fundal tip „valuri” care folosesc pânza (\doxylink{class_fabric}{Fabric}) ca deformare.  
+
+
+
+
+{\ttfamily \#include $<$Wave\+Effect.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_wave_af77ef56eb78d5d974cdc2e2b72c0e189}{Wave}} (int w, int h, int tile\+Size)
+\begin{DoxyCompactList}\small\item\em Creează un efect de wave pentru o zonă de ecran dată. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_wave_a6a7aca5ad154a791da48affde3f7edbd}{update}} (float dt, float time)
+\begin{DoxyCompactList}\small\item\em Actualizează offset-\/ul vertical al fiecărui tile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_wave_a24c416c3a7c443e85b1914555de7564d}{render}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rend, const std\+::vector$<$ \mbox{\hyperlink{struct_pt}{Pt}} $>$ \&pts, int fw, int fh)
+\begin{DoxyCompactList}\small\item\em Randează fundalul în funcție de pozițiile pânzei (\doxylink{class_fabric}{Fabric}). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_wave_af0ad2b539dacbf0df4a0f00fd874952d}{load\+Img}} (const char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Placeholder pentru încărcarea unei imagini de fundal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Efect de fundal tip „valuri” care folosesc pânza (\doxylink{class_fabric}{Fabric}) ca deformare. 
+
+Construiește o grilă de tile-\/uri colorate, le animă cu funcții trigonometrice în timp și le „agață” de punctele pânzei (\doxylink{class_i_fabric}{IFabric}) pentru a le deforma în funcție de mișcarea cloth-\/ului. \+:content\+Reference\mbox{[}oaicite\+:3\mbox{]}\{index=3\} 
+
+\label{doc-constructors}
+\Hypertarget{class_wave_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_wave_af77ef56eb78d5d974cdc2e2b72c0e189}\index{Wave@{Wave}!Wave@{Wave}}
+\index{Wave@{Wave}!Wave@{Wave}}
+\doxysubsubsection{\texorpdfstring{Wave()}{Wave()}}
+{\footnotesize\ttfamily \label{class_wave_af77ef56eb78d5d974cdc2e2b72c0e189} 
+Wave\+::\+Wave (\begin{DoxyParamCaption}\item[{int}]{w}{, }\item[{int}]{h}{, }\item[{int}]{tile\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Creează un efect de wave pentru o zonă de ecran dată. 
+
+Construcția generează o grilă de tile-\/uri ușor mai mare decât ecranul, pentru a permite mișcarea și deformarea fără să se vadă marginile. \+:content\+Reference\mbox{[}oaicite\+:4\mbox{]}\{index=4\}
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Lățimea ecranului (pixeli). \\
+\hline
+{\em h} & Înălțimea ecranului (pixeli). \\
+\hline
+{\em tile\+Size} & Dimensiunea unui tile (pixeli). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_wave_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_wave_af0ad2b539dacbf0df4a0f00fd874952d}\index{Wave@{Wave}!loadImg@{loadImg}}
+\index{loadImg@{loadImg}!Wave@{Wave}}
+\doxysubsubsection{\texorpdfstring{loadImg()}{loadImg()}}
+{\footnotesize\ttfamily \label{class_wave_af0ad2b539dacbf0df4a0f00fd874952d} 
+void Wave\+::load\+Img (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Placeholder pentru încărcarea unei imagini de fundal. 
+
+În implementarea curentă nu face nimic, dar poate fi extinsă pentru a folosi o textură în loc de simple dreptunghiuri colorate.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Calea către fișierul imagine. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_wave_a24c416c3a7c443e85b1914555de7564d}\index{Wave@{Wave}!render@{render}}
+\index{render@{render}!Wave@{Wave}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_wave_a24c416c3a7c443e85b1914555de7564d} 
+void Wave\+::render (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rend}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{struct_pt}{Pt}} $>$ \&}]{pts}{, }\item[{int}]{fw}{, }\item[{int}]{fh}{}\end{DoxyParamCaption})}
+
+
+
+Randează fundalul în funcție de pozițiile pânzei (\doxylink{class_fabric}{Fabric}). 
+
+Ia pentru fiecare tile cel mai apropiat {\ttfamily \doxylink{struct_pt}{Pt}} din pânză, calculează un offset (ox, oy) și aplică z + offset pentru a obține un efect de deformare sincron cu mișcarea cloth-\/ului. \+:content\+Reference\mbox{[}oaicite\+:6\mbox{]}\{index=6\}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rend} & Renderer-\/ul SDL pentru desen. \\
+\hline
+{\em pts} & Vectorul de puncte din pânză. \\
+\hline
+{\em fw} & Numărul de puncte pe axa X (fabric width). \\
+\hline
+{\em fh} & Numărul de puncte pe axa Y (fabric height). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_wave_a6a7aca5ad154a791da48affde3f7edbd}\index{Wave@{Wave}!update@{update}}
+\index{update@{update}!Wave@{Wave}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_wave_a6a7aca5ad154a791da48affde3f7edbd} 
+void Wave\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{, }\item[{float}]{time}{}\end{DoxyParamCaption})}
+
+
+
+Actualizează offset-\/ul vertical al fiecărui tile. 
+
+Folosește combinații de {\ttfamily sin} și {\ttfamily cos} în funcție de timp și de poziția tile-\/ului pentru a crea un efect de valuri. \+:content\+Reference\mbox{[}oaicite\+:5\mbox{]}\{index=5\}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame (secunde). \\
+\hline
+{\em time} & Timpul global acumulat (pentru animație continuă). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/Wave\+Effect.\+h\item 
+Gear\+Shift\+UI/Wave\+Effect.\+cpp\end{DoxyCompactItemize}

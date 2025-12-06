@@ -1,0 +1,41 @@
+\doxysection{Collider.\+h}
+\hypertarget{_collider_8h_source}{}\label{_collider_8h_source}\index{GearShiftLib/Collider.h@{GearShiftLib/Collider.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}CollisionManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Collision.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameObject.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_collision_manager_1_1_collider}{CollisionManager::Collider}}\ :\ \textcolor{keyword}{public}\ std::enable\_shared\_from\_this<Collider>\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}}(std::weak\_ptr<CollisionManager>\ manager);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_collision_manager_1_1_collider_a94b0a2b6dc5ee4a6e9ba86717eee1b00}{\string~Collider}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ std::shared\_ptr<GameObject>\ \mbox{\hyperlink{class_collision_manager_1_1_collider_ac76bceca8dfccce043e2393ccb5f732d}{getMasterObject}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_collision_manager_1_1_collider_a692fe62311cf651d7405985e6a10fdd8}{notifyCollision}}(std::shared\_ptr<Collider>\ other);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ std::optional<Collision>\ \mbox{\hyperlink{class_collision_manager_1_1_collider_ab16809b13d260e32b14be8f4cae55592}{checkCollisionWith}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_collision_manager_1_1_collider_af62af571513aa3d660d538e93bd7bae1}{Collider}}\&\ other)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ std::optional<Collision>\ \mbox{\hyperlink{class_collision_manager_1_1_collider_a69698755836d384e288eb0b91ebd4b22}{checkCollisionWith}}(\textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_box_collider}{BoxCollider}}\&\ other)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_collision_manager_1_1_collider_aafc27740719c6d8cebc1a6d01ec60d78}{setTrigger}}(\textcolor{keywordtype}{bool}\ trigger);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_collision_manager_1_1_collider_a77efb88facbd69bbe03312926b1491bc}{isTrigger}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_collision_manager_1_1_collider_aa1d3133d3d20b22dc2dcca93e5e0f630}{attachToGameObject}}(std::shared\_ptr<GameObject>\ master);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }CollisionManager;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00072\ \ \ \ \ std::weak\_ptr<CollisionManager>\ manager;\ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ std::weak\_ptr<GameObject>\ masterObject;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ trigger\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \};}
+
+\end{DoxyCode}

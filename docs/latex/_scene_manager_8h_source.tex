@@ -1,0 +1,41 @@
+\doxysection{Scene\+Manager.\+h}
+\hypertarget{_scene_manager_8h_source}{}\label{_scene_manager_8h_source}\index{GearShiftUI/SceneManager.h@{GearShiftUI/SceneManager.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}IScene.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_scene_mgr_a449a6b461ef357d07eb7f90546c0fe5f}{SceneMgr}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<IScene>>\ scenes;}
+\DoxyCodeLine{00017\ \ \ \ \ std::shared\_ptr<IScene>\ current;}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ nextName;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ shouldChange;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ performSceneTransition();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_scene_mgr_a449a6b461ef357d07eb7f90546c0fe5f}{SceneMgr}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_mgr_abea8aaab5d979596e0accd4bbde9e6d4}{add}}(\textcolor{keyword}{const}\ std::string\&\ name,\ std::shared\_ptr<IScene>\ scene);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_mgr_a238e76428012ab980f9dd3a13cd20b13}{change}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00048\ \ \ \ \ std::shared\_ptr<IScene>\ \mbox{\hyperlink{class_scene_mgr_a79ac5a811c779427826cf228b779bc69}{getScene}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_mgr_acbc99da433c225dae4489b2f59367684}{update}}(\textcolor{keywordtype}{float}\ dt);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_mgr_a011594c0f65a4408dadda85d9b7d7c9b}{render}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_mgr_a9ba088bd0e90473b4bb13a243f8f0023}{handleEvent}}(SDL\_Event\&\ e);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::shared\_ptr<IScene>\ \mbox{\hyperlink{class_scene_mgr_aabae927e6482b28906a7d33a0cc6ac42}{getCurrent}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ current;\ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_scene_mgr_a20baa4b1e243c52edd2096a267883b7d}{has}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ \};}
+
+\end{DoxyCode}

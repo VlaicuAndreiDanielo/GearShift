@@ -1,0 +1,34 @@
+\doxysection{Road\+Segment.\+h}
+\hypertarget{_road_segment_8h_source}{}\label{_road_segment_8h_source}\index{GearShiftLib/RoadSegment.h@{GearShiftLib/RoadSegment.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}GameObject.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}PlayerTrigger.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }RoadSegment\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::shared\_ptr<GameObject>>\ \mbox{\hyperlink{class_road_segment_a120839d74c2b47f04ae8405099626d1c}{create}}(std::weak\_ptr<CollisionManager>\ collisionManager,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}},}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ totalRoadCount);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_road_segment_aede527eb9f1c2476f2cddc9f9c52352d}{segmentPassCounter}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::shared\_ptr<PlayerTrigger>\ \mbox{\hyperlink{class_road_segment_afc66bd479e581da033ed5f2920bbd63a}{getTrigger}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ trigger;\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player_trigger}{PlayerTrigger}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_road_segment_a6e60ee0799e42c478c41fe3804b4f3db}{playerTriggered}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_road_segment}{RoadSegment}}(\textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}},\ \textcolor{keywordtype}{int}\ totalRoadCount);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ createTrigger(std::weak\_ptr<CollisionManager>\ collisionManager);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ std::shared\_ptr<PlayerTrigger>\ trigger;\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ roadCount;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \};}
+
+\end{DoxyCode}

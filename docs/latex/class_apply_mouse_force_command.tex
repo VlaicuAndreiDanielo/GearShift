@@ -1,0 +1,121 @@
+\doxysection{Apply\+Mouse\+Force\+Command Class Reference}
+\hypertarget{class_apply_mouse_force_command}{}\label{class_apply_mouse_force_command}\index{ApplyMouseForceCommand@{ApplyMouseForceCommand}}
+
+
+Command pentru aplicarea unei forțe de mouse asupra pânzei (fabric).  
+
+
+
+
+{\ttfamily \#include $<$Apply\+Mouse\+Force\+Command.\+h$>$}
+
+Inheritance diagram for Apply\+Mouse\+Force\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_apply_mouse_force_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_apply_mouse_force_command_a0156de583aaa0211bdab91f10a09cbf9}{Apply\+Mouse\+Force\+Command}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$ game\+Logic, int x, int y, bool is\+Pressed)
+\begin{DoxyCompactList}\small\item\em Creează o comandă de aplicare a forței de mouse. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_apply_mouse_force_command_a2c9da3b986499795a26c260efc719253}{can\+Execute}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă comanda poate fi executată. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_apply_mouse_force_command_a4a77ad4bdf40e08c9bd28119ef2a41a1}{execute}} () override
+\begin{DoxyCompactList}\small\item\em Aplică forța de mouse asupra pânzei jocului. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_apply_mouse_force_command_aba107df0913fd232ad961bca2a7f646d}{get\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Descriere textuală a comenzii (pentru logging / debugging). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_command}{ICommand}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+ICommand} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_command_af3b58eb0635d03cf1039b9747d72edec}{undo}} ()
+\begin{DoxyCompactList}\small\item\em Anulează efectul comenzii, dacă este suportat. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_command_ab2767c2ef69b77e94210a437cdc9e179}{can\+Undo}} () const
+\begin{DoxyCompactList}\small\item\em Indică dacă această comandă suportă operația de undo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Command pentru aplicarea unei forțe de mouse asupra pânzei (fabric). 
+
+Este folosită pentru interacțiunea cu {\ttfamily \doxylink{class_i_fabric}{IFabric}} (efectul de cloth) din joc, în funcție de poziția mouse-\/ului și dacă butonul este apăsat. 
+
+\label{doc-constructors}
+\Hypertarget{class_apply_mouse_force_command_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_apply_mouse_force_command_a0156de583aaa0211bdab91f10a09cbf9}\index{ApplyMouseForceCommand@{ApplyMouseForceCommand}!ApplyMouseForceCommand@{ApplyMouseForceCommand}}
+\index{ApplyMouseForceCommand@{ApplyMouseForceCommand}!ApplyMouseForceCommand@{ApplyMouseForceCommand}}
+\doxysubsubsection{\texorpdfstring{ApplyMouseForceCommand()}{ApplyMouseForceCommand()}}
+{\footnotesize\ttfamily \label{class_apply_mouse_force_command_a0156de583aaa0211bdab91f10a09cbf9} 
+Apply\+Mouse\+Force\+Command\+::\+Apply\+Mouse\+Force\+Command (\begin{DoxyParamCaption}\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$}]{game\+Logic}{, }\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{bool}]{is\+Pressed}{}\end{DoxyParamCaption})}
+
+
+
+Creează o comandă de aplicare a forței de mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Logic} & Jocul asupra căruia se va aplica forța. \\
+\hline
+{\em x} & Coordonata X a mouse-\/ului. \\
+\hline
+{\em y} & Coordonata Y a mouse-\/ului. \\
+\hline
+{\em is\+Pressed} & True dacă butonul de mouse este apăsat. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_apply_mouse_force_command_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_apply_mouse_force_command_a2c9da3b986499795a26c260efc719253}\index{ApplyMouseForceCommand@{ApplyMouseForceCommand}!canExecute@{canExecute}}
+\index{canExecute@{canExecute}!ApplyMouseForceCommand@{ApplyMouseForceCommand}}
+\doxysubsubsection{\texorpdfstring{canExecute()}{canExecute()}}
+{\footnotesize\ttfamily \label{class_apply_mouse_force_command_a2c9da3b986499795a26c260efc719253} 
+bool Apply\+Mouse\+Force\+Command\+::can\+Execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă comanda poate fi executată. 
+
+Comanda este executabilă dacă jocul există și coordonatele mouse-\/ului sunt valide (non-\/negative). 
+
+Reimplemented from \mbox{\hyperlink{class_i_command_a00859f1d6d2b7eb843614fb4ffd63bbb}{ICommand}}.
+
+\Hypertarget{class_apply_mouse_force_command_a4a77ad4bdf40e08c9bd28119ef2a41a1}\index{ApplyMouseForceCommand@{ApplyMouseForceCommand}!execute@{execute}}
+\index{execute@{execute}!ApplyMouseForceCommand@{ApplyMouseForceCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_apply_mouse_force_command_a4a77ad4bdf40e08c9bd28119ef2a41a1} 
+void Apply\+Mouse\+Force\+Command\+::execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Aplică forța de mouse asupra pânzei jocului. 
+
+Apelează {\ttfamily \doxylink{class_i_game_ac808e225941c4b88f846858f76138359}{IGame\+::apply\+Mouse\+Force()}} și loghează în SDL log. 
+
+Implements \mbox{\hyperlink{class_i_command_ace81beb0beea968f876f292446bf1120}{ICommand}}.
+
+\Hypertarget{class_apply_mouse_force_command_aba107df0913fd232ad961bca2a7f646d}\index{ApplyMouseForceCommand@{ApplyMouseForceCommand}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!ApplyMouseForceCommand@{ApplyMouseForceCommand}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily \label{class_apply_mouse_force_command_aba107df0913fd232ad961bca2a7f646d} 
+const char \texorpdfstring{$\ast$}{*} Apply\+Mouse\+Force\+Command\+::get\+Description (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Descriere textuală a comenzii (pentru logging / debugging). 
+
+
+
+Implements \mbox{\hyperlink{class_i_command_aed5df7f936d3f0f5262f8d14d0fd84d8}{ICommand}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Apply\+Mouse\+Force\+Command.\+h\item 
+Gear\+Shift\+Lib/Apply\+Mouse\+Force\+Command.\+cpp\end{DoxyCompactItemize}

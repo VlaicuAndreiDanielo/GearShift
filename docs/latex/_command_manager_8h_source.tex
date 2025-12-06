@@ -1,0 +1,47 @@
+\doxysection{Command\+Manager.\+h}
+\hypertarget{_command_manager_8h_source}{}\label{_command_manager_8h_source}\index{GearShiftLib/CommandManager.h@{GearShiftLib/CommandManager.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}ICommand.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_command_manager_abb209730bbd96dc85c803ed16cc5ba3d}{CommandManager}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<ICommand>>\ commands;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \ \ \ \ std::stack<std::shared\_ptr<ICommand>>\ undoStack;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ MAX\_UNDO\_STACK\_SIZE\ =\ 50;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_command_manager_abb209730bbd96dc85c803ed16cc5ba3d}{CommandManager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_command_manager_ae6a6acf03e200dfc65a7a26fbbfd207d}{\string~CommandManager}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_command_manager_ac3771ff6bf845f3a4ceaeb95bfaa8098}{registerCommand}}(\textcolor{keyword}{const}\ std::string\&\ name,\ std::shared\_ptr<ICommand>\ command);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_command_manager_a28a77297b515897ef41f684609b14664}{executeCommand}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_command_manager_a28a77297b515897ef41f684609b14664}{executeCommand}}(std::shared\_ptr<ICommand>\ command);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_command_manager_a826c5375fefbf3616ccf9d7a88937d8e}{undo}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_command_manager_a854a05d2fb396249a670dcf1b4867fac}{hasCommand}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{class_command_manager_a4ab6e51cc44bdf843a5e4c1c39ff7119}{getCommandNames}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_command_manager_a89853e1d00d16308922e874113cd810a}{clearCommands}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_command_manager_a2676cc73377c320f287e1f1336e7fb7e}{clearUndoStack}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_command_manager_a92b77ca160df700d0dcc13ee8e498e26}{getUndoStackSize}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_command_manager_a5fe0d1a275a4bf431cdff40e6e3c3982}{isValidCommand}}(std::shared\_ptr<ICommand>\ command)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ \};}
+
+\end{DoxyCode}

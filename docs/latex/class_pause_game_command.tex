@@ -1,0 +1,115 @@
+\doxysection{Pause\+Game\+Command Class Reference}
+\hypertarget{class_pause_game_command}{}\label{class_pause_game_command}\index{PauseGameCommand@{PauseGameCommand}}
+
+
+Command pentru pauzarea / reluarea jocului.  
+
+
+
+
+{\ttfamily \#include $<$Pause\+Game\+Command.\+h$>$}
+
+Inheritance diagram for Pause\+Game\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pause_game_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pause_game_command_a6eada4280e65b7496f5e4288a1700067}{Pause\+Game\+Command}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$ game\+Logic)
+\begin{DoxyCompactList}\small\item\em Creează o comandă de pauză pentru un joc dat. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_pause_game_command_a164f956d5bf369202e3897ccff989d87}{can\+Execute}} () const override
+\begin{DoxyCompactList}\small\item\em Verifică dacă jocul se află într-\/o stare în care se poate pauza / relua. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pause_game_command_ae07335a30da442c02cf394c7af4407a5}{execute}} () override
+\begin{DoxyCompactList}\small\item\em Pune jocul pe pauză sau îl reia, în funcție de starea curentă. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_pause_game_command_acba6b455d4f8a248c91a8a147b905b4e}{get\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Descriere textuală a comenzii. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_command}{ICommand}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+ICommand} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_command_af3b58eb0635d03cf1039b9747d72edec}{undo}} ()
+\begin{DoxyCompactList}\small\item\em Anulează efectul comenzii, dacă este suportat. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_command_ab2767c2ef69b77e94210a437cdc9e179}{can\+Undo}} () const
+\begin{DoxyCompactList}\small\item\em Indică dacă această comandă suportă operația de undo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Command pentru pauzarea / reluarea jocului. 
+
+Dacă jocul este în starea {\ttfamily Game\+State\+::\+Playing}, comanda îl pune pe pauză. Dacă este în {\ttfamily Game\+State\+::\+Paused}, comanda reia jocul. În alte stări nu are efect. 
+
+\label{doc-constructors}
+\Hypertarget{class_pause_game_command_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_pause_game_command_a6eada4280e65b7496f5e4288a1700067}\index{PauseGameCommand@{PauseGameCommand}!PauseGameCommand@{PauseGameCommand}}
+\index{PauseGameCommand@{PauseGameCommand}!PauseGameCommand@{PauseGameCommand}}
+\doxysubsubsection{\texorpdfstring{PauseGameCommand()}{PauseGameCommand()}}
+{\footnotesize\ttfamily \label{class_pause_game_command_a6eada4280e65b7496f5e4288a1700067} 
+Pause\+Game\+Command\+::\+Pause\+Game\+Command (\begin{DoxyParamCaption}\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game}{IGame}} $>$}]{game\+Logic}{}\end{DoxyParamCaption})}
+
+
+
+Creează o comandă de pauză pentru un joc dat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Logic} & Jocul asupra căruia se aplică pauza / resume-\/ul. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_pause_game_command_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pause_game_command_a164f956d5bf369202e3897ccff989d87}\index{PauseGameCommand@{PauseGameCommand}!canExecute@{canExecute}}
+\index{canExecute@{canExecute}!PauseGameCommand@{PauseGameCommand}}
+\doxysubsubsection{\texorpdfstring{canExecute()}{canExecute()}}
+{\footnotesize\ttfamily \label{class_pause_game_command_a164f956d5bf369202e3897ccff989d87} 
+bool Pause\+Game\+Command\+::can\+Execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifică dacă jocul se află într-\/o stare în care se poate pauza / relua. 
+
+Comanda este executabilă dacă starea este Playing sau Paused. 
+
+Reimplemented from \mbox{\hyperlink{class_i_command_a00859f1d6d2b7eb843614fb4ffd63bbb}{ICommand}}.
+
+\Hypertarget{class_pause_game_command_ae07335a30da442c02cf394c7af4407a5}\index{PauseGameCommand@{PauseGameCommand}!execute@{execute}}
+\index{execute@{execute}!PauseGameCommand@{PauseGameCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_pause_game_command_ae07335a30da442c02cf394c7af4407a5} 
+void Pause\+Game\+Command\+::execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pune jocul pe pauză sau îl reia, în funcție de starea curentă. 
+
+
+
+Implements \mbox{\hyperlink{class_i_command_ace81beb0beea968f876f292446bf1120}{ICommand}}.
+
+\Hypertarget{class_pause_game_command_acba6b455d4f8a248c91a8a147b905b4e}\index{PauseGameCommand@{PauseGameCommand}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!PauseGameCommand@{PauseGameCommand}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily \label{class_pause_game_command_acba6b455d4f8a248c91a8a147b905b4e} 
+const char \texorpdfstring{$\ast$}{*} Pause\+Game\+Command\+::get\+Description (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Descriere textuală a comenzii. 
+
+
+
+Implements \mbox{\hyperlink{class_i_command_aed5df7f936d3f0f5262f8d14d0fd84d8}{ICommand}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Pause\+Game\+Command.\+h\item 
+Gear\+Shift\+Lib/Pause\+Game\+Command.\+cpp\end{DoxyCompactItemize}

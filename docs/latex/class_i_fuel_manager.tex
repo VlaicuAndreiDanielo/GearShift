@@ -1,0 +1,95 @@
+\doxysection{IFuel\+Manager Class Reference}
+\hypertarget{class_i_fuel_manager}{}\label{class_i_fuel_manager}\index{IFuelManager@{IFuelManager}}
+
+
+Interfață pentru managerul de „fuel” (timp de joc / energie).  
+
+
+
+
+{\ttfamily \#include $<$IFuel\+Manager.\+h$>$}
+
+Inheritance diagram for IFuel\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_fuel_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_i_fuel_manager_a5198faefec0ce37a68333b1cb20cfcf6}{is\+Finished}} () const =0
+\begin{DoxyCompactList}\small\item\em Verifică dacă fuel-\/ul a fost epuizat. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_i_fuel_manager_a9b140c40592a54f1bb84bb704fa70293}{get\+Current\+Time}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține timpul curent de fuel rămas. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_i_fuel_manager_a1c71cd7d007204765dc28cd754495493}{get\+Max\+Time}} () const =0
+\begin{DoxyCompactList}\small\item\em Obține durata maximă de fuel. \end{DoxyCompactList}\item 
+\Hypertarget{class_i_fuel_manager_a97be92b53cc041374ca4114e4cdad819}\label{class_i_fuel_manager_a97be92b53cc041374ca4114e4cdad819} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IFuel\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual necesar pentru folosirea prin pointer la interfață. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfață pentru managerul de „fuel” (timp de joc / energie). 
+
+Este folosită de logica de joc pentru a verifica dacă runda se termină din cauza epuizării timpului / combustibilului. 
+
+\label{doc-func-members}
+\Hypertarget{class_i_fuel_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_fuel_manager_a9b140c40592a54f1bb84bb704fa70293}\index{IFuelManager@{IFuelManager}!getCurrentTime@{getCurrentTime}}
+\index{getCurrentTime@{getCurrentTime}!IFuelManager@{IFuelManager}}
+\doxysubsubsection{\texorpdfstring{getCurrentTime()}{getCurrentTime()}}
+{\footnotesize\ttfamily \label{class_i_fuel_manager_a9b140c40592a54f1bb84bb704fa70293} 
+virtual float IFuel\+Manager\+::get\+Current\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține timpul curent de fuel rămas. 
+
+\begin{DoxyReturn}{Returns}
+Timpul rămas (în secunde). 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fuel_manager_a82b29d31fac5b286ed6d1e29f26946d5}{Fuel\+Manager}}.
+
+\Hypertarget{class_i_fuel_manager_a1c71cd7d007204765dc28cd754495493}\index{IFuelManager@{IFuelManager}!getMaxTime@{getMaxTime}}
+\index{getMaxTime@{getMaxTime}!IFuelManager@{IFuelManager}}
+\doxysubsubsection{\texorpdfstring{getMaxTime()}{getMaxTime()}}
+{\footnotesize\ttfamily \label{class_i_fuel_manager_a1c71cd7d007204765dc28cd754495493} 
+virtual float IFuel\+Manager\+::get\+Max\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obține durata maximă de fuel. 
+
+\begin{DoxyReturn}{Returns}
+Timpul maxim (în secunde) configurat pentru rundă. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fuel_manager_a75fe8ac690d98d47adccd2ec3d375041}{Fuel\+Manager}}.
+
+\Hypertarget{class_i_fuel_manager_a5198faefec0ce37a68333b1cb20cfcf6}\index{IFuelManager@{IFuelManager}!isFinished@{isFinished}}
+\index{isFinished@{isFinished}!IFuelManager@{IFuelManager}}
+\doxysubsubsection{\texorpdfstring{isFinished()}{isFinished()}}
+{\footnotesize\ttfamily \label{class_i_fuel_manager_a5198faefec0ce37a68333b1cb20cfcf6} 
+virtual bool IFuel\+Manager\+::is\+Finished (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifică dacă fuel-\/ul a fost epuizat. 
+
+\begin{DoxyReturn}{Returns}
+true dacă nu mai este fuel disponibil, false altfel. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fuel_manager_a645612418dc22a35f2c100dc8a729575}{Fuel\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/IFuel\+Manager.\+h\end{DoxyCompactItemize}

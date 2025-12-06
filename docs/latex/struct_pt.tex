@@ -1,0 +1,72 @@
+\doxysection{Pt Struct Reference}
+\hypertarget{struct_pt}{}\label{struct_pt}\index{Pt@{Pt}}
+
+
+Reprezintă un punct din pânza (cloth) simulată.  
+
+
+
+
+{\ttfamily \#include $<$IFabric.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_pt_abf4d7d9d047a767f8595bb5ea7207e0c}{Pt}} (float \+\_\+x, float \+\_\+y)
+\begin{DoxyCompactList}\small\item\em Creează un punct la poziția dată, fără forță inițială. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_pt_a48dc89e9ce8f79b496d582348e9e0dc6}\label{struct_pt_a48dc89e9ce8f79b496d582348e9e0dc6} 
+float {\bfseries x}
+\item 
+\Hypertarget{struct_pt_aa1691942aaaff6f62e068379439b02a9}\label{struct_pt_aa1691942aaaff6f62e068379439b02a9} 
+float {\bfseries y}
+\begin{DoxyCompactList}\small\item\em Poziția curentă a punctului. \end{DoxyCompactList}\item 
+\Hypertarget{struct_pt_a937daf115a73a9e64aa78939b28c9408}\label{struct_pt_a937daf115a73a9e64aa78939b28c9408} 
+float {\bfseries ox}
+\item 
+\Hypertarget{struct_pt_ac915518bad1189c28c1670329a9efe73}\label{struct_pt_ac915518bad1189c28c1670329a9efe73} 
+float {\bfseries oy}
+\begin{DoxyCompactList}\small\item\em Poziția anterioară (pentru calculul vitezei implicite). \end{DoxyCompactList}\item 
+\Hypertarget{struct_pt_a82ce8dbbb2efdc86e375503dd82aad89}\label{struct_pt_a82ce8dbbb2efdc86e375503dd82aad89} 
+float {\bfseries fx}
+\item 
+\Hypertarget{struct_pt_a97126138a11b3c07d00bed56db29884f}\label{struct_pt_a97126138a11b3c07d00bed56db29884f} 
+float {\bfseries fy}
+\begin{DoxyCompactList}\small\item\em Forța acumulată ce urmează a fi aplicată. \end{DoxyCompactList}\item 
+\Hypertarget{struct_pt_a59fc9e9b7d18fbdf7bfb2898ecfde8ea}\label{struct_pt_a59fc9e9b7d18fbdf7bfb2898ecfde8ea} 
+bool {\bfseries pinned}
+\begin{DoxyCompactList}\small\item\em True dacă punctul este fixat (nu se mișcă). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reprezintă un punct din pânza (cloth) simulată. 
+
+Fiecare punct reține poziția curentă, poziția anterioară (pentru integrare de tip Verlet), forța acumulată și un flag dacă este sau nu „pin-\/uit”. 
+
+\label{doc-constructors}
+\Hypertarget{struct_pt_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_pt_abf4d7d9d047a767f8595bb5ea7207e0c}\index{Pt@{Pt}!Pt@{Pt}}
+\index{Pt@{Pt}!Pt@{Pt}}
+\doxysubsubsection{\texorpdfstring{Pt()}{Pt()}}
+{\footnotesize\ttfamily \label{struct_pt_abf4d7d9d047a767f8595bb5ea7207e0c} 
+Pt\+::\+Pt (\begin{DoxyParamCaption}\item[{float}]{\+\_\+x}{, }\item[{float}]{\+\_\+y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creează un punct la poziția dată, fără forță inițială. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+x} & Coordonata X inițială. \\
+\hline
+{\em \+\_\+y} & Coordonata Y inițială. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/IFabric.\+h\end{DoxyCompactItemize}

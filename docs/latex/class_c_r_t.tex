@@ -1,0 +1,111 @@
+\doxysection{CRT Class Reference}
+\hypertarget{class_c_r_t}{}\label{class_c_r_t}\index{CRT@{CRT}}
+
+
+Efect vizual tip \doxylink{class_c_r_t}{CRT} (scanlines, radial warp, flicker) peste scenă.  
+
+
+
+
+{\ttfamily \#include $<$CRTEffect.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_r_t_a01e9eff84922fb80a8e6cec6cb0b0d95}{CRT}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rend, int width, int height)
+\begin{DoxyCompactList}\small\item\em Creează un efect \doxylink{class_c_r_t}{CRT} pentru un ecran cu dimensiunile date. \end{DoxyCompactList}\item 
+\Hypertarget{class_c_r_t_a894798a60eecaf4690aedc3d197f1e1f}\label{class_c_r_t_a894798a60eecaf4690aedc3d197f1e1f} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+CRT} ()
+\begin{DoxyCompactList}\small\item\em Destructor – eliberează textura internă. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_r_t_a21b50036a0d14f0e077a2b4457faf3c4}{begin}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rend)
+\begin{DoxyCompactList}\small\item\em Începe capturarea scenei în textura \doxylink{class_c_r_t}{CRT}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_r_t_a7828fa24c1050f2faecc25816b8853cd}{end}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rend)
+\begin{DoxyCompactList}\small\item\em Aplică efectul \doxylink{class_c_r_t}{CRT} și randează rezultatul pe ecran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_r_t_a4802bc041c60a965a64ef81f13e73ecc}{update}} (float dt)
+\begin{DoxyCompactList}\small\item\em Actualizează timpul intern al efectului. \end{DoxyCompactList}\item 
+\Hypertarget{class_c_r_t_a582056376f917a125db3f40bb45fbfd7}\label{class_c_r_t_a582056376f917a125db3f40bb45fbfd7} 
+void {\bfseries set\+Scan\+Int} (float i)
+\begin{DoxyCompactList}\small\item\em Setează intensitatea scanlines. \end{DoxyCompactList}\item 
+\Hypertarget{class_c_r_t_a9ea96b57284531eb77c5c729bc13b0c8}\label{class_c_r_t_a9ea96b57284531eb77c5c729bc13b0c8} 
+void {\bfseries set\+Curve} (float c)
+\begin{DoxyCompactList}\small\item\em Setează factorul de curbură pentru distorsiune. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Efect vizual tip \doxylink{class_c_r_t}{CRT} (scanlines, radial warp, flicker) peste scenă. 
+
+Randează scena într-\/o textură off-\/screen și apoi aplică\+:
+\begin{DoxyItemize}
+\item deformare tip „pincushion” (warp spre exterior);
+\item scanlines animate;
+\item glow / noise / flicker subtil. 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_c_r_t_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_c_r_t_a01e9eff84922fb80a8e6cec6cb0b0d95}\index{CRT@{CRT}!CRT@{CRT}}
+\index{CRT@{CRT}!CRT@{CRT}}
+\doxysubsubsection{\texorpdfstring{CRT()}{CRT()}}
+{\footnotesize\ttfamily \label{class_c_r_t_a01e9eff84922fb80a8e6cec6cb0b0d95} 
+CRT\+::\+CRT (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rend}{, }\item[{int}]{width}{, }\item[{int}]{height}{}\end{DoxyParamCaption})}
+
+
+
+Creează un efect \doxylink{class_c_r_t}{CRT} pentru un ecran cu dimensiunile date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rend} & Renderer-\/ul SDL folosit pentru a crea textura off-\/screen. \\
+\hline
+{\em width} & Lățimea ecranului. \\
+\hline
+{\em height} & Înălțimea ecranului. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_c_r_t_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_r_t_a21b50036a0d14f0e077a2b4457faf3c4}\index{CRT@{CRT}!begin@{begin}}
+\index{begin@{begin}!CRT@{CRT}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_c_r_t_a21b50036a0d14f0e077a2b4457faf3c4} 
+void CRT\+::begin (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rend}{}\end{DoxyParamCaption})}
+
+
+
+Începe capturarea scenei în textura \doxylink{class_c_r_t}{CRT}. 
+
+Setează render target-\/ul SDL la textura internă. \Hypertarget{class_c_r_t_a7828fa24c1050f2faecc25816b8853cd}\index{CRT@{CRT}!end@{end}}
+\index{end@{end}!CRT@{CRT}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \label{class_c_r_t_a7828fa24c1050f2faecc25816b8853cd} 
+void CRT\+::end (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rend}{}\end{DoxyParamCaption})}
+
+
+
+Aplică efectul \doxylink{class_c_r_t}{CRT} și randează rezultatul pe ecran. 
+
+Setează target-\/ul înapoi la ecran, aplică warp + scanlines + glow + noise, apoi compune rezultatul final. \Hypertarget{class_c_r_t_a4802bc041c60a965a64ef81f13e73ecc}\index{CRT@{CRT}!update@{update}}
+\index{update@{update}!CRT@{CRT}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_c_r_t_a4802bc041c60a965a64ef81f13e73ecc} 
+void CRT\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Actualizează timpul intern al efectului. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame (secunde). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+UI/CRTEffect.\+h\item 
+Gear\+Shift\+UI/CRTEffect.\+cpp\end{DoxyCompactItemize}

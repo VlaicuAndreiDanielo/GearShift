@@ -1,0 +1,35 @@
+\doxysection{Vec2.\+h}
+\hypertarget{_vec2_8h_source}{}\label{_vec2_8h_source}\index{GearShiftLib/Vec2.h@{GearShiftLib/Vec2.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vec2}{Vec2}}\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}}\ =\ 0.0f;\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}}\ =\ 0.0f;\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ \mbox{\hyperlink{struct_vec2_aa19e7e0148c4f6b5943faadbde72e63f}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\{\ \mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}}\ +\ other.\mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}},\ \mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}}\ +\ other.\mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}}\ \};}
+\DoxyCodeLine{00014\ \ \ \ \ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ \mbox{\hyperlink{struct_vec2_a1ebf2fca50f0c1d027235f46a0d19b7d}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\{\ \mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}}\ -\/\ other.\mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}},\ \mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}}\ -\/\ other.\mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}}\ \};}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ \mbox{\hyperlink{struct_vec2_a91d0f10b283428ab9107def7c088c13c}{operator*}}(\textcolor{keywordtype}{float}\ scalar)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\{\ \mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}}\ *\ scalar,\ \mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}}\ *\ scalar\ \};}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ dot(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ b)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}}\ *\ b.\mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}}\ +\ a.\mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}}\ *\ b.\mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}};}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\ normalize(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ v)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ length\ =\ std::sqrt(v.\mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}}\ *\ v.\mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}}\ +\ v.\mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}}\ *\ v.\mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}});}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (length\ ==\ 0.0f)\ \textcolor{keywordflow}{return}\ \{\ 0,0\ \};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\{\ v.\mbox{\hyperlink{struct_vec2_adf8ee322d4b4bcc04146762c018d731f}{x}}\ /\ length,\ v.\mbox{\hyperlink{struct_vec2_a30543787e62f6d915543cf1dfb04c094}{y}}\ /\ length\ \};}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}

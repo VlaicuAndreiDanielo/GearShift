@@ -1,0 +1,244 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+
+
+Mașina controlată de jucător.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+Inheritance diagram for Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_player_a1f57c9995b840256c314925c53686025}{update}} (float dt, const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&input) override
+\begin{DoxyCompactList}\small\item\em Actualizează poziția și viteza player-\/ului pe baza input-\/ului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a692a9b2d472df93b62bfcb5ee4f883d7}{set\+Position}} (float newX, float newY)
+\begin{DoxyCompactList}\small\item\em Setează direct poziția player-\/ului în lume. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a77b608f796ae68f51d1dea6499c15382}{set\+Bounds}} (int maxX, int maxY)
+\begin{DoxyCompactList}\small\item\em Setează limitele maxime de deplasare pe ecran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a2b7447fc35f7daff96a19d5400a6b9d0}{add\+Listener}} (Player\+Listener\+Ptr listener)
+\begin{DoxyCompactList}\small\item\em Adaugă un listener interesat de evenimentele Player-\/ului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_aaa740b3ebe5c735939db32375cb783c0}{remove\+Listener}} (Player\+Listener\+Ptr listener)
+\begin{DoxyCompactList}\small\item\em Elimină un listener (dacă mai este valid). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Game\+Object} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor implicit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_ad4c2a8cd00a47c2c5bf0f9818f75ee20}{Game\+Object}} (float startX, float startY, float \mbox{\hyperlink{class_game_object_af797cec05ff1d3cbc694fc7036add37b}{width}}, float \mbox{\hyperlink{class_game_object_a0ae9c255f47b6148c26d0333a72d0625}{height}}, bool \mbox{\hyperlink{class_game_object_afa3bf48882a927f94a6d922045a435e0}{active}})
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_game_object}{Game\+Object} cu poziție și dimensiune specificate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_acd37ab71f82ad1e0c96eebae60e35f23}{handle\+Update}} (float dt, const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&input)
+\begin{DoxyCompactList}\small\item\em Wrapper pentru update care menține corect ierarhia părinte–copil. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a64c309c90f0f81c2b71359de05e95ebb}{set\+Parent}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ parent\+Obj)
+\begin{DoxyCompactList}\small\item\em Setează Game\+Object-\/ul părinte pentru acest obiect. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform}{Transform}} \& \mbox{\hyperlink{class_game_object_a9977f1cf1ed8a7a7016a0b862e343aa3}{get\+World\+Transform}} ()
+\begin{DoxyCompactList}\small\item\em Obține transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_afb265fbcf4cced50adfc4b41f3c8271c}{set\+World\+Transform}} (\mbox{\hyperlink{struct_vec2}{Vec2}} pos, float rotation)
+\begin{DoxyCompactList}\small\item\em Setează transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+Object\+Type {\bfseries get\+Type} () const
+\begin{DoxyCompactList}\small\item\em Obține tipul logic al obiectului (Road, \doxylink{class_player}{Player}, Fuel etc.). \end{DoxyCompactList}\item 
+Sprite\+Type {\bfseries get\+Sprite} () const
+\begin{DoxyCompactList}\small\item\em Obține tipul de sprite asociat obiectului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7aa3fbf2d05b8ae467dead2f51460ab9}{set\+Sprite}} (Sprite\+Type \mbox{\hyperlink{class_game_object_a54ba7d711ecf699551885b3e2e24e205}{sprite}})
+\begin{DoxyCompactList}\small\item\em Setează sprite-\/ul asociat obiectului. \end{DoxyCompactList}\item 
+void {\bfseries set\+Active} (bool \mbox{\hyperlink{class_game_object_abe79de441ec36735859f8e0e20888033}{is\+Active}})
+\begin{DoxyCompactList}\small\item\em Activează sau dezactivează obiectul. \end{DoxyCompactList}\item 
+bool {\bfseries is\+Active} () const
+\begin{DoxyCompactList}\small\item\em Verifică dacă obiectul este activ. \end{DoxyCompactList}\item 
+float {\bfseries get\+Width} () const
+\begin{DoxyCompactList}\small\item\em Obține lățimea obiectului. \end{DoxyCompactList}\item 
+float {\bfseries get\+Height} () const
+\begin{DoxyCompactList}\small\item\em Obține înălțimea obiectului. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7400fd25c213fa0ee6a894d69d0e0078}{set\+Size}} (float w, float h)
+\begin{DoxyCompactList}\small\item\em Setează dimensiunea obiectului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \mbox{\hyperlink{class_player_a080579202e82a30f58e32445dd98b323}{create}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$ collision\+Manager, float startX, float startY)
+\begin{DoxyCompactList}\small\item\em Creează un \doxylink{class_player}{Player} și îi atașează un \doxylink{class_box_collider}{Box\+Collider}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_player_a15ba0e56262c5133108e32546cc3e66e}{on\+Collision}} (std\+::shared\+\_\+ptr$<$ Collider $>$ other) override
+\begin{DoxyCompactList}\small\item\em Callback la coliziune cu un alt collider. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_object_a21c47fc0d7f0a7716e4089b026f32cf3}{parent\+Update}} (\mbox{\hyperlink{struct_vec2}{Vec2}} delta\+Pos, float delta\+Rotation)
+\begin{DoxyCompactList}\small\item\em Propagă modificările de poziție și rotație către copii. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_transform}{Transform}} {\bfseries world\+Transform}
+\begin{DoxyCompactList}\small\item\em Transform-\/ul în spațiul lumii. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform}{Transform}} {\bfseries local\+Transform}
+\begin{DoxyCompactList}\small\item\em Transform-\/ul relativ la părinte. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ Collider $>$ {\bfseries collider}
+\begin{DoxyCompactList}\small\item\em Collider-\/ul atașat (dacă există). \end{DoxyCompactList}\item 
+bool {\bfseries active} = true
+\begin{DoxyCompactList}\small\item\em Flag de activare. \end{DoxyCompactList}\item 
+float {\bfseries width} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Lățimea obiectului. \end{DoxyCompactList}\item 
+float {\bfseries height} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Înălțimea obiectului. \end{DoxyCompactList}\item 
+Sprite\+Type {\bfseries sprite} = Sprite\+Type\+::\+NONE
+\begin{DoxyCompactList}\small\item\em Sprite-\/ul asociat. \end{DoxyCompactList}\item 
+Object\+Type {\bfseries type} = Object\+Type\+::\+NONE
+\begin{DoxyCompactList}\small\item\em Tipul logic al obiectului. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ {\bfseries parent} = std\+::nullopt
+\begin{DoxyCompactList}\small\item\em Părinte opțional al acestui \doxylink{class_game_object}{Game\+Object} (pentru ierarhii). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Mașina controlată de jucător. 
+
+Gestionează input-\/ul de la utilizator (mișcare, accelerație/frânare), limitele de deplasare pe ecran și notifică listener-\/ii atunci când jucătorul este eliminat. 
+
+\label{doc-func-members}
+\Hypertarget{class_player_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a2b7447fc35f7daff96a19d5400a6b9d0}\index{Player@{Player}!addListener@{addListener}}
+\index{addListener@{addListener}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{addListener()}{addListener()}}
+{\footnotesize\ttfamily \label{class_player_a2b7447fc35f7daff96a19d5400a6b9d0} 
+void Player\+::add\+Listener (\begin{DoxyParamCaption}\item[{Player\+Listener\+Ptr}]{listener}{}\end{DoxyParamCaption})}
+
+
+
+Adaugă un listener interesat de evenimentele Player-\/ului. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & Listener implementând \doxylink{class_i_player_listener}{IPlayer\+Listener}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a080579202e82a30f58e32445dd98b323}\index{Player@{Player}!create@{create}}
+\index{create@{create}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{class_player_a080579202e82a30f58e32445dd98b323} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ Player\+::create (\begin{DoxyParamCaption}\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_collision_manager}{Collision\+Manager}} $>$}]{collision\+Manager}{, }\item[{float}]{startX}{, }\item[{float}]{startY}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creează un \doxylink{class_player}{Player} și îi atașează un \doxylink{class_box_collider}{Box\+Collider}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em collision\+Manager} & Managerul de coliziuni folosit pentru collider. \\
+\hline
+{\em startX} & Poziția inițială X în lume. \\
+\hline
+{\em startY} & Poziția inițială Y în lume. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un shared\+\_\+ptr către Player-\/ul creat. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a15ba0e56262c5133108e32546cc3e66e}\index{Player@{Player}!onCollision@{onCollision}}
+\index{onCollision@{onCollision}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{onCollision()}{onCollision()}}
+{\footnotesize\ttfamily \label{class_player_a15ba0e56262c5133108e32546cc3e66e} 
+void Player\+::on\+Collision (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Collider $>$}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Callback la coliziune cu un alt collider. 
+
+Dacă intră în coliziune cu un NPC, notifică listener-\/ii că player-\/ul a fost eliminat.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Collider-\/ul celuilalt obiect. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a1f11eed1432234d5d204fdc609a89fe2}{Game\+Object}}.
+
+\Hypertarget{class_player_aaa740b3ebe5c735939db32375cb783c0}\index{Player@{Player}!removeListener@{removeListener}}
+\index{removeListener@{removeListener}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{removeListener()}{removeListener()}}
+{\footnotesize\ttfamily \label{class_player_aaa740b3ebe5c735939db32375cb783c0} 
+void Player\+::remove\+Listener (\begin{DoxyParamCaption}\item[{Player\+Listener\+Ptr}]{listener}{}\end{DoxyParamCaption})}
+
+
+
+Elimină un listener (dacă mai este valid). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & Listener-\/ul care trebuie scos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a77b608f796ae68f51d1dea6499c15382}\index{Player@{Player}!setBounds@{setBounds}}
+\index{setBounds@{setBounds}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setBounds()}{setBounds()}}
+{\footnotesize\ttfamily \label{class_player_a77b608f796ae68f51d1dea6499c15382} 
+void Player\+::set\+Bounds (\begin{DoxyParamCaption}\item[{int}]{maxX}{, }\item[{int}]{maxY}{}\end{DoxyParamCaption})}
+
+
+
+Setează limitele maxime de deplasare pe ecran. 
+
+Player-\/ul va fi „clamp-\/uit” în interiorul \mbox{[}0, maxX -\/ width\mbox{]} × \mbox{[}0, maxY -\/ height\mbox{]}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em maxX} & Lățimea maximă (în pixeli). \\
+\hline
+{\em maxY} & Înălțimea maximă (în pixeli). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a692a9b2d472df93b62bfcb5ee4f883d7}\index{Player@{Player}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \label{class_player_a692a9b2d472df93b62bfcb5ee4f883d7} 
+void Player\+::set\+Position (\begin{DoxyParamCaption}\item[{float}]{newX}{, }\item[{float}]{newY}{}\end{DoxyParamCaption})}
+
+
+
+Setează direct poziția player-\/ului în lume. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & Noua coordonată X. \\
+\hline
+{\em newY} & Noua coordonată Y. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a1f57c9995b840256c314925c53686025}\index{Player@{Player}!update@{update}}
+\index{update@{update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_player_a1f57c9995b840256c314925c53686025} 
+void Player\+::update (\begin{DoxyParamCaption}\item[{float}]{dt}{, }\item[{const \mbox{\hyperlink{struct_i_input_state}{IInput\+State}} \&}]{input}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Actualizează poziția și viteza player-\/ului pe baza input-\/ului. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Timpul scurs de la ultimul frame (în secunde). \\
+\hline
+{\em input} & Starea curentă a input-\/ului (taste). \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_aeeec3a63938c9d9807a9007fcfc6580c}{Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gear\+Shift\+Lib/Player.\+h\item 
+Gear\+Shift\+Lib/Player.\+cpp\end{DoxyCompactItemize}

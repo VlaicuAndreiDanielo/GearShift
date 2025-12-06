@@ -1,8 +1,13 @@
+﻿/**
+ * \file Vec2Tests.cpp
+ * \brief Unit tests pentru Vec2 (operații de bază, dot, normalize).
+ */
+
 #include <gtest/gtest.h>
 #include "Vec2.h"
 #include <cmath>
 
-// constructors
+ // constructors
 TEST(Vec2Test, DefaultConstructor) {
     Vec2 v;
     EXPECT_FLOAT_EQ(v.x, 0.0f);

@@ -6,7 +6,6 @@ PauseGameCommand::PauseGameCommand(std::weak_ptr<IGame> gameLogic) : game(gameLo
 bool PauseGameCommand::canExecute() const {
     if (auto gameShared = game.lock()) {
         auto state = gameShared->getState();
-        // Can pause/resume if we're Playing or Paused
         return state == GameState::Playing || state == GameState::Paused;
     }
     return false;

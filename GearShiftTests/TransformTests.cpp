@@ -1,8 +1,13 @@
+﻿/**
+ * \file TransformTests.cpp
+ * \brief Unit tests pentru Transform (poziție, rotație, lock-uri).
+ */
+
 #include <gtest/gtest.h>
 #include "Transform.h"
 #include "Vec2.h"
 
-// constructors
+ // constructors
 TEST(TransformTest, DefaultConstructor) {
     Transform t;
     EXPECT_FLOAT_EQ(t.getX(), 0.0f);

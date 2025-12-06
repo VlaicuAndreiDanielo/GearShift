@@ -1,8 +1,14 @@
+﻿/**
+ * \file GameObjectTests.cpp
+ * \brief Unit tests pentru GameObject (construcție, activare, dimensiuni, transform).
+ */
+
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "GameObject.h"
 #include "IInputState.h"
 
+ /// \brief Mock pentru IInputState folosit în testele GameObject.
 class MockInput : public IInputState {
 public:
     MOCK_METHOD(bool, isUpPressed, (), (const, override));

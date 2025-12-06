@@ -1,0 +1,27 @@
+\doxysection{Apply\+Mouse\+Force\+Command.\+h}
+\hypertarget{_apply_mouse_force_command_8h_source}{}\label{_apply_mouse_force_command_8h_source}\index{GearShiftLib/ApplyMouseForceCommand.h@{GearShiftLib/ApplyMouseForceCommand.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}ICommand.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}IGame.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_apply_mouse_force_command_a0156de583aaa0211bdab91f10a09cbf9}{ApplyMouseForceCommand}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_command}{ICommand}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ std::weak\_ptr<IGame>\ game;\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ \ mouseX;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \ mouseY;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ pressed;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_apply_mouse_force_command_a0156de583aaa0211bdab91f10a09cbf9}{ApplyMouseForceCommand}}(std::weak\_ptr<IGame>\ gameLogic,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ isPressed);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_apply_mouse_force_command_a2c9da3b986499795a26c260efc719253}{canExecute}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_apply_mouse_force_command_a4a77ad4bdf40e08c9bd28119ef2a41a1}{execute}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_apply_mouse_force_command_aba107df0913fd232ad961bca2a7f646d}{getDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}
