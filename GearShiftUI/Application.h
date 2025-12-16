@@ -4,7 +4,7 @@
 #include "Renderer.h"
 #include "SceneManager.h"
 #include "InputHandler.h"
-#include "./GearShiftLib/CommandManager.h"
+#include "../GearShiftLib/CommandManager.h"
 
 /// \brief Punctul central al aplicației GearShift.
 ///
@@ -15,7 +15,7 @@ private:
     /// \brief Lățimea ferestrei principale.
     static constexpr int WINDOW_WIDTH = 1920;
     /// \brief Înălțimea ferestrei principale.
-    static constexpr int WINDOW_HEIGHT = 1080;
+    static constexpr int WINDOW_HEIGHT = 880;
     /// \brief Delta time maxim permis, pentru a evita „sărituri” uriașe.
     static constexpr float MAX_DELTA_TIME = 0.1f;
 

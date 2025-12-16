@@ -46,10 +46,10 @@
     <ClInclude Include="ApplyMouseForceCommand.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="CommandManager.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="CommandManager.h" />
     <ClInclude Include="ExitApplicationCommand.h" />
     <ClInclude Include="FabricPhysics.h" />
     <ClInclude Include="FuelCanister.h" />
